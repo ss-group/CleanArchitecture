@@ -13,22 +13,20 @@ namespace Application.Features.DB.DBRT01
 {
     public class Create
     {
-        public class Command : DbCountry, ICommand<long?>
+        public class Command : DbCountry, ICommand<long>
         {
 
         }
 
-        public class Handler : IRequestHandler<Command, long?>
+        public class Handler : IRequestHandler<Command, long>
         {
             private readonly ICleanDbContext _context;
-            private readonly ICurrentUserAccessor _user;
-            public Handler(ICleanDbContext context, ICurrentUserAccessor user)
+            public Handler(ICleanDbContext context)
             {
                 _context = context;
-                _user = user;
             }
 
-            public async Task<long?> Handle(Command request, CancellationToken cancellationToken)
+            public async Task<long> Handle(Command request, CancellationToken cancellationToken)
             {
                 _context.Set<DbCountry>().Add((DbCountry)request);
                 await _context.SaveChangesAsync(cancellationToken);

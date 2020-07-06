@@ -39,7 +39,7 @@ namespace Application.Features.SU.Menu
                 sql.AppendLine("select m.menu_code,concat('menu.',m.menu_code) as title,p.program_path as url,m.main_menu as \"mainMenu\",m.icon,false as active");
                 sql.AppendLine("from su_menu m");
                 sql.AppendLine("left join su_program p on p.program_code = m.program_code");
-                sql.AppendLine("where m.system_code = 'bbo'");
+                sql.AppendLine("where m.system_code = 'edu'");
                 sql.AppendLine("	and  exists(select 'x'	");
                 sql.AppendLine("	             from su_menu_profile mp 	");
                 sql.AppendLine("	             inner join su_user_profile p on p.profile_code  = mp.profile_code 	");

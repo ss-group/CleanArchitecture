@@ -12,7 +12,6 @@ namespace Persistense.Configurations.DB
         public override void Configure(EntityTypeBuilder<DbCountry> builder)
         {
             base.Configure(builder);
-            builder.ToTable("db_country");
             builder.HasKey(e => e.CountryId);
         }
     }

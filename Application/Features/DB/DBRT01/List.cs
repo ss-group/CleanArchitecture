@@ -17,12 +17,9 @@ namespace Application.Features.DB.DBRT01
         public class Handler : IRequestHandler<Query, PageDto>
         {
             private readonly ICleanDbContext _context;
-            private readonly ICurrentUserAccessor _user;
-
-            public Handler(ICleanDbContext context, ICurrentUserAccessor user)
+            public Handler(ICleanDbContext context)
             {
                 _context = context;
-                _user = user;
             }
             public async Task<PageDto> Handle(Query request, CancellationToken cancellationToken)
             {
@@ -37,9 +34,11 @@ namespace Application.Features.DB.DBRT01
                 sql.AppendLine(" ,active as \"active\" ");
                 sql.AppendLine(" ,xmin as \"rowVersion\" ");
                 sql.AppendLine("FROM db_country");
-                sql.AppendLine("ORDER BY length(country_code),country_code");
+              
                 if (!string.IsNullOrWhiteSpace(request.Keyword))
-                    sql.AppendLine("WHERE CONCAT(country_code,' ',country_code_mua,' ',country_name_tha,' ',country_name_eng,' ',country_short_name_tha,' ',country_short_name_eng) ILIKE '%' || @Keyword || '%'");
+                    sql.AppendLine("WHERE CONCAT(country_code,country_code_mua,country_name_tha,country_name_eng,country_short_name_tha,country_short_name_eng) ILIKE '%' || @Keyword || '%'");
+               
+                sql.AppendLine("ORDER BY length(country_code),country_code");
                 return await _context.GetPage(sql.ToString(), new { Keyword = request.Keyword }, (RequestPageQuery)request, cancellationToken);
             }
         }

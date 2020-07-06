@@ -9,8 +9,6 @@ export const environment = {
   production: false,
   apiUrl:'https://localhost:5001/api/',
   authUrl:'https://spa.softsquaregroup.com/ssru.identity',
-  //authUrl:'https://localhost:5000',
-  //apiUrl:'https://spa.softsquaregroup.com/bpi.api/api/',
   timeStamp: version.timeStamp,
 
   reportUrl: 'http://localhost:8080/report'

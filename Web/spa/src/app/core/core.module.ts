@@ -7,6 +7,8 @@ import { HttpService } from './http/http.service';
 import { TranslateHttpLoader } from './translate-extension/translate-http-loader';
 import { LazyTranslationService } from './translate-extension/lazy-translation.service';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { AuthDevService } from './authentication/auth-dev.service';
+import { AuthService } from './authentication/auth.service';
 
 export function HttpLoaderFactory(lazy: LazyTranslationService) {
   lazy.add('all');
@@ -34,7 +36,8 @@ export function HttpLoaderFactory(lazy: LazyTranslationService) {
     SweetAlert2Module.forRoot()
   ],
   providers: [
-    { provide: HttpClient, useClass: HttpService }
+    { provide: HttpClient, useClass: HttpService },
+    { provide: AuthService, useClass: AuthDevService }
   ]
 })
 export class CoreModule {

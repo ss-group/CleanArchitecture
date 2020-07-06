@@ -11,13 +11,13 @@ namespace Web.Controllers.DB
 {
     public class Dbrt01Controller: BaseController
     {
-        public async Task<ActionResult<PageDto>> Get([FromQuery]List.Query query)
+        public async Task<IActionResult> Get([FromQuery]List.Query query)
         {
             return Ok(await Mediator.Send(query));
         }
 
         [HttpGet("detail")]
-        public async Task<ActionResult<DbCountry>> Get([FromQuery]Detail.Query model)
+        public async Task<IActionResult> Get([FromQuery]Detail.Query model)
         {
             return Ok(await Mediator.Send(model));
         }

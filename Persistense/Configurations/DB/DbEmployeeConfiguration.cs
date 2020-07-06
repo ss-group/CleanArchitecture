@@ -12,7 +12,6 @@ namespace Persistense.Configurations.DB
         public override void Configure(EntityTypeBuilder<DbEmployee> builder)
         {
             base.Configure(builder);
-            builder.ToTable("db_employee");
             builder.HasKey(e => new { e.CompanyCode, e.EmployeeCode });
         }
     }

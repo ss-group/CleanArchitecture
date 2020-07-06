@@ -15,7 +15,6 @@ import { environment } from '../environments/environment';
 import { CoreModule } from '@app/core';
 import { EmptyComponent } from './feature/empty/empty.component';
 import { AccordionModule } from 'ngx-bootstrap/accordion';
-import { PosModule } from './feature/pos/pos.module';
 
 @NgModule({
   declarations: [
@@ -24,7 +23,6 @@ import { PosModule } from './feature/pos/pos.module';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    PosModule,
     AppRoutingModule,
     CoreModule,
     ShellModule,
