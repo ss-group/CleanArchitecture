@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Report_Edu_SHRP01" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="90383fd4-5162-42d4-b69c-6424e9a5f8d9">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="lang_code" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="student_id" class="java.lang.Long">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["G:\\งาน\\Internship\\BPI\\Report\\src\\main\\resources\\reports\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select num1 AS student_id
+, num2 AS edu_seq
+, char1 AS student_old_code
+, num3 AS sub_degree_id
+, num4 AS institute_id
+, num5 AS province_id
+, num6 AS finish_year
+, char2 AS finish_gpa
+, char6 AS register_flag
+, char3 AS db_get_sub_degree_name
+, char4 AS db_get_institute_name
+, char5 AS db_get_province_name
+from report_shrp01_edu($P{lang_code},$P{student_id})]]>
+	</queryString>
+	<field name="student_id" class="java.lang.Long"/>
+	<field name="edu_seq" class="java.math.BigDecimal"/>
+	<field name="student_old_code" class="java.lang.String"/>
+	<field name="sub_degree_id" class="java.math.BigDecimal"/>
+	<field name="institute_id" class="java.math.BigDecimal"/>
+	<field name="province_id" class="java.math.BigDecimal"/>
+	<field name="finish_year" class="java.math.BigDecimal"/>
+	<field name="finish_gpa" class="java.lang.String"/>
+	<field name="register_flag" class="java.lang.String"/>
+	<field name="db_get_sub_degree_name" class="java.lang.String"/>
+	<field name="db_get_institute_name" class="java.lang.String"/>
+	<field name="db_get_province_name" class="java.lang.String"/>
+	<group name="student_id">
+		<groupExpression><![CDATA[$F{student_id}]]></groupExpression>
+		<groupHeader>
+			<band height="50">
+				<textField>
+					<reportElement x="0" y="0" width="100" height="25" uuid="8d304eff-b540-4055-ac7f-dc2b173293d7"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="14" isBold="true" isUnderline="true" pdfFontName="THSarabun Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["ประวัติการศึกษา"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="0" y="25" width="41" height="25" uuid="7da53caf-5703-43fe-bac2-27acb611ce83"/>
+					<box>
+						<topPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="14" isBold="true" pdfFontName="THSarabun Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["ลำดับที่"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="41" y="25" width="64" height="25" uuid="86d97516-8477-409b-a42b-966464de79e1"/>
+					<box>
+						<topPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="14" isBold="true" pdfFontName="THSarabun Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["เลขประจำตัว"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="105" y="25" width="111" height="25" uuid="918a8ed9-23fd-49ec-80da-aaf4885ef10e"/>
+					<box>
+						<topPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="14" isBold="true" pdfFontName="THSarabun Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["วุฒิการศึกษา"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="302" y="25" width="78" height="25" uuid="cc694fd3-2c82-4ea7-a931-dbcbb46d6f6e"/>
+					<box>
+						<topPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="14" isBold="true" pdfFontName="THSarabun Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["จังหวัด"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="380" y="25" width="75" height="25" uuid="c6d0be51-bcdd-49c5-9816-77e4a8883491"/>
+					<box>
+						<topPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="14" isBold="true" pdfFontName="THSarabun Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["ปีการศึกษาที่จบ"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="455" y="25" width="49" height="25" uuid="5fcccac3-2e6a-455b-9e86-211805f031e7"/>
+					<box>
+						<topPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="14" isBold="true" pdfFontName="THSarabun Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["เกรดเฉลี่ย"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="216" y="25" width="86" height="25" uuid="7cd259df-f529-4e30-b4c4-4f03a543a6e8"/>
+					<box>
+						<topPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="14" isBold="true" pdfFontName="THSarabun Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["สถานศึกษา"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="504" y="25" width="51" height="25" uuid="9c565eb6-3ec2-4726-9648-8c55afcae72d"/>
+					<box>
+						<topPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="14" isBold="true" pdfFontName="THSarabun Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["วุฒิสมัคร"]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band>
+				<textField isBlankWhenNull="true">
+					<reportElement x="0" y="0" width="555" height="0" uuid="8b30fbc3-ba14-48d5-ac2b-6ca3c9912736"/>
+					<box>
+						<topPen lineWidth="1.0"/>
+					</box>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="105" y="0" width="111" height="20" uuid="bf7bf21c-30f4-42c6-81e1-3e21267de608"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="12" isBold="false" pdfFontName="THSarabun.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{db_get_sub_degree_name}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="302" y="0" width="78" height="20" isPrintWhenDetailOverflows="true" uuid="5128afa5-1ed7-4c21-9063-a256f122e0c4"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="12" isBold="false" pdfFontName="THSarabun.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{db_get_province_name}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="380" y="0" width="75" height="20" uuid="1d6680f8-57f3-4cae-a16f-a4234d3ce578"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="12" isBold="false" pdfFontName="THSarabun.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{finish_year}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="0" width="41" height="20" uuid="1f3f5ce9-a5f7-480e-a316-e95f8540c48d"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="12" isBold="false" pdfFontName="THSarabun.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{edu_seq}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="455" y="0" width="49" height="20" uuid="a8ebe48c-7a01-4d51-8cfd-79f7214dfd53"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="12" isBold="false" pdfFontName="THSarabun.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{finish_gpa}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="41" y="0" width="64" height="20" uuid="7b44f913-91aa-4f6e-bd38-315898b60e21"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="12" isBold="false" pdfFontName="THSarabun.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{student_old_code}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="504" y="0" width="51" height="20" uuid="1db332fc-dcdb-4432-9736-45ee32c93678"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="12" isBold="false" pdfFontName="THSarabun.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{register_flag}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="216" y="0" width="86" height="20" uuid="7d577705-62d7-42e2-b463-cf4dcfd118b7"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="12" isBold="false" pdfFontName="THSarabun.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{db_get_institute_name}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="39">
+			<subreport>
+				<reportElement x="-17" y="0" width="572" height="39" uuid="1fd25c5c-4780-4421-965a-020734f3450f"/>
+				<subreportParameter name="lang_code">
+					<subreportParameterExpression><![CDATA[$P{lang_code}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="student_id">
+					<subreportParameterExpression><![CDATA[$F{student_id}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="SUBREPORT_DIR"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "SHRP01_Job.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</summary>
+</jasperReport>

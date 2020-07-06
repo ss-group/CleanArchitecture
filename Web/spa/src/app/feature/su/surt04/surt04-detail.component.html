@@ -1,0 +1,79 @@
+<toolbar>
+  <button class="btn btn-primary" (click)="util.focusInvalid(profile); save()">
+    <i class="fas fa-cog fa-spin" [hidden]="!saving"></i>
+    <i class="fas fa-save" [hidden]="saving"></i> {{ 'label.ALL.Save' | translate }}</button>
+</toolbar>
+
+<h4>{{ 'label.SURT04.ProgramName' | translate }}</h4>
+<div class="row">
+  <div class="col">
+    <app-card header="{{ 'label.SURT04.ProfileDetail' | translate }}">
+      <div class="card-content">
+        <form #profile [formGroup]="profileForm">
+          <div class="form-row">
+            <div class="form-group col-md-4 col-sm-6">
+              <textbox class="text-center" formControlName="profileCode">{{ 'label.SURT04.ProfileCode' | translate }}
+                <div class="invalid-pattern">
+                  {{ 'message.STD00037' | translate }}
+                </div>
+              </textbox>
+            </div>
+            <div class="form-group col-md-4 col-sm-6">
+              <textbox formControlName="profileDesc">{{ 'label.SURT04.ProfileDesc' | translate }}</textbox>
+            </div>
+            <div class="form-group col-md-4 col-sm-6">
+              <checkbox formControlName="active">{{ 'label.SURT04.Active' | translate }}</checkbox>
+            </div>
+          </div>
+        </form>
+      </div>
+    </app-card>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <app-card header="{{ 'label.SURT04.MenuDetail' | translate }}">
+      <div class="card-menu">
+        <button class="btn btn-primary" (click)="addItems()"><i class="fas fa-plus-circle"></i>
+          {{ 'label.ALL.Add' | translate }}</button>
+      </div>
+      <div class="card-content">
+        <div class="row">
+          <div class="col">
+            <app-table-client [rows]="menuProfiles">
+              <ngx-datatable-column prop="menuCode" width="200" [cellClass]="'text-center'">
+                <ng-template let-sort="sortFn" ngx-datatable-header-template>
+                  <label class="datatable-header-cell-wrapper"
+                    (click)="sort()">{{ 'label.SURT04.MenuCode' | translate }}</label>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  {{ row.menuCode }}
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column prop="menuName" width="200">
+                <ng-template let-sort="sortFn" ngx-datatable-header-template>
+                  <label class="datatable-header-cell-wrapper"
+                    (click)="sort()">{{ 'label.SURT04.MenuName' | translate }}</label>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  {{ row.menuName }}
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column [cellClass]="'text-center'" width="25">
+                <ng-template ngx-datatable-header-template>
+                  <label class="datatable-header-cell-wrapper">{{ 'label.ALL.Delete' | translate }}</label>
+                </ng-template>
+                <ng-template let-row="row" let-rowIndex="rowIndex" ngx-datatable-cell-template>
+                  <button (click)="remove(row)" class="btn btn-outline-danger btn-sm">
+                    <i class="far fa-trash-alt"></i>
+                  </button>
+                </ng-template>
+              </ngx-datatable-column>
+            </app-table-client>
+          </div>
+        </div>
+      </div>
+    </app-card>
+  </div>
+</div>

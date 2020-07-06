@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.12.2.final using JasperReports Library version 6.12.2-75c5e90a222ab406e416cbf590a5397028a52de3  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="FNOD01_SUB01" language="groovy" pageWidth="595" pageHeight="842" whenNoDataType="BlankPage" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="350d5ff8-7fd4-4923-96b1-e77a63357713">
+	<property name="ireport.zoom" value="1.3636363636363655"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="SSS"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<parameter name="company_code" class="java.lang.String"/>
+	<parameter name="lin_id" class="java.lang.String"/>
+	<parameter name="student_id" class="java.lang.Long"/>
+	<parameter name="academic_year" class="java.lang.Long"/>
+	<parameter name="academic_semester" class="java.lang.Long"/>
+	<queryString>
+		<![CDATA[SELECT
+char1 as subject_code
+,char2 as section_name
+,char3 as subject_name
+, num1 as credit_description
+,char4 as credit
+,char5 as room_name
+from
+report_fnod01_sub01($P{company_code}
+	  , $P{lin_id}
+	  , $P{student_id}
+	  , $P{academic_year}
+	  , $P{academic_semester}
+)]]>
+	</queryString>
+	<field name="subject_code" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="subject_code"/>
+	</field>
+	<field name="section_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="section_name"/>
+	</field>
+	<field name="subject_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="subject_name"/>
+	</field>
+	<field name="credit_description" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="credit_description"/>
+	</field>
+	<field name="credit" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="credit"/>
+	</field>
+	<field name="room_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="room_name"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="40" y="0" width="70" height="20" uuid="3afdaf43-8ce6-453e-93e3-2bee238c79bf">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box leftPadding="1" rightPadding="1"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{subject_code}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="110" y="0" width="60" height="20" uuid="24e57149-7259-4344-bd82-eb9959ee6ad8">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box leftPadding="1" rightPadding="1"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{section_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="170" y="0" width="260" height="20" uuid="618fe979-6a69-42da-adef-cb7284289191">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box leftPadding="1" rightPadding="1"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{subject_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="430" y="0" width="50" height="20" uuid="e687cd98-82ec-4b51-a238-b137f8df0eb3">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box leftPadding="1" rightPadding="1"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{credit_description}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="480" y="0" width="74" height="20" uuid="fdc50781-a6c9-4636-b5e4-4b48ec90bfbd">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box leftPadding="1" rightPadding="1"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{room_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="40" height="20" uuid="6c536e26-f122-473a-b1e0-c80d7f242aed"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,2097 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.12.2.final using JasperReports Library version 6.12.2-75c5e90a222ab406e416cbf590a5397028a52de3  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="FNOD01" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="401f5451-0bd5-4302-ae62-87ff96ede818">
+	<property name="ireport.zoom" value="1.6500000000000017"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="SSS"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="222"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="769"/>
+	<subDataset name="dataset1" uuid="819e6f50-e6a1-4f61-a156-961b6e03d2be">
+		<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="SSS"/>
+		<parameter name="lin_id" class="java.lang.String"/>
+		<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+			<defaultValueExpression><![CDATA["D:\\smartu-sss\\Report\\src\\main\\resources\\reports\\"]]></defaultValueExpression>
+		</parameter>
+		<parameter name="report_path" class="java.lang.String"/>
+		<queryString language="SQL">
+			<![CDATA[Select  get_label_name('FNOD01','AcademicYear',$P{lin_id}) as "AcademicYear"
+	  ,get_label_name('FNOD01','BankOfficer',$P{lin_id}) as "BankOfficer"
+	  ,get_label_name('FNOD01','CclId',$P{lin_id}) as "CclId"
+	  ,get_label_name('FNOD01','CheckForPayment',$P{lin_id}) as "CheckForPayment"
+	  ,get_label_name('FNOD01','ClassRoom',$P{lin_id}) as "ClassRoom"
+	  ,get_label_name('FNOD01','Credit',$P{lin_id}) as "Credit"
+	  ,get_label_name('FNOD01','EducationTypeLevel',$P{lin_id}) as "EducationTypeLevel"
+	  ,get_label_name('FNOD01','Explan1',$P{lin_id}) as "Explan1"
+	  ,get_label_name('FNOD01','Explan2',$P{lin_id}) as "Explan2"
+	  ,get_label_name('FNOD01','Explan3',$P{lin_id}) as "Explan3"
+	  ,get_label_name('FNOD01','Explan4',$P{lin_id}) as "Explan4"
+	  ,get_label_name('FNOD01','Explanation',$P{lin_id}) as "Explanation"
+	  ,get_label_name('FNOD01','FacCode',$P{lin_id}) as "FacCode"
+	  ,get_label_name('FNOD01','FollowDetail',$P{lin_id}) as" FollowDetail"
+	  ,get_label_name('FNOD01','LocationCode',$P{lin_id}) as "LocationCode "
+	  ,get_label_name('FNOD01','No',$P{lin_id}) as "No"
+	  ,get_label_name('FNOD01','PrintDate',$P{lin_id}) as "PrintDate"
+	  ,get_label_name('FNOD01','ProgramCode',$P{lin_id}) as "ProgramCode"
+	  ,get_label_name('FNOD01','ReceiveDate',$P{lin_id}) as "ReceiveDate"
+	  ,get_label_name('FNOD01','Recipient',$P{lin_id}) as "Recipient"
+	  ,get_label_name('FNOD01','RegFee',$P{lin_id}) as "RegFee"
+	  ,get_label_name('FNOD01','RegSem',$P{lin_id}) as "RegSem"
+	  ,get_label_name('FNOD01','Remark',$P{lin_id}) as "Remark"
+	  ,get_label_name('FNOD01','StudentCode',$P{lin_id}) as "StudentCode"
+	  ,get_label_name('FNOD01','StudentCode',$P{lin_id}) as "StudentCode"
+	  ,get_label_name('FNOD01','StudentFullName',$P{lin_id}) as "StudentFullName"
+	  ,get_label_name('FNOD01','StudentTypeCode',$P{lin_id}) as "StudentTypeCode"
+	  ,get_label_name('FNOD01','StudyGroup',$P{lin_id}) as" StudyGroup"
+	  ,get_label_name('FNOD01','SubjectCode',$P{lin_id}) as "SubjectCode "
+	  ,get_label_name('FNOD01','SubjectName',$P{lin_id}) as "SubjectName"
+	  ,get_label_name('FNOD01','TotalCredit',$P{lin_id}) as "TotalCredit"
+	  ,get_label_name('FNOD01','ReportName',$P{lin_id}) as "ReportName"
+	  ,get_label_name('FNOD01','BillNo',$P{lin_id}) as "BillNo"
+	  ,get_label_name('FNOD01','StudentSide',$P{lin_id}) as "StudentSide"
+	  ,get_label_name('FNOD01','BankSide',$P{lin_id}) as "BankSide"
+	  ,get_label_name('FNOD01','Detail01',$P{lin_id}) as "Detail01"
+	  ,get_label_name('FNOD01','DateCal',$P{lin_id}) as "DateCal"
+	  ,get_label_name('FNOD01','Detail02',$P{lin_id}) as "Detail02"
+	  ,get_label_name('FNOD01','PaymentName',$P{lin_id}) as "PaymentName"
+	  ,get_label_name('FNOD01','Tel',$P{lin_id}) as "Tel"
+	  ,get_label_name('FNOD01','Detail03',$P{lin_id}) as "Detail03"
+	  ,get_label_name('FNOD01','SCB',$P{lin_id}) as" SCB"
+	  ,get_label_name('FNOD01','TMB',$P{lin_id}) as "TMB "
+	  ,get_label_name('FNOD01','BAY',$P{lin_id}) as "BAY"
+	  ,get_label_name('FNOD01','BBL',$P{lin_id}) as "BBL"
+	  ,get_label_name('FNOD01','CounterService',$P{lin_id}) as "CounterService"
+	  ,get_label_name('FNOD01','Detail04',$P{lin_id}) as "Detail04"
+	  ,get_label_name('FNOD01','CustName',$P{lin_id}) as "CustName"
+	  ,get_label_name('FNOD01','StudentRef',$P{lin_id}) as "StudentRef"
+	  ,get_label_name('FNOD01','BillDueRef',$P{lin_id}) as "BillDueRef"
+	  ,get_label_name('FNOD01','Phone',$P{lin_id}) as "Phone"
+	  ,get_label_name('FNOD01','Text',$P{lin_id}) as "Text"
+	  ,get_label_name('FNOD01','CompanyCode',$P{lin_id}) as "CompanyName"
+	  ,get_label_name('FNOD01','TBANK',$P{lin_id}) as "Tbank"
+	  ,get_label_name('FNOD01','Amount',$P{lin_id}) as "Amount"]]>
+		</queryString>
+		<field name="AcademicYear" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="AcademicYear"/>
+		</field>
+		<field name="BankOfficer" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="BankOfficer"/>
+		</field>
+		<field name="CclId" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="CclId"/>
+		</field>
+		<field name="CheckForPayment" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="CheckForPayment"/>
+		</field>
+		<field name="ClassRoom" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="ClassRoom"/>
+		</field>
+		<field name="Credit" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="Credit"/>
+		</field>
+		<field name="EducationTypeLevel" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="EducationTypeLevel"/>
+		</field>
+		<field name="Explan1" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="Explan1"/>
+		</field>
+		<field name="Explan2" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="Explan2"/>
+		</field>
+		<field name="Explan3" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="Explan3"/>
+		</field>
+		<field name="Explan4" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="Explan4"/>
+		</field>
+		<field name="Explanation" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="Explanation"/>
+		</field>
+		<field name="FacCode" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="FacCode"/>
+		</field>
+		<field name=" FollowDetail" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value=" FollowDetail"/>
+		</field>
+		<field name="LocationCode " class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="LocationCode "/>
+		</field>
+		<field name="No" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="No"/>
+		</field>
+		<field name="PrintDate" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="PrintDate"/>
+		</field>
+		<field name="ProgramCode" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="ProgramCode"/>
+		</field>
+		<field name="ReceiveDate" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="ReceiveDate"/>
+		</field>
+		<field name="Recipient" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="Recipient"/>
+		</field>
+		<field name="RegFee" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="RegFee"/>
+		</field>
+		<field name="RegSem" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="RegSem"/>
+		</field>
+		<field name="Remark" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="Remark"/>
+		</field>
+		<field name="StudentCode" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="StudentCode"/>
+		</field>
+		<field name="COLUMN_25" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="StudentCode"/>
+		</field>
+		<field name="StudentFullName" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="StudentFullName"/>
+		</field>
+		<field name="StudentTypeCode" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="StudentTypeCode"/>
+		</field>
+		<field name=" StudyGroup" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value=" StudyGroup"/>
+		</field>
+		<field name="SubjectCode " class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="SubjectCode "/>
+		</field>
+		<field name="SubjectName" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="SubjectName"/>
+		</field>
+		<field name="TotalCredit" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="TotalCredit"/>
+		</field>
+		<field name="ReportName" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="ReportName"/>
+		</field>
+		<field name="BillNo" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="BillNo"/>
+		</field>
+		<field name="StudentSide" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="StudentSide"/>
+		</field>
+		<field name="BankSide" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="BankSide"/>
+		</field>
+		<field name="Detail01" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="Detail01"/>
+		</field>
+		<field name="DateCal" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="DateCal"/>
+		</field>
+		<field name="Detail02" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="Detail02"/>
+		</field>
+		<field name="PaymentName" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="PaymentName"/>
+		</field>
+		<field name="Tel" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="Tel"/>
+		</field>
+		<field name="Detail03" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="Detail03"/>
+		</field>
+		<field name=" SCB" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value=" SCB"/>
+		</field>
+		<field name="TMB " class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="TMB "/>
+		</field>
+		<field name="BAY" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="BAY"/>
+		</field>
+		<field name="BBL" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="BBL"/>
+		</field>
+		<field name="CounterService" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="CounterService"/>
+		</field>
+		<field name="Detail04" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="Detail04"/>
+		</field>
+		<field name="CustName" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="CustName"/>
+		</field>
+		<field name="StudentRef" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="StudentRef"/>
+		</field>
+		<field name="BillDueRef" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="BillDueRef"/>
+		</field>
+		<field name="Phone" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="Phone"/>
+		</field>
+		<field name="Text" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="Text"/>
+		</field>
+		<field name="CompanyName" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="CompanyName"/>
+		</field>
+		<field name="Tbank" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="Tbank"/>
+		</field>
+		<field name="Amount" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="Amount"/>
+		</field>
+	</subDataset>
+	<subDataset name="dataset2" uuid="c03633d4-a3cf-484c-b96f-2a850f851ce4">
+		<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="SSS"/>
+		<parameter name="lin_id" class="java.lang.String"/>
+		<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+			<defaultValueExpression><![CDATA["D:\\smartu-sss\\Report\\src\\main\\resources\\reports\\"]]></defaultValueExpression>
+		</parameter>
+		<parameter name="report_path" class="java.lang.String"/>
+		<parameter name="company_code" class="java.lang.String"/>
+		<parameter name="student_id" class="java.lang.Long"/>
+		<parameter name="academic_year" class="java.lang.Integer"/>
+		<parameter name="academic_semester" class="java.lang.Integer"/>
+		<queryString language="SQL">
+			<![CDATA[SELECT
+char1 as subject_code
+,char2 as section_name
+,char3 as subject_name
+, num1 as  credit
+,char4 as credit_description
+,char5 as room_name
+,num2 as student_id
+from
+report_fnod01_sub01($P{company_code}
+	  , $P{lin_id}
+	  , $P{student_id}
+	  , $P{academic_year}
+	  , $P{academic_semester}
+)]]>
+		</queryString>
+		<field name="subject_code" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="subject_code"/>
+		</field>
+		<field name="section_name" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="section_name"/>
+		</field>
+		<field name="subject_name" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="subject_name"/>
+		</field>
+		<field name="credit" class="java.math.BigDecimal">
+			<property name="com.jaspersoft.studio.field.label" value="credit"/>
+		</field>
+		<field name="credit_description" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="credit_description"/>
+		</field>
+		<field name="room_name" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="room_name"/>
+		</field>
+		<field name="student_id" class="java.math.BigDecimal">
+			<property name="com.jaspersoft.studio.field.label" value="student_id"/>
+		</field>
+	</subDataset>
+	<parameter name="company_code" class="java.lang.String">
+		<defaultValueExpression><![CDATA["001"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="bill_m_id" class="java.util.Collection" nestedType="java.lang.Long">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+	</parameter>
+	<parameter name="lin_id" class="java.lang.String">
+		<defaultValueExpression><![CDATA["th"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["D:\\smartu-sss\\Report\\src\\main\\resources\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="report_path" class="java.lang.String">
+		<defaultValueExpression><![CDATA["D:/smartu-sss/Report/src/main/resources/"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select frbm.*
+,fn_get_student_type_name(frbm.student_type_code ,$P{lin_id}) as student_type_name
+,fn_get_ccl_name(frbm.ccl_id ,$P{lin_id}) as ccl_name
+,fn_get_location_name(frbm.location_code ,$P{lin_id}) as location_name
+,fn_get_fac_name(frbm.company_code ,frbm.fac_code ,$P{lin_id}) as  fac_name
+,fn_get_education_level_name(frbm.company_code ,frbm.education_type_level ,$P{lin_id}) as education_level_name
+,fn_get_program_name(frbm.company_code ,frbm.fac_code ,frbm.program_code ,$P{lin_id}) as program_name
+,ss.student_code
+,rcl.add_student_start_date
+,rcl.add_officer_end_date
+,fn_baht_text(frbm.bill_amt) bill_amt_text
+,substring( frbm.bill_no from 10 for 7) as bill_code
+from fn_receive_bill_mas frbm
+inner join rg_calendar rc on  rc.company_code = frbm.company_code  and rc.register_year = frbm.academic_year
+and rc.register_semester = frbm.academic_semester  and rc.location_code = frbm.location_code
+inner join rg_calendar_level rcl on rc.calendar_id = rcl.calendar_id and rcl.education_type_level = frbm.education_type_level
+left join sh_student ss on ss.student_id = frbm.student_id
+where frbm.company_code = $P{company_code}
+and $X{IN, frbm.bill_m_id, bill_m_id}]]>
+	</queryString>
+	<field name="bill_m_id" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.label" value="bill_m_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="fn_receive_bill_mas"/>
+	</field>
+	<field name="company_code" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="company_code"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="fn_receive_bill_mas"/>
+	</field>
+	<field name="bill_no" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="bill_no"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="fn_receive_bill_mas"/>
+	</field>
+	<field name="doc_type_id" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.label" value="doc_type_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="fn_receive_bill_mas"/>
+	</field>
+	<field name="bill_date" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.label" value="bill_date"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="fn_receive_bill_mas"/>
+	</field>
+	<field name="due_date" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.label" value="due_date"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="fn_receive_bill_mas"/>
+	</field>
+	<field name="academic_year" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="academic_year"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="fn_receive_bill_mas"/>
+	</field>
+	<field name="academic_semester" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="academic_semester"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="fn_receive_bill_mas"/>
+	</field>
+	<field name="student_id" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.label" value="student_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="fn_receive_bill_mas"/>
+	</field>
+	<field name="id_card" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="id_card"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="fn_receive_bill_mas"/>
+	</field>
+	<field name="id_card_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="id_card_name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="fn_receive_bill_mas"/>
+	</field>
+	<field name="student_type_code" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="student_type_code"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="fn_receive_bill_mas"/>
+	</field>
+	<field name="location_code" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="location_code"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="fn_receive_bill_mas"/>
+	</field>
+	<field name="education_type_level" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="education_type_level"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="fn_receive_bill_mas"/>
+	</field>
+	<field name="fac_code" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="fac_code"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="fn_receive_bill_mas"/>
+	</field>
+	<field name="ccl_id" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.label" value="ccl_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="fn_receive_bill_mas"/>
+	</field>
+	<field name="program_code" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="program_code"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="fn_receive_bill_mas"/>
+	</field>
+	<field name="student_class" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="student_class"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="fn_receive_bill_mas"/>
+	</field>
+	<field name="system_code" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="system_code"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="fn_receive_bill_mas"/>
+	</field>
+	<field name="petition_code" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="petition_code"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="fn_receive_bill_mas"/>
+	</field>
+	<field name="pricelist_code" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="pricelist_code"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="fn_receive_bill_mas"/>
+	</field>
+	<field name="bill_amt" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="bill_amt"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="fn_receive_bill_mas"/>
+	</field>
+	<field name="match_amt" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="match_amt"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="fn_receive_bill_mas"/>
+	</field>
+	<field name="apply_amt" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="apply_amt"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="fn_receive_bill_mas"/>
+	</field>
+	<field name="remark" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="remark"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="fn_receive_bill_mas"/>
+	</field>
+	<field name="reference_no1" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="reference_no1"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="fn_receive_bill_mas"/>
+	</field>
+	<field name="reference_no2" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="reference_no2"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="fn_receive_bill_mas"/>
+	</field>
+	<field name="iv_barcode" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="iv_barcode"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="fn_receive_bill_mas"/>
+	</field>
+	<field name="status_code" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="status_code"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="fn_receive_bill_mas"/>
+	</field>
+	<field name="reference_id" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.label" value="reference_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="fn_receive_bill_mas"/>
+	</field>
+	<field name="petition_no" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="petition_no"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="fn_receive_bill_mas"/>
+	</field>
+	<field name="print_status" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="print_status"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="fn_receive_bill_mas"/>
+	</field>
+	<field name="cancel_code" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="cancel_code"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="fn_receive_bill_mas"/>
+	</field>
+	<field name="created_by" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="created_by"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="fn_receive_bill_mas"/>
+	</field>
+	<field name="created_date" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.label" value="created_date"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="fn_receive_bill_mas"/>
+	</field>
+	<field name="created_program" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="created_program"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="fn_receive_bill_mas"/>
+	</field>
+	<field name="updated_by" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="updated_by"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="fn_receive_bill_mas"/>
+	</field>
+	<field name="updated_date" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.label" value="updated_date"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="fn_receive_bill_mas"/>
+	</field>
+	<field name="updated_program" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="updated_program"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="fn_receive_bill_mas"/>
+	</field>
+	<field name="receive_start_date" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.label" value="receive_start_date"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="fn_receive_bill_mas"/>
+	</field>
+	<field name="hold_reason_code" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="hold_reason_code"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="fn_receive_bill_mas"/>
+	</field>
+	<field name="discount_amt" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="discount_amt"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="fn_receive_bill_mas"/>
+	</field>
+	<field name="gross_amt" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="gross_amt"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="fn_receive_bill_mas"/>
+	</field>
+	<field name="half_flag" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="half_flag"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="fn_receive_bill_mas"/>
+	</field>
+	<field name="bal_amt" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="bal_amt"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="fn_receive_bill_mas"/>
+	</field>
+	<field name="education_type_code" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="education_type_code"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="fn_receive_bill_mas"/>
+	</field>
+	<field name="project_id" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="project_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="fn_receive_bill_mas"/>
+	</field>
+	<field name="student_type_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="student_type_name"/>
+	</field>
+	<field name="ccl_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ccl_name"/>
+	</field>
+	<field name="location_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="location_name"/>
+	</field>
+	<field name="fac_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="fac_name"/>
+	</field>
+	<field name="education_level_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="education_level_name"/>
+	</field>
+	<field name="program_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="program_name"/>
+	</field>
+	<field name="student_code" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="student_code"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="sh_student"/>
+	</field>
+	<field name="add_student_start_date" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.label" value="add_student_start_date"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="rg_calendar_level"/>
+	</field>
+	<field name="add_officer_end_date" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.label" value="add_officer_end_date"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="rg_calendar_level"/>
+	</field>
+	<field name="bill_amt_text" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="bill_amt_text"/>
+	</field>
+	<field name="bill_code" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="bill_code"/>
+	</field>
+	<group name="Group_bill_m_id">
+		<groupExpression><![CDATA[$F{bill_m_id}]]></groupExpression>
+		<groupHeader>
+			<band height="152">
+				<line>
+					<reportElement x="0" y="31" width="555" height="1" uuid="195a08a8-0994-4f63-83f7-11ea0b1a1ff2"/>
+				</line>
+				<componentElement>
+					<reportElement x="0" y="6" width="404" height="25" uuid="5a28599d-8491-4d5c-baf1-ae5db744f74b"/>
+					<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+						<datasetRun subDataset="dataset1" uuid="ce3e9066-c68f-4a18-9769-3ebe2338cad3">
+							<datasetParameter name="lin_id">
+								<datasetParameterExpression><![CDATA[$P{lin_id}]]></datasetParameterExpression>
+							</datasetParameter>
+						</datasetRun>
+						<jr:listContents height="25" width="404">
+							<textField>
+								<reportElement x="0" y="0" width="200" height="25" uuid="01400b9d-952c-434a-a9e9-a92105f3fc86"/>
+								<box leftPadding="2" rightPadding="2"/>
+								<textElement>
+									<font fontName="TH Sarabun New" size="18" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{CompanyName}]]></textFieldExpression>
+							</textField>
+							<textField>
+								<reportElement x="200" y="0" width="170" height="25" uuid="5251e59f-9b4e-4a29-9234-1add8e33ee5e"/>
+								<box leftPadding="2" rightPadding="2"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="TH Sarabun New" size="16" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{ReportName}]]></textFieldExpression>
+							</textField>
+							<staticText>
+								<reportElement x="370" y="0" width="34" height="25" uuid="1ed0bc56-8e51-4ed2-9c09-c14de22f0615"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="TH Sarabun New" size="16" isBold="true"/>
+								</textElement>
+								<text><![CDATA[เลขที่]]></text>
+							</staticText>
+						</jr:listContents>
+					</jr:list>
+				</componentElement>
+				<componentElement>
+					<reportElement x="459" y="14" width="96" height="17" isRemoveLineWhenBlank="true" isPrintInFirstWholeBand="true" uuid="d2993e8c-26bf-45d3-947b-164a825dfb90">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+						<datasetRun subDataset="dataset1" uuid="1d4bb362-6e28-42d5-814f-8486440821a0">
+							<datasetParameter name="lin_id">
+								<datasetParameterExpression><![CDATA[$P{lin_id}]]></datasetParameterExpression>
+							</datasetParameter>
+						</datasetRun>
+						<jr:listContents height="17" width="96">
+							<textField>
+								<reportElement x="0" y="0" width="96" height="17" uuid="5755a21c-2efc-4e4b-b00f-ae2217dfa000"/>
+								<box leftPadding="2" rightPadding="2">
+									<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+									<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+									<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+									<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+								</box>
+								<textElement textAlignment="Right" verticalAlignment="Bottom">
+									<font fontName="TH Sarabun New" size="12"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{StudentSide}]]></textFieldExpression>
+							</textField>
+						</jr:listContents>
+					</jr:list>
+				</componentElement>
+				<staticText>
+					<reportElement x="459" y="0" width="96" height="14" uuid="47711a47-c2d0-4bd5-98cd-04fd39caee00">
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box leftPadding="2" rightPadding="2"/>
+					<textElement textAlignment="Right" verticalAlignment="Bottom">
+						<font fontName="TH Sarabun New" size="10" isBold="true"/>
+					</textElement>
+					<text><![CDATA[เอกสาร R.01]]></text>
+				</staticText>
+				<componentElement>
+					<reportElement x="0" y="32" width="100" height="20" uuid="211b7727-da00-4dd4-b3c8-1e2526a9cffa">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+						<datasetRun subDataset="dataset1" uuid="5d28847c-7ba1-443c-bfcf-fb2a57fe2edd">
+							<datasetParameter name="lin_id">
+								<datasetParameterExpression><![CDATA[$P{lin_id}]]></datasetParameterExpression>
+							</datasetParameter>
+						</datasetRun>
+						<jr:listContents height="20" width="100">
+							<textField>
+								<reportElement x="0" y="0" width="100" height="20" uuid="fbcea07f-df07-4713-9c57-e0c87d78f460"/>
+								<box leftPadding="2" rightPadding="2"/>
+								<textElement textAlignment="Left">
+									<font fontName="TH Sarabun New" size="14" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{StudentCode}+" : "]]></textFieldExpression>
+							</textField>
+						</jr:listContents>
+					</jr:list>
+				</componentElement>
+				<componentElement>
+					<reportElement x="0" y="52" width="80" height="20" uuid="ec6dcb37-4f64-46a3-bcb0-4515cb24f197">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+						<datasetRun subDataset="dataset1" uuid="d2a23980-8561-4666-b95a-66839286c55c">
+							<datasetParameter name="lin_id">
+								<datasetParameterExpression><![CDATA[$P{lin_id}]]></datasetParameterExpression>
+							</datasetParameter>
+						</datasetRun>
+						<jr:listContents height="20" width="80">
+							<textField>
+								<reportElement x="0" y="0" width="80" height="20" uuid="efb3f24b-9a36-4633-8db1-73c1658d3ec1"/>
+								<box leftPadding="2" rightPadding="2"/>
+								<textElement textAlignment="Left">
+									<font fontName="TH Sarabun New" size="14" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{StudentFullName}+" : "]]></textFieldExpression>
+							</textField>
+						</jr:listContents>
+					</jr:list>
+				</componentElement>
+				<componentElement>
+					<reportElement x="0" y="72" width="80" height="20" uuid="4a90c695-646b-40a3-8438-ae9d2eaaa7e8">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+						<datasetRun subDataset="dataset1" uuid="8285720a-3ed3-444c-b7ac-88e0959127a5">
+							<datasetParameter name="lin_id">
+								<datasetParameterExpression><![CDATA[$P{lin_id}]]></datasetParameterExpression>
+							</datasetParameter>
+						</datasetRun>
+						<jr:listContents height="20" width="80">
+							<textField>
+								<reportElement x="0" y="0" width="80" height="20" uuid="82bd0774-6070-42be-93b1-c4fdef135e49"/>
+								<box leftPadding="2" rightPadding="2"/>
+								<textElement textAlignment="Left">
+									<font fontName="TH Sarabun New" size="14" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{LocationCode }+" : "]]></textFieldExpression>
+							</textField>
+						</jr:listContents>
+					</jr:list>
+				</componentElement>
+				<componentElement>
+					<reportElement x="275" y="32" width="90" height="20" uuid="5345a0d0-9b3c-4ad6-ad11-eb719ddfefbd">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+						<datasetRun subDataset="dataset1" uuid="ebd53dae-056e-40fe-a705-678a4a30bc33">
+							<datasetParameter name="lin_id">
+								<datasetParameterExpression><![CDATA[$P{lin_id}]]></datasetParameterExpression>
+							</datasetParameter>
+						</datasetRun>
+						<jr:listContents height="20" width="90">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="3adef9f5-06be-40e5-a880-b55869c12fc0"/>
+								<box leftPadding="2" rightPadding="2"/>
+								<textElement textAlignment="Left">
+									<font fontName="TH Sarabun New" size="14" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{StudentTypeCode}+" : "]]></textFieldExpression>
+							</textField>
+						</jr:listContents>
+					</jr:list>
+				</componentElement>
+				<componentElement>
+					<reportElement x="275" y="52" width="65" height="20" uuid="33f63162-8e65-43ac-9f19-df3a03e101ad">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+						<datasetRun subDataset="dataset1" uuid="6abe05be-7345-420c-8381-d22709dc815d">
+							<datasetParameter name="lin_id">
+								<datasetParameterExpression><![CDATA[$P{lin_id}]]></datasetParameterExpression>
+							</datasetParameter>
+						</datasetRun>
+						<jr:listContents height="20" width="65">
+							<textField>
+								<reportElement x="0" y="0" width="64" height="20" uuid="033bc920-20c6-44af-af0a-f4637b2bd29d"/>
+								<box leftPadding="2" rightPadding="2"/>
+								<textElement textAlignment="Left">
+									<font fontName="TH Sarabun New" size="14" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{CclId}+" : "]]></textFieldExpression>
+							</textField>
+						</jr:listContents>
+					</jr:list>
+				</componentElement>
+				<componentElement>
+					<reportElement x="275" y="72" width="35" height="20" uuid="4843e511-bac0-4e6a-8846-f9d8b73b6950">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+						<datasetRun subDataset="dataset1" uuid="91e54b73-8b6c-4f1c-81b9-fa16f14cfeea">
+							<datasetParameter name="lin_id">
+								<datasetParameterExpression><![CDATA[$P{lin_id}]]></datasetParameterExpression>
+							</datasetParameter>
+						</datasetRun>
+						<jr:listContents height="20" width="35">
+							<textField>
+								<reportElement x="0" y="0" width="35" height="20" uuid="ba2b3469-9ca6-4ff1-a437-231626c94110"/>
+								<box leftPadding="2" rightPadding="2"/>
+								<textElement textAlignment="Left">
+									<font fontName="TH Sarabun New" size="14" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{FacCode}+" : "]]></textFieldExpression>
+							</textField>
+						</jr:listContents>
+					</jr:list>
+				</componentElement>
+				<componentElement>
+					<reportElement x="0" y="112" width="168" height="20" uuid="7fbf5f29-4f5e-41c4-bdda-c674b2dcefd7">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+						<datasetRun subDataset="dataset1" uuid="f9300a05-a66b-4f8d-9e2f-70d125a470cf">
+							<datasetParameter name="lin_id">
+								<datasetParameterExpression><![CDATA[$P{lin_id}]]></datasetParameterExpression>
+							</datasetParameter>
+						</datasetRun>
+						<jr:listContents height="20" width="168">
+							<textField>
+								<reportElement x="0" y="0" width="168" height="20" uuid="12765dd9-5d75-4270-b1e0-7e48a85a54e2">
+									<property name="com.jaspersoft.studio.unit.width" value="px"/>
+								</reportElement>
+								<box leftPadding="2" rightPadding="2"/>
+								<textElement textAlignment="Left" verticalAlignment="Middle">
+									<font fontName="TH Sarabun New" size="14" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{RegSem}]]></textFieldExpression>
+							</textField>
+						</jr:listContents>
+					</jr:list>
+				</componentElement>
+				<componentElement>
+					<reportElement x="188" y="112" width="50" height="20" uuid="7d90cdd8-b171-4f9d-a644-e56f814e6511">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+						<datasetRun subDataset="dataset1" uuid="b3124a00-357d-46e9-bfe2-2a7f9688a376">
+							<datasetParameter name="lin_id">
+								<datasetParameterExpression><![CDATA[$P{lin_id}]]></datasetParameterExpression>
+							</datasetParameter>
+						</datasetRun>
+						<jr:listContents height="20" width="50">
+							<textField>
+								<reportElement x="0" y="0" width="50" height="20" uuid="62eaf40f-a7d8-4ffc-9856-b5c42dd7cc21">
+									<property name="com.jaspersoft.studio.unit.width" value="px"/>
+								</reportElement>
+								<box leftPadding="2" rightPadding="2"/>
+								<textElement textAlignment="Left" verticalAlignment="Middle">
+									<font fontName="TH Sarabun New" size="14" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{AcademicYear}]]></textFieldExpression>
+							</textField>
+						</jr:listContents>
+					</jr:list>
+				</componentElement>
+				<componentElement>
+					<reportElement x="275" y="112" width="163" height="20" uuid="49dfb4a7-0315-4b59-9438-a3bd4c6ee074">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+						<datasetRun subDataset="dataset1" uuid="8a272191-f7e6-40c2-9fca-923a973ba060">
+							<datasetParameter name="lin_id">
+								<datasetParameterExpression><![CDATA[$P{lin_id}]]></datasetParameterExpression>
+							</datasetParameter>
+						</datasetRun>
+						<jr:listContents height="20" width="163">
+							<textField>
+								<reportElement x="0" y="0" width="140" height="20" uuid="042cfd42-ec5a-4e13-a8f1-5c09e736ff5c"/>
+								<box leftPadding="2" rightPadding="2"/>
+								<textElement textAlignment="Left" verticalAlignment="Middle">
+									<font fontName="TH Sarabun New" size="14" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{ FollowDetail}]]></textFieldExpression>
+							</textField>
+						</jr:listContents>
+					</jr:list>
+				</componentElement>
+				<componentElement>
+					<reportElement x="0" y="132" width="555" height="20" uuid="92bd9817-b8ea-4b16-b40a-3cf588dca7f0">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+						<datasetRun subDataset="dataset1" uuid="e036130e-bbab-4482-86bd-17c76a6bc930">
+							<datasetParameter name="lin_id">
+								<datasetParameterExpression><![CDATA[$P{lin_id}]]></datasetParameterExpression>
+							</datasetParameter>
+						</datasetRun>
+						<jr:listContents height="20" width="555">
+							<textField>
+								<reportElement x="0" y="0" width="50" height="20" uuid="e86d268f-8f16-4323-911b-7435ce6b1061"/>
+								<box leftPadding="2" rightPadding="2">
+									<topPen lineWidth="0.75"/>
+									<leftPen lineWidth="0.0"/>
+									<bottomPen lineWidth="0.75"/>
+									<rightPen lineWidth="0.0"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="TH Sarabun New" size="14" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{No}]]></textFieldExpression>
+							</textField>
+							<textField>
+								<reportElement x="50" y="0" width="420" height="20" uuid="88d91a8f-2324-463d-ad16-9bf0fe0509a8"/>
+								<box leftPadding="2" rightPadding="2">
+									<topPen lineWidth="0.75"/>
+									<leftPen lineWidth="0.0"/>
+									<bottomPen lineWidth="0.75"/>
+									<rightPen lineWidth="0.0"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="TH Sarabun New" size="14" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA["ค่าธรรมเนียม"]]></textFieldExpression>
+							</textField>
+							<textField>
+								<reportElement x="470" y="0" width="85" height="20" uuid="9991b053-3e22-4d9b-9981-3a141565d829"/>
+								<box leftPadding="2" rightPadding="2">
+									<topPen lineWidth="0.75"/>
+									<leftPen lineWidth="0.0"/>
+									<bottomPen lineWidth="0.75"/>
+									<rightPen lineWidth="0.0"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="TH Sarabun New" size="14" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA["รวม(บาท)"]]></textFieldExpression>
+							</textField>
+						</jr:listContents>
+					</jr:list>
+				</componentElement>
+				<textField>
+					<reportElement x="404" y="6" width="55" height="25" uuid="53d22dd2-6617-43f1-8ee2-ae8bf0236f64"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="TH Sarabun New" size="16"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{bill_code}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="100" y="32" width="175" height="20" uuid="0f3bb8c7-a81b-4903-984d-11003f3a6baa">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box leftPadding="1" rightPadding="1"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="TH Sarabun New" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{student_code}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="80" y="52" width="195" height="20" uuid="8cfec949-9088-4a4b-9c77-6c737a3f9388">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box leftPadding="1" rightPadding="1"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="TH Sarabun New" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{id_card_name}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="80" y="72" width="190" height="20" uuid="5f1458a2-cf46-4fbb-bad1-4fb6b9f50b7e">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box leftPadding="1" rightPadding="1"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="TH Sarabun New" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{location_name}]]></textFieldExpression>
+				</textField>
+				<componentElement>
+					<reportElement x="0" y="92" width="80" height="20" uuid="1e2cdca1-22b3-4ed5-bfd0-381462b5cc44">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+						<datasetRun subDataset="dataset1" uuid="38edca06-b3b8-4a73-8142-484115380837">
+							<datasetParameter name="lin_id">
+								<datasetParameterExpression><![CDATA[$P{lin_id}]]></datasetParameterExpression>
+							</datasetParameter>
+						</datasetRun>
+						<jr:listContents height="20" width="80">
+							<textField>
+								<reportElement x="0" y="0" width="80" height="20" uuid="a96c72b7-a46c-4f49-b339-a647a56524d4"/>
+								<box leftPadding="2" rightPadding="2"/>
+								<textElement textAlignment="Left">
+									<font fontName="TH Sarabun New" size="14" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{EducationTypeLevel}+" : "]]></textFieldExpression>
+							</textField>
+						</jr:listContents>
+					</jr:list>
+				</componentElement>
+				<textField>
+					<reportElement x="80" y="92" width="190" height="20" uuid="a5d42fd2-1b83-4b28-b0d9-7bb52e9a05cc">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box leftPadding="1" rightPadding="1"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="TH Sarabun New" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{education_level_name}]]></textFieldExpression>
+				</textField>
+				<componentElement>
+					<reportElement x="275" y="92" width="55" height="20" uuid="6b558fec-9e75-4479-9dc7-6516b780e16b">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					</reportElement>
+					<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+						<datasetRun subDataset="dataset1" uuid="bfd1eec4-9335-4e58-b2a9-bc389bc9d5e0">
+							<datasetParameter name="lin_id">
+								<datasetParameterExpression><![CDATA[$P{lin_id}]]></datasetParameterExpression>
+							</datasetParameter>
+						</datasetRun>
+						<jr:listContents height="20" width="55">
+							<textField>
+								<reportElement x="0" y="0" width="55" height="20" uuid="426a8636-18c2-4b3d-9c0e-95ce2c35b5c4"/>
+								<box leftPadding="2" rightPadding="2"/>
+								<textElement textAlignment="Left">
+									<font fontName="TH Sarabun New" size="14" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{ProgramCode}+" : "]]></textFieldExpression>
+							</textField>
+						</jr:listContents>
+					</jr:list>
+				</componentElement>
+				<textField>
+					<reportElement x="365" y="32" width="190" height="20" uuid="f1956705-0e1e-4868-835a-40e2010f1f8a">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box leftPadding="1" rightPadding="1"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="TH Sarabun New" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{student_type_name}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="340" y="52" width="215" height="20" uuid="9ed7cb17-501a-4e43-a7c7-53e8557069ff">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box leftPadding="1" rightPadding="1"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="TH Sarabun New" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{ccl_name}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="340" y="72" width="215" height="20" uuid="75b9bb99-481c-42ee-bf62-2ef2a70838ad">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box leftPadding="1" rightPadding="1"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="TH Sarabun New" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{fac_name}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="340" y="92" width="215" height="20" uuid="e8253ef0-fedd-41de-9be4-729ce70d45c0">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box leftPadding="1" rightPadding="1"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="TH Sarabun New" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{program_name}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="168" y="112" width="20" height="20" uuid="0f4a3f70-9731-497b-ad80-29e967576e1e">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<box leftPadding="1" rightPadding="1"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="TH Sarabun New" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{academic_semester}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="238" y="112" width="37" height="20" uuid="41621ca3-e408-4d19-b176-a8259dfe48d4">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<box leftPadding="1" rightPadding="1"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="TH Sarabun New" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{academic_year}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="490">
+				<componentElement>
+					<reportElement x="0" y="33" width="110" height="32" uuid="06dbaa66-98d8-4dbb-ae36-25c99cb850b5">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+						<datasetRun subDataset="dataset1" uuid="1cfa470c-aac8-44ab-a156-e6f224eea05d">
+							<datasetParameter name="lin_id">
+								<datasetParameterExpression><![CDATA[$P{lin_id}]]></datasetParameterExpression>
+							</datasetParameter>
+						</datasetRun>
+						<jr:listContents height="32" width="110">
+							<textField>
+								<reportElement x="0" y="0" width="110" height="32" uuid="3d18aa1b-e562-469d-a667-ee2aeba292db"/>
+								<box leftPadding="2" rightPadding="2">
+									<topPen lineWidth="0.75"/>
+									<leftPen lineWidth="0.75"/>
+									<bottomPen lineWidth="0.75"/>
+									<rightPen lineWidth="0.75"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="TH Sarabun New" size="14" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{RegFee}]]></textFieldExpression>
+							</textField>
+						</jr:listContents>
+					</jr:list>
+				</componentElement>
+				<textField pattern="#,###,###,##0.00">
+					<reportElement x="200" y="33" width="230" height="32" uuid="0589db92-fa4b-4595-933c-6edaa35e5a0e">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cafdb80b-75e3-4a54-9388-684b96e64242"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box>
+						<topPen lineWidth="0.75"/>
+						<leftPen lineWidth="0.75"/>
+						<bottomPen lineWidth="0.75"/>
+						<rightPen lineWidth="0.75"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="TH Sarabun New" size="14" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["( "+$F{bill_amt_text}+" )"]]></textFieldExpression>
+				</textField>
+				<frame>
+					<reportElement x="430" y="33" width="125" height="32" uuid="617dc022-e3f6-4572-b517-4ebe1b0656b4">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box>
+						<topPen lineWidth="0.75"/>
+						<leftPen lineWidth="0.75"/>
+						<bottomPen lineWidth="0.75"/>
+						<rightPen lineWidth="0.75"/>
+					</box>
+					<componentElement>
+						<reportElement x="0" y="1" width="125" height="12" uuid="0a054b98-f315-401e-b55e-39da23feafca">
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						</reportElement>
+						<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+							<datasetRun subDataset="dataset1" uuid="e37e8f8f-3a99-4a88-beb0-db990af9d860">
+								<datasetParameter name="lin_id">
+									<datasetParameterExpression><![CDATA[$P{lin_id}]]></datasetParameterExpression>
+								</datasetParameter>
+							</datasetRun>
+							<jr:listContents height="12" width="125">
+								<textField>
+									<reportElement x="0" y="0" width="125" height="12" uuid="752ddf1c-9193-4431-a9be-837bfdab3142"/>
+									<box leftPadding="2" rightPadding="2">
+										<topPen lineWidth="0.0"/>
+										<leftPen lineWidth="0.0"/>
+										<bottomPen lineWidth="0.0"/>
+										<rightPen lineWidth="0.0"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font fontName="TH Sarabun New" size="8" isBold="true" isUnderline="true"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{BankSide}]]></textFieldExpression>
+								</textField>
+							</jr:listContents>
+						</jr:list>
+					</componentElement>
+					<staticText>
+						<reportElement x="1" y="13" width="124" height="19" uuid="7851148b-0e58-4594-bcab-1b6a5df2d302"/>
+						<textElement textAlignment="Center" verticalAlignment="Bottom">
+							<font fontName="TH Sarabun New" size="9"/>
+						</textElement>
+						<text><![CDATA[ลงชื่อ.........................................................ผู้รับเงิน]]></text>
+					</staticText>
+				</frame>
+				<componentElement>
+					<reportElement x="160" y="79" width="240" height="24" uuid="7b891054-e85b-4f25-b9a9-a07ebe20e427">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+						<datasetRun subDataset="dataset1" uuid="fe3fe669-e66e-425a-bfa9-5bd2f00e3da5">
+							<datasetParameter name="lin_id">
+								<datasetParameterExpression><![CDATA[$P{lin_id}]]></datasetParameterExpression>
+							</datasetParameter>
+						</datasetRun>
+						<jr:listContents height="24" width="240">
+							<textField>
+								<reportElement x="0" y="0" width="240" height="24" uuid="6d67c71a-11df-4c5e-b61b-b2c530fa8bb2"/>
+								<box leftPadding="2" rightPadding="2"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="TH Sarabun New" size="16" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA["*** [ "+$F{CheckForPayment}+" ] ***"]]></textFieldExpression>
+							</textField>
+						</jr:listContents>
+					</jr:list>
+				</componentElement>
+				<componentElement>
+					<reportElement x="0" y="65" width="40" height="14" uuid="e9387508-29d8-43d8-96ac-fd3e61611a53">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+						<datasetRun subDataset="dataset1" uuid="808fa15b-a8ee-4716-85cc-4a455725e1b3">
+							<datasetParameter name="lin_id">
+								<datasetParameterExpression><![CDATA[$P{lin_id}]]></datasetParameterExpression>
+							</datasetParameter>
+						</datasetRun>
+						<jr:listContents height="14" width="40">
+							<textField>
+								<reportElement x="0" y="0" width="40" height="14" uuid="118a55e1-353d-4b60-acc2-98afd9714f59">
+									<property name="com.jaspersoft.studio.unit.height" value="px"/>
+									<property name="com.jaspersoft.studio.unit.width" value="px"/>
+								</reportElement>
+								<box leftPadding="2" rightPadding="2"/>
+								<textElement textAlignment="Left" verticalAlignment="Middle">
+									<font fontName="TH Sarabun New" size="10" isBold="false" isItalic="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{PrintDate}]]></textFieldExpression>
+							</textField>
+						</jr:listContents>
+					</jr:list>
+				</componentElement>
+				<textField pattern="MMMMM dd, yyyy">
+					<reportElement x="40" y="65" width="40" height="14" uuid="c761a4b9-6972-4d7f-8259-8d3ce95013bd">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box leftPadding="2" rightPadding="2"/>
+					<textElement>
+						<font fontName="TH Sarabun New" size="10" isItalic="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.text.SimpleDateFormat("dd/MM/yyyy", new Locale("TH","th")).format(new java.util.Date())]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="80" y="65" width="17" height="14" uuid="bb3a9b51-1239-4ae7-88bd-7bcefab5e0bb">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+					<box leftPadding="2" rightPadding="2"/>
+					<textElement textAlignment="Center">
+						<font fontName="TH Sarabun New" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[เวลา]]></text>
+				</staticText>
+				<textField pattern="MMMMM dd, yyyy">
+					<reportElement x="97" y="65" width="40" height="14" uuid="51cb77e7-4f39-4f85-bb88-7932ca13006f">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box leftPadding="2" rightPadding="2"/>
+					<textElement>
+						<font fontName="TH Sarabun New" size="10" isItalic="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.text.SimpleDateFormat("HH:mm.ss", new Locale("TH","th")).format(new java.util.Date())]]></textFieldExpression>
+				</textField>
+				<componentElement>
+					<reportElement x="190" y="103" width="170" height="24" uuid="2c5aace9-1bb5-4ef9-a32c-daf866e6f5e1">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+						<datasetRun subDataset="dataset1" uuid="2b8f9ca5-5d64-4f6d-9e69-c3c96ab8b34d">
+							<datasetParameter name="lin_id">
+								<datasetParameterExpression><![CDATA[$P{lin_id}]]></datasetParameterExpression>
+							</datasetParameter>
+						</datasetRun>
+						<jr:listContents height="24" width="170">
+							<textField>
+								<reportElement x="0" y="0" width="170" height="24" uuid="a0ca4197-81a8-463f-8da3-dc3e28afcc1d">
+									<property name="com.jaspersoft.studio.unit.height" value="px"/>
+								</reportElement>
+								<box leftPadding="2" rightPadding="2"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="TH Sarabun New" size="18" isBold="true" isUnderline="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{Explanation}]]></textFieldExpression>
+							</textField>
+						</jr:listContents>
+					</jr:list>
+				</componentElement>
+				<componentElement>
+					<reportElement x="40" y="127" width="470" height="76" uuid="656ccb62-06cc-46f7-8e54-8bf58fd06d04">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+						<datasetRun subDataset="dataset1" uuid="48b26098-6822-48e0-9ffc-caa3dd35ac99">
+							<datasetParameter name="lin_id">
+								<datasetParameterExpression><![CDATA[$P{lin_id}]]></datasetParameterExpression>
+							</datasetParameter>
+						</datasetRun>
+						<jr:listContents height="76" width="470">
+							<textField>
+								<reportElement x="0" y="0" width="470" height="19" uuid="f03c0087-28e7-4a32-ac7e-89272404893a">
+									<property name="com.jaspersoft.studio.unit.height" value="px"/>
+								</reportElement>
+								<box leftPadding="2" rightPadding="2"/>
+								<textElement textAlignment="Left">
+									<font fontName="TH Sarabun New" size="14" isBold="false"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{Explan1}]]></textFieldExpression>
+							</textField>
+							<textField>
+								<reportElement x="0" y="19" width="470" height="19" uuid="0680862c-b8ba-4420-92a0-b6524de55d31">
+									<property name="com.jaspersoft.studio.unit.height" value="px"/>
+								</reportElement>
+								<box leftPadding="2" rightPadding="2"/>
+								<textElement textAlignment="Left">
+									<font fontName="TH Sarabun New" size="14" isBold="false"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{Explan2}]]></textFieldExpression>
+							</textField>
+							<textField>
+								<reportElement x="0" y="38" width="470" height="19" uuid="7e1677d0-db5d-4c02-b1dc-54b3d4b37517">
+									<property name="com.jaspersoft.studio.unit.height" value="px"/>
+								</reportElement>
+								<box leftPadding="2" rightPadding="2"/>
+								<textElement textAlignment="Left">
+									<font fontName="TH Sarabun New" size="14" isBold="false"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{Explan3}]]></textFieldExpression>
+							</textField>
+							<textField>
+								<reportElement x="0" y="57" width="470" height="19" uuid="002e30b5-3228-4f81-b781-0a706a56df7b">
+									<property name="com.jaspersoft.studio.unit.height" value="px"/>
+								</reportElement>
+								<box leftPadding="2" rightPadding="2"/>
+								<textElement textAlignment="Left">
+									<font fontName="TH Sarabun New" size="14" isBold="false"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{Explan4}]]></textFieldExpression>
+							</textField>
+						</jr:listContents>
+					</jr:list>
+				</componentElement>
+				<componentElement>
+					<reportElement x="0" y="227" width="404" height="25" uuid="1ddbeb15-c2e0-41d4-8008-a30ae1888bbe"/>
+					<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+						<datasetRun subDataset="dataset1" uuid="9cf3a684-1cec-420e-a2bc-bad157a1b577">
+							<datasetParameter name="lin_id">
+								<datasetParameterExpression><![CDATA[$P{lin_id}]]></datasetParameterExpression>
+							</datasetParameter>
+						</datasetRun>
+						<jr:listContents height="25" width="404">
+							<textField>
+								<reportElement x="0" y="0" width="200" height="25" uuid="dab25fc4-ba29-40c9-980a-aea43aa6e3f0"/>
+								<box leftPadding="2" rightPadding="2"/>
+								<textElement verticalAlignment="Bottom">
+									<font fontName="TH Sarabun New" size="18" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{CompanyName}]]></textFieldExpression>
+							</textField>
+							<textField>
+								<reportElement x="200" y="0" width="130" height="25" uuid="97c83a6f-8285-4e3f-8311-1c389f616bb5"/>
+								<box leftPadding="2" rightPadding="2"/>
+								<textElement textAlignment="Center" verticalAlignment="Bottom">
+									<font fontName="TH Sarabun New" size="16" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA["ใบแจ้งการชำระเงิน"]]></textFieldExpression>
+							</textField>
+							<staticText>
+								<reportElement x="330" y="0" width="74" height="25" uuid="5aca98f9-105b-4fb3-8643-303e0d52b15b"/>
+								<textElement textAlignment="Center" verticalAlignment="Bottom">
+									<font fontName="TH Sarabun New" size="16" isBold="true"/>
+								</textElement>
+								<text><![CDATA[เลขที่ใบแจ้งหนี้]]></text>
+							</staticText>
+						</jr:listContents>
+					</jr:list>
+				</componentElement>
+				<componentElement>
+					<reportElement x="459" y="234" width="96" height="17" isRemoveLineWhenBlank="true" isPrintInFirstWholeBand="true" uuid="388f59da-a6ba-4660-bd19-ac022b151508">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+						<datasetRun subDataset="dataset1" uuid="44383b12-4ec4-4caa-b718-345386e584b0">
+							<datasetParameter name="lin_id">
+								<datasetParameterExpression><![CDATA[$P{lin_id}]]></datasetParameterExpression>
+							</datasetParameter>
+						</datasetRun>
+						<jr:listContents height="17" width="96">
+							<textField>
+								<reportElement x="0" y="0" width="96" height="17" uuid="6138c2a7-d94f-4487-b951-fba9cef373f4"/>
+								<box leftPadding="2" rightPadding="2">
+									<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+									<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+									<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+									<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+								</box>
+								<textElement textAlignment="Right" verticalAlignment="Bottom">
+									<font fontName="TH Sarabun New" size="12"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{BankSide}]]></textFieldExpression>
+							</textField>
+						</jr:listContents>
+					</jr:list>
+				</componentElement>
+				<line>
+					<reportElement x="0" y="252" width="555" height="1" uuid="244bee31-5cdb-4cdd-8c61-dddfbede8c22"/>
+				</line>
+				<staticText>
+					<reportElement x="0" y="203" width="555" height="24" uuid="d991ca19-bea8-458e-86b3-63be8a27770a"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="TH Sarabun New" size="9"/>
+					</textElement>
+					<text><![CDATA[.................. กรุณาตัดตามรอยปะ ....................................................................................................................................................................................................................................................................................................................................]]></text>
+				</staticText>
+				<componentElement>
+					<reportElement x="18" y="253" width="410" height="38" uuid="99823630-6026-4fce-970a-49b9d2c712ac">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+						<datasetRun subDataset="dataset1" uuid="f1859314-435b-453c-9871-6a03abd553e0">
+							<datasetParameter name="lin_id">
+								<datasetParameterExpression><![CDATA[$P{lin_id}]]></datasetParameterExpression>
+							</datasetParameter>
+						</datasetRun>
+						<jr:listContents height="38" width="410">
+							<textField>
+								<reportElement x="0" y="0" width="240" height="19" uuid="2e970304-7bac-4fc9-a32d-81c9db41f6bb">
+									<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+								</reportElement>
+								<box leftPadding="2" rightPadding="2"/>
+								<textElement textAlignment="Left" verticalAlignment="Middle">
+									<font fontName="TH Sarabun New" size="14" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA["* "+$F{Detail01}]]></textFieldExpression>
+							</textField>
+							<textField>
+								<reportElement x="0" y="19" width="240" height="19" uuid="03b19a8f-5aab-41af-a36c-f7662592d0ba">
+									<property name="com.jaspersoft.studio.unit.height" value="px"/>
+								</reportElement>
+								<box leftPadding="2" rightPadding="2"/>
+								<textElement textAlignment="Left" verticalAlignment="Middle">
+									<font fontName="TH Sarabun New" size="14" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA["** "+$F{Detail02}]]></textFieldExpression>
+							</textField>
+							<textField>
+								<reportElement x="280" y="0" width="130" height="19" uuid="922f7218-2714-43d7-b055-356b86ea61d1">
+									<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+								</reportElement>
+								<box leftPadding="2" rightPadding="2"/>
+								<textElement textAlignment="Left" verticalAlignment="Bottom">
+									<font fontName="TH Sarabun New" size="12" isBold="false"/>
+								</textElement>
+								<textFieldExpression><![CDATA["วันที่ชำระ.............................................."]]></textFieldExpression>
+							</textField>
+							<textField>
+								<reportElement x="280" y="19" width="130" height="19" uuid="8177e5bc-27a0-422b-900f-214aab4354c1">
+									<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+								</reportElement>
+								<box leftPadding="2" rightPadding="2"/>
+								<textElement textAlignment="Left" verticalAlignment="Bottom">
+									<font fontName="TH Sarabun New" size="12" isBold="false"/>
+								</textElement>
+								<textFieldExpression><![CDATA["ชื่อผู้ชำระ.............................................."]]></textFieldExpression>
+							</textField>
+						</jr:listContents>
+					</jr:list>
+				</componentElement>
+				<componentElement>
+					<reportElement x="0" y="292" width="555" height="16" uuid="f4f60d93-0bd8-4c1b-96b8-9a668906cb57">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+						<datasetRun subDataset="dataset1" uuid="3ea24c7b-d752-4ba1-ac15-0bc0ebc93df3">
+							<datasetParameter name="lin_id">
+								<datasetParameterExpression><![CDATA[$P{lin_id}]]></datasetParameterExpression>
+							</datasetParameter>
+						</datasetRun>
+						<jr:listContents height="16" width="555">
+							<textField>
+								<reportElement x="0" y="0" width="555" height="16" uuid="b5e504b0-9963-4fd6-bbd8-ba7c3cf5212e">
+									<property name="com.jaspersoft.studio.unit.height" value="px"/>
+								</reportElement>
+								<box leftPadding="2" rightPadding="2"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="TH Sarabun New" size="12" isBold="false"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{Detail03}]]></textFieldExpression>
+							</textField>
+						</jr:listContents>
+					</jr:list>
+				</componentElement>
+				<componentElement>
+					<reportElement x="7" y="308" width="267" height="102" uuid="79d8ca3d-b265-407e-82a7-893a800c2bc8">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+						<datasetRun subDataset="dataset1" uuid="0854f824-df47-4abd-a63a-423817939d7c">
+							<datasetParameter name="lin_id">
+								<datasetParameterExpression><![CDATA[$P{lin_id}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="SUBREPORT_DIR">
+								<datasetParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="report_path">
+								<datasetParameterExpression><![CDATA[$P{report_path}]]></datasetParameterExpression>
+							</datasetParameter>
+						</datasetRun>
+						<jr:listContents height="102" width="267">
+							<frame>
+								<reportElement x="0" y="0" width="267" height="17" uuid="1424addf-ee63-4380-8fea-8f5a20a28237">
+									<property name="com.jaspersoft.studio.unit.height" value="px"/>
+								</reportElement>
+								<box leftPadding="0">
+									<topPen lineWidth="0.75"/>
+									<leftPen lineWidth="0.75"/>
+									<bottomPen lineWidth="0.75"/>
+									<rightPen lineWidth="0.75"/>
+								</box>
+								<rectangle>
+									<reportElement x="4" y="3" width="11" height="11" uuid="f2956961-042a-4e29-a4bb-d45e9c4b5e54"/>
+								</rectangle>
+								<textField>
+									<reportElement x="35" y="0" width="232" height="17" uuid="c5a410a7-c66b-460a-b32f-845359a5f1bd">
+										<property name="com.jaspersoft.studio.unit.height" value="px"/>
+									</reportElement>
+									<textElement verticalAlignment="Middle">
+										<font fontName="TH Sarabun New" size="12"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{ SCB}]]></textFieldExpression>
+								</textField>
+								<image>
+									<reportElement x="18" y="2" width="13" height="13" uuid="56f77682-3882-4c82-a098-69492af62d44">
+										<property name="com.jaspersoft.studio.unit.width" value="px"/>
+										<property name="com.jaspersoft.studio.unit.height" value="px"/>
+									</reportElement>
+									<imageExpression><![CDATA[$P{report_path}+"reports\\picture\\SCB.png"]]></imageExpression>
+								</image>
+							</frame>
+							<frame>
+								<reportElement x="0" y="17" width="267" height="17" uuid="92e23765-cf05-41f6-8062-9c6e0662acf2"/>
+								<box leftPadding="0">
+									<topPen lineWidth="0.75"/>
+									<leftPen lineWidth="0.75"/>
+									<bottomPen lineWidth="0.75"/>
+									<rightPen lineWidth="0.75"/>
+								</box>
+								<rectangle>
+									<reportElement x="4" y="3" width="11" height="11" uuid="33524421-54d0-44f0-9052-9f881dd40de7"/>
+								</rectangle>
+								<textField>
+									<reportElement x="35" y="0" width="232" height="17" uuid="8907c09a-fc71-4396-961d-d227e2ffca71">
+										<property name="com.jaspersoft.studio.unit.height" value="px"/>
+									</reportElement>
+									<textElement verticalAlignment="Middle">
+										<font fontName="TH Sarabun New" size="12"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{TMB }]]></textFieldExpression>
+								</textField>
+								<image>
+									<reportElement x="18" y="2" width="13" height="13" uuid="dc338487-c78b-4dfd-9c2b-3a3ab27cda2d">
+										<property name="com.jaspersoft.studio.unit.width" value="px"/>
+										<property name="com.jaspersoft.studio.unit.height" value="px"/>
+									</reportElement>
+									<imageExpression><![CDATA[$P{report_path}+"reports\\picture\\TMB.png"]]></imageExpression>
+								</image>
+							</frame>
+							<frame>
+								<reportElement x="0" y="34" width="267" height="17" uuid="99fc764e-54e0-4643-b9bd-4b7809f065d5"/>
+								<box leftPadding="0">
+									<topPen lineWidth="0.75"/>
+									<leftPen lineWidth="0.75"/>
+									<bottomPen lineWidth="0.75"/>
+									<rightPen lineWidth="0.75"/>
+								</box>
+								<rectangle>
+									<reportElement x="4" y="3" width="11" height="11" uuid="5f5ab96a-89a3-4b3e-8a37-2c4e64f88cff"/>
+								</rectangle>
+								<textField>
+									<reportElement x="35" y="0" width="232" height="17" uuid="0f4caa14-d078-44ab-b2ab-581d7907da9f">
+										<property name="com.jaspersoft.studio.unit.height" value="px"/>
+									</reportElement>
+									<textElement verticalAlignment="Middle">
+										<font fontName="TH Sarabun New" size="12"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{BAY}]]></textFieldExpression>
+								</textField>
+								<image>
+									<reportElement x="18" y="2" width="13" height="13" uuid="a8fb055a-20e2-4dcf-8fed-913bf1d1f125">
+										<property name="com.jaspersoft.studio.unit.width" value="px"/>
+										<property name="com.jaspersoft.studio.unit.height" value="px"/>
+									</reportElement>
+									<imageExpression><![CDATA[$P{report_path}+"reports\\picture\\BAY.png"]]></imageExpression>
+								</image>
+							</frame>
+							<frame>
+								<reportElement x="0" y="51" width="267" height="17" uuid="36987def-daae-48f9-8166-4e7c266b3464"/>
+								<box leftPadding="0">
+									<topPen lineWidth="0.75"/>
+									<leftPen lineWidth="0.75"/>
+									<bottomPen lineWidth="0.75"/>
+									<rightPen lineWidth="0.75"/>
+								</box>
+								<rectangle>
+									<reportElement x="4" y="3" width="11" height="11" uuid="333c448a-9141-4408-80b1-0e280db8b974"/>
+								</rectangle>
+								<textField>
+									<reportElement x="35" y="0" width="232" height="17" uuid="1d876254-5770-4a83-b3cd-9dcdaca3c1b0">
+										<property name="com.jaspersoft.studio.unit.height" value="px"/>
+									</reportElement>
+									<textElement verticalAlignment="Middle">
+										<font fontName="TH Sarabun New" size="12"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{BBL}]]></textFieldExpression>
+								</textField>
+								<image>
+									<reportElement x="18" y="2" width="13" height="13" uuid="e650840b-3b15-4b1d-9b2f-1e01d043546b">
+										<property name="com.jaspersoft.studio.unit.width" value="px"/>
+										<property name="com.jaspersoft.studio.unit.height" value="px"/>
+									</reportElement>
+									<imageExpression><![CDATA[$P{report_path}+"reports\\picture\\BBL.png"]]></imageExpression>
+								</image>
+							</frame>
+							<frame>
+								<reportElement x="0" y="68" width="267" height="17" uuid="f5de6616-7d3f-4532-accf-18315eaf2285"/>
+								<box leftPadding="0">
+									<topPen lineWidth="0.75"/>
+									<leftPen lineWidth="0.75"/>
+									<bottomPen lineWidth="0.75"/>
+									<rightPen lineWidth="0.75"/>
+								</box>
+								<rectangle>
+									<reportElement x="4" y="3" width="11" height="11" uuid="db2e2d99-f38e-44ba-9a86-4ce33f94795a"/>
+								</rectangle>
+								<textField>
+									<reportElement x="35" y="0" width="232" height="17" uuid="3a388c3e-6672-4b55-868b-42712882930d">
+										<property name="com.jaspersoft.studio.unit.height" value="px"/>
+									</reportElement>
+									<textElement verticalAlignment="Middle">
+										<font fontName="TH Sarabun New" size="12"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{Tbank}]]></textFieldExpression>
+								</textField>
+								<image>
+									<reportElement x="18" y="2" width="13" height="13" uuid="50419b27-3051-41f2-a34d-fbd88a3a3686">
+										<property name="com.jaspersoft.studio.unit.width" value="px"/>
+										<property name="com.jaspersoft.studio.unit.height" value="px"/>
+									</reportElement>
+									<imageExpression><![CDATA[$P{report_path}+"reports\\picture\\TNI.png"]]></imageExpression>
+								</image>
+							</frame>
+							<frame>
+								<reportElement x="0" y="85" width="267" height="17" uuid="ce9809fa-fab1-40ec-a7ab-bb25001cc9aa"/>
+								<box leftPadding="0">
+									<topPen lineWidth="0.75"/>
+									<leftPen lineWidth="0.75"/>
+									<bottomPen lineWidth="0.75"/>
+									<rightPen lineWidth="0.75"/>
+								</box>
+								<rectangle>
+									<reportElement x="4" y="3" width="11" height="11" uuid="3482ef90-97b8-437c-a0ad-0562f7e6adba"/>
+								</rectangle>
+								<textField>
+									<reportElement x="35" y="0" width="232" height="17" uuid="351deeaf-6b04-46ad-a248-878f16f5b0eb">
+										<property name="com.jaspersoft.studio.unit.height" value="px"/>
+									</reportElement>
+									<textElement verticalAlignment="Middle">
+										<font fontName="TH Sarabun New" size="12"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{CounterService}]]></textFieldExpression>
+								</textField>
+								<image>
+									<reportElement x="18" y="2" width="13" height="13" uuid="7049a766-ecb8-493e-a729-531e487b0fc7">
+										<property name="com.jaspersoft.studio.unit.width" value="px"/>
+										<property name="com.jaspersoft.studio.unit.height" value="px"/>
+									</reportElement>
+									<imageExpression><![CDATA[$P{report_path}+"reports\\picture\\SERVICE.png"]]></imageExpression>
+								</image>
+							</frame>
+						</jr:listContents>
+					</jr:list>
+				</componentElement>
+				<componentElement>
+					<reportElement x="7" y="410" width="133" height="20" uuid="2f250ccb-5c08-4e21-8f88-f417f841bcf0">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+						<datasetRun subDataset="dataset1" uuid="e613f8c9-a3c2-43a2-907c-16fe4dda52c3">
+							<datasetParameter name="lin_id">
+								<datasetParameterExpression><![CDATA[$P{lin_id}]]></datasetParameterExpression>
+							</datasetParameter>
+						</datasetRun>
+						<jr:listContents height="20" width="133">
+							<textField>
+								<reportElement x="0" y="0" width="133" height="20" uuid="e48ec96d-bf5c-43db-b234-3a4d335b35d2"/>
+								<box leftPadding="2" rightPadding="2">
+									<topPen lineWidth="0.75"/>
+									<leftPen lineWidth="0.75"/>
+									<bottomPen lineWidth="0.75"/>
+									<rightPen lineWidth="0.75"/>
+								</box>
+								<textElement textAlignment="Center">
+									<font fontName="TH Sarabun New" size="14" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{Amount}]]></textFieldExpression>
+							</textField>
+						</jr:listContents>
+					</jr:list>
+				</componentElement>
+				<componentElement>
+					<reportElement x="274" y="410" width="80" height="20" uuid="dd71b281-1fd3-44a9-8c7d-78b6a4806ff4">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+						<datasetRun subDataset="dataset1" uuid="2323d2be-feec-4a2f-8da2-a87e65dcbfd2">
+							<datasetParameter name="lin_id">
+								<datasetParameterExpression><![CDATA[$P{lin_id}]]></datasetParameterExpression>
+							</datasetParameter>
+						</datasetRun>
+						<jr:listContents height="20" width="80">
+							<textField>
+								<reportElement x="0" y="0" width="80" height="20" uuid="c5a6d13b-19db-48c2-a3f2-ae03815268b1"/>
+								<box leftPadding="2" rightPadding="2">
+									<topPen lineWidth="0.75"/>
+									<leftPen lineWidth="0.75"/>
+									<bottomPen lineWidth="0.75"/>
+									<rightPen lineWidth="0.75"/>
+								</box>
+								<textElement textAlignment="Center">
+									<font fontName="TH Sarabun New" size="14" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{Text}]]></textFieldExpression>
+							</textField>
+						</jr:listContents>
+					</jr:list>
+				</componentElement>
+				<textField pattern="#,##0.##¤;#,##0.##">
+					<reportElement x="354" y="410" width="190" height="20" uuid="04f62fdc-7791-4d8f-b229-e12b7605aacc">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cafdb80b-75e3-4a54-9388-684b96e64242"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box>
+						<topPen lineWidth="0.75"/>
+						<leftPen lineWidth="0.75"/>
+						<bottomPen lineWidth="0.75"/>
+						<rightPen lineWidth="0.75"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="TH Sarabun New" size="14" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["( "+$F{bill_amt_text}+" )"]]></textFieldExpression>
+				</textField>
+				<componentElement>
+					<reportElement x="141" y="443" width="289" height="30" uuid="e6c3f857-3fd1-4197-b4f4-3ba9684c4f98"/>
+					<jr:Code128 xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" textPosition="none" quietZone="0.0">
+						<jr:codeExpression><![CDATA[$F{iv_barcode}]]></jr:codeExpression>
+					</jr:Code128>
+				</componentElement>
+				<textField>
+					<reportElement x="141" y="473" width="289" height="17" uuid="fc7162cd-10ec-428c-9814-1fb87b625140">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement>
+						<font fontName="TH Sarabun New" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{iv_barcode}]]></textFieldExpression>
+				</textField>
+				<componentElement>
+					<reportElement x="3" y="430" width="40" height="14" uuid="73bcf2a8-a51e-4b79-b551-e437a799852f">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+						<datasetRun subDataset="dataset1" uuid="948443d8-031c-49b3-aeb1-9886e428b96d">
+							<datasetParameter name="lin_id">
+								<datasetParameterExpression><![CDATA[$P{lin_id}]]></datasetParameterExpression>
+							</datasetParameter>
+						</datasetRun>
+						<jr:listContents height="14" width="40">
+							<textField>
+								<reportElement x="0" y="0" width="40" height="14" uuid="f2e9f6c8-ac63-4e31-8e7e-5745a1a76e89">
+									<property name="com.jaspersoft.studio.unit.height" value="px"/>
+									<property name="com.jaspersoft.studio.unit.width" value="px"/>
+								</reportElement>
+								<box leftPadding="2" rightPadding="2"/>
+								<textElement textAlignment="Left" verticalAlignment="Middle">
+									<font fontName="TH Sarabun New" size="10" isBold="false" isItalic="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{PrintDate}]]></textFieldExpression>
+							</textField>
+						</jr:listContents>
+					</jr:list>
+				</componentElement>
+				<textField pattern="MMMMM dd, yyyy">
+					<reportElement x="43" y="430" width="40" height="14" uuid="5c7fdfcb-36de-43f6-b1ec-6bd29b6423f1">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box leftPadding="2" rightPadding="2"/>
+					<textElement>
+						<font fontName="TH Sarabun New" size="10" isItalic="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.text.SimpleDateFormat("dd/MM/yyyy", new Locale("TH","th")).format(new java.util.Date())]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="83" y="430" width="17" height="14" uuid="94cdf7ca-baf8-4e58-996f-a6e86250ed23">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+					<box leftPadding="2" rightPadding="2"/>
+					<textElement textAlignment="Center">
+						<font fontName="TH Sarabun New" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[เวลา]]></text>
+				</staticText>
+				<textField pattern="MMMMM dd, yyyy">
+					<reportElement x="100" y="430" width="40" height="14" uuid="c8b63476-a3c7-44ca-9f76-caa4f14bda35">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box leftPadding="2" rightPadding="2"/>
+					<textElement>
+						<font fontName="TH Sarabun New" size="10" isItalic="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.text.SimpleDateFormat("HH:mm.ss", new Locale("TH","th")).format(new java.util.Date())]]></textFieldExpression>
+				</textField>
+				<componentElement>
+					<reportElement x="274" y="308" width="270" height="17" uuid="e5e8a497-e340-4270-a8a7-b8ba2569bf4d">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+						<datasetRun subDataset="dataset1" uuid="8c04801e-3768-4c90-85dc-b9ce1d3d68b5">
+							<datasetParameter name="lin_id">
+								<datasetParameterExpression><![CDATA[$P{lin_id}]]></datasetParameterExpression>
+							</datasetParameter>
+						</datasetRun>
+						<jr:listContents height="17" width="270">
+							<textField>
+								<reportElement x="0" y="0" width="270" height="17" uuid="2e89fb26-4384-4e16-ba85-5f5b32e3860b">
+									<property name="com.jaspersoft.studio.unit.height" value="px"/>
+								</reportElement>
+								<box leftPadding="2" rightPadding="2">
+									<topPen lineWidth="0.75"/>
+									<leftPen lineWidth="0.75"/>
+									<bottomPen lineWidth="0.75"/>
+									<rightPen lineWidth="0.75"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="TH Sarabun New" size="12" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{Detail04}]]></textFieldExpression>
+							</textField>
+						</jr:listContents>
+					</jr:list>
+				</componentElement>
+				<frame>
+					<reportElement x="274" y="325" width="270" height="85" uuid="b69395bb-7e61-4bd1-af7d-2d9ecdd2ec44">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box>
+						<topPen lineWidth="0.75"/>
+						<leftPen lineWidth="0.75"/>
+						<bottomPen lineWidth="0.75"/>
+						<rightPen lineWidth="0.75"/>
+					</box>
+					<componentElement>
+						<reportElement x="0" y="1" width="90" height="17" uuid="d6591176-f8da-4fd7-a87f-2ea2d9690ef0">
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						</reportElement>
+						<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+							<datasetRun subDataset="dataset1" uuid="1121e83e-41f2-46da-b147-62c9aba7ff4c">
+								<datasetParameter name="lin_id">
+									<datasetParameterExpression><![CDATA[$P{lin_id}]]></datasetParameterExpression>
+								</datasetParameter>
+							</datasetRun>
+							<jr:listContents height="17" width="90">
+								<textField>
+									<reportElement x="0" y="0" width="90" height="17" uuid="80c841af-af5e-432a-9565-c12e50a76882">
+										<property name="com.jaspersoft.studio.unit.height" value="px"/>
+									</reportElement>
+									<box leftPadding="2" rightPadding="2"/>
+									<textElement textAlignment="Left" verticalAlignment="Middle">
+										<font fontName="TH Sarabun New" size="12" isBold="true"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{CustName}]]></textFieldExpression>
+								</textField>
+							</jr:listContents>
+						</jr:list>
+					</componentElement>
+					<componentElement>
+						<reportElement x="0" y="35" width="200" height="17" uuid="6cff8f73-205f-4c2f-b378-8ca539afb146">
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						</reportElement>
+						<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+							<datasetRun subDataset="dataset1" uuid="4ffa1347-6622-474e-b53e-a4941e80a73f">
+								<datasetParameter name="lin_id">
+									<datasetParameterExpression><![CDATA[$P{lin_id}]]></datasetParameterExpression>
+								</datasetParameter>
+							</datasetRun>
+							<jr:listContents height="17" width="200">
+								<textField>
+									<reportElement x="0" y="0" width="200" height="17" uuid="cb208fd5-d6c5-4828-b394-f252c1954f22">
+										<property name="com.jaspersoft.studio.unit.height" value="px"/>
+									</reportElement>
+									<box leftPadding="2" rightPadding="2"/>
+									<textElement textAlignment="Left" verticalAlignment="Middle">
+										<font fontName="TH Sarabun New" size="12" isBold="true"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{BillDueRef}]]></textFieldExpression>
+								</textField>
+							</jr:listContents>
+						</jr:list>
+					</componentElement>
+					<componentElement>
+						<reportElement x="0" y="52" width="100" height="17" uuid="1c8a1848-e351-4cce-b4db-3e027597e697">
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						</reportElement>
+						<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+							<datasetRun subDataset="dataset1" uuid="e5fcc3f7-4340-4ca5-aadd-5d74092695a1">
+								<datasetParameter name="lin_id">
+									<datasetParameterExpression><![CDATA[$P{lin_id}]]></datasetParameterExpression>
+								</datasetParameter>
+							</datasetRun>
+							<jr:listContents height="17" width="100">
+								<textField>
+									<reportElement x="0" y="0" width="100" height="17" uuid="b1831c3d-0bc1-4f8d-b942-62e221500f97">
+										<property name="com.jaspersoft.studio.unit.height" value="px"/>
+									</reportElement>
+									<box leftPadding="2" rightPadding="2"/>
+									<textElement textAlignment="Left" verticalAlignment="Middle">
+										<font fontName="TH Sarabun New" size="12" isBold="true"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{Phone}]]></textFieldExpression>
+								</textField>
+							</jr:listContents>
+						</jr:list>
+					</componentElement>
+					<componentElement>
+						<reportElement x="0" y="18" width="129" height="17" uuid="cc6bda00-9214-4522-8e59-4a3db0ef07e1">
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						</reportElement>
+						<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+							<datasetRun subDataset="dataset1" uuid="93b1c0ba-e0d4-44a9-b242-9e91ee83affc">
+								<datasetParameter name="lin_id">
+									<datasetParameterExpression><![CDATA[$P{lin_id}]]></datasetParameterExpression>
+								</datasetParameter>
+							</datasetRun>
+							<jr:listContents height="17" width="129">
+								<textField>
+									<reportElement x="0" y="0" width="129" height="17" uuid="aadaed25-5377-4e60-a36e-f916cb3df691">
+										<property name="com.jaspersoft.studio.unit.height" value="px"/>
+									</reportElement>
+									<box leftPadding="2" rightPadding="2"/>
+									<textElement textAlignment="Left" verticalAlignment="Middle">
+										<font fontName="TH Sarabun New" size="12" isBold="true"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{StudentRef}]]></textFieldExpression>
+								</textField>
+							</jr:listContents>
+						</jr:list>
+					</componentElement>
+					<textField>
+						<reportElement x="90" y="1" width="180" height="17" uuid="cfa92e93-5a56-4758-ad9f-2999bd0b5d26">
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						</reportElement>
+						<box leftPadding="1" rightPadding="1"/>
+						<textElement textAlignment="Left" verticalAlignment="Middle">
+							<font fontName="TH Sarabun New" size="12"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{id_card_name}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="129" y="18" width="140" height="17" uuid="af1f48ba-aa6a-48d9-8146-8650bd479d56">
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						</reportElement>
+						<box leftPadding="1" rightPadding="1"/>
+						<textElement textAlignment="Left" verticalAlignment="Middle">
+							<font fontName="TH Sarabun New" size="12"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{reference_no1}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="200" y="35" width="69" height="17" uuid="8131b4a3-09f4-490e-86b9-b73a45439749">
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						</reportElement>
+						<box leftPadding="1" rightPadding="1"/>
+						<textElement textAlignment="Left" verticalAlignment="Middle">
+							<font fontName="TH Sarabun New" size="12"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{reference_no2}]]></textFieldExpression>
+					</textField>
+				</frame>
+				<frame>
+					<reportElement x="110" y="33" width="90" height="32" uuid="d928e035-c100-4ef0-adcb-19b7581f89cd"/>
+					<textField pattern="#,###,###,##0.00">
+						<reportElement x="0" y="0" width="60" height="32" uuid="aadc0000-7a94-491e-9219-822a63ee3ef1">
+							<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cafdb80b-75e3-4a54-9388-684b96e64242"/>
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						</reportElement>
+						<box>
+							<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Right" verticalAlignment="Middle">
+							<font fontName="TH Sarabun New" size="14" isBold="true"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{bill_amt}==null?"":$F{bill_amt}]]></textFieldExpression>
+					</textField>
+					<textField pattern="#,##0.##¤;#,##0.##">
+						<reportElement x="60" y="0" width="30" height="32" uuid="b69f5021-daef-4c80-86ab-939bbc194ed7">
+							<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cafdb80b-75e3-4a54-9388-684b96e64242"/>
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						</reportElement>
+						<box leftPadding="2" rightPadding="2">
+							<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Left" verticalAlignment="Middle">
+							<font fontName="TH Sarabun New" size="14" isBold="true"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$P{lin_id} == "th" ? "บาท" : "Baht"]]></textFieldExpression>
+					</textField>
+				</frame>
+				<textField pattern="#,###,###,##0.00">
+					<reportElement x="140" y="410" width="89" height="20" uuid="33b97286-0e7d-4a5d-bd84-12bf711fd8b3">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cafdb80b-75e3-4a54-9388-684b96e64242"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<box>
+						<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="TH Sarabun New" size="14" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{bill_amt}==null?"":$F{bill_amt}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.##¤;#,##0.##">
+					<reportElement x="229" y="410" width="45" height="20" uuid="e0ed512c-2e20-4269-b70f-30abcad06623">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cafdb80b-75e3-4a54-9388-684b96e64242"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<box leftPadding="2" rightPadding="2">
+						<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="TH Sarabun New" size="14" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{lin_id} == "th" ? "บาท" : "Baht"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="0" y="7" width="555" height="23" uuid="1d4551f7-4f17-4f8f-9ec0-fa55c85df28b">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="TH Sarabun New" size="16" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["*** หมายเหตุ : นักศึกษาลงทะเบียนได้สูงสุดไม่เกิน 10 หน่วยกิต ลงทะเบียนในวันที่ "+new java.text.SimpleDateFormat("dd", new Locale("TH","th")).format($F{add_student_start_date} )+" "+new java.text.SimpleDateFormat("- d MMM yyyy", new Locale("TH","th")).format($F{add_officer_end_date}) + " ***"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="428" y="253" width="72" height="19" uuid="c241d996-b6da-4a1d-96f3-ab56c3cda90e">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+					<box leftPadding="2" rightPadding="2"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="TH Sarabun New" size="12" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["(วันที่คำนวณใบแจ้ง :  "]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="428" y="272" width="127" height="19" uuid="ca1ba785-54cf-4118-a1ac-0a6782f0c925">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+					<box leftPadding="2" rightPadding="2"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="TH Sarabun New" size="12" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["โทรศัพท์..............................................."]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="500" y="253" width="55" height="19" uuid="401b3a34-ca40-4464-98c3-3e45b2512976"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="TH Sarabun New" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.text.SimpleDateFormat("dd/MM/yyyy", new Locale("TH","th")).format($F{bill_date})+")"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="404" y="227" width="55" height="25" uuid="1a4a9364-3f4c-49d3-8e95-1522b74c2299"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="TH Sarabun New" size="16"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{bill_code}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band/>
+	</pageHeader>
+	<columnHeader>
+		<band/>
+	</columnHeader>
+	<detail>
+		<band height="20">
+			<subreport>
+				<reportElement x="0" y="0" width="555" height="20" uuid="c4883f19-a00a-4c01-8a89-f6b1f2c22735"/>
+				<subreportParameter name="company_code">
+					<subreportParameterExpression><![CDATA[$P{company_code}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="lin_id">
+					<subreportParameterExpression><![CDATA[$P{lin_id}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="bill_m_id">
+					<subreportParameterExpression><![CDATA[$F{bill_m_id}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pricelist_code">
+					<subreportParameterExpression><![CDATA[$F{pricelist_code}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{report_path}+"reports/FNOD01_SUBREPORT01.jrxml"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<pageFooter>
+		<band/>
+	</pageFooter>
+</jasperReport>

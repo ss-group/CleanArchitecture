@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="StudentInfomation_subreport1" language="groovy" pageWidth="595" pageHeight="842" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="88c07150-2d24-4d17-8946-6b6495123f2f">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="parameter_to_sub_report" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[select 'subreport' as topic]]>
+	</queryString>
+	<field name="topic" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="20" uuid="da85f104-d831-4205-8d7c-0c0b8f76e44c"/>
+				<textElement>
+					<font fontName="TH SarabunPSK" size="14" pdfFontName="THSarabun.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{topic}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="294" y="0" width="100" height="20" uuid="c79a2826-3bcf-4e70-b6e5-3e05ad01c249"/>
+				<textElement>
+					<font fontName="TH SarabunPSK" size="14" pdfFontName="THSarabun.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{parameter_to_sub_report}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="233" y="0" width="61" height="20" uuid="7d6cefa6-ec3e-447e-866c-fd4493cb89a7"/>
+				<textElement>
+					<font fontName="TH SarabunPSK" size="14" pdfFontName="THSarabun.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[parameter : ]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>

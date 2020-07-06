@@ -1,0 +1,645 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.12.2.final using JasperReports Library version 6.12.2-75c5e90a222ab406e416cbf590a5397028a52de3  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="CSRT01" pageWidth="842" pageHeight="595" orientation="Landscape" whenNoDataType="AllSectionsNoDetail" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1f71a5b8-502a-42eb-9150-5197ed1c70d9">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="SSRU"/>
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<property name="net.sf.jasperreports.export.xls.fit.width" value="842"/>
+	<subDataset name="DataSet1" uuid="6b31d8f1-90cc-4fbe-83c2-aced3dde05bf">
+		<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="SSRU"/>
+		<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="227"/>
+		<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="764"/>
+		<parameter name="LIN_ID" class="java.lang.String"/>
+		<parameter name="EDUCATION_TYPE_LEVEL" class="java.lang.String"/>
+		<parameter name="FAC_CODE" class="java.lang.String"/>
+		<parameter name="PROGRAM_CODE" class="java.lang.String"/>
+		<parameter name="ACADEMIC_YEAR_FROM" class="java.lang.Integer"/>
+		<parameter name="ACADEMIC_YEAR_TO" class="java.lang.Integer"/>
+		<parameter name="SUBJECT_CODE_FROM" class="java.lang.String"/>
+		<parameter name="SUBJECT_CODE_TO" class="java.lang.String"/>
+		<parameter name="USER_NAME" class="java.lang.String"/>
+		<parameter name="IP_ADDRESS" class="java.lang.String"/>
+		<parameter name="COMPANY_CODE" class="java.lang.String"/>
+		<queryString language="SQL">
+			<![CDATA[select
+get_label_name('CSRP01', 'University',  $P{LIN_ID}) as university,
+get_label_name('CSRP01', 'Publisher', $P{LIN_ID}) as publisher,
+get_label_name('CSRP01', 'PrintDate', $P{LIN_ID}) as printDate,
+get_label_name('CSRP01', 'To', $P{LIN_ID}) as to,
+get_label_name('CSRP01', 'Start', $P{LIN_ID}) as start,
+get_label_name('CSRP01', 'End', $P{LIN_ID}) as end,
+get_label_name('CSRP01', 'All', $P{LIN_ID}) as all,
+get_label_name('CSRP01', 'ReportName', $P{LIN_ID}) as reportName,
+get_label_name('CSRP01', 'EducationTypeLevel', $P{LIN_ID}) as educationTypeLevel,
+get_label_name('CSRP01', 'AcademicYearFromTo', $P{LIN_ID}) as academicYearFromTo,
+get_label_name('CSRP01', 'Faculty', $P{LIN_ID}) as faculty,
+get_label_name('CSRP01', 'SubjectCodeFromTo', $P{LIN_ID}) as subjectCodeFromTo,
+get_label_name('CSRP01', 'Program', $P{LIN_ID}) as program,
+get_label_name('CSRP01', 'SubjectCode', $P{LIN_ID}) as subjectCode,
+get_label_name('CSRP01', 'SubjectName', $P{LIN_ID}) as subjectName,
+get_label_name('CSRP01', 'YearAndSemesterOfSubject', $P{LIN_ID}) as yearAndSemesterOfSubject,
+get_label_name('CSRP01', 'Credit', $P{LIN_ID}) as credit,
+get_label_name('CSRP01', 'SubjectPreDetail', $P{LIN_ID}) as subjectPreDetail,
+get_label_name('CSRP01', 'IPAddress', $P{LIN_ID}) as ipAddress,
+(select case  $P{LIN_ID}  when $P{LIN_ID} then education_type_level_name_tha else coalesce(education_type_level_name_eng, education_type_level_name_tha) end from db_education_type_level where company_code = $P{COMPANY_CODE} and education_type_level = $P{EDUCATION_TYPE_LEVEL}) as educationTypeLevelName,
+(select case  $P{LIN_ID}  when $P{LIN_ID} then fac_name_tha else coalesce(fac_name_eng, fac_name_tha) end from db_fac where company_code = $P{COMPANY_CODE} and fac_code = $P{FAC_CODE}) as facName,
+(select case  $P{LIN_ID}  when $P{LIN_ID} then program_name_tha else coalesce(program_name_eng, program_name_tha) end from db_program where company_code = $P{COMPANY_CODE} and fac_code = $P{FAC_CODE} and program_code = $P{PROGRAM_CODE}) as programName]]>
+		</queryString>
+		<field name="university" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="university"/>
+		</field>
+		<field name="publisher" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="publisher"/>
+		</field>
+		<field name="printdate" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="printdate"/>
+		</field>
+		<field name="to" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="to"/>
+		</field>
+		<field name="start" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="start"/>
+		</field>
+		<field name="end" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="end"/>
+		</field>
+		<field name="all" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="all"/>
+		</field>
+		<field name="reportname" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="reportname"/>
+		</field>
+		<field name="educationtypelevel" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="educationtypelevel"/>
+		</field>
+		<field name="academicyearfromto" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="academicyearfromto"/>
+		</field>
+		<field name="faculty" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="faculty"/>
+		</field>
+		<field name="subjectcodefromto" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="subjectcodefromto"/>
+		</field>
+		<field name="program" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="program"/>
+		</field>
+		<field name="subjectcode" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="subjectcode"/>
+		</field>
+		<field name="subjectname" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="subjectname"/>
+		</field>
+		<field name="yearandsemesterofsubject" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="yearandsemesterofsubject"/>
+		</field>
+		<field name="credit" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="credit"/>
+		</field>
+		<field name="subjectpredetail" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="subjectpredetail"/>
+		</field>
+		<field name="ipaddress" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="ipaddress"/>
+		</field>
+		<field name="educationtypelevelname" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="educationtypelevelname"/>
+		</field>
+		<field name="facname" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="facname"/>
+		</field>
+		<field name="programname" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="programname"/>
+		</field>
+	</subDataset>
+	<parameter name="COMPANY_CODE" class="java.lang.String"/>
+	<parameter name="LIN_ID" class="java.lang.String"/>
+	<parameter name="EDUCATION_TYPE_LEVEL" class="java.lang.String"/>
+	<parameter name="FAC_CODE" class="java.lang.String"/>
+	<parameter name="PROGRAM_CODE" class="java.lang.String"/>
+	<parameter name="ACADEMIC_YEAR_FROM" class="java.lang.Integer"/>
+	<parameter name="ACADEMIC_YEAR_TO" class="java.lang.Integer"/>
+	<parameter name="SUBJECT_CODE_FROM" class="java.lang.String"/>
+	<parameter name="SUBJECT_CODE_TO" class="java.lang.String"/>
+	<parameter name="USER_NAME" class="java.lang.String"/>
+	<parameter name="IP_ADDRESS" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[select 	char10 as educationTypeName,
+			char12 as facName,
+			char1 as subjectCode,
+			char2 as subjectName,
+			num1 as academicYear,
+			num2 as academicSemester,
+			char3 as creditDesc,
+			char4 as programCode,
+			char5 as programName
+from 	report_csrp01(
+			$P{LIN_ID},
+			$P{COMPANY_CODE},
+			$P{EDUCATION_TYPE_LEVEL},
+			$P{FAC_CODE},
+			$P{PROGRAM_CODE},
+		 	$P{ACADEMIC_YEAR_FROM},
+			$P{ACADEMIC_YEAR_TO},
+			$P{SUBJECT_CODE_FROM},
+			$P{SUBJECT_CODE_TO}
+			)]]>
+	</queryString>
+	<field name="educationtypename" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="educationtypename"/>
+	</field>
+	<field name="facname" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="facname"/>
+	</field>
+	<field name="subjectcode" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="subjectcode"/>
+	</field>
+	<field name="subjectname" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="subjectname"/>
+	</field>
+	<field name="academicyear" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="academicyear"/>
+	</field>
+	<field name="academicsemester" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="academicsemester"/>
+	</field>
+	<field name="creditdesc" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="creditdesc"/>
+	</field>
+	<field name="programcode" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="programcode"/>
+	</field>
+	<field name="programname" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="programname"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="80" splitType="Stretch">
+			<componentElement>
+				<reportElement x="0" y="0" width="800" height="80" uuid="70e57d09-85ed-4ab5-84c3-1eb65e8bfff6"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="DataSet1" uuid="22bff43c-3598-4a7e-b6bf-45d9dfec066b">
+						<datasetParameter name="LIN_ID">
+							<datasetParameterExpression><![CDATA[$P{LIN_ID}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="EDUCATION_TYPE_LEVEL">
+							<datasetParameterExpression><![CDATA[$P{EDUCATION_TYPE_LEVEL}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="FAC_CODE">
+							<datasetParameterExpression><![CDATA[$P{FAC_CODE}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="PROGRAM_CODE">
+							<datasetParameterExpression><![CDATA[$P{PROGRAM_CODE}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="ACADEMIC_YEAR_FROM">
+							<datasetParameterExpression><![CDATA[$P{ACADEMIC_YEAR_FROM}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="ACADEMIC_YEAR_TO">
+							<datasetParameterExpression><![CDATA[$P{ACADEMIC_YEAR_TO}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="SUBJECT_CODE_FROM">
+							<datasetParameterExpression><![CDATA[$P{SUBJECT_CODE_FROM}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="SUBJECT_CODE_TO">
+							<datasetParameterExpression><![CDATA[$P{SUBJECT_CODE_TO}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="COMPANY_CODE">
+							<datasetParameterExpression><![CDATA[$P{COMPANY_CODE}]]></datasetParameterExpression>
+						</datasetParameter>
+					</datasetRun>
+					<jr:listContents height="80" width="800">
+						<textField>
+							<reportElement x="0" y="0" width="800" height="20" uuid="33abdcd2-9d32-4357-bc29-579e8c4b0318">
+								<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							</reportElement>
+							<textElement textAlignment="Center" verticalAlignment="Middle">
+								<font fontName="TH Sarabun New" size="14" isBold="true" isItalic="false"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{university}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="0" y="20" width="800" height="20" uuid="bb60e102-456e-4ef0-b9da-8a89dd9fdf46">
+								<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							</reportElement>
+							<textElement textAlignment="Center" verticalAlignment="Middle">
+								<font fontName="TH Sarabun New" size="14" isBold="true" isItalic="false"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{reportname}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="0" y="40" width="110" height="20" uuid="d2fa063a-cbcf-4330-bbc9-48ed107adb0a">
+								<property name="com.jaspersoft.studio.unit.height" value="px"/>
+								<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							</reportElement>
+							<textElement textAlignment="Left" verticalAlignment="Middle">
+								<font fontName="TH Sarabun New" size="14" isBold="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{educationtypelevel}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="0" y="60" width="110" height="20" uuid="442c1d16-84c2-4251-9dac-8263344d422d">
+								<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							</reportElement>
+							<textElement textAlignment="Left" verticalAlignment="Middle">
+								<font fontName="TH Sarabun New" size="14" isBold="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{academicyearfromto}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="110" y="40" width="100" height="20" uuid="4ba6911d-b426-4af4-a294-2710dab8a8f0"/>
+							<textElement textAlignment="Left" verticalAlignment="Middle">
+								<font fontName="TH Sarabun New" size="14"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{educationtypelevelname}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="110" y="60" width="100" height="20" uuid="7ceab35c-4e1d-4871-a9ce-0743c7f05825">
+								<property name="net.sf.jasperreports.style.markup" value="html"/>
+							</reportElement>
+							<textElement textAlignment="Left" verticalAlignment="Middle">
+								<font fontName="TH Sarabun New" size="14"/>
+							</textElement>
+							<textFieldExpression><![CDATA[($P{ACADEMIC_YEAR_FROM} == null ? $F{start} : $P{ACADEMIC_YEAR_FROM}) + " <b>" + $F{to} + "</b> " + ($P{ACADEMIC_YEAR_TO} == null ? $F{end} : $P{ACADEMIC_YEAR_TO})]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="590" y="40" width="100" height="20" uuid="1910422c-965f-47c0-a5a5-e07c6dbd05b0">
+								<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							</reportElement>
+							<textElement textAlignment="Right" verticalAlignment="Middle">
+								<font fontName="TH Sarabun New" size="14" isBold="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{program} + "   "]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="690" y="40" width="110" height="20" uuid="a7775293-bc3c-4c2d-9adf-bc55a7ee0daa">
+								<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							</reportElement>
+							<textElement textAlignment="Left" verticalAlignment="Middle">
+								<font fontName="TH Sarabun New" size="14" isBold="false"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$P{PROGRAM_CODE} == null || $P{PROGRAM_CODE} == "" ? $F{all} : $F{programname}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="210" y="40" width="380" height="20" uuid="20e9847e-d130-4abc-891b-f11bb1983840">
+								<property name="net.sf.jasperreports.style.markup" value="html"/>
+							</reportElement>
+							<textElement textAlignment="Center" verticalAlignment="Middle">
+								<font fontName="TH Sarabun New" size="14" isBold="false"/>
+							</textElement>
+							<textFieldExpression><![CDATA["<b>" + $F{faculty} + "</b> " + ($P{FAC_CODE} == null || $P{FAC_CODE} == "" ? $F{all} : $F{facname})]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="210" y="60" width="380" height="20" uuid="474c125b-605e-497c-96aa-dc454c275743">
+								<property name="net.sf.jasperreports.style.markup" value="html"/>
+							</reportElement>
+							<textElement textAlignment="Center" verticalAlignment="Middle">
+								<font fontName="TH Sarabun New" size="14" isBold="false"/>
+							</textElement>
+							<textFieldExpression><![CDATA["<b> " + $F{subjectcodefromto} + "</b> " + ($P{SUBJECT_CODE_FROM} == null || $P{SUBJECT_CODE_FROM} == "" ? $F{start} : $P{SUBJECT_CODE_FROM}) + " <b>" + $F{to} + "</b> " + ($P{SUBJECT_CODE_TO} == null || $P{SUBJECT_CODE_TO} == "" ? $F{end} : $P{SUBJECT_CODE_TO})]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="40" splitType="Stretch">
+			<componentElement>
+				<reportElement x="0" y="0" width="800" height="40" uuid="05677f5a-2dd5-4b9a-bcef-969ec5928de4">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="DataSet1" uuid="db86bad5-bdc6-4b3a-9683-2667b8df2efa">
+						<datasetParameter name="LIN_ID">
+							<datasetParameterExpression><![CDATA[$P{LIN_ID}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:listContents height="40" width="800">
+						<textField>
+							<reportElement x="0" y="0" width="110" height="40" uuid="32e490b0-1041-4eb7-8414-ab8985d577f6">
+								<property name="com.jaspersoft.studio.unit.height" value="px"/>
+								<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							</reportElement>
+							<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+								<pen lineWidth="1.0"/>
+								<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+								<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+								<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+								<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+							</box>
+							<textElement textAlignment="Center" verticalAlignment="Middle">
+								<font fontName="TH Sarabun New" size="14"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{subjectcode}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="110" y="0" width="100" height="40" uuid="f541625f-4d2f-49e5-9f6b-10351bde55a1">
+								<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							</reportElement>
+							<box>
+								<pen lineWidth="1.0"/>
+								<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+								<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+								<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+								<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+							</box>
+							<textElement textAlignment="Left" verticalAlignment="Middle">
+								<font fontName="TH Sarabun New" size="14"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{subjectname}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="210" y="0" width="70" height="40" uuid="cdcbd39a-48a8-48b4-a9eb-92c19620869f">
+								<property name="com.jaspersoft.studio.unit.height" value="px"/>
+								<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							</reportElement>
+							<box>
+								<pen lineWidth="1.0"/>
+								<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+								<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+								<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+								<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+							</box>
+							<textElement textAlignment="Center" verticalAlignment="Middle">
+								<font fontName="TH Sarabun New" size="14"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{yearandsemesterofsubject}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="280" y="0" width="55" height="40" uuid="5d87ec07-a674-4415-aaa0-9a9344c2fa26">
+								<property name="com.jaspersoft.studio.unit.height" value="px"/>
+								<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							</reportElement>
+							<box>
+								<pen lineWidth="1.0"/>
+								<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+								<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+								<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+								<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+							</box>
+							<textElement textAlignment="Center" verticalAlignment="Middle">
+								<font fontName="TH Sarabun New" size="14"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{credit}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="335" y="0" width="110" height="40" uuid="a0400a94-b53c-451a-9229-d8d772cecaec">
+								<property name="com.jaspersoft.studio.unit.height" value="px"/>
+								<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							</reportElement>
+							<box>
+								<pen lineWidth="1.0"/>
+								<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+								<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+								<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+								<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+							</box>
+							<textElement textAlignment="Left" verticalAlignment="Middle">
+								<font fontName="TH Sarabun New" size="14"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{program}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="445" y="0" width="355" height="20" uuid="132826d0-9ac5-4401-983c-afad333ec28b">
+								<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							</reportElement>
+							<box>
+								<pen lineWidth="1.0"/>
+								<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+								<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+								<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+								<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+							</box>
+							<textElement textAlignment="Center" verticalAlignment="Middle">
+								<font fontName="TH Sarabun New" size="14"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{subjectpredetail}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="445" y="20" width="110" height="20" uuid="cacf3e7d-2069-421a-bb92-cead37a4a52c">
+								<property name="com.jaspersoft.studio.unit.height" value="px"/>
+								<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							</reportElement>
+							<box>
+								<pen lineWidth="1.0"/>
+								<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+								<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+								<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+								<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+							</box>
+							<textElement textAlignment="Center" verticalAlignment="Middle">
+								<font fontName="TH Sarabun New" size="14"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{subjectcode}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="555" y="20" width="120" height="20" uuid="098183f8-5140-4061-88d8-eec4c78f65ca">
+								<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							</reportElement>
+							<box>
+								<pen lineWidth="1.0"/>
+								<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+								<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+								<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+								<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+							</box>
+							<textElement textAlignment="Left" verticalAlignment="Middle">
+								<font fontName="TH Sarabun New" size="14"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{subjectname}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="675" y="20" width="70" height="20" uuid="e92419dc-e9d7-47d4-a799-09f71d2f1d46">
+								<property name="com.jaspersoft.studio.unit.height" value="px"/>
+								<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							</reportElement>
+							<box>
+								<pen lineWidth="1.0"/>
+								<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+								<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+								<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+								<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+							</box>
+							<textElement textAlignment="Center" verticalAlignment="Middle">
+								<font fontName="TH Sarabun New" size="14"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{yearandsemesterofsubject}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="745" y="20" width="55" height="20" uuid="ebdf1d31-5fdf-429d-93b9-cd255844b965">
+								<property name="com.jaspersoft.studio.unit.height" value="px"/>
+								<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							</reportElement>
+							<box>
+								<pen lineWidth="1.0"/>
+								<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+								<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+								<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+								<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+							</box>
+							<textElement textAlignment="Center" verticalAlignment="Middle">
+								<font fontName="TH Sarabun New" size="14"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{credit}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="110" height="20" uuid="ed735379-fe0e-48de-883a-89761a33e446">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="net.sf.jasperreports.style.isBlankWhenNull" value="true"/>
+					<property name="net.sf.jasperreports.export.xls.repeat.value" value="true"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{subjectcode}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="110" y="0" width="100" height="20" uuid="8ac9521f-227d-4e18-abe1-f453b82c5d8d">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="net.sf.jasperreports.style.isBlankWhenNull" value="true"/>
+					<property name="net.sf.jasperreports.export.xls.repeat.value" value="true"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{subjectname}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="210" y="0" width="70" height="20" uuid="0a1df7e4-dae8-4952-8c1c-8e12ffa432bc">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="net.sf.jasperreports.style.isBlankWhenNull" value="true"/>
+					<property name="net.sf.jasperreports.export.xls.repeat.value" value="true"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{academicyear} + "/" + $F{academicsemester}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="280" y="0" width="55" height="20" uuid="1f11e973-34e0-4b4b-8979-95ced91e26e5">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="net.sf.jasperreports.style.isBlankWhenNull" value="true"/>
+					<property name="net.sf.jasperreports.export.xls.repeat.value" value="true"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{creditdesc}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="335" y="0" width="110" height="20" uuid="93954438-20f1-4172-a0be-6f7ad060e82e">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="net.sf.jasperreports.style.isBlankWhenNull" value="true"/>
+					<property name="net.sf.jasperreports.export.xls.repeat.value" value="true"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{programname}]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement x="445" y="0" width="355" height="20" uuid="cfea0d52-6e9a-4dde-8fc0-77713f7d13ee"/>
+				<subreportParameter name="COMPANY_CODE">
+					<subreportParameterExpression><![CDATA[$P{COMPANY_CODE}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="LIN_ID">
+					<subreportParameterExpression><![CDATA[$P{LIN_ID}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="EDUCATION_TYPE_LEVEL">
+					<subreportParameterExpression><![CDATA[$P{EDUCATION_TYPE_LEVEL}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="FAC_CODE">
+					<subreportParameterExpression><![CDATA[$P{FAC_CODE}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="PROGRAM_CODE">
+					<subreportParameterExpression><![CDATA[$P{PROGRAM_CODE}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="ACADEMIC_YEAR_FROM">
+					<subreportParameterExpression><![CDATA[$P{ACADEMIC_YEAR_FROM}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="ACADEMIC_YEAR_TO">
+					<subreportParameterExpression><![CDATA[$P{ACADEMIC_YEAR_TO}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="SUBJECT_CODE_FROM">
+					<subreportParameterExpression><![CDATA[$P{SUBJECT_CODE_FROM}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="SUBJECT_CODE_TO">
+					<subreportParameterExpression><![CDATA[$P{SUBJECT_CODE_TO}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="SUBJECT_CODE_ROW">
+					<subreportParameterExpression><![CDATA[$F{subjectcode}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="PROGRAM_CODE_ROW">
+					<subreportParameterExpression><![CDATA[$F{programcode}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA["CSRP01_SujectPre.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="20">
+			<componentElement>
+				<reportElement x="0" y="0" width="800" height="20" uuid="ab017cb9-e1c4-45f2-be4d-79e1d9d59973">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="DataSet1" uuid="81cc6197-7ea9-43c6-aefd-4516b71b56fd">
+						<datasetParameter name="USER_NAME">
+							<datasetParameterExpression><![CDATA[$P{USER_NAME}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="IP_ADDRESS">
+							<datasetParameterExpression><![CDATA[$P{IP_ADDRESS}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="LIN_ID">
+							<datasetParameterExpression><![CDATA[$P{LIN_ID}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:listContents height="20" width="800">
+						<textField>
+							<reportElement x="0" y="0" width="800" height="20" uuid="022fbd3c-047b-4264-bfe1-1d6a3f551440"/>
+							<box>
+								<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+								<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+								<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+								<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+							</box>
+							<textElement textAlignment="Right" verticalAlignment="Middle">
+								<font fontName="TH Sarabun New" size="14"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{printdate} + " : " + new java.text.SimpleDateFormat("dd/MM/yyyy HH:mm", new Locale("TH","th")).format(new java.util.Date()) + " " + $F{publisher} + " : " + $P{USER_NAME} + " " + $F{ipaddress} + " : " + $P{IP_ADDRESS}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+		</band>
+	</pageFooter>
+</jasperReport>

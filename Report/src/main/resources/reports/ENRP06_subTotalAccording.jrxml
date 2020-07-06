@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ENRP06_subTotalAccording" language="groovy" pageWidth="555" pageHeight="802" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="f29c62f8-28bb-4c9c-942d-1d8063a5b059">
+	<property name="ireport.zoom" value="1.9487171000000016"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<subDataset name="dataset1" uuid="84b73141-35c6-4355-b24a-f3f718eee0a5">
+		<parameter name="LANG" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[Select get_label_name('ENRP06','Totalaccording',$P{LANG}) as TotalaccordingSCB]]>
+		</queryString>
+		<field name="totalaccordingscb" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="dataset2" uuid="fa34f4af-dab3-49cf-ab84-fec824df5bea">
+		<parameter name="enrollment_id" class="java.lang.Long">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="route_code" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[select count(b.route_code) as countList
+from en_enrollment_receive as b
+left join fn_receive_type as f
+on b.company_code = f.company_code
+and b.receipt_type_id = f.receive_type_id
+where b.enrollment_id = $P{enrollment_id}
+and b.route_code = $P{route_code}
+group by b.route_code,f.rec_type_name_eng, f.rec_type_name_tha]]>
+		</queryString>
+		<field name="countlist" class="java.lang.Long"/>
+	</subDataset>
+	<subDataset name="dataset3" uuid="3eaa77f5-78ba-4e62-8353-00c656579f48">
+		<parameter name="LANG" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[Select get_label_name('ENRP06','List',$P{LANG}) as List]]>
+		</queryString>
+		<field name="list" class="java.lang.String"/>
+	</subDataset>
+	<parameter name="LANG" class="java.lang.String"/>
+	<parameter name="enrollment_id" class="java.lang.Long"/>
+	<parameter name="route_code" class="java.lang.String"/>
+	<parameter name="year" class="java.lang.Integer"/>
+	<parameter name="semester" class="java.lang.Integer"/>
+	<parameter name="education_type_level" class="java.lang.String"/>
+	<parameter name="ccl_id" class="java.lang.Long"/>
+	<parameter name="student_code" class="java.lang.String"/>
+	<parameter name="company_code" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[Select distinct sum(b.total_amount) as total_amount ,
+case  $P{LANG} when 'th' then d.route_name else COALESCE(d.route_name_eng, d.route_name) end as route_name,
+case  $P{LANG} when 'th' then f.rec_type_name_tha else COALESCE(f.rec_type_name_eng, f.rec_type_name_tha) end as rec_type_name
+from en_enrollment_receive as b
+left join en_enrollment as a
+on a.company_code = b.company_code
+and a.enrollment_id = b.enrollment_id
+left join db_route as d
+on b.company_code = d.company_code
+and b.route_code = d.route_code
+left join fn_receive_type as f
+on b.company_code = f.company_code
+and b.receipt_type_id = f.receive_type_id
+where b.enrollment_id = b.enrollment_id
+and a.year = $P{year}
+and a.semester = $P{semester}
+and a.education_type_level = $P{education_type_level}
+and a.ccl_id = $P{ccl_id}
+and a.student_code = $P{student_code}
+and a.company_code = $P{company_code}
+group by d.route_name_eng,d.route_name,f.rec_type_name_eng, f.rec_type_name_tha]]>
+	</queryString>
+	<field name="total_amount" class="java.math.BigDecimal"/>
+	<field name="route_name" class="java.lang.String"/>
+	<field name="rec_type_name" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="55" splitType="Stretch">
+			<componentElement>
+				<reportElement x="474" y="15" width="27" height="20" uuid="a2b4b995-c0ff-4936-97c2-60b3a6a01ae4"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="dataset2" uuid="4a472331-5f36-43d2-b38a-f43492f028b6">
+						<datasetParameter name="route_code">
+							<datasetParameterExpression><![CDATA[$P{route_code}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="enrollment_id">
+							<datasetParameterExpression><![CDATA[$P{enrollment_id}]]></datasetParameterExpression>
+						</datasetParameter>
+					</datasetRun>
+					<jr:listContents height="20" width="27">
+						<textField isBlankWhenNull="true">
+							<reportElement x="0" y="0" width="23" height="20" uuid="961c6c24-4e08-4d73-b26a-748df6be0aea"/>
+							<textElement textAlignment="Center">
+								<font fontName="TH Sarabun New" size="12" isBold="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA["("+ $F{countlist} +")"]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<componentElement>
+				<reportElement x="0" y="15" width="133" height="20" uuid="9777c840-4b2f-400b-b453-2b5b6f04284b"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="dataset1" uuid="266a0c0b-4430-43b8-a138-5a148e871b26">
+						<datasetParameter name="LANG">
+							<datasetParameterExpression><![CDATA[$P{LANG}]]></datasetParameterExpression>
+						</datasetParameter>
+					</datasetRun>
+					<jr:listContents height="20" width="133">
+						<textField isBlankWhenNull="true">
+							<reportElement x="0" y="0" width="133" height="20" uuid="867ffd33-5692-4e7e-890b-888088344119"/>
+							<textElement verticalAlignment="Middle">
+								<font fontName="TH Sarabun New" size="12" isBold="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{totalaccordingscb}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<textField isBlankWhenNull="true">
+				<reportElement x="303" y="15" width="169" height="20" uuid="0546d78a-2a2b-4e1d-9d10-3996f21bbe22"/>
+				<textElement textAlignment="Right">
+					<font fontName="TH Sarabun New" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{total_amount}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="134" y="15" width="169" height="20" uuid="0509a6f4-2323-4826-9d18-26357fcf74ff"/>
+				<textElement>
+					<font fontName="TH Sarabun New" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{route_name}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="303" y="35" width="168" height="20" uuid="ccbc6494-095f-42a5-bcb5-69f2bbac5d3a"/>
+				<textElement textAlignment="Right">
+					<font fontName="TH Sarabun New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{total_amount}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="165" y="35" width="138" height="20" uuid="e5a660f0-4e43-42ce-9fd3-3c05061625f8"/>
+				<box leftPadding="5"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{rec_type_name}]]></textFieldExpression>
+			</textField>
+			<componentElement>
+				<reportElement x="504" y="15" width="50" height="40" uuid="7e804c3a-40e2-4b16-b942-8e6e8f2d6604"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="dataset3" uuid="1f6b659a-f33a-4ed6-b96b-ecd431d9b583">
+						<datasetParameter name="LANG">
+							<datasetParameterExpression><![CDATA[$P{LANG}]]></datasetParameterExpression>
+						</datasetParameter>
+					</datasetRun>
+					<jr:listContents height="40" width="50">
+						<textField isBlankWhenNull="true">
+							<reportElement x="0" y="0" width="49" height="20" uuid="4125648f-9843-410e-962b-fb3014df443e"/>
+							<textElement verticalAlignment="Middle">
+								<font fontName="TH Sarabun New" size="12" isBold="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{list}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+		</band>
+	</detail>
+</jasperReport>

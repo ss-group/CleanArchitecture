@@ -1,0 +1,83 @@
+<h4>{{ 'label.SURT01.ProgramName' | translate }}</h4>
+<div class="row">
+  <div class="col">
+    <app-card>
+      <div class="card-content">
+        <div class="row">
+          <div class="col-6">
+            <app-search [value]="keyword" (search)="enter($event)"
+              placeholder="{{ 'label.SURT01.SearchPlaceholder' | translate }}">
+            </app-search>
+          </div>
+          <div class="col-6 text-right">
+            <button class="btn btn-primary" (click)="add()"><i class="fas fa-plus-circle"></i>
+              {{ 'label.ALL.Add' | translate }}</button>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col">
+            <app-table [rows]="companies" [page]="page" (onTableEvent)="search()">
+              <ngx-datatable-column prop="companyCode" width="125" [cellClass]="'text-center'">
+                <ng-template let-sort="sortFn" ngx-datatable-header-template>
+                  <label class="datatable-header-cell-wrapper"
+                    (click)="sort()">{{ 'label.SURT01.CompanyCode' | translate }}</label>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  <a [routerLink]="['company/detail']"
+                    [state]="{ companyCode: row.companyCode }">{{ row.companyCode }}</a>
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column prop="companyNameTha" width="200">
+                <ng-template let-sort="sortFn" ngx-datatable-header-template>
+                  <label class="datatable-header-cell-wrapper"
+                    (click)="sort()">{{ 'label.SURT01.CompanyNameTha' | translate }}</label>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  {{ row.companyNameTha }}
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column prop="companyNameEng" width="200">
+                <ng-template let-sort="sortFn" ngx-datatable-header-template>
+                  <label class="datatable-header-cell-wrapper"
+                    (click)="sort()">{{ 'label.SURT01.CompanyNameEng' | translate }}</label>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  {{ row.companyNameEng }}
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column prop="active" width="50" [cellClass]="'text-center'">
+                <ng-template let-sort="sortFn" ngx-datatable-header-template>
+                  <label class="datatable-header-cell-wrapper"
+                    (click)="sort()">{{ 'label.SURT01.Active' | translate }}</label>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  <i *ngIf="row.active" class="fas fa-check"></i>
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column [cellClass]="'text-center'" [sortable]="false" width="50">
+                <ng-template ngx-datatable-header-template>
+                  <label class="datatable-header-cell-wrapper">{{ 'label.SURT01.Division' | translate }}</label>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  <a class="btn btn-outline-main btn-sm" role="button" [routerLink]="['division']"
+                    [state]="{ companyCode: row.companyCode }"><i class="fas fa-list-ul"></i></a>
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column [cellClass]="'text-center'" [sortable]="false" width="50">
+                <ng-template ngx-datatable-header-template>
+                  <label class="datatable-header-cell-wrapper">{{ 'label.ALL.Delete' | translate }}</label>
+                </ng-template>
+                <ng-template let-row="row" let-rowIndex="rowIndex" ngx-datatable-cell-template>
+                  <button (click)="remove(row.companyCode, row.rowVersion)" class="btn btn-outline-danger btn-sm">
+                    <i class="far fa-trash-alt"></i>
+                  </button>
+                </ng-template>
+              </ngx-datatable-column>
+            </app-table>
+          </div>
+        </div>
+      </div>
+    </app-card>
+  </div>
+</div>

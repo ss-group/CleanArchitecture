@@ -1,0 +1,89 @@
+<toolbar>
+  <button class="btn btn-primary" (click)="util.focusInvalid(passwordPolicy); save()">
+    <i class="fas fa-cog fa-spin" [hidden]="!saving"></i>
+    <i class="fas fa-save" [hidden]="saving"></i> {{ 'label.ALL.Save' | translate }}</button>
+</toolbar>
+
+<h4>{{ 'label.SURT07.ProgramName' | translate }}</h4>
+<div class="row">
+  <div class="col">
+    <app-card header="{{ 'label.SURT07.PasswordPolicyDetail' | translate }}">
+      <div class="card-content">
+        <form #passwordPolicy [formGroup]="passwordPolicyForm">
+          <div class="form-row">
+            <div class="form-group col-md-3 col-sm-6">
+              <textbox formControlName="passwordPolicyCode" class="text-center">
+                {{ 'label.SURT07.PasswordPolicyCode' | translate }}
+                <div class="invalid-pattern">
+                  {{ 'message.STD00037' | translate }}
+                </div>
+              </textbox>
+            </div>
+            <div class="form-group col-md-3 col-sm-6">
+              <textbox formControlName="passwordPolicyName">{{ 'label.SURT07.PasswordPolicyName' | translate }}
+                <div class="invalid-pattern">
+                  {{ 'message.STD00037' | translate }}
+                </div>
+              </textbox>
+            </div>
+            <div class="form-group col-md-6 col-sm-6">
+              <textbox formControlName="passwordPolicyDescription">
+                {{ 'label.SURT07.PasswordPolicyDescription' | translate}}
+                <div class="invalid-pattern">
+                  {{ 'message.STD00037' | translate }}
+                </div>
+              </textbox>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-3 col-sm-6">
+              <number formControlName="failTime">
+                {{ 'label.SURT07.FailTime' | translate}}</number>
+            </div>
+            <div class="form-group col-md-3 col-sm-6">
+              <number formControlName="passwordAge">{{ 'label.SURT07.PasswordAge' | translate}}
+              </number>
+            </div>
+            <div class="form-group col-md-3 col-sm-6">
+              <number formControlName="passwordMinimumLength">
+                {{ 'label.SURT07.PasswordMinimumLength' | translate}}</number>
+            </div>
+            <div class="form-group col-md-3 col-sm-6">
+              <number formControlName="passwordMaximumLength">
+                {{ 'label.SURT07.PasswordMaximumLength' | translate}}</number>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-3 col-sm-6">
+              <checkbox formControlName="usingUppercase">{{ 'label.SURT07.UsingUpperCase' | translate}}</checkbox>
+            </div>
+            <div class="form-group col-md-3 col-sm-6">
+              <checkbox formControlName="usingLowercase">{{ 'label.SURT07.UsingLowerCase' | translate}}</checkbox>
+            </div>
+            <div class="form-group col-md-3 col-sm-6">
+              <checkbox formControlName="usingNumericChar">{{ 'label.SURT07.UsingNumericChar' | translate}}</checkbox>
+            </div>
+            <div class="form-group col-md-3 col-sm-6">
+              <checkbox formControlName="usingSpecialChar">{{ 'label.SURT07.UsingSpecialChar' | translate}}</checkbox>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-3 col-sm-6">
+              <checkbox formControlName="active">{{ 'label.SURT07.Active' | translate}}</checkbox>
+            </div>
+          </div>
+          <br>
+          <div class="form-row">
+            <div class="form-group col-md col-sm-6">
+              <p>
+                {{ 'label.SURT07.Remark' | translate}} :<br>
+                {{ 'label.SURT07.RemarkDetail1' | translate}}<br>
+                {{ 'label.SURT07.RemarkDetail2' | translate}}
+              </p>
+            </div>
+          </div>
+        </form>
+      </div>
+    </app-card>
+  </div>
+</div>

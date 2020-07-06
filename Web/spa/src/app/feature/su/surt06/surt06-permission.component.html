@@ -1,0 +1,69 @@
+<toolbar>
+  <button class="btn btn-primary" (click)="util.focusInvalid(per); save()">
+    <i class="fas fa-cog fa-spin" [hidden]="!saving"></i>
+    <i class="fas fa-save" [hidden]="saving"></i> {{ 'label.ALL.Save' | translate}}</button>
+</toolbar>
+<h4>{{ 'label.SURT06.ProgramName' | translate}} <span *ngIf="ss.userType">({{ ss.userType.name }})</span></h4>
+<div class="row">
+  <div class="col">
+    <app-card header="{{ 'label.SURT06.UserDetail' | translate}}">
+      <div class="card-content">
+        <form #per [formGroup]="permissionForm">
+          <div class="form-row">
+            <div class="form-group col-md-3 col-sm-6">
+              <textbox [value]="username" [disabled]="true">{{ 'label.SURT06.Username' | translate }}</textbox>
+            </div>
+            <div class="form-group col-md-3 col-sm-6">
+              <textbox [value]="employeeName" [disabled]="true">{{ 'label.SURT06.Employee' | translate }}</textbox>
+            </div>
+            <div class="form-group col-md-3 col-sm-6">
+              <select-input [items]="master.companies" formControlName="companyCode">
+                {{ 'label.SURT06.CompanyCode' | translate }}</select-input>
+            </div>
+          </div>
+        </form>
+      </div>
+    </app-card>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <tabset>
+      <tab heading="{{ 'label.SURT06.DivisionInfo' | translate}}">
+        <division-tree [items]="divisions" [defaults]="permission.divisions" (onChange)="divisionChange()">
+        </division-tree>
+      </tab>
+      <tab heading="{{ 'label.SURT06.EducationPermission' | translate}}">
+        <div *ngIf="(companyReady | async)">
+          <div class="text-right">
+            <button type="button" class="btn btn-primary" (click)="addTypeLevel();edu.goLastPage();"><i class="fas fa-plus-circle"></i>
+              {{ 'label.ALL.Add' | translate }}</button>
+          </div>
+          <app-table-client #edu [rows]="permission.eduLevels">
+            <ngx-datatable-column prop="educationTypeLevel" [width]="140">
+              <ng-template ngx-datatable-header-template>
+                <label class="datatable-header-cell-wrapper require"> {{'label.SURT06.TypeLevel' | translate}}</label>
+              </ng-template>
+              <ng-template let-row="row" ngx-datatable-cell-template>
+                <div [formGroup]="row.form">
+                  <select-input [items]="typeLevel[row.guid]" formControlName="educationTypeLevel" [hasLabel]="false"
+                    [small]="true"></select-input>
+                </div>
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column cellClass="text-center" [sortable]="false" width="80">
+              <ng-template ngx-datatable-header-template>
+                <label class="datatable-header-cell-wrapper">{{ 'label.ALL.Delete' | translate }}</label>
+              </ng-template>
+              <ng-template let-row="row" let-rowIndex="rowIndex" ngx-datatable-cell-template>
+                <button  (click)="removeTypeLevel(row)" class="btn btn-outline-danger btn-sm">
+                  <i class="far fa-trash-alt"></i>
+                </button>
+              </ng-template>
+            </ngx-datatable-column>
+          </app-table-client>
+        </div>
+      </tab>
+    </tabset>
+  </div>
+</div>

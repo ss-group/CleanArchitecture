@@ -1,0 +1,10 @@
+<label *ngIf="hasLabel">
+  <ng-content></ng-content>
+</label>
+<div>
+  <div *ngFor="let item of items;let i = index" class="custom-control custom-radio" [class.custom-control-inline]="inline" [class.mb-2]="!inline">
+    <input type="radio" [disabled]="disabled || item.disabled" [value]="value" id="{{i+name}}" [name]="name" [checked]="value==item.value"
+      class="custom-control-input" (change)="onSelect(item.value)">
+    <label class="custom-control-label" for="{{i+name}}">{{item.text}}</label>
+  </div>
+</div>

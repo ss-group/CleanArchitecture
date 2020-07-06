@@ -1,0 +1,77 @@
+<h4>{{ 'label.SURT05.ProgramName' | translate }}</h4>
+
+<div class="row">
+  <div class="col">
+    <app-card header="{{ 'label.SURT05.Search' | translate }}">
+      <div class="card-content">
+        <form #criteria [formGroup]="criteriaForm">
+          <div class="form-row">
+            <div class="form-group col-md-6 col-sm-6">
+              <select-input [items]="master.parameterGroupCodes" formControlName="parameterGroupCode" placeholder="{{ 'label.ALL.PleaseSelect' | translate }}">
+                {{ 'label.SURT05.ParameterGroupCode' | translate }}</select-input>
+            </div>
+            <div class="form-group col-md-6 col-sm-6">
+              <textbox formControlName="keyWord" placeholder="{{ 'label.SURT05.ParameterInfoPlaceholder' | translate }}">{{ 'label.SURT05.ParameterInfo' | translate }}</textbox>
+            </div>
+          </div>
+          <br>
+          <div class="form-row">
+            <div class="col-12 text-center">
+              <button class="btn btn-primary" (click)="enter()"><i class="fas fa-search"></i> {{ 'label.SURT05.Search' | translate }}</button>
+              <button class="btn btn-outline-dark-primary" (click)="clearCriteria();"><i class="fas fa-eraser"></i>
+                {{ 'label.SURT05.Clear' | translate }}</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </app-card>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <app-card header="{{ 'label.SURT05.Parameter' | translate }}">
+      <div class="card-content">
+        <div class="row">
+          <div class="col">
+            <app-table [rows]="parameters" [page]="page" (onTableEvent)="search()">
+              <ngx-datatable-column prop="parameterGroupCode" width="125" [cellClass]="'text-left'">
+                <ng-template let-sort="sortFn" ngx-datatable-header-template>
+                  <label class="datatable-header-cell-wrapper" (click)="sort()">{{ 'label.SURT05.ParameterGroupCode' | translate }}</label>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  <a [routerLink]="['detail']"
+                    [state]="{groupCode: row.parameterGroupCode, code: row.parameterCode}">{{ row.parameterGroupCode }}</a>
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column prop="parameterCode" width="125">
+                <ng-template let-sort="sortFn" ngx-datatable-header-template>
+                  <label class="datatable-header-cell-wrapper" (click)="sort()">{{ 'label.SURT05.ParameterCode' | translate }}</label>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  {{ row.parameterCode }}
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column prop="parameterValue" width="125">
+                <ng-template let-sort="sortFn" ngx-datatable-header-template>
+                  <label class="datatable-header-cell-wrapper" (click)="sort()">{{ 'label.SURT05.ParameterValue' | translate }}</label>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  {{ row.parameterValue }}
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column prop="remark" width="200">
+                <ng-template let-sort="sortFn" ngx-datatable-header-template>
+                  <label class="datatable-header-cell-wrapper" (click)="sort()">{{ 'label.SURT05.Remark' | translate }}</label>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  {{ row.remark }}
+                </ng-template>
+              </ngx-datatable-column>
+            </app-table>
+          </div>
+        </div>
+      </div>
+    </app-card>
+  </div>
+</div>

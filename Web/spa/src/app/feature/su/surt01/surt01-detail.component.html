@@ -1,0 +1,140 @@
+<toolbar>
+  <button class="btn btn-primary" (click)="util.focusInvalid(company); save()">
+    <i class="fas fa-cog fa-spin" [hidden]="!saving"></i>
+    <i class="fas fa-save" [hidden]="saving"></i> {{ 'label.ALL.Save' | translate }}</button>
+</toolbar>
+
+<h4>{{ 'label.SURT01.ProgramName' | translate }}</h4>
+<div class="row">
+  <div class="col">
+    <app-card header="{{ 'label.SURT01.CompanyDetail' | translate }}">
+      <div class="card-content">
+        <form #company [formGroup]="companyForm">
+          <div class="form-row">
+            <div class="form-group col-md-3 col-sm-6">
+              <textbox formControlName="companyCode" class="text-center">{{ 'label.SURT01.CompanyCode' | translate }}
+                <div class="invalid-pattern">
+                  {{ 'message.STD00037' | translate }}
+                </div>
+              </textbox>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6 col-sm-6">
+              <textbox formControlName="companyNameTha">{{ 'label.SURT01.CompanyNameTha' | translate }}</textbox>
+            </div>
+            <div class="form-group col-md-6 col-sm-6">
+              <textbox formControlName="companyNameEng">{{ 'label.SURT01.CompanyNameEng' | translate }}</textbox>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-3 col-sm-6">
+              <select-input [items]="master.personalTaxTypes" formControlName="personalTaxType"
+                placeholder="{{ 'label.ALL.PleaseSelect' | translate }}">
+                {{ 'label.SURT01.PersonalTaxType' | translate }}</select-input>
+            </div>
+            <div class="form-group col-md-3 col-sm-6">
+              <textbox formControlName="taxId" class="text-center">{{ 'label.SURT01.TaxId' | translate }}</textbox>
+            </div>
+            <div class="form-group col-md-3 col-sm-6">
+              <textbox formControlName="receiptBranchCode" class="text-center">
+                {{ 'label.SURT01.ReceiptBranchCode' | translate }}</textbox>
+            </div>
+            <div class="form-group col-md-3 col-sm-6">
+              <textbox formControlName="receiptBranchName">{{ 'label.SURT01.ReceiptBranchName' | translate }}</textbox>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-3 col-sm-6">
+              <textbox formControlName="socailSecurityNo" class="text-center">
+                {{ 'label.SURT01.SocailSecurityNo' | translate }}</textbox>
+            </div>
+            <div class="form-group col-md-3 col-sm-6">
+              <textbox formControlName="socailSecurityBranch">{{ 'label.SURT01.SocailSecurityBranch' | translate }}
+              </textbox>
+            </div>
+            <div class="form-group col-md-3 col-sm-6">
+              <checkbox formControlName="active">{{ 'label.SURT01.Active' | translate }}</checkbox>
+            </div>
+          </div>
+        </form>
+      </div>
+    </app-card>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <app-card header="{{ 'label.SURT01.ContactDetail' | translate }}">
+      <div class="card-content">
+        <form #company [formGroup]="companyForm">
+          <div class="form-row">
+            <div class="form-group col-md-6 col-sm-6">
+              <textbox formControlName="addressTha">{{ 'label.SURT01.AddressTha' | translate }}</textbox>
+            </div>
+            <div class="form-group col-md-6 col-sm-6">
+              <textbox formControlName="addressEng">{{ 'label.SURT01.AddressEng' | translate }}</textbox>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-3 col-sm-6">
+              <textbox formControlName="moo">{{ 'label.SURT01.Moo' | translate }}</textbox>
+            </div>
+            <div class="form-group col-md-3 col-sm-6">
+              <textbox formControlName="soi">{{ 'label.SURT01.Soi' | translate }}</textbox>
+            </div>
+            <div class="form-group col-md-3 col-sm-6">
+              <textbox formControlName="road">{{ 'label.SURT01.Road' | translate }}</textbox>
+            </div>
+            <div class="form-group col-md-3 col-sm-6">
+              <select-input [items]="countries" formControlName="countryId"
+                placeholder="{{ 'label.ALL.PleaseSelect' | translate }}">{{ 'label.SURT01.Country' | translate }}
+              </select-input>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-3 col-sm-6">
+              <select-input [items]="master.provinces" formControlName="provinceId"
+                placeholder="{{ 'label.ALL.PleaseSelect' | translate }}">{{ 'label.SURT01.Province' | translate }}
+              </select-input>
+            </div>
+            <div class="form-group col-md-3 col-sm-6">
+              <select-input [items]="master.districts" formControlName="districtId"
+                placeholder="{{ 'label.ALL.PleaseSelect' | translate }}">{{ 'label.SURT01.District' | translate }}
+              </select-input>
+            </div>
+            <div class="form-group col-md-3 col-sm-6">
+              <select-input [items]="master.subDistricts" formControlName="subDistrictId"
+                placeholder="{{ 'label.ALL.PleaseSelect' | translate }}">{{ 'label.SURT01.SubDistrict' | translate }}
+              </select-input>
+            </div>
+            <div class="form-group col-md-3 col-sm-6">
+              <select-input [items]="master.postalCodes" formControlName="postalCodeId"
+                placeholder="{{ 'label.ALL.PleaseSelect' | translate }}">
+                {{ 'label.SURT01.PostalCode' | translate }}</select-input>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-3 col-sm-6">
+              <textbox formControlName="telephoneNo">{{ 'label.SURT01.TelephoneNo' | translate }}
+                <div class="invalid-pattern">
+                  {{ 'label.SURT01.InvalidPattern' | translate }}
+                </div>
+              </textbox>
+            </div>
+            <div class="form-group col-md-3 col-sm-6">
+              <textbox formControlName="faxNo">{{ 'label.SURT01.FaxNo' | translate }}
+                <div class="invalid-pattern">
+                  {{ 'label.SURT01.InvalidPattern' | translate }}
+                </div>
+              </textbox>
+            </div>
+            <div class="form-group col-md-6 col-sm-6">
+              <textbox formControlName="email">{{ 'label.SURT01.Email' | translate }}</textbox>
+            </div>
+          </div>
+        </form>
+      </div>
+    </app-card>
+  </div>
+</div>

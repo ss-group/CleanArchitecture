@@ -1,0 +1,69 @@
+<toolbar>
+  <button class="btn btn-primary" (click)="save()" [disabled]="saving">
+    <i class="fas fa-cog fa-spin" [hidden]="!saving"></i>
+    <i class="fas fa-save" [hidden]="saving"></i> {{ 'label.ALL.Save' | translate}}</button>
+</toolbar>
+<h4>{{ 'label.DBRT06.programName' | translate}}</h4>
+<div class="row">
+  <div class="col">
+    <app-card header="{{ 'label.DBRT12.detail' | translate}}">
+      <div class="card-content">
+        <div class="col">
+          <div class="col">
+            <form [formGroup]="postalForm">
+              <div class="form-row">
+                <div class="form-group col-md-4 col-sm-6">
+                  <textbox formControlName="postalCode" class="text-center">
+                    {{ 'label.DBRT06.postalCode' | translate}}
+                  </textbox>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-4 col-sm-6">
+                  <select-input [items]="master.province" placeholder="{{ 'label.ALL.PleaseSelect' | translate}}"
+                    formControlName="provinceId" (returnValue)="changeProvinceAddress($event)">
+                    {{ 'label.DBRT06.province' | translate}}
+                  </select-input>
+                </div>
+                <div class="form-group col-md-4 col-sm-6">
+                  <select-input [items]="master.district" placeholder="{{ 'label.ALL.PleaseSelect' | translate}}"
+                    formControlName="districtId" (returnValue)="changeDistrictAddress($event)">
+                    {{ 'label.DBRT06.district' | translate}}
+                  </select-input>
+                </div>
+                <div class="form-group col-md-4 col-sm-6">
+                  <select-input [items]="master.subDistrict" placeholder="{{ 'label.ALL.PleaseSelect' | translate}}"
+                    formControlName="subDistrictId">
+                    {{ 'label.DBRT06.subDistrict' | translate}}
+                  </select-input>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6 col-sm-6">
+                  <textbox formControlName="postalNameTha">
+                    {{ 'label.DBRT06.postalNameTha' | translate}}
+                  </textbox>
+                </div>
+                <div class="form-group col-md-6 col-sm-6">
+                  <textbox formControlName="postalNameEng">
+                    {{ 'label.DBRT06.postalNameEng' | translate}}
+                  </textbox>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6 col-sm-6">
+                  <areabox formControlName="remark">
+                    {{ 'label.DBRT06.remark' | translate}}
+                  </areabox>
+                </div>
+                <div class="form-group col-md-6 col-sm-6">
+                  <checkbox formControlName="active">{{ 'label.DBRT06.active' | translate}}</checkbox>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </app-card>
+  </div>
+</div>

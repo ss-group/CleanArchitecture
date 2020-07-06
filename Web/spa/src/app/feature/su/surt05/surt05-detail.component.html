@@ -1,0 +1,33 @@
+<toolbar>
+  <button class="btn btn-primary" (click)="util.focusInvalid(parameter); save()">
+    <i class="fas fa-cog fa-spin" [hidden]="!saving"></i>
+    <i class="fas fa-save" [hidden]="saving"></i> {{ 'label.ALL.Save' | translate }}</button>
+</toolbar>
+
+<h4>{{ 'label.SURT05.ProgramName' | translate }}</h4>
+<div class="row">
+  <div class="col">
+    <app-card header="{{ 'label.SURT05.ParameterDetail' | translate }}">
+      <div class="card-content">
+        <form #parameter [formGroup]="parameterForm">
+          <div class="form-row">
+            <div class="form-group col-md-6 col-sm-6">
+              <textbox formControlName="parameterGroupCode" class="text-left">{{ 'label.SURT05.ParameterGroupCode' | translate }}</textbox>
+            </div>
+            <div class="form-group col-md-6 col-sm-6">
+              <textbox formControlName="parameterCode">{{ 'label.SURT05.ParameterCode' | translate }}</textbox>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-3 col-sm-6">
+              <textbox formControlName="parameterValue">{{ 'label.SURT05.ParameterValue' | translate }}</textbox>
+            </div>
+            <div class="form-group col-md-9 col-sm-6">
+              <textbox formControlName="remark">{{ 'label.SURT05.Remark' | translate }}</textbox>
+            </div>
+          </div>
+        </form>
+      </div>
+    </app-card>
+  </div>
+</div>

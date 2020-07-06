@@ -1,0 +1,63 @@
+<toolbar>
+  <button class="btn btn-primary" (click)="save()" [disabled]="saving">
+    <i class="fas fa-cog fa-spin" [hidden]="!saving"></i>
+    <i class="fas fa-save" [hidden]="saving"></i> {{ 'label.ALL.Save' | translate}}</button>
+</toolbar>
+<h4>{{ 'label.DBRT01.programName' | translate}}</h4>
+<div class="row">
+  <div class="col">
+    <app-card header="{{ 'label.DBRT01.detail' | translate}}">
+      <div class="card-content">
+        <div class="col">
+          <div class="col">
+            <form [formGroup]="dbrt01Form" [class.validated]="submited">
+              <div class="form-row">
+                <div class="form-group col-md-3 col-sm-6">
+                  <textbox formControlName="countryCode" class="text-center">
+                    {{ 'label.DBRT01.countryCode' | translate}}
+                  </textbox>
+                </div>
+                <div class="form-group col-md-3 col-sm-6">
+                  <textbox formControlName="countryCodeMua" class="text-center">
+                    {{ 'label.DBRT01.countryCodeMua' | translate}}
+                  </textbox>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6 col-sm-6">
+                  <textbox formControlName="countryNameTha">
+                    {{ 'label.DBRT01.countryNameTha' | translate}}
+                  </textbox>
+                </div>
+                <div class="form-group col-md-6 col-sm-6">
+                  <textbox formControlName="countryNameEng">
+                    {{ 'label.DBRT01.countryNameEng' | translate}}
+                  </textbox>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6 col-sm-6">
+                  <textbox formControlName="countryShortNameTha">
+                    {{ 'label.DBRT01.countryShortNameTha' | translate}}
+                  </textbox>
+                </div>
+                <div class="form-group col-md-6 col-sm-6">
+                  <textbox formControlName="countryShortNameEng">
+                    {{ 'label.DBRT01.countryShortNameEng' | translate}}
+                  </textbox>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-5 col-sm-6">
+                  <checkbox formControlName="active">
+                    {{ 'label.DBRT01.active' | translate}}
+                  </checkbox>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </app-card>
+  </div>
+</div>

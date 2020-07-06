@@ -1,0 +1,24 @@
+server:
+ port: 8080
+ servlet:
+  contextPath: /api
+  
+spring:
+ profiles:
+  active: development
+ datasource:
+  driver-class-name: org.postgresql.Driver
+  url: jdbc:postgresql://172.16.0.154:5432/bpi
+  username: bpi
+  password: bpi@ss2019
+  hikari:
+   minimum-idle: 1
+   maximum-pool-size: 2
+
+# Jasper Report properties
+com:
+  ss:
+    spa:
+      report-location: classpath:reports
+      storage-location: classpath:reports
+  

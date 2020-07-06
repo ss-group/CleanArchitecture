@@ -1,0 +1,92 @@
+<toolbar>
+  <button class="btn btn-primary" (click)="save()" [disabled]="saving">
+    <i class="fas fa-cog fa-spin" [hidden]="!saving"></i>
+    <i class="fas fa-save" [hidden]="saving"></i> {{ 'label.ALL.Save' | translate}}</button>
+</toolbar>
+<h4>{{ 'label.DBRT10.programName' | translate}}</h4>
+<div class="row">
+  <div class="col">
+    <app-card header="{{ 'label.DBRT10.detail' | translate}}">
+      <div class="card-content">
+        <div class="col">
+          <div class="col">
+            <form [formGroup]="dbrt10Form" [class.validated]="submited">
+              <div class="form-row">
+                <div class="form-group col-md-6 col-sm-6">
+                  <textbox formControlName="educationTypeCode" class="text-center">
+                    {{ 'label.DBRT10.educationTypeCode' | translate}}
+                  </textbox>
+                </div>
+                <div class="form-group col-md-3 col-sm-3">
+                  <textbox formControlName="summaryYear" class="text-center">
+                    {{ 'label.DBRT10.summaryYear' | translate}}
+                    <div class="invalid-feedback" *ngIf="dbrt10Form.controls.summaryYear.errors">
+                      <div *ngIf="dbrt10Form.controls.summaryYear.errors.required">{{ 'label.DBRT10.Please' | translate}}</div>
+                    </div>
+                  </textbox>
+                </div>
+                <div class="form-group col-md-3 col-sm-3">
+                  <textbox formControlName="newLevelCode" class="text-center">
+                    {{ 'label.DBRT10.newLevelCode' | translate}}
+                    <div class="invalid-feedback" *ngIf="dbrt10Form.controls.newLevelCode.errors">
+                      <div *ngIf="dbrt10Form.controls.newLevelCode.errors.required">{{ 'label.DBRT10.Please' | translate}}</div>
+                    </div>
+                  </textbox>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6 col-sm-6">
+                  <textbox formControlName="educationTypeCodeMua">{{ 'label.DBRT10.educationTypeCodeMua' | translate}}
+                    <div class="invalid-feedback" *ngIf="dbrt10Form.controls.educationTypeCodeMua.errors">
+                      <div *ngIf="dbrt10Form.controls.educationTypeCodeMua.errors.required">{{ 'label.DBRT10.Please' | translate}}</div>
+                    </div>
+                  </textbox>
+                </div>
+                <div class="form-group col-md-6 col-sm-6">
+                  <select-input [items]="master.level" formControlName="typeLevel">
+                    {{ 'label.DBRT10.typeLevel' | translate}}
+                    <div class="invalid-feedback" *ngIf="dbrt10Form.controls.typeLevel.errors">
+                      <div *ngIf="dbrt10Form.controls.typeLevel.errors.required">{{ 'label.DBRT10.Please' | translate}}</div>
+                    </div>
+                  </select-input>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6 col-sm-6">
+                  <textbox formControlName="educationTypeNameTha">{{ 'label.DBRT10.educationTypeNameTha' | translate}}
+                    <div class="invalid-feedback" *ngIf="dbrt10Form.controls.educationTypeNameTha.errors">
+                      <div *ngIf="dbrt10Form.controls.educationTypeNameTha.errors.required">{{ 'label.DBRT10.Please' | translate}}</div>
+                    </div>
+                  </textbox>
+                </div>
+                <div class="form-group col-md-6 col-sm-6">
+                  <textbox formControlName="educationTypeNameEng">{{ 'label.DBRT10.educationTypeNameEng' | translate}}
+                  </textbox>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6 col-sm-6">
+                  <textbox formControlName="educationShortNameTha">{{ 'label.DBRT10.educationShortNameTha' | translate}}
+                  </textbox>
+                </div>
+                <div class="form-group col-md-6 col-sm-6">
+                  <textbox formControlName="educationShortNameEng">{{ 'label.DBRT10.educationShortNameEng' | translate}}
+                  </textbox>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6 col-sm-6">
+                  <textbox formControlName="formatCode">{{ 'label.DBRT10.formatCode' | translate}}
+                  </textbox>
+                </div>
+                <div class="form-group col-md-6 col-sm-6">
+                  <checkbox formControlName="active">{{ 'label.DBRT10.active' | translate}}</checkbox>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </app-card>
+  </div>
+</div>

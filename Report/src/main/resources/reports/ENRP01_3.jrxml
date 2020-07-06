@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ENRP01_3" language="groovy" pageWidth="555" pageHeight="802" whenNoDataType="BlankPage" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="0a8daf2c-fec2-4f3a-ac37-66484b29354f">
+	<property name="ireport.zoom" value="1.3310000000000013"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="316"/>
+	<subDataset name="dataset5" uuid="7b57d9d9-6938-4642-abe8-4cb8b9e7d7ea">
+		<parameter name="LANG" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[Select get_label_name('ENRP01','EnglishSkills',$P{LANG}) as EnglishSkills,
+get_label_name('ENRP01','ExamScore',$P{LANG}) as ExamScore,
+get_label_name('ENRP01','EnCode',$P{LANG}) as EnCode,
+get_label_name('ENRP01','DateTime',$P{LANG}) as DateTime,
+get_label_name('ENRP01','ExamLocation',$P{LANG}) as ExamLocation,
+get_label_name('ENRP01','Guarantee',$P{LANG}) as Guarantee,
+get_label_name('ENRP01','SignUp',$P{LANG}) as SignUp,
+get_label_name('ENRP01','Date',$P{LANG}) as Date,
+get_label_name('ENRP01','Buddhistera',$P{LANG}) as Buddhistera,
+get_label_name('ENRP01','month',$P{LANG}) as month,
+get_label_name('ENRP01','FoRecruitingOfficers',$P{LANG}) as FoRecruitingOfficers,
+get_label_name('ENRP01','CopyExam',$P{LANG}) as CopyExam,
+get_label_name('ENRP01','EvidenceOfApplications',$P{LANG}) as EvidenceOfApplications,
+get_label_name('ENRP01','SignUpApplicant',$P{LANG}) as SignUpApplicant]]>
+		</queryString>
+		<field name="englishskills" class="java.lang.String"/>
+		<field name="examscore" class="java.lang.String"/>
+		<field name="encode" class="java.lang.String"/>
+		<field name="datetime" class="java.lang.String"/>
+		<field name="examlocation" class="java.lang.String"/>
+		<field name="guarantee" class="java.lang.String"/>
+		<field name="signup" class="java.lang.String"/>
+		<field name="date" class="java.lang.String"/>
+		<field name="buddhistera" class="java.lang.String"/>
+		<field name="month" class="java.lang.String"/>
+		<field name="forecruitingofficers" class="java.lang.String"/>
+		<field name="copyexam" class="java.lang.String"/>
+		<field name="evidenceofapplications" class="java.lang.String"/>
+		<field name="signupapplicant" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="dataset1" uuid="62888b02-1987-47ac-ab78-92f72657fbe4">
+		<parameter name="LANG" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[select get_label_name('ENRP01','SignUpApplicant',$P{LANG}) as SignUpApplicant,
+get_label_name('ENRP01','Date',$P{LANG}) as Date,
+get_label_name('ENRP01','Buddhistera',$P{LANG}) as Buddhistera,
+get_label_name('ENRP01','month',$P{LANG}) as month]]>
+		</queryString>
+		<field name="signupapplicant" class="java.lang.String"/>
+		<field name="date" class="java.lang.String"/>
+		<field name="buddhistera" class="java.lang.String"/>
+		<field name="month" class="java.lang.String"/>
+	</subDataset>
+	<parameter name="LANG" class="java.lang.String"/>
+	<parameter name="YEAR" class="java.lang.Integer"/>
+	<parameter name="SEMESTER" class="java.lang.Integer"/>
+	<parameter name="EDUCATION_TYPE_LEVEL" class="java.lang.String"/>
+	<parameter name="FAC_CODE" class="java.lang.String"/>
+	<parameter name="PROGRAM_CODE" class="java.lang.String"/>
+	<parameter name="MAJOR_CODE" class="java.lang.String"/>
+	<parameter name="CCL_ID" class="java.lang.Integer"/>
+	<parameter name="EN_DATE_FROM" class="java.util.Date"/>
+	<parameter name="EN_DATE_TO" class="java.util.Date"/>
+	<parameter name="EN_CODE_FROM" class="java.lang.String"/>
+	<parameter name="EN_CODE_TO" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String">
+		<defaultValueExpression><![CDATA["D:\\08_BPI\\main\\program\\trunk\\source\\Report\\src\\main\\resources\\reports\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="EN_CODE" class="java.lang.String"/>
+	<parameter name="COMPANY_CODE" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select 1]]>
+	</queryString>
+	<field name="?column?" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="524">
+			<componentElement>
+				<reportElement x="17" y="16" width="538" height="508" uuid="c6bb55f1-3941-4e84-8197-68538046f760"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="dataset5" uuid="5d1163bd-1b4b-42d1-b0d6-b3b4546782ed">
+						<datasetParameter name="LANG">
+							<datasetParameterExpression><![CDATA[$P{LANG}]]></datasetParameterExpression>
+						</datasetParameter>
+					</datasetRun>
+					<jr:listContents height="508" width="538">
+						<textField isBlankWhenNull="true">
+							<reportElement x="2" y="15" width="515" height="20" uuid="ceb7dc12-7450-4b9a-ac18-ff8cc314bc4d"/>
+							<textElement verticalAlignment="Bottom">
+								<font fontName="TH Sarabun New" size="12" isBold="true" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{englishskills}]]></textFieldExpression>
+						</textField>
+						<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+							<reportElement stretchType="RelativeToBandHeight" x="11" y="136" width="527" height="59" uuid="36450850-6a55-4fe9-93b6-99a0c51ba93c"/>
+							<textElement verticalAlignment="Middle">
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{guarantee}]]></textFieldExpression>
+						</textField>
+						<textField isBlankWhenNull="true">
+							<reportElement x="226" y="245" width="100" height="20" uuid="78d3a148-3dd7-4c44-a27b-80be6e98971f"/>
+							<textElement verticalAlignment="Middle">
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{signup}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="259" y="266" width="15" height="20" uuid="55f11cd0-1f6b-474d-8063-d1993ad38d37"/>
+							<textElement>
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA["("]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="455" y="266" width="15" height="20" uuid="471ecb1d-71eb-4c36-86ec-f6ca2d9e0815"/>
+							<textElement>
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[")"]]></textFieldExpression>
+						</textField>
+						<textField isBlankWhenNull="true">
+							<reportElement x="226" y="287" width="48" height="20" uuid="edd57c21-166d-4752-a8c2-17e30b772e53"/>
+							<textElement verticalAlignment="Bottom">
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{date}]]></textFieldExpression>
+						</textField>
+						<textField isBlankWhenNull="true">
+							<reportElement x="323" y="288" width="31" height="20" uuid="57a7386e-5fb7-4186-96af-a774fd19b422"/>
+							<textElement verticalAlignment="Bottom">
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{month}]]></textFieldExpression>
+						</textField>
+						<textField isBlankWhenNull="true">
+							<reportElement x="414" y="288" width="16" height="20" uuid="8ff3b8a6-3625-469f-afc2-ecc8b949721d"/>
+							<textElement verticalAlignment="Bottom">
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{buddhistera}]]></textFieldExpression>
+						</textField>
+						<textField isBlankWhenNull="true">
+							<reportElement x="3" y="309" width="487" height="20" uuid="f995de4e-a5c9-4373-9721-1a5eb7f91da9"/>
+							<box>
+								<pen lineStyle="Dashed"/>
+								<topPen lineStyle="Dashed"/>
+								<leftPen lineStyle="Dashed"/>
+								<bottomPen lineWidth="0.5" lineStyle="Dashed"/>
+								<rightPen lineStyle="Dashed"/>
+							</box>
+							<textElement verticalAlignment="Bottom">
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+							</textElement>
+						</textField>
+						<textField isBlankWhenNull="true">
+							<reportElement x="3" y="343" width="487" height="20" uuid="4cd69746-f478-4bfc-885f-a45122ddc163"/>
+							<textElement textAlignment="Center" verticalAlignment="Bottom">
+								<font fontName="TH Sarabun New" size="12" isBold="true" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{forecruitingofficers}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="19" y="377" width="219" height="20" uuid="8e28b4ae-f2ad-43f9-acbb-80bee8aea820"/>
+							<textElement verticalAlignment="Bottom">
+								<font fontName="TH Sarabun New" size="12" isBold="true" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{evidenceofapplications}]]></textFieldExpression>
+						</textField>
+						<textField isBlankWhenNull="true">
+							<reportElement x="263" y="258" width="194" height="20" uuid="17e238c9-9149-41ef-ac94-b341015f0f7d"/>
+							<box>
+								<pen lineStyle="Dotted"/>
+								<topPen lineStyle="Dotted"/>
+								<leftPen lineStyle="Dotted"/>
+								<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+								<rightPen lineStyle="Dotted"/>
+							</box>
+							<textElement>
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+							</textElement>
+						</textField>
+						<textField isBlankWhenNull="true">
+							<reportElement x="265" y="238" width="194" height="20" uuid="e8904ea3-91a2-44a4-bf3b-4587602a684e"/>
+							<box>
+								<pen lineStyle="Dotted"/>
+								<topPen lineStyle="Dotted"/>
+								<leftPen lineStyle="Dotted"/>
+								<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+								<rightPen lineStyle="Dotted"/>
+							</box>
+							<textElement>
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[]]></textFieldExpression>
+						</textField>
+						<textField isBlankWhenNull="true">
+							<reportElement x="242" y="281" width="71" height="20" uuid="93ccce44-4b8d-4422-96a0-26a51983e674"/>
+							<box>
+								<pen lineStyle="Dotted"/>
+								<topPen lineStyle="Dotted"/>
+								<leftPen lineStyle="Dotted"/>
+								<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+								<rightPen lineStyle="Dotted"/>
+							</box>
+							<textElement>
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+							</textElement>
+						</textField>
+						<textField isBlankWhenNull="true">
+							<reportElement x="342" y="282" width="55" height="20" uuid="ff68fc87-f066-4194-ae7d-bb84256d962b"/>
+							<box>
+								<pen lineStyle="Dotted"/>
+								<topPen lineStyle="Dotted"/>
+								<leftPen lineStyle="Dotted"/>
+								<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+								<rightPen lineStyle="Dotted"/>
+							</box>
+							<textElement>
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+							</textElement>
+						</textField>
+						<textField isBlankWhenNull="true">
+							<reportElement x="429" y="282" width="61" height="20" uuid="469f73c8-f362-42ce-8514-036ae71cd520"/>
+							<box>
+								<pen lineStyle="Dotted"/>
+								<topPen lineStyle="Dotted"/>
+								<leftPen lineStyle="Dotted"/>
+								<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+								<rightPen lineStyle="Dotted"/>
+							</box>
+							<textElement>
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+							</textElement>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<subreport>
+				<reportElement x="50" y="415" width="484" height="100" uuid="f9b27ea4-096a-4380-ab71-92da0a86b5e8"/>
+				<subreportParameter name="EN_CODE">
+					<subreportParameterExpression><![CDATA[$P{EN_CODE}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "reports/ENRP01_3_subreport.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="28" y="59" width="506" height="88" uuid="5550b5ee-c3fd-4355-84c4-b64b578d8c4b"/>
+				<subreportParameter name="EN_CODE">
+					<subreportParameterExpression><![CDATA[$P{EN_CODE}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="LANG">
+					<subreportParameterExpression><![CDATA[$P{LANG}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "reports/ENRP01_3_subreport_score.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="87">
+			<componentElement>
+				<reportElement x="17" y="0" width="517" height="87" uuid="aa4d89ca-0cc2-44a8-8fe6-f3bcf8ca5952"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="dataset1" uuid="98a7d072-d332-430a-b84c-3e2d25a90f86">
+						<datasetParameter name="LANG">
+							<datasetParameterExpression><![CDATA[$P{LANG}]]></datasetParameterExpression>
+						</datasetParameter>
+					</datasetRun>
+					<jr:listContents height="87" width="517">
+						<textField isBlankWhenNull="true">
+							<reportElement x="271" y="6" width="190" height="20" uuid="8daf7031-3dff-41cb-aed6-aec2d5013490"/>
+							<box>
+								<pen lineStyle="Dotted"/>
+								<topPen lineStyle="Dotted"/>
+								<leftPen lineStyle="Dotted"/>
+								<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+								<rightPen lineStyle="Dotted"/>
+							</box>
+							<textElement>
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[]]></textFieldExpression>
+						</textField>
+						<textField isBlankWhenNull="true">
+							<reportElement x="246" y="54" width="74" height="20" uuid="c7e6e4ae-3d5b-453f-b80f-230186844ef4"/>
+							<box>
+								<pen lineStyle="Dotted"/>
+								<topPen lineStyle="Dotted"/>
+								<leftPen lineStyle="Dotted"/>
+								<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+								<rightPen lineStyle="Dotted"/>
+							</box>
+							<textElement>
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[]]></textFieldExpression>
+						</textField>
+						<textField isBlankWhenNull="true">
+							<reportElement x="351" y="54" width="62" height="20" uuid="f71f1c07-608d-44bb-bb24-46aa0044bf68"/>
+							<box>
+								<pen lineStyle="Dotted"/>
+								<topPen lineStyle="Dotted"/>
+								<leftPen lineStyle="Dotted"/>
+								<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+								<rightPen lineStyle="Dotted"/>
+							</box>
+							<textElement>
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="267" y="37" width="12" height="20" uuid="ba52f5c9-3cb6-4f26-a43e-20ea3c73a7ad"/>
+							<textElement>
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA["("]]></textFieldExpression>
+						</textField>
+						<textField isBlankWhenNull="true">
+							<reportElement x="435" y="53" width="74" height="20" uuid="caeb8be6-70a1-4905-b3cd-906d3b9123d2"/>
+							<box>
+								<pen lineStyle="Dotted"/>
+								<topPen lineStyle="Dotted"/>
+								<leftPen lineStyle="Dotted"/>
+								<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+								<rightPen lineStyle="Dotted"/>
+							</box>
+							<textElement>
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[]]></textFieldExpression>
+						</textField>
+						<textField isBlankWhenNull="true">
+							<reportElement x="272" y="29" width="190" height="20" uuid="25904902-eea6-4c09-af12-688b5b6ce4f3"/>
+							<box>
+								<pen lineStyle="Dotted"/>
+								<topPen lineStyle="Dotted"/>
+								<leftPen lineStyle="Dotted"/>
+								<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+								<rightPen lineStyle="Dotted"/>
+							</box>
+							<textElement>
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+							</textElement>
+						</textField>
+						<textField>
+							<reportElement x="460" y="36" width="15" height="20" uuid="7b2dfd17-6096-46b0-b009-ed3a5edd1ccd"/>
+							<textElement>
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[")"]]></textFieldExpression>
+						</textField>
+						<textField isBlankWhenNull="true">
+							<reportElement x="221" y="13" width="75" height="20" uuid="56dd091d-d7d2-4f87-b1ed-78027746cfae"/>
+							<textElement verticalAlignment="Middle">
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{signupapplicant}]]></textFieldExpression>
+						</textField>
+						<textField isBlankWhenNull="true">
+							<reportElement x="226" y="61" width="49" height="20" uuid="682e2e50-1893-4cdf-85ac-97984c80c6a1"/>
+							<textElement verticalAlignment="Middle">
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{date}]]></textFieldExpression>
+						</textField>
+						<textField isBlankWhenNull="true">
+							<reportElement x="327" y="62" width="34" height="20" uuid="10da5177-622a-45c8-b0c1-579a50671174"/>
+							<textElement verticalAlignment="Middle">
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{month}]]></textFieldExpression>
+						</textField>
+						<textField isBlankWhenNull="true">
+							<reportElement x="419" y="61" width="16" height="20" uuid="7aec28aa-2a3a-49ee-9a68-ea3a78638c61"/>
+							<textElement verticalAlignment="Middle">
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{buddhistera}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+		</band>
+	</pageFooter>
+</jasperReport>

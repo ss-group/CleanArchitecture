@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Report_SHRP01_Parent" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d2d182a0-a29a-4d78-bda5-eb92e3f59dfb">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="lang_code" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="student_id" class="java.lang.Long">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select num1 AS student_id
+, char1 AS father_id_card
+, char2 AS father_name
+, char3 AS father_status
+, char4 AS father_race
+, char5 AS father_nation
+, char6 AS father_religion
+, char7 AS father_occupation
+, char8 AS father_tel
+, char9 AS mother_id_card
+, char10 AS mother_name
+, char11 AS mother_status
+, char12 AS mother_race
+, char13 AS mother_nation
+, char14 AS mother_religion
+, char15 AS mother_occupation
+, char16 AS mother_tel
+, char17 AS relationship_status
+, char18 AS parent_id_card
+, char19 AS parent_name
+, char20 AS parent_status
+, char21 AS parent_race
+, char22 AS parent_nation
+, char23 AS parent_religion
+, char24 AS parent_occupation
+, char25 AS parent_tel
+, char26 AS relative_status
+, char27 AS db_get_relation_status_name
+, char28 AS father_status_name
+, char29 AS mother_status_name
+, char30 AS parent_status_name
+, char31 AS father_occ
+, char32 AS mother_occ
+, char33 AS parent_occ
+, char34 AS race_father
+, char35 AS race_mother
+, char36 AS race_parent
+, char37 AS nation_father
+, char38 AS nation_mother
+, char39 AS nation_parent
+from report_shrp01_parent($P{lang_code},$P{student_id})]]>
+	</queryString>
+	<field name="student_id" class="java.math.BigDecimal"/>
+	<field name="father_id_card" class="java.lang.String"/>
+	<field name="father_name" class="java.lang.String"/>
+	<field name="father_status" class="java.lang.String"/>
+	<field name="father_race" class="java.lang.String"/>
+	<field name="father_nation" class="java.lang.String"/>
+	<field name="father_religion" class="java.lang.String"/>
+	<field name="father_occupation" class="java.lang.String"/>
+	<field name="father_tel" class="java.lang.String"/>
+	<field name="mother_id_card" class="java.lang.String"/>
+	<field name="mother_name" class="java.lang.String"/>
+	<field name="mother_status" class="java.lang.String"/>
+	<field name="mother_race" class="java.lang.String"/>
+	<field name="mother_nation" class="java.lang.String"/>
+	<field name="mother_religion" class="java.lang.String"/>
+	<field name="mother_occupation" class="java.lang.String"/>
+	<field name="mother_tel" class="java.lang.String"/>
+	<field name="relationship_status" class="java.lang.String"/>
+	<field name="parent_id_card" class="java.lang.String"/>
+	<field name="parent_name" class="java.lang.String"/>
+	<field name="parent_status" class="java.lang.String"/>
+	<field name="parent_race" class="java.lang.String"/>
+	<field name="parent_nation" class="java.lang.String"/>
+	<field name="parent_religion" class="java.lang.String"/>
+	<field name="parent_occupation" class="java.lang.String"/>
+	<field name="parent_tel" class="java.lang.String"/>
+	<field name="relative_status" class="java.lang.String"/>
+	<field name="db_get_relation_status_name" class="java.lang.String"/>
+	<field name="father_status_name" class="java.lang.String"/>
+	<field name="mother_status_name" class="java.lang.String"/>
+	<field name="parent_status_name" class="java.lang.String"/>
+	<field name="father_occ" class="java.lang.String"/>
+	<field name="mother_occ" class="java.lang.String"/>
+	<field name="parent_occ" class="java.lang.String"/>
+	<field name="race_father" class="java.lang.String"/>
+	<field name="race_mother" class="java.lang.String"/>
+	<field name="race_parent" class="java.lang.String"/>
+	<field name="nation_father" class="java.lang.String"/>
+	<field name="nation_mother" class="java.lang.String"/>
+	<field name="nation_parent" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="396" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement x="18" y="0" width="106" height="20" uuid="c7438fa5-6ac4-40b3-9aef-fa20b468d384"/>
+				<box leftPadding="0"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="14" isBold="true" isUnderline="true" pdfFontName="THSarabun Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["บิดา/มารดา/ผู้ปกครอง"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="18" y="26" width="106" height="20" uuid="088b2340-3999-47e7-876b-158398a0a266"/>
+				<box leftPadding="0"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="14" isBold="true" isUnderline="true" pdfFontName="THSarabun Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["ข้อมูลบิดา"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="18" y="46" width="116" height="20" uuid="e402b056-b6a5-4abd-a7e1-d1c8e36b5815"/>
+				<box leftPadding="0"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="14" isBold="true" isUnderline="false" pdfFontName="THSarabun Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["เลขประจำตัวประชาชน : "]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="34" y="66" width="100" height="20" uuid="4019ac39-dc86-44be-991f-47253667d1b5"/>
+				<box leftPadding="0"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="14" isBold="true" isUnderline="false" pdfFontName="THSarabun Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["สถานะ : "]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="34" y="86" width="100" height="20" uuid="bd7ffe46-a79d-45a3-9060-290a5a0c83f9"/>
+				<box leftPadding="0"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="14" isBold="true" isUnderline="false" pdfFontName="THSarabun Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["เชื้อชาติ : "]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="34" y="106" width="100" height="20" uuid="3791b4e3-60db-444e-8171-da8bbea72fcf"/>
+				<box leftPadding="0"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="14" isBold="true" isUnderline="false" pdfFontName="THSarabun Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["เบอร์โทรศัพท์ : "]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="319" y="46" width="100" height="20" uuid="46aad4b3-b444-45e6-9f4b-6d809e6c99e9"/>
+				<box leftPadding="0"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="14" isBold="true" isUnderline="false" pdfFontName="THSarabun Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["ชื่อ-นามสกุล : "]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="319" y="66" width="100" height="20" uuid="5bba3ad1-834a-4809-8d5e-f954b9f5b715"/>
+				<box leftPadding="0"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="14" isBold="true" isItalic="false" isUnderline="false" pdfFontName="THSarabun Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["อาชีพ : "]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="319" y="86" width="100" height="20" uuid="dbcd2f87-c450-4dd7-88f9-f268ca776aca"/>
+				<box leftPadding="0"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="14" isBold="true" isUnderline="false" pdfFontName="THSarabun Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["สัญชาติ : "]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="18" y="139" width="106" height="20" uuid="0d1f30c6-9684-4e91-b9ce-35e2962cdbbd"/>
+				<box leftPadding="0"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="14" isBold="true" isUnderline="true" pdfFontName="THSarabun Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["ข้อมูลมารดา"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="34" y="218" width="100" height="20" uuid="efc56683-b01e-46c2-8858-aba11aa843c9"/>
+				<box leftPadding="0"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="14" isBold="true" isUnderline="false" pdfFontName="THSarabun Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["เบอร์โทรศัพท์ : "]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="319" y="198" width="100" height="20" uuid="360ff4ee-f488-49ec-8282-4762885c4a3d"/>
+				<box leftPadding="0"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="14" isBold="true" isUnderline="false" pdfFontName="THSarabun Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["สัญชาติ : "]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="18" y="158" width="116" height="20" uuid="0c568f8d-7cfe-4c28-b862-547354f6ba05"/>
+				<box leftPadding="0"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="14" isBold="true" isUnderline="false" pdfFontName="THSarabun Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["เลขประจำตัวประชาชน : "]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="319" y="158" width="100" height="20" uuid="a367838e-8b1e-4015-926c-a838b161c2bd"/>
+				<box leftPadding="0"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="14" isBold="true" isUnderline="false" pdfFontName="THSarabun Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["ชื่อ-นามสกุล : "]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="34" y="178" width="100" height="20" uuid="809b7b3a-c93e-473a-94c7-6823c767da43"/>
+				<box leftPadding="0"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="14" isBold="true" isUnderline="false" pdfFontName="THSarabun Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["สถานะ : "]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="34" y="198" width="100" height="20" uuid="2d88b5fa-f296-43b6-997c-99d8efe87c02"/>
+				<box leftPadding="0"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="14" isBold="true" isUnderline="false" pdfFontName="THSarabun Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["เชื้อชาติ : "]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="319" y="178" width="100" height="20" uuid="95654cc7-6882-47a1-9a5c-7427faa075bb"/>
+				<box leftPadding="0"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="14" isBold="true" isUnderline="false" pdfFontName="THSarabun Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["อาชีพ : "]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="18" y="238" width="116" height="20" uuid="5755565d-e73e-452c-80e4-64cdc81b068d"/>
+				<box leftPadding="0"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="14" isBold="true" isUnderline="false" pdfFontName="THSarabun Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["สถานภาพบิดา-มารดา : "]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="18" y="271" width="106" height="20" uuid="a2e2c0b2-2d42-43fa-a3db-f43b5176579e"/>
+				<box leftPadding="0"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="14" isBold="true" isUnderline="true" pdfFontName="THSarabun Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["ข้อมูลผู้ปกครอง"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="34" y="351" width="100" height="20" uuid="6ef0f465-a7d4-4c50-8288-713c85001873"/>
+				<box leftPadding="0"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="14" isBold="true" isUnderline="false" pdfFontName="THSarabun Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["เบอร์โทรศัพท์ : "]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="319" y="331" width="100" height="20" uuid="2e41edcf-f242-4b4e-ae9d-f099a14fa2e6"/>
+				<box leftPadding="0"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="14" isBold="true" isUnderline="false" pdfFontName="THSarabun Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["สัญชาติ : "]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="18" y="291" width="116" height="20" uuid="e1d4dcc4-5f08-4e0b-b0eb-fc84bcd7148a"/>
+				<box leftPadding="0"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="14" isBold="true" isUnderline="false" pdfFontName="THSarabun Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["เลขประจำตัวประชาชน : "]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="319" y="291" width="100" height="20" uuid="9c3cd017-05f3-47e5-be93-c55ece0e4528"/>
+				<box leftPadding="0"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="14" isBold="true" isUnderline="false" pdfFontName="THSarabun Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["ชื่อ-นามสกุล : "]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="319" y="311" width="100" height="20" uuid="71ec0b6b-adee-40d6-be67-2370a6b66e34"/>
+				<box leftPadding="0"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="14" isBold="true" isUnderline="false" pdfFontName="THSarabun Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["อาชีพ : "]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="34" y="331" width="100" height="20" uuid="10f4832f-e162-4e76-bd20-0b8342f9709a"/>
+				<box leftPadding="0"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="14" isBold="true" isUnderline="false" pdfFontName="THSarabun Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["เชื้อชาติ : "]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="34" y="311" width="100" height="20" uuid="69c6dd5f-f173-4ef0-b48e-8f1c4ba66060"/>
+				<box leftPadding="0"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="14" isBold="true" isUnderline="false" pdfFontName="THSarabun Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["สถานะ : "]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="138" y="46" width="85" height="20" uuid="563a3131-30ef-4088-b3b1-072811abbdb3"/>
+				<box leftPadding="0"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="14" isBold="false" isUnderline="false" pdfFontName="THSarabun.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{father_id_card}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="138" y="159" width="85" height="20" uuid="56a4c12d-7fee-450d-9554-03c8f0b5b278"/>
+				<box leftPadding="0"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="14" isBold="false" isUnderline="false" pdfFontName="THSarabun.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mother_id_card}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="138" y="291" width="85" height="20" uuid="bef311cd-ec3e-4038-92a9-cb7f59c15bb7"/>
+				<box leftPadding="0"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="14" isBold="false" isUnderline="false" pdfFontName="THSarabun.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{parent_id_card}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="138" y="106" width="85" height="20" uuid="3b08df19-7ccd-43d5-a479-14c95cda7409"/>
+				<box leftPadding="0"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="14" isBold="false" isUnderline="false" pdfFontName="THSarabun.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{father_tel}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="138" y="218" width="85" height="20" uuid="c2ad8215-bcce-4c09-ad00-156f2e0da14a"/>
+				<box leftPadding="0"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="14" isBold="false" isUnderline="false" pdfFontName="THSarabun.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mother_tel}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="138" y="351" width="85" height="20" uuid="ec1f9901-72c1-40f1-a17d-dde0f56c5596"/>
+				<box leftPadding="0"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="14" isBold="false" isUnderline="false" pdfFontName="THSarabun.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{parent_tel}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="424" y="46" width="85" height="20" uuid="2a79460d-9d86-419d-a54b-103edca6fe6c"/>
+				<box leftPadding="0"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="14" isBold="false" isUnderline="false" pdfFontName="THSarabun.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{father_name}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="424" y="159" width="85" height="20" uuid="788255fd-9358-4c77-b449-43d05eb23b33"/>
+				<box leftPadding="0"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="14" isBold="false" isUnderline="false" pdfFontName="THSarabun.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mother_name}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="424" y="291" width="85" height="20" uuid="6bb22cf8-b9c1-409a-9b44-0aa36c9353cf"/>
+				<box leftPadding="0"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="14" isBold="false" isUnderline="false" pdfFontName="THSarabun.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{parent_name}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="138" y="238" width="85" height="20" uuid="54835865-1d5c-4ae8-b6f0-74c2dcec4e29"/>
+				<box leftPadding="0"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="14" isBold="false" isUnderline="false" pdfFontName="THSarabun.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{db_get_relation_status_name}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="138" y="66" width="85" height="20" uuid="025a0e2f-b2d4-453c-a7f3-c2b96536f77d"/>
+				<box leftPadding="0"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="14" isBold="false" isUnderline="false" pdfFontName="THSarabun.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{father_status_name}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="138" y="179" width="85" height="20" uuid="2be8f2f1-3938-40b8-b2c2-b2a11c5be7cc"/>
+				<box leftPadding="0"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="14" isBold="false" isUnderline="false" pdfFontName="THSarabun.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mother_status_name}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="138" y="311" width="85" height="20" uuid="a8483c5f-8b2f-403a-8eff-ef46e12984a0"/>
+				<box leftPadding="0"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="14" isBold="false" isUnderline="false" pdfFontName="THSarabun.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{parent_status_name}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="424" y="66" width="85" height="20" uuid="8e010596-0679-47fc-9ffb-ecc4a182a78c"/>
+				<box leftPadding="0"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="14" isBold="false" isUnderline="false" pdfFontName="THSarabun.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{father_occ}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="424" y="179" width="85" height="20" uuid="31b71bf5-9e99-48fc-8aba-13779340a064"/>
+				<box leftPadding="0"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="14" isBold="false" isUnderline="false" pdfFontName="THSarabun.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mother_occ}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="424" y="311" width="85" height="20" uuid="8d550ce2-75c5-465f-a9fc-466829ef4d14"/>
+				<box leftPadding="0"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="14" isBold="false" isUnderline="false" pdfFontName="THSarabun.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{parent_occ}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="138" y="86" width="85" height="20" uuid="9fc16cf0-0c66-4063-ba38-38cccbf5e1ed"/>
+				<box leftPadding="0"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="14" isBold="false" isUnderline="false" pdfFontName="THSarabun.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{race_father}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="138" y="199" width="85" height="20" uuid="1792b047-eccf-49f5-a2eb-8ebb166bd064"/>
+				<box leftPadding="0"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="14" isBold="false" isUnderline="false" pdfFontName="THSarabun.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{race_mother}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="138" y="331" width="85" height="20" uuid="7a1a74db-7fe0-4505-b204-639760f25f9a"/>
+				<box leftPadding="0"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="14" isBold="false" isUnderline="false" pdfFontName="THSarabun.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{race_parent}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="424" y="199" width="85" height="20" uuid="a8017e8a-071f-4d65-a0f1-821443648c5d"/>
+				<box leftPadding="0"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="14" isBold="false" isUnderline="false" pdfFontName="THSarabun.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nation_mother}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="424" y="86" width="85" height="20" uuid="6fc92b43-b781-43f8-8efe-fba2f67ed9a2"/>
+				<box leftPadding="0"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="14" isBold="false" isUnderline="false" pdfFontName="THSarabun.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nation_father}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="424" y="331" width="85" height="20" uuid="98dde029-1c90-405b-bea8-8c9a6aba021c"/>
+				<box leftPadding="0"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="14" isBold="false" isUnderline="false" pdfFontName="THSarabun.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nation_parent}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

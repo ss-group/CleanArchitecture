@@ -1,0 +1,670 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="FNRP01" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="506957c0-e810-4ec8-b667-6b28352312d5">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<subDataset name="dataset1" uuid="9de04f91-17b8-43b9-aa78-93e051389497">
+		<parameter name="lang" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<queryString>
+			<![CDATA[Select get_label_name('ALL','Institution',$P{lang}) as academy,
+get_label_name('ALL','Publisher',$P{lang}) as Publisher,
+get_label_name('FNRP01','ReportName',$P{lang}) as ReportName,
+get_label_name('ALL','Page',$P{lang}) as Page]]>
+		</queryString>
+		<field name="academy" class="java.lang.String"/>
+		<field name="publisher" class="java.lang.String"/>
+		<field name="reportname" class="java.lang.String"/>
+		<field name="page" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="dataset2" uuid="ec9850d4-6456-43d6-982d-581a9337abe0">
+		<parameter name="lang" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<queryString>
+			<![CDATA[Select get_label_name('FNRP01','Pricelist',$P{lang}) as Pricelist,
+get_label_name('FNRP01','AcademicYear',$P{lang}) as AcademicYear]]>
+		</queryString>
+		<field name="pricelist" class="java.lang.String"/>
+		<field name="academicyear" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="dataset3" uuid="1adf337b-927c-48e3-9789-9207244cc6ce">
+		<parameter name="lang" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<queryString>
+			<![CDATA[Select get_label_name('FNRP01','RegisterType',$P{lang}) as RegisterType]]>
+		</queryString>
+		<field name="registertype" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="dataset4" uuid="99a63315-0f19-435b-83e6-b972d118e0ec">
+		<parameter name="lang" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<queryString>
+			<![CDATA[Select get_label_name('FNRP01','AcademicSemester',$P{lang}) as AcademicSemester]]>
+		</queryString>
+		<field name="academicsemester" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="dataset5" uuid="e73791f5-4e0a-4e0c-bffb-e28b0828d074">
+		<parameter name="lang" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<queryString>
+			<![CDATA[Select get_label_name('FNRP01','No',$P{lang}) number,
+get_label_name('FNRP01','FeeCourseSet',$P{lang}) as FeeCourse,
+get_label_name('FNRP01','Amount',$P{lang}) as Amount,
+get_label_name('FNRP01','AmountMoney',$P{lang}) as AmountMoney,
+get_label_name('FNRP01','TrainingPrice',$P{lang}) as TrainingPrice,
+get_label_name('FNRP01','Sum',$P{lang}) as Sum]]>
+		</queryString>
+		<field name="number" class="java.lang.String"/>
+		<field name="feecourse" class="java.lang.String"/>
+		<field name="amount" class="java.lang.String"/>
+		<field name="amountmoney" class="java.lang.String"/>
+		<field name="trainingprice" class="java.lang.String"/>
+		<field name="sum" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="dataset6" uuid="e1e4932d-6188-43c2-8bb1-f735757a7223">
+		<parameter name="lang" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<queryString>
+			<![CDATA[Select get_label_name('FNRP01','EducationLevel',$P{lang}) as EducationLevel,
+get_label_name('FNRP01','StudentGroup',$P{lang}) as StudentGroup]]>
+		</queryString>
+		<field name="educationlevel" class="java.lang.String"/>
+		<field name="studentgroup" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="dataset7" uuid="49b95e63-18a7-46b9-9b17-72db27fa33f1">
+		<parameter name="lang" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<queryString>
+			<![CDATA[Select get_label_name('ALL','PrintDate',$P{lang}) as Date,
+get_label_name('FNRP01','StudentType',$P{lang}) as StudentType,
+get_label_name('CSRP02','Faculty',$P{lang}) as Faculty]]>
+		</queryString>
+		<field name="date" class="java.lang.String"/>
+		<field name="studenttype" class="java.lang.String"/>
+		<field name="faculty" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="dataset8" uuid="0c7c4e2b-cb42-4055-b533-2074c3ba37af">
+		<parameter name="lang" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<queryString>
+			<![CDATA[Select get_label_name('ALL','Publisher',$P{lang}) as Publisher,
+get_label_name('FNRP01','ReportName',$P{lang}) as ReportName,
+get_label_name('ALL','Page',$P{lang}) as Page]]>
+		</queryString>
+		<field name="publisher" class="java.lang.String"/>
+		<field name="reportname" class="java.lang.String"/>
+		<field name="page" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="dataset9" uuid="50f70505-ae82-41d0-956e-78c9955b261f"/>
+	<subDataset name="dataset10" uuid="e6ca2f3d-e365-418c-a568-ad53db5a46ad"/>
+	<subDataset name="dataset11" uuid="7d53b2a8-00c7-41a8-b757-9ef44f6d5594"/>
+	<subDataset name="dataset12" uuid="b7345679-63b8-4c5a-bf7d-f700ebf98b6a"/>
+	<parameter name="lang" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="company_code" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="system_code" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="academic_year" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="academic_semester" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="education_type_level" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="education_type_level_to" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fac_code" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fac_code_to" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="program_code" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="program_code_to" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pricelist_code" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pricelist_code_to" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="reg_stype_code" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="reg_stype_code_to" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="petition_code" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="petition_code_to" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["W:\\BPI-cr\\trunk\\source\\Report\\src\\main\\resources\\reports\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+char1 as pricelist_code
+, char2 as pricelist_desc
+, char3 as system_code
+, char4 as system_name
+, num1 as academic_year
+, num2 as academic_semester
+, char5 as education_type_level
+, char6 as education_type_level_name
+, char7 as fac_code
+, char8 as fac_name
+, char9 as program_code
+, char10 as program_name
+, char11 as reg_stype_code
+, char12 as reg_type_name
+, char13 as petition_code
+, char14 as petition_name
+, char15 as student_group1
+, char16 as student_group2
+, num3 as itm_id
+, num4 as itm_price
+, num5 as train_price
+, num6 as std_price
+, num7 as itm_qty
+, char17 as pricelist_itm_desc
+from
+report_fnrp01($P{lang}
+	  , $P{company_code}
+	  , $P{system_code}
+	  , $P{academic_year}
+	  , $P{academic_semester}
+	  , $P{education_type_level}
+	  , $P{education_type_level_to}
+	  , $P{fac_code}
+	  , $P{fac_code_to}
+	  , $P{program_code}
+	  , $P{program_code_to}
+  	  , $P{pricelist_code}
+	  , $P{pricelist_code_to}
+	  , $P{reg_stype_code}
+	  , $P{reg_stype_code_to}
+	  , $P{petition_code}
+	  , $P{petition_code_to}
+
+)]]>
+	</queryString>
+	<field name="pricelist_code" class="java.lang.String"/>
+	<field name="pricelist_desc" class="java.lang.String"/>
+	<field name="system_code" class="java.lang.String"/>
+	<field name="system_name" class="java.lang.String"/>
+	<field name="academic_year" class="java.math.BigDecimal"/>
+	<field name="academic_semester" class="java.math.BigDecimal"/>
+	<field name="education_type_level" class="java.lang.String"/>
+	<field name="education_type_level_name" class="java.lang.String"/>
+	<field name="fac_code" class="java.lang.String"/>
+	<field name="fac_name" class="java.lang.String"/>
+	<field name="program_code" class="java.lang.String"/>
+	<field name="program_name" class="java.lang.String"/>
+	<field name="reg_stype_code" class="java.lang.String"/>
+	<field name="reg_type_name" class="java.lang.String"/>
+	<field name="petition_code" class="java.lang.String"/>
+	<field name="petition_name" class="java.lang.String"/>
+	<field name="student_group1" class="java.lang.String"/>
+	<field name="student_group2" class="java.lang.String"/>
+	<field name="itm_id" class="java.math.BigDecimal"/>
+	<field name="itm_price" class="java.math.BigDecimal"/>
+	<field name="train_price" class="java.math.BigDecimal"/>
+	<field name="std_price" class="java.math.BigDecimal"/>
+	<field name="itm_qty" class="java.math.BigDecimal"/>
+	<field name="pricelist_itm_desc" class="java.lang.String"/>
+	<group name="pricelist_code" isStartNewPage="true">
+		<groupExpression><![CDATA[$F{pricelist_code}]]></groupExpression>
+		<groupHeader>
+			<band height="88">
+				<componentElement>
+					<reportElement x="0" y="0" width="70" height="44" uuid="b6870a09-e617-4980-8396-d94ca24ffdd0"/>
+					<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+						<datasetRun subDataset="dataset2" uuid="9407b287-ef66-4fc1-91bc-b6faf3ac9082">
+							<datasetParameter name="lang">
+								<datasetParameterExpression><![CDATA[$P{lang}]]></datasetParameterExpression>
+							</datasetParameter>
+						</datasetRun>
+						<jr:listContents height="44" width="70">
+							<textField>
+								<reportElement x="0" y="22" width="70" height="22" uuid="23228c5b-af86-4665-9eaf-15dbbfa3a8fd"/>
+								<textElement verticalAlignment="Middle">
+									<font fontName="TH SarabunPSK" size="14" isBold="true" pdfFontName="THSarabun Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{academicyear}]]></textFieldExpression>
+							</textField>
+							<textField>
+								<reportElement x="0" y="0" width="70" height="22" uuid="3b58d414-883f-4bcf-aace-d95bf73e7718"/>
+								<textElement verticalAlignment="Middle">
+									<font fontName="TH SarabunPSK" size="14" isBold="true" pdfFontName="THSarabun Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{pricelist}]]></textFieldExpression>
+							</textField>
+						</jr:listContents>
+					</jr:list>
+				</componentElement>
+				<componentElement>
+					<reportElement x="0" y="44" width="120" height="22" uuid="81188e8d-8a9a-4809-88dd-fe7ba4af4540"/>
+					<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+						<datasetRun subDataset="dataset3" uuid="ec3e78e6-ce1b-4fa6-9009-ee0fe3af081e">
+							<datasetParameter name="lang">
+								<datasetParameterExpression><![CDATA[$P{lang}]]></datasetParameterExpression>
+							</datasetParameter>
+						</datasetRun>
+						<jr:listContents height="22" width="120">
+							<textField>
+								<reportElement x="0" y="0" width="120" height="22" uuid="ce3b24eb-8352-43e8-b91d-912ed2544434"/>
+								<textElement verticalAlignment="Middle">
+									<font fontName="TH SarabunPSK" size="14" isBold="true" pdfFontName="THSarabun Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{registertype}]]></textFieldExpression>
+							</textField>
+						</jr:listContents>
+					</jr:list>
+				</componentElement>
+				<componentElement>
+					<reportElement x="120" y="22" width="90" height="22" uuid="076edfaf-3c29-4ef1-8ed5-12a0611baefd"/>
+					<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+						<datasetRun subDataset="dataset4" uuid="2289e09d-e8ba-4b3f-a4ff-0eca20159d67">
+							<datasetParameter name="lang">
+								<datasetParameterExpression><![CDATA[$P{lang}]]></datasetParameterExpression>
+							</datasetParameter>
+						</datasetRun>
+						<jr:listContents height="22" width="90">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="22" uuid="dd3e88e7-e632-4810-b54e-3655299b1d4c"/>
+								<textElement textAlignment="Right" verticalAlignment="Middle">
+									<font fontName="TH SarabunPSK" size="14" isBold="true" pdfFontName="THSarabun Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{academicsemester}]]></textFieldExpression>
+							</textField>
+						</jr:listContents>
+					</jr:list>
+				</componentElement>
+				<componentElement>
+					<reportElement x="0" y="66" width="802" height="22" uuid="bf29a9c0-f83b-4b23-bab8-ddb58f03ff53"/>
+					<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+						<datasetRun subDataset="dataset5" uuid="cddf947a-7a59-4e2e-ab99-4aa2db98695f">
+							<datasetParameter name="lang">
+								<datasetParameterExpression><![CDATA[$P{lang}]]></datasetParameterExpression>
+							</datasetParameter>
+						</datasetRun>
+						<jr:listContents height="22" width="802">
+							<textField>
+								<reportElement x="0" y="0" width="70" height="22" uuid="e49188af-87ad-4b9c-971a-2315b6091a7f"/>
+								<box>
+									<topPen lineWidth="1.0"/>
+									<bottomPen lineWidth="1.0"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="TH SarabunPSK" size="14" isBold="true" pdfFontName="THSarabun Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{number}]]></textFieldExpression>
+							</textField>
+							<textField>
+								<reportElement x="70" y="0" width="330" height="22" uuid="3fc66f8d-3427-4656-8da0-d979e5cccb67"/>
+								<box>
+									<topPen lineWidth="1.0"/>
+									<bottomPen lineWidth="1.0"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="TH SarabunPSK" size="14" isBold="true" pdfFontName="THSarabun Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{feecourse}]]></textFieldExpression>
+							</textField>
+							<textField>
+								<reportElement x="400" y="0" width="87" height="22" uuid="95cac4b1-fd74-4d97-959d-3eb7e92cf627"/>
+								<box>
+									<topPen lineWidth="1.0"/>
+									<bottomPen lineWidth="1.0"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="TH SarabunPSK" size="14" isBold="true" pdfFontName="THSarabun Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{amount}]]></textFieldExpression>
+							</textField>
+							<textField>
+								<reportElement x="487" y="0" width="110" height="22" uuid="de751250-62cf-423a-92a5-c374c33e9a60"/>
+								<box>
+									<topPen lineWidth="1.0"/>
+									<bottomPen lineWidth="1.0"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="TH SarabunPSK" size="14" isBold="true" pdfFontName="THSarabun Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{amountmoney}]]></textFieldExpression>
+							</textField>
+							<textField>
+								<reportElement x="597" y="0" width="85" height="22" uuid="53d73684-5a54-4dd4-8b63-046e6d9bf5f2"/>
+								<box>
+									<topPen lineWidth="1.0"/>
+									<bottomPen lineWidth="1.0"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="TH SarabunPSK" size="14" isBold="true" pdfFontName="THSarabun Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{trainingprice}]]></textFieldExpression>
+							</textField>
+							<textField>
+								<reportElement x="682" y="0" width="120" height="22" uuid="d3915fc1-c833-47a5-a42f-82fa7530b81c"/>
+								<box>
+									<topPen lineWidth="1.0"/>
+									<bottomPen lineWidth="1.0"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="TH SarabunPSK" size="14" isBold="true" pdfFontName="THSarabun Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{sum}]]></textFieldExpression>
+							</textField>
+						</jr:listContents>
+					</jr:list>
+				</componentElement>
+				<componentElement>
+					<reportElement x="400" y="22" width="87" height="44" uuid="bcc5b7fe-d976-4a5b-ba10-eba3d9f252f8"/>
+					<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+						<datasetRun subDataset="dataset6" uuid="faeb75af-6d4e-48b5-9805-818b7251ea8e">
+							<datasetParameter name="lang">
+								<datasetParameterExpression><![CDATA[$P{lang}]]></datasetParameterExpression>
+							</datasetParameter>
+						</datasetRun>
+						<jr:listContents height="44" width="87">
+							<textField>
+								<reportElement x="0" y="0" width="87" height="22" uuid="c3aaf024-4a18-4161-aca2-875fb1b9f568"/>
+								<textElement textAlignment="Right" verticalAlignment="Middle">
+									<font fontName="TH SarabunPSK" size="14" isBold="true" pdfFontName="THSarabun Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{educationlevel}]]></textFieldExpression>
+							</textField>
+							<textField>
+								<reportElement x="0" y="22" width="87" height="22" uuid="6a5afd5e-29ea-4b9a-97ab-e51e9d18311d"/>
+								<textElement textAlignment="Right" verticalAlignment="Middle">
+									<font fontName="TH SarabunPSK" size="14" isBold="true" pdfFontName="THSarabun Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{studentgroup}]]></textFieldExpression>
+							</textField>
+						</jr:listContents>
+					</jr:list>
+				</componentElement>
+				<componentElement>
+					<reportElement x="597" y="0" width="85" height="66" uuid="06f89585-a792-4518-8a14-8839f3d8325a"/>
+					<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+						<datasetRun subDataset="dataset7" uuid="1eeed17a-b7c5-4dd2-85f2-a883f3285cf5">
+							<datasetParameter name="lang">
+								<datasetParameterExpression><![CDATA[$P{lang}]]></datasetParameterExpression>
+							</datasetParameter>
+						</datasetRun>
+						<jr:listContents height="66" width="85">
+							<textField>
+								<reportElement x="0" y="0" width="85" height="22" uuid="37f6f8fe-5116-4bd0-85da-79a26d828f88"/>
+								<textElement textAlignment="Right" verticalAlignment="Middle">
+									<font fontName="TH SarabunPSK" size="14" isBold="true" pdfFontName="THSarabun Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{date}]]></textFieldExpression>
+							</textField>
+							<textField>
+								<reportElement x="0" y="44" width="85" height="22" uuid="9beec877-0f9b-449b-b4e1-df1dac6eee7f"/>
+								<textElement textAlignment="Right" verticalAlignment="Middle">
+									<font fontName="TH SarabunPSK" size="14" isBold="true" pdfFontName="THSarabun Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{studenttype}]]></textFieldExpression>
+							</textField>
+							<textField>
+								<reportElement x="0" y="22" width="85" height="22" uuid="affa1be2-981c-41c2-b155-1ef71817d749"/>
+								<textElement textAlignment="Right" verticalAlignment="Middle">
+									<font fontName="TH SarabunPSK" size="14" isBold="true" pdfFontName="THSarabun Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{faculty}]]></textFieldExpression>
+							</textField>
+						</jr:listContents>
+					</jr:list>
+				</componentElement>
+				<textField>
+					<reportElement x="210" y="22" width="190" height="22" uuid="c1499d05-0fda-4383-ab4b-bba925c85d46"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="14" pdfFontName="THSarabun.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["  "+$F{academic_semester}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="487" y="44" width="110" height="22" uuid="c36eacab-44da-4cfb-92ef-967aa0c6af2f"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="14" pdfFontName="THSarabun.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["  "+$F{student_group1}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="682" y="44" width="120" height="22" uuid="c6e9aad4-8463-4ec5-94ec-ae7b51db6475"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="14" pdfFontName="THSarabun.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["  "+$F{student_group2}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="70" y="22" width="50" height="22" uuid="71b34bd7-9ec1-4f18-95e6-5f07350981e8"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="14" pdfFontName="THSarabun.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{academic_year}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="120" y="0" width="477" height="22" uuid="cfd95802-2215-453e-882d-a746790df387"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="14" pdfFontName="THSarabun.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{pricelist_desc}  + "   "+ $F{education_type_level_name}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="487" y="22" width="110" height="22" uuid="1deb6c52-fd01-4522-8c62-cdcb835d83db"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="14" pdfFontName="THSarabun.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["  "+$F{education_type_level} +  "  "  +  $F{education_type_level_name}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="682" y="0" width="120" height="22" uuid="1883e09d-d536-4dab-99fc-3355b4354946"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="14" pdfFontName="THSarabun.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["  "+new java.text.SimpleDateFormat(
+    "dd/MM/yyyy HH:mm:ss", new Locale("TH","th")
+        ).format(new java.util.Date())]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="70" y="0" width="50" height="22" uuid="67d28bcd-1f79-4f24-bd56-e8240b0310b4"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="14" pdfFontName="THSarabun.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{pricelist_code}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="120" y="44" width="280" height="22" uuid="3e9d6b74-7d2c-4bca-8da7-933b6eae6826"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="14" pdfFontName="THSarabun.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{reg_type_name} + "  " + $F{education_type_level_name}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="682" y="22" width="120" height="22" uuid="9cc984aa-ccc2-45b8-b08e-c7fb53328a91"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="14" pdfFontName="THSarabun.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["  "+$F{fac_code}+"  "+$F{fac_name}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="79">
+				<frame>
+					<reportElement x="0" y="0" width="802" height="79" uuid="df4f5b0b-ff80-408f-b601-575755bc7756"/>
+					<box>
+						<topPen lineWidth="1.0"/>
+						<bottomPen lineWidth="0.0"/>
+					</box>
+					<subreport>
+						<reportElement x="0" y="0" width="802" height="79" uuid="4be2f6bc-63ac-4f98-a01e-26e288456fb4"/>
+						<subreportParameter name="lang">
+							<subreportParameterExpression><![CDATA[$P{lang}]]></subreportParameterExpression>
+						</subreportParameter>
+						<subreportParameter name="company_code">
+							<subreportParameterExpression><![CDATA[$P{company_code}]]></subreportParameterExpression>
+						</subreportParameter>
+						<subreportParameter name="pricelist_code">
+							<subreportParameterExpression><![CDATA[$P{pricelist_code}]]></subreportParameterExpression>
+						</subreportParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+						<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "FNRP01_sub01.jasper"]]></subreportExpression>
+					</subreport>
+				</frame>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="68" splitType="Stretch">
+			<componentElement>
+				<reportElement x="0" y="0" width="802" height="38" uuid="9c938008-8e76-4105-9bdf-212c97a428e7"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="dataset1" uuid="098e42c4-da57-44d2-b4c3-c0d018f2077a">
+						<datasetParameter name="lang">
+							<datasetParameterExpression><![CDATA[$P{lang}]]></datasetParameterExpression>
+						</datasetParameter>
+					</datasetRun>
+					<jr:listContents height="38" width="802">
+						<textField>
+							<reportElement x="0" y="0" width="802" height="38" uuid="468ca6da-3947-4f18-9edc-1a0e823ff823"/>
+							<textElement textAlignment="Center" verticalAlignment="Middle">
+								<font fontName="TH SarabunPSK" size="14" isBold="true" pdfFontName="THSarabun Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{academy}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<componentElement>
+				<reportElement x="0" y="38" width="682" height="30" uuid="80a0708b-4db3-4b77-b867-1092f1b6e3f5"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="dataset8" uuid="a5da9c16-ed49-49d7-8b60-512f7035331e">
+						<datasetParameter name="lang">
+							<datasetParameterExpression><![CDATA[$P{lang}]]></datasetParameterExpression>
+						</datasetParameter>
+					</datasetRun>
+					<jr:listContents height="30" width="682">
+						<textField>
+							<reportElement x="597" y="0" width="85" height="30" uuid="eba60c1c-a5ea-4f57-ac18-9985f1cb02c8"/>
+							<textElement textAlignment="Right" verticalAlignment="Middle">
+								<font fontName="TH SarabunPSK" size="14" isBold="true" pdfFontName="THSarabun Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{page}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="0" y="0" width="70" height="30" uuid="488d8710-596f-4ed7-be4a-b2c4506ca69d"/>
+							<textElement verticalAlignment="Middle">
+								<font fontName="TH SarabunPSK" size="14" isBold="true" pdfFontName="THSarabun Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{publisher}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="210" y="0" width="387" height="30" uuid="d1c1f561-2306-4f8c-8feb-cc5eb86f458c"/>
+							<textElement textAlignment="Center" verticalAlignment="Middle">
+								<font fontName="TH SarabunPSK" size="14" isBold="true" pdfFontName="THSarabun Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{reportname}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="70" y="0" width="140" height="30" uuid="068260f9-a96b-4e42-afda-04360baa879a"/>
+							<textElement verticalAlignment="Middle">
+								<font fontName="TH SarabunPSK" size="14" isBold="false" pdfFontName="THSarabun Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA["กลุ่มบริษัทซอฟต์สแควร์"]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<textField>
+				<reportElement x="682" y="38" width="32" height="30" uuid="37c37283-f92f-4f17-b682-edc4d8312fb3"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="14" isBold="true" pdfFontName="THSarabun Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["  "+$V{PAGE_NUMBER}+"  / "]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="714" y="38" width="88" height="30" uuid="299b0dd8-ba00-4d74-b0a4-c92f1263f864"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="14" isBold="true" pdfFontName="THSarabun Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<frame>
+				<reportElement x="0" y="0" width="802" height="22" isRemoveLineWhenBlank="true" uuid="e3353cb6-81d5-430b-9fd5-42ebd879f83c"/>
+				<textField>
+					<reportElement x="400" y="0" width="87" height="22" uuid="50895dad-1756-48cb-9a7d-8cd278d66ea0"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="14" isBold="false" pdfFontName="THSarabun.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{itm_qty}  + " ครั้ง"]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00">
+					<reportElement x="487" y="0" width="110" height="22" uuid="51a7581e-8957-4ebd-a041-3c5a6cfa1b88"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="14" isBold="false" pdfFontName="THSarabun.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{itm_price}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00">
+					<reportElement x="597" y="0" width="85" height="22" uuid="dea427a6-faa9-4965-8227-96fdf909ee05"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="14" isBold="false" pdfFontName="THSarabun.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{train_price}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00">
+					<reportElement x="682" y="0" width="120" height="22" uuid="f6635480-45cb-4cf2-b100-56634268ada1"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="14" isBold="false" isStrikeThrough="false" pdfFontName="THSarabun.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+						<paragraph lineSpacing="Single"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{std_price}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="0" y="0" width="70" height="22" uuid="dd499790-53da-48bc-9899-755052cf4e79"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="14" pdfFontName="THSarabun.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{COLUMN_COUNT}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="70" y="0" width="330" height="22" uuid="b7792df2-4c53-471c-a917-0a78b2a1523c"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="14" pdfFontName="THSarabun.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{pricelist_itm_desc}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+</jasperReport>

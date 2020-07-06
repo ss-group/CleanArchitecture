@@ -1,0 +1,220 @@
+<toolbar>
+  <button class="btn btn-primary" (click)="save()" [disabled]="disBtnSave">
+    <i class="fas fa-cog fa-spin" [hidden]="!disBtnSave"></i>
+    <i class="fas fa-save" [hidden]="disBtnSave"></i> {{ 'label.ALL.Save' | translate}}</button>
+</toolbar>
+<h4>{{ 'label.DBRT12.programName' | translate}}</h4>
+<div class="row">
+  <div class="col">
+    <app-card header="{{ 'label.DBRT12.detail' | translate}}">
+      <div class="card-content">
+        <div class="col">
+          <div class="col">
+            <form [formGroup]="dbrt12Form">
+              <div class="form-row">
+                <div class="form-group col-md-6 col-sm-6">
+                  <textbox formControlName="programCode" class="text-center">{{ 'label.DBRT12.programCode' | translate}}
+                  </textbox>
+                </div>
+                <div class="form-group col-md-6 col-sm-6">
+                  <textbox formControlName="programCodeMua">
+                    {{ 'label.DBRT12.programCodeMua' | translate}}
+                    <div class="invalid-feedback" *ngIf="dbrt12Form.controls.programCodeMua.errors">
+                      <div *ngIf="dbrt12Form.controls.programCodeMua.errors.required">{{ 'label.DBRT12.Please' | translate}}</div>
+                    </div>
+                  </textbox>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6 col-sm-6">
+                  <textbox formControlName="programNameTha">
+                    {{ 'label.DBRT12.programNameTha' | translate}}
+                    <div class="invalid-feedback" *ngIf="dbrt12Form.controls.programNameTha.errors">
+                      <div *ngIf="dbrt12Form.controls.programNameTha.errors.required">{{ 'label.DBRT12.Please' | translate}}</div>
+                    </div>
+                  </textbox>
+                </div>
+                <div class="form-group col-md-6 col-sm-6">
+                  <textbox formControlName="programNameEng">
+                    {{ 'label.DBRT12.programNameEng' | translate}}
+                  </textbox>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6 col-sm-6">
+                  <textbox formControlName="programShortNameTha">
+                    {{ 'label.DBRT12.programShortNameTha' | translate}}
+                    <div class="invalid-feedback" *ngIf="dbrt12Form.controls.programShortNameTha.errors">
+                      <div *ngIf="dbrt12Form.controls.programShortNameTha.errors.required">{{ 'label.DBRT12.Please' | translate}}</div>
+                    </div>
+                  </textbox>
+                </div>
+                <div class="form-group col-md-6 col-sm-6">
+                  <textbox formControlName="programShortNameEng">
+                    {{ 'label.DBRT12.programShortNameEng' | translate}}
+                  </textbox>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6 col-sm-6">
+                  <textbox formControlName="cardName">
+                    {{ 'label.DBRT12.cardName' | translate}}
+                  </textbox>
+                </div>
+                <div class="form-group col-md-6 col-sm-6">
+                  <select-input [items]="master.subjectGroupCode" placeholder="{{ 'label.ALL.PleaseSelect' | translate}}" formControlName="subjectGroupCode">
+                    {{ 'label.DBRT12.subjectGroupCode' | translate}}
+                    <div class="invalid-feedback" *ngIf="dbrt12Form.controls.subjectGroupCode.errors">
+                      <div *ngIf="dbrt12Form.controls.subjectGroupCode.errors.required">{{ 'label.DBRT12.Please' | translate}}</div>
+                    </div>
+                  </select-input>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6 col-sm-6">
+                  <select-input [items]="master.courseDescriptionCode" placeholder="{{ 'label.ALL.PleaseSelect' | translate}}" formControlName="courseDescriptionCode">
+                    {{ 'label.DBRT12.courseDescriptionCode' | translate}}
+                    <div class="invalid-feedback" *ngIf="dbrt12Form.controls.courseDescriptionCode.errors">
+                      <div *ngIf="dbrt12Form.controls.courseDescriptionCode.errors.required">{{ 'label.DBRT12.Please' | translate}}</div>
+                    </div>
+                  </select-input>
+                </div>
+                <div class="form-group col-md-3 col-sm-3">
+                  <textbox formControlName="currId">
+                    {{ 'label.DBRT12.currId' | translate}}
+                  </textbox>
+                </div>
+                <div class="form-group col-md-3 col-sm-3">
+                  <textbox formControlName="programId">
+                    {{ 'label.DBRT12.programId' | translate}}
+                  </textbox>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-3 col-sm-3">
+                  <textbox formControlName="iscedId">
+                    {{ 'label.DBRT12.iscedId' | translate}}
+                  </textbox>
+                </div>
+                <div class="form-group col-md-3 col-sm-3">
+                  <textbox formControlName="refGroupId">
+                    {{ 'label.DBRT12.refGroupId' | translate}}
+                  </textbox>
+                </div>
+                <div class="form-group col-md-6 col-sm-6">
+                  <textbox formControlName="formatCode">
+                    {{ 'label.DBRT12.formatCode' | translate}}
+                    <div class="invalid-feedback" *ngIf="dbrt12Form.controls.formatCode.errors">
+                      <div *ngIf="dbrt12Form.controls.formatCode.errors.required">{{ 'label.DBRT12.Please' | translate}}</div>
+                    </div>
+                  </textbox>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6 col-sm-6">
+                  <textbox formControlName="fnPayinCode">
+                    {{ 'label.DBRT12.fnPayinCode' | translate}}
+                    <div class="invalid-feedback" *ngIf="dbrt12Form.controls.fnPayinCode.errors">
+                      <div *ngIf="dbrt12Form.controls.fnPayinCode.errors.required">{{ 'label.DBRT12.Please' | translate}}</div>
+                    </div>
+                  </textbox>
+                </div>
+                <div class="form-group col-md-3 col-sm-3">
+                  <checkbox formControlName="branch">{{ 'label.DBRT12.branch' | translate}}</checkbox>
+                </div>
+                <div class="form-group col-md-3 col-sm-3">
+                  <checkbox formControlName="active">{{ 'label.DBRT12.active' | translate}}</checkbox>
+                </div>
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </app-card>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col">
+      <app-card header="{{ 'label.DBRT12.detail2' | translate}}">
+          <!-- <div class="card-menu">
+              <div class="col">
+                  <div class="text-right">
+                      <button class="btn btn-primary" (click)="add();GroupTable.goLastPage();"><i
+                              class="fas fa-plus-circle"></i>
+                              {{ 'label.ALL.Add' | translate}}
+                      </button>
+                  </div>
+              </div>
+          </div> -->
+          <div class="card-content">
+              <app-table-client #GroupTable [rows]="detail.csCurriculum" [summaryRow]="true">
+
+                  <ngx-datatable-column prop="ohecCclCode" [cellClass]="'text-center'" width="100">
+                    <ng-template ngx-datatable-header-template>
+                        <label class="datatable-header-cell-wrapper">{{ 'label.DBRT12.ohecCclCode' | translate}}</label>
+                    </ng-template>
+                    <ng-template let-row="row" let-rowIndex="rowIndex" ngx-datatable-cell-template>
+                        <div [formGroup]="row.form">
+                          <textbox formControlName="ohecCclCode" [hasLabel]="false" [small]="true">
+                          </textbox>
+                        </div>
+                    </ng-template>
+                </ngx-datatable-column>
+
+                <!-- <ngx-datatable-column prop="majorNameTha" [cellClass]="'text-center'" width="100">
+                  <ng-template ngx-datatable-header-template>
+                      <label class="datatable-header-cell-wrapper">{{ 'label.DBRT12.majorNameTha' | translate}}</label>
+                  </ng-template>
+                  <ng-template let-row="row" let-rowIndex="rowIndex" ngx-datatable-cell-template>
+                      <div [formGroup]="row.form">
+                        <textbox formControlName="majorNameTha"[hasLabel]="false" [small]="true">
+                        </textbox>
+                      </div>
+                  </ng-template>
+              </ngx-datatable-column>
+
+              <ngx-datatable-column prop="majorNameEng" [cellClass]="'text-center'" width="100">
+                <ng-template ngx-datatable-header-template>
+                    <label class="datatable-header-cell-wrapper">{{ 'label.DBRT12.majorNameEng' | translate}}</label>
+                </ng-template>
+                <ng-template let-row="row" let-rowIndex="rowIndex" ngx-datatable-cell-template>
+                    <div [formGroup]="row.form">
+                      <textbox  formControlName="majorNameEng"[hasLabel]="false" [small]="true">
+                      </textbox>
+                    </div>
+                </ng-template>
+            </ngx-datatable-column>
+
+                  <ngx-datatable-column prop="active" width="50" [cellClass]="'text-center'">
+                      <ng-template let-sort="sortFn" ngx-datatable-header-template>
+                          <label class="datatable-header-cell-wrapper" (click)="sort()">
+                            {{ 'label.DBRT12.active' | translate}}
+                          </label>
+                      </ng-template>
+                      <ng-template let-row="row" ngx-datatable-cell-template>
+                          <div [formGroup]="row.form">
+                              <checkbox formControlName="active"></checkbox>
+                          </div>
+                      </ng-template>
+                  </ngx-datatable-column>
+
+                  <ngx-datatable-column [cellClass]="'text-center'" [sortable]="false" width="50">
+                      <ng-template ngx-datatable-header-template>
+                          <label class="datatable-header-cell-wrapper">
+                            {{ 'label.ALL.Delete' | translate}}
+                          </label>
+                      </ng-template>
+                      <ng-template let-row="row" let-rowIndex="rowIndex" ngx-datatable-cell-template>
+                          <button class="btn btn-outline-danger btn-sm" (click)="remove(row)">
+                              <i class="far fa-trash-alt"></i>
+                          </button>
+                      </ng-template>
+                  </ngx-datatable-column> -->
+              </app-table-client>
+          </div>
+      </app-card>
+  </div>
+</div>

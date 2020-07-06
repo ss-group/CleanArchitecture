@@ -1,0 +1,188 @@
+<toolbar>
+  <button class="btn btn-primary" (click)="save()" [disabled]="saving">
+    <i class="fas fa-cog fa-spin" [hidden]="!saving"></i>
+    <i class="fas fa-save" [hidden]="saving"></i>  {{ 'label.ALL.Save' | translate}}</button>
+</toolbar>
+<h4>{{ 'label.DBRT13.programName' | translate}}</h4>
+<div class="row">
+  <div class="col">
+    <app-card header="{{ 'label.DBRT13.detail' | translate}}">
+      <div class="card-content">
+        <div class="col">
+          <div class="col">
+            <form [formGroup]="dbrt13Form" [class.validated]="submited">
+              <div class="form-row">
+                <div class="form-group col-md-6 col-sm-6">
+                  <textbox formControlName="majorCode" class="text-center">{{ 'label.DBRT13.majorCode' | translate}}
+                  </textbox>
+                </div>
+                <!-- <div class="form-group col-md-3 col-sm-3">
+                  <textbox formControlName="facCodeErp" class="text-center">{{ 'label.DBRT13.facCodeErp' | translate}}
+                  </textbox>
+                </div> -->
+              </div>
+               <div class="form-row">
+                <div class="form-group col-md-6 col-sm-6">
+                  <select-input [items]="master.facCode" placeholder="{{ 'label.ALL.PleaseSelect' | translate}}" 
+                    formControlName="facCode"  (returnValue)="facCodeChange(dbrt13Form.value.facCode)">
+                    {{ 'label.DBRT13.facCode' | translate}}
+                  </select-input> 
+                </div>
+                <div class="form-group col-md-6 col-sm-6">
+                  <select-input [items]="master.programCode" placeholder="{{ 'label.ALL.PleaseSelect' | translate}}" 
+                    formControlName="programCode" >
+                    {{ 'label.DBRT13.programCode' | translate}}
+                  </select-input>
+                </div>
+                <!-- <div class="form-group col-md-6 col-sm-6">
+                  <textbox formControlName="facCode">{{ 'label.DBRT13.facCode' | translate}}
+                    <div class="invalid-feedback" *ngIf="DBRT13Form.controls.facCode.errors">
+                      <div *ngIf="DBRT13Form.controls.facCode.errors.required">{{ 'label.DBRT13.Please' | translate}}</div>
+                    </div>
+                  </textbox>
+                </div>-->
+              </div> 
+              <div class="form-row">
+                <div class="form-group col-md-6 col-sm-6">
+                  <textbox formControlName="majorNameTha">{{ 'label.DBRT13.majorNameTha' | translate}}
+                  </textbox>
+                </div>
+                <div class="form-group col-md-6 col-sm-6">
+                  <textbox formControlName="majorNameEng">{{ 'label.DBRT13.majorNameEng' | translate}}
+                  </textbox>
+                </div> 
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6 col-sm-6">
+                  <textbox formControlName="majorShortNameTha">{{ 'label.DBRT13.majorShortNameTha' | translate}}
+                  </textbox>
+                </div>
+                <div class="form-group col-md-6 col-sm-6">
+                  <textbox formControlName="majorShortNameEng">{{ 'label.DBRT13.majorShortNameEng' | translate}}
+                  </textbox>
+                </div> 
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6 col-sm-6">
+                  <textbox formControlName="formatCode">{{ 'label.DBRT13.formatCode' | translate}}
+                  </textbox>
+                </div>
+                <div class="form-group col-md-6 col-sm-6">
+                  <textbox formControlName="majorCodeMua">{{ 'label.DBRT13.majorCodeMua' | translate}}
+                  </textbox>
+                </div> 
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6 col-sm-6">
+                  <checkbox formControlName="active">{{ 'label.DBRT13.active' | translate}}</checkbox>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </app-card>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col">
+      <app-card header="{{ 'label.DBRT13.detail2' | translate}}">
+          <div class="card-menu">
+              <div class="col">
+                  <div class="text-right">
+                      <button class="btn btn-primary" (click)="add();"><i
+                              class="fas fa-plus-circle"></i>
+                              {{ 'label.ALL.Add' | translate}}
+                      </button>
+                  </div>
+              </div>
+          </div>
+          <div class="card-content">
+              <app-table-client #GroupTable [rows]="detail.dbProfessional" [summaryRow]="true">
+                  <ngx-datatable-column prop="proCode" [cellClass]="'text-center'" width="50">
+                      <ng-template ngx-datatable-header-template>
+                          <label class="datatable-header-cell-wrapper" (click)="sort()">{{ 'label.DBRT13.proCode' | translate}}</label>
+                      </ng-template>
+                      <ng-template let-row="row" let-rowIndex="rowIndex" ngx-datatable-cell-template>
+                              <div [formGroup]="row.form">
+                                <textbox formControlName="proCode" [hasLabel]="false" [small]="true"> </textbox>
+                              </div> 
+                      </ng-template>
+                  </ngx-datatable-column>
+                  <ngx-datatable-column prop="proNameTha" [cellClass]="'text-center'" width="100">
+                    <ng-template ngx-datatable-header-template>
+                        <label class="datatable-header-cell-wrapper" (click)="sort()">{{ 'label.DBRT13.proNameTha' | translate}}</label>
+                    </ng-template>
+                    <ng-template let-row="row" let-rowIndex="rowIndex" ngx-datatable-cell-template>
+                            <div [formGroup]="row.form">
+                              <textbox formControlName="proNameTha" [hasLabel]="false" [small]="true"> </textbox>
+                            </div> 
+                    </ng-template>
+                  </ngx-datatable-column>
+                  <ngx-datatable-column prop="proNameEng" [cellClass]="'text-center'" width="100">
+                    <ng-template ngx-datatable-header-template>
+                        <label class="datatable-header-cell-wrapper" (click)="sort()">{{ 'label.DBRT13.proNameEng' | translate}}</label>
+                    </ng-template>
+                    <ng-template let-row="row" let-rowIndex="rowIndex" ngx-datatable-cell-template>
+                            <div [formGroup]="row.form">
+                              <textbox formControlName="proNameEng" [hasLabel]="false" [small]="true"> </textbox>
+                            </div> 
+                    </ng-template>
+                  </ngx-datatable-column>
+                  <ngx-datatable-column prop="proShortNameTha" [cellClass]="'text-center'" width="100">
+                    <ng-template ngx-datatable-header-template>
+                        <label class="datatable-header-cell-wrapper" (click)="sort()">{{ 'label.DBRT13.proShortNameTha' | translate}}</label>
+                    </ng-template>
+                    <ng-template let-row="row" let-rowIndex="rowIndex" ngx-datatable-cell-template>
+                            <div [formGroup]="row.form">
+                              <textbox formControlName="proShortNameTha" [hasLabel]="false" [small]="true"> </textbox>
+                            </div> 
+                    </ng-template>
+                  </ngx-datatable-column>
+                  <ngx-datatable-column prop="proShortNameEng" [cellClass]="'text-center'" width="100">
+                    <ng-template ngx-datatable-header-template>
+                        <label class="datatable-header-cell-wrapper" (click)="sort()">{{ 'label.DBRT13.proShortNameEng' | translate}}</label>
+                    </ng-template>
+                    <ng-template let-row="row" let-rowIndex="rowIndex" ngx-datatable-cell-template>
+                            <div [formGroup]="row.form">
+                              <textbox formControlName="proShortNameEng" [hasLabel]="false" [small]="true"> </textbox>
+                            </div> 
+                    </ng-template>
+                  </ngx-datatable-column>
+                  <ngx-datatable-column prop="formatCode" [cellClass]="'text-center'" width="50">
+                    <ng-template ngx-datatable-header-template>
+                        <label class="datatable-header-cell-wrapper" (click)="sort()">{{ 'label.DBRT13.formatCode' | translate}}</label>
+                    </ng-template>
+                    <ng-template let-row="row" let-rowIndex="rowIndex" ngx-datatable-cell-template>
+                            <div [formGroup]="row.form">
+                              <textbox formControlName="formatCode" [hasLabel]="false" [small]="true"> </textbox>
+                            </div> 
+                    </ng-template>
+                  </ngx-datatable-column>
+                  <ngx-datatable-column prop="active" width="50" [cellClass]="'text-center'">
+                      <ng-template let-sort="sortFn" ngx-datatable-header-template>
+                          <label class="datatable-header-cell-wrapper" (click)="sort()">{{ 'label.DBRT13.active' | translate}}</label>
+                      </ng-template>
+                      <ng-template let-row="row" ngx-datatable-cell-template>
+                          <div [formGroup]="row.form">
+                              <checkbox formControlName="active"></checkbox>
+                          </div>
+                      </ng-template>
+                  </ngx-datatable-column>
+                  <ngx-datatable-column [cellClass]="'text-center'" [sortable]="false" width="50">
+                      <ng-template ngx-datatable-header-template>
+                          <label class="datatable-header-cell-wrapper">{{ 'label.ALL.Delete' | translate}}</label>
+                      </ng-template>
+                      <ng-template let-row="row" let-rowIndex="rowIndex" ngx-datatable-cell-template>
+                          <button class="btn btn-outline-danger btn-sm" (click)="remove(row)">
+                              <i class="far fa-trash-alt"></i>
+                          </button>
+                      </ng-template>
+                  </ngx-datatable-column>
+              </app-table-client>
+          </div>
+      </app-card>
+  </div>
+</div>

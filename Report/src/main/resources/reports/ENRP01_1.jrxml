@@ -1,0 +1,1265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ENRP01_1" language="groovy" pageWidth="555" pageHeight="802" whenNoDataType="BlankPage" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="0a8daf2c-fec2-4f3a-ac37-66484b29354f">
+	<property name="ireport.zoom" value="1.948717100000005"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="360"/>
+	<subDataset name="dataset1" uuid="9d191740-2e04-4b5e-a4a2-79c5b55aa214">
+		<parameter name="LANG" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[Select get_label_name('ENRP01','ReportNameJob',$P{LANG}) as report_name,
+get_label_name('ENRP01','Academy',$P{LANG}) as Academy]]>
+		</queryString>
+		<field name="report_name" class="java.lang.String"/>
+		<field name="academy" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="dataset2" uuid="da0d49a4-ad59-4c6d-b51a-2cf077e15a05">
+		<parameter name="LANG" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[Select get_label_name('ENRP01','Please',$P{LANG}) as Please,
+get_label_name('ENRP01','Name',$P{LANG}) as Name,
+get_label_name('ENRP01','Mr',$P{LANG}) as Mr,
+get_label_name('ENRP01','Mrs',$P{LANG}) as Mrs,
+get_label_name('ENRP01','Ms',$P{LANG}) as Ms,
+get_label_name('ENRP01','Orther',$P{LANG}) as Orther,
+get_label_name('ENRP01','status',$P{LANG}) as status,
+get_label_name('ENRP01','Male',$P{LANG}) as Male,
+get_label_name('ENRP01','Female',$P{LANG}) as Female,
+get_label_name('ENRP01','Code',$P{LANG}) as Code,
+get_label_name('ENRP01','Sex',$P{LANG}) as Sex,
+get_label_name('ENRP01','single',$P{LANG}) as single,
+get_label_name('ENRP01','Marry',$P{LANG}) as Marry,
+get_label_name('ENRP01','religion',$P{LANG}) as religion,
+get_label_name('ENRP01','race',$P{LANG}) as race,
+get_label_name('ENRP01','nationality',$P{LANG}) as nationality,
+get_label_name('ENRP01','BrithDay',$P{LANG}) as BrithDay,
+get_label_name('ENRP01','age',$P{LANG}) as age,
+get_label_name('ENRP01','Years',$P{LANG}) as Years,
+get_label_name('ENRP01','Adrss',$P{LANG}) as Adrss,
+get_label_name('ENRP01','No',$P{LANG}) as No,
+get_label_name('ENRP01','Village',$P{LANG}) as Village,
+get_label_name('ENRP01','alley',$P{LANG}) as alley,
+get_label_name('ENRP01','road',$P{LANG}) as road,
+get_label_name('ENRP01','SubDistrict',$P{LANG}) as SubDistrict,
+get_label_name('ENRP01','District',$P{LANG}) as District,
+get_label_name('ENRP01','province',$P{LANG}) as province,
+get_label_name('ENRP01','PostalCode',$P{LANG}) as PostalCode,
+get_label_name('ENRP01','Phone',$P{LANG}) as Phone,
+get_label_name('ENRP01','Email',$P{LANG}) as Email,
+get_label_name('ENRP01','EducationalBackground',$P{LANG}) as EducationalBackground,
+get_label_name('ENRP01','BachelorDegree',$P{LANG}) as BachelorDegree,
+get_label_name('ENRP01','ProgramCode',$P{LANG}) as ProgramCode,
+get_label_name('ENRP01','GraduationYear',$P{LANG}) as GraduationYear,
+get_label_name('ENRP01','MusicalInstrument',$P{LANG}) as MusicalInstrument,
+get_label_name('ENRP01','EducationalInstitution',$P{LANG}) as EducationalInstitution,
+get_label_name('ENRP01','WorkStatus',$P{LANG}) as WorkStatus ,
+get_label_name('ENRP01','CivilService',$P{LANG}) as CivilService,
+get_label_name('ENRP01','stateEnterprise',$P{LANG}) as stateEnterprise,
+get_label_name('ENRP01','GPA',$P{LANG}) as GPA,
+get_label_name('ENRP01','DepartmentName',$P{LANG}) as DepartmentName,
+get_label_name('ENRP01','WorkingTime',$P{LANG}) as WorkingTime,
+get_label_name('ENRP01','month',$P{LANG}) as month,
+get_label_name('ENRP01','position',$P{LANG}) as position,
+get_label_name('ENRP01','CurrentWorkplace',$P{LANG}) as CurrentWorkplace,
+get_label_name('ENRP01','fax',$P{LANG}) as fax]]>
+		</queryString>
+		<field name="please" class="java.lang.String"/>
+		<field name="name" class="java.lang.String"/>
+		<field name="mr" class="java.lang.String"/>
+		<field name="mrs" class="java.lang.String"/>
+		<field name="ms" class="java.lang.String"/>
+		<field name="orther" class="java.lang.String"/>
+		<field name="status" class="java.lang.String"/>
+		<field name="male" class="java.lang.String"/>
+		<field name="female" class="java.lang.String"/>
+		<field name="code" class="java.lang.String"/>
+		<field name="sex" class="java.lang.String"/>
+		<field name="single" class="java.lang.String"/>
+		<field name="marry" class="java.lang.String"/>
+		<field name="religion" class="java.lang.String"/>
+		<field name="race" class="java.lang.String"/>
+		<field name="nationality" class="java.lang.String"/>
+		<field name="brithday" class="java.lang.String"/>
+		<field name="age" class="java.lang.String"/>
+		<field name="years" class="java.lang.String"/>
+		<field name="adrss" class="java.lang.String"/>
+		<field name="no" class="java.lang.String"/>
+		<field name="village" class="java.lang.String"/>
+		<field name="alley" class="java.lang.String"/>
+		<field name="road" class="java.lang.String"/>
+		<field name="subdistrict" class="java.lang.String"/>
+		<field name="district" class="java.lang.String"/>
+		<field name="province" class="java.lang.String"/>
+		<field name="postalcode" class="java.lang.String"/>
+		<field name="phone" class="java.lang.String"/>
+		<field name="email" class="java.lang.String"/>
+		<field name="educationalbackground" class="java.lang.String"/>
+		<field name="bachelordegree" class="java.lang.String"/>
+		<field name="programcode" class="java.lang.String"/>
+		<field name="graduationyear" class="java.lang.String"/>
+		<field name="musicalinstrument" class="java.lang.String"/>
+		<field name="educationalinstitution" class="java.lang.String"/>
+		<field name="workstatus" class="java.lang.String"/>
+		<field name="civilservice" class="java.lang.String"/>
+		<field name="stateenterprise" class="java.lang.String"/>
+		<field name="gpa" class="java.lang.String"/>
+		<field name="departmentname" class="java.lang.String"/>
+		<field name="workingtime" class="java.lang.String"/>
+		<field name="month" class="java.lang.String"/>
+		<field name="position" class="java.lang.String"/>
+		<field name="currentworkplace" class="java.lang.String"/>
+		<field name="fax" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="dataset3" uuid="3a7d608a-7b97-4729-8745-a8991e925e19">
+		<parameter name="LANG" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[Select get_label_name('ENRP01','Attach',$P{LANG}) as Attach,
+get_label_name('ENRP01','Size',$P{LANG}) as Size]]>
+		</queryString>
+		<field name="attach" class="java.lang.String"/>
+		<field name="size" class="java.lang.String"/>
+	</subDataset>
+	<parameter name="LANG" class="java.lang.String"/>
+	<parameter name="GROUP_EN_CODE" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[Select DISTINCT
+case $P{LANG} when 'th' then f.en_name_tha else COALESCE(f.en_name_eng,  f.en_name_tha) end as en_name,
+case $P{LANG} when 'th' then p.pre_name_tha else COALESCE(p.pre_name_eng,  p.pre_name_tha) end as pre_name,p.pre_name_id ,
+Tgender.list_item_code as gender_code ,TMaritalStatus.list_item_code as MaritalStatus_code,TReligion.list_item_code as Religion_cdoe,
+TRace.list_item_code as Race_code,TNationality.list_item_code as Nationality_code,TOccupation.list_item_code as Occupation_code,
+case $P{LANG}  when 'th' then Tgender.list_item_name_tha else COALESCE(Tgender.list_item_name_eng,  Tgender.list_item_name_tha) end as gender_name,
+case $P{LANG} when 'th' then TMaritalStatus.list_item_name_tha else COALESCE(TMaritalStatus.list_item_name_eng,  TMaritalStatus.list_item_name_tha) end as MaritalStatus_name,
+case $P{LANG} when 'th' then TReligion.list_item_name_tha else COALESCE(TReligion.list_item_name_eng,  TReligion.list_item_name_tha) end as Religion_name,
+case $P{LANG} when 'th' then TRace.list_item_name_tha else COALESCE(TRace.list_item_name_eng,  TRace.list_item_name_tha) end as Race_name,
+case $P{LANG} when 'th' then TNationality.list_item_name_tha else COALESCE(TNationality.list_item_name_eng,  TNationality.list_item_name_tha) end as Nationality_name,
+case $P{LANG} when 'th' then TOccupation.list_item_name_tha else COALESCE(TOccupation.list_item_name_eng,  TOccupation.list_item_name_tha) end as Occupation_name,
+SUBSTRING(case $P{LANG} when 'th' then f.en_name_tha else COALESCE(f.en_name_eng,  f.en_name_tha) end,position(' ' in case $P{LANG} when 'th' then f.en_name_tha else COALESCE(f.en_name_eng,  f.en_name_tha) end)) as PrefixName,
+a.gender,a.en_code, a.marital_status ,a.religion,a.race,a.nationality, a.birthday,SUBSTRING (a.birthday ::text  FROM 0 FOR 5) as birthday_Year ,
+SUBSTRING (a.birthday ::text  FROM 6 FOR 2) as birthday_Month,SUBSTRING (a.birthday ::text  FROM 9 FOR 2) as birthday_Day ,a.age,
+a.occupation_code,a.occupation_desc,a.occupation_year,a.occupation_month,a.occupation_position_desc,
+a.office_address_no,a.office_soi,a.office_road,a.office_sub_district_id,a.office_district_id ,a.office_province_id,a.office_postal_code_id,a.office_tel_no, a.office_fax_no,
+b.institute_id,b.finish_year,b.finish_gpa,
+case $P{LANG} when 'th' then u.institute_name_tha else COALESCE(u.institute_name_eng,  u.institute_name_tha) end as institute_name,
+c.address_no,c.moo,c.road,c.soi, c.sub_district_id ,c.district_id,c.province_id,c.postal_code_id,c.tel_no,c.email,
+case $P{LANG} when 'th' then r.sub_district_name_tha else COALESCE(r.sub_district_name_eng,  r.sub_district_name_tha) end as Csub_district_name,
+case $P{LANG} when 'th' then g.district_name_tha else COALESCE(g.district_name_eng,  g.district_name_tha) end as Cdistrict_name,
+case $P{LANG} when 'th' then pro.province_name_tha else COALESCE(pro.province_name_eng,  pro.province_name_tha) end as Cprovince_name,
+case $P{LANG} when 'th' then o.sub_district_name_tha else COALESCE(o.sub_district_name_eng,  o.sub_district_name_tha) end as Asub_district_name,
+case $P{LANG} when 'th' then k.district_name_tha else COALESCE(k.district_name_eng,  k.district_name_tha) end as Adistrict_name,
+case $P{LANG} when 'th' then vin.province_name_tha else COALESCE(vin.province_name_eng,  vin.province_name_tha) end as Aprovince_name
+from en_enrollment as a
+left join en_enrollment_edu_hist as b
+on a.company_code = b.company_code
+and a.enrollment_id = b.enrollment_id
+left join en_enrollment_addr as c
+on a.company_code = c.company_code
+and a.enrollment_id = c.enrollment_id
+left join en_get_en_name() as f
+on a.company_code = f.company_code
+and a.enrollment_id = f.enrollment_id
+left join db_pre_name as p
+on a.pre_name_id = p.pre_name_id
+left join (Select * from db_list_item where list_item_group_code in ('Gender')) as Tgender
+on a.gender = Tgender.list_item_code
+left join (Select * from db_list_item where list_item_group_code in ('MaritalStatus')) as TMaritalStatus
+on a.marital_status = TMaritalStatus.list_item_code
+left join (Select * from db_list_item where list_item_group_code in ('Religion')) as TReligion
+on a.religion = TReligion.list_item_code
+left join (Select * from db_list_item where list_item_group_code in ('Race')) as TRace
+on a.race = TRace.list_item_code
+left join (Select * from db_list_item where list_item_group_code in ('Nationality')) as TNationality
+on a.nationality = TNationality.list_item_code
+left join (Select * from db_list_item where list_item_group_code in ('Occupation')) as TOccupation
+on a.occupation_code =TOccupation.list_item_code
+left join db_institute as u
+on b.institute_id = u.institute_id
+left join db_sub_district as r
+on c.sub_district_id = r.sub_district_id
+left join db_district as g
+on c.district_id = g.district_id
+left join db_province as pro
+on c.province_id = pro.province_id
+left join db_sub_district as o
+on a.office_sub_district_id = o.sub_district_id
+left join db_district as k
+on a.office_district_id = k.district_id
+left join db_province as vin
+on a.office_province_id = vin.province_id
+where a.en_code = $P{GROUP_EN_CODE}]]>
+	</queryString>
+	<field name="en_name" class="java.lang.String"/>
+	<field name="pre_name" class="java.lang.String"/>
+	<field name="pre_name_id" class="java.lang.Integer"/>
+	<field name="gender_code" class="java.lang.String"/>
+	<field name="maritalstatus_code" class="java.lang.String"/>
+	<field name="religion_cdoe" class="java.lang.String"/>
+	<field name="race_code" class="java.lang.String"/>
+	<field name="nationality_code" class="java.lang.String"/>
+	<field name="occupation_code" class="java.lang.String"/>
+	<field name="gender_name" class="java.lang.String"/>
+	<field name="maritalstatus_name" class="java.lang.String"/>
+	<field name="religion_name" class="java.lang.String"/>
+	<field name="race_name" class="java.lang.String"/>
+	<field name="nationality_name" class="java.lang.String"/>
+	<field name="occupation_name" class="java.lang.String"/>
+	<field name="prefixname" class="java.lang.String"/>
+	<field name="gender" class="java.lang.String"/>
+	<field name="en_code" class="java.lang.String"/>
+	<field name="marital_status" class="java.lang.String"/>
+	<field name="religion" class="java.lang.String"/>
+	<field name="race" class="java.lang.String"/>
+	<field name="nationality" class="java.lang.String"/>
+	<field name="birthday" class="java.sql.Timestamp"/>
+	<field name="birthday_year" class="java.lang.String"/>
+	<field name="birthday_month" class="java.lang.String"/>
+	<field name="birthday_day" class="java.lang.String"/>
+	<field name="age" class="java.lang.Integer"/>
+	<field name="occupation_desc" class="java.lang.String"/>
+	<field name="occupation_year" class="java.lang.Integer"/>
+	<field name="occupation_month" class="java.lang.Integer"/>
+	<field name="occupation_position_desc" class="java.lang.String"/>
+	<field name="office_address_no" class="java.lang.String"/>
+	<field name="office_soi" class="java.lang.String"/>
+	<field name="office_road" class="java.lang.String"/>
+	<field name="office_sub_district_id" class="java.lang.Long"/>
+	<field name="office_district_id" class="java.lang.Long"/>
+	<field name="office_province_id" class="java.lang.Long"/>
+	<field name="office_postal_code_id" class="java.lang.Long"/>
+	<field name="office_tel_no" class="java.lang.String"/>
+	<field name="office_fax_no" class="java.lang.String"/>
+	<field name="institute_id" class="java.lang.Long"/>
+	<field name="finish_year" class="java.lang.Integer"/>
+	<field name="finish_gpa" class="java.math.BigDecimal"/>
+	<field name="institute_name" class="java.lang.String"/>
+	<field name="address_no" class="java.lang.String"/>
+	<field name="moo" class="java.lang.String"/>
+	<field name="road" class="java.lang.String"/>
+	<field name="soi" class="java.lang.String"/>
+	<field name="sub_district_id" class="java.lang.Long"/>
+	<field name="district_id" class="java.lang.Long"/>
+	<field name="province_id" class="java.lang.Long"/>
+	<field name="postal_code_id" class="java.lang.Long"/>
+	<field name="tel_no" class="java.lang.String"/>
+	<field name="email" class="java.lang.String"/>
+	<field name="csub_district_name" class="java.lang.String"/>
+	<field name="cdistrict_name" class="java.lang.String"/>
+	<field name="cprovince_name" class="java.lang.String"/>
+	<field name="asub_district_name" class="java.lang.String"/>
+	<field name="adistrict_name" class="java.lang.String"/>
+	<field name="aprovince_name" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="780">
+			<line>
+				<reportElement x="447" y="94" width="75" height="1" uuid="0add2aba-0951-4dc9-97da-f54f0e9553d3"/>
+			</line>
+			<line>
+				<reportElement x="446" y="16" width="1" height="79" uuid="03136885-6e70-4345-97bd-25ddb705f54d"/>
+			</line>
+			<line>
+				<reportElement x="447" y="16" width="75" height="1" uuid="d1e6fa1f-32f6-41e2-ae91-5a1a40a09dcb"/>
+			</line>
+			<line>
+				<reportElement x="521" y="16" width="1" height="79" uuid="45cfcfb3-3158-4e58-807b-cf2778bedab0"/>
+			</line>
+			<componentElement>
+				<reportElement x="448" y="19" width="71" height="77" uuid="ef0b6308-cbce-459e-8124-40771cba29c3"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="dataset3" uuid="ae748520-f5fd-40b6-8c0d-31350385b636">
+						<datasetParameter name="LANG">
+							<datasetParameterExpression><![CDATA[$P{LANG}]]></datasetParameterExpression>
+						</datasetParameter>
+					</datasetRun>
+					<jr:listContents height="77" width="71">
+						<textField>
+							<reportElement x="8" y="18" width="55" height="20" uuid="5d4fe5a8-bf35-4301-bf08-f83e00616b2d"/>
+							<textElement textAlignment="Center" verticalAlignment="Middle">
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{attach}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="9" y="39" width="55" height="20" uuid="24b35fc6-40e7-45c3-bd13-20da713ec322"/>
+							<textElement textAlignment="Center" verticalAlignment="Middle">
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{size}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<componentElement>
+				<reportElement x="6" y="97" width="516" height="53" uuid="4e4cf3db-12fa-4de7-a29a-8a37f6d40dce"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="dataset1" uuid="4e4d13d9-595b-4825-87a2-4cf356cbee70">
+						<datasetParameter name="LANG">
+							<datasetParameterExpression><![CDATA[$P{LANG}]]></datasetParameterExpression>
+						</datasetParameter>
+					</datasetRun>
+					<jr:listContents height="53" width="516">
+						<textField>
+							<reportElement x="0" y="8" width="513" height="20" uuid="363bafe7-930a-4209-9f61-62cb6c67f40e"/>
+							<textElement textAlignment="Center" verticalAlignment="Middle">
+								<font fontName="TH Sarabun New" size="12" isBold="true" pdfFontName="THSarabunNew Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{report_name}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="0" y="28" width="513" height="20" uuid="4f24ca39-99f3-44dc-b9b4-173f8442bfc9"/>
+							<textElement textAlignment="Center" verticalAlignment="Middle">
+								<font fontName="TH Sarabun New" size="12" isBold="true" pdfFontName="THSarabunNew Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{academy}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<componentElement>
+				<reportElement x="20" y="161" width="504" height="605" uuid="902ac766-cc29-4783-95cc-6ee8bccec826"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="dataset2" uuid="efd70333-38f0-4dfc-b9e5-832254db8c15">
+						<datasetParameter name="LANG">
+							<datasetParameterExpression><![CDATA[$P{LANG}]]></datasetParameterExpression>
+						</datasetParameter>
+					</datasetRun>
+					<jr:listContents height="605" width="504">
+						<textField>
+							<reportElement x="0" y="1" width="267" height="20" uuid="eacd4cf1-d187-4da1-b73f-4a1df49572d4"/>
+							<textElement>
+								<font fontName="TH Sarabun New" size="12" isBold="true" pdfFontName="THSarabunNew Bold.ttf" pdfEncoding="Identity-H"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{please}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="0" y="30" width="69" height="20" uuid="5c86d879-eb65-4544-8a13-dc9dcc87da1c"/>
+							<textElement verticalAlignment="Bottom">
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="80" y="30" width="29" height="20" uuid="ad0e2546-24db-44cd-ab3a-6abfc5b4a86f"/>
+							<textElement verticalAlignment="Bottom">
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{mr}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="119" y="30" width="39" height="20" uuid="8e2e040a-3fa5-4281-a0d0-1c23a1427d95"/>
+							<textElement verticalAlignment="Bottom">
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{ms}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="171" y="30" width="27" height="20" uuid="3734db01-c7e8-4ef9-a40a-f326c5cdf0ed"/>
+							<textElement verticalAlignment="Bottom">
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{mrs}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="214" y="30" width="53" height="20" uuid="b159a0d4-2c4a-4797-8fe0-9435ab89b20d"/>
+							<textElement verticalAlignment="Bottom">
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{orther}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="0" y="86" width="69" height="20" uuid="d3002826-e998-4720-b832-13eccd6c5107"/>
+							<textElement verticalAlignment="Bottom">
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{status}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="0" y="57" width="69" height="20" uuid="d9df7553-1e36-4465-94f5-a4053bf2ea99"/>
+							<textElement verticalAlignment="Bottom">
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{sex}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="80" y="61" width="28" height="16" uuid="2b6b1aae-9ad3-4cce-bcb0-297cb1ad82be"/>
+							<textElement verticalAlignment="Bottom">
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{male}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="119" y="57" width="39" height="20" uuid="e96b10ed-b91b-4ca6-8a3d-09719e080d3d"/>
+							<textElement verticalAlignment="Bottom">
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{female}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="171" y="57" width="96" height="20" uuid="9a5c3975-ff80-4f1a-b464-e8de13218c29"/>
+							<textElement verticalAlignment="Bottom">
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{code}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="80" y="84" width="28" height="20" uuid="86bbb6d3-b931-4791-bcab-ffdb8ed9f271"/>
+							<textElement verticalAlignment="Bottom">
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{single}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="119" y="85" width="39" height="19" uuid="e29d8178-21c6-43ad-85c8-0ad598e9cd43"/>
+							<textElement verticalAlignment="Bottom">
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{marry}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="171" y="85" width="96" height="19" uuid="0ae1db1c-3eee-4630-acba-2c8bb510bcde"/>
+							<textElement verticalAlignment="Bottom">
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{orther}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="0" y="118" width="42" height="20" uuid="2c619a5f-0499-4dce-9b4a-a1cd9fbd6cc0"/>
+							<textElement verticalAlignment="Bottom">
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{religion}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="190" y="120" width="42" height="20" uuid="d88dd625-7a30-4667-b166-439e43423abe"/>
+							<textElement verticalAlignment="Bottom">
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{race}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="371" y="119" width="61" height="20" uuid="2cdff29c-6700-43cc-b5be-a09e8e7af06d"/>
+							<textElement verticalAlignment="Bottom">
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{nationality}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="0" y="147" width="69" height="20" uuid="5cbe76fd-43ba-4318-9f12-309728e375d6"/>
+							<textElement verticalAlignment="Bottom">
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{brithday}]]></textFieldExpression>
+						</textField>
+						<textField isBlankWhenNull="true">
+							<reportElement x="59" y="146" width="127" height="16" uuid="23775c45-da17-4530-80d9-4bcbf1da3e74"/>
+							<box>
+								<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+							</box>
+							<textElement verticalAlignment="Bottom">
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="184" y="147" width="12" height="20" uuid="be63413e-66fb-4e2b-8605-8a22f2cb586f"/>
+							<textElement textAlignment="Center" verticalAlignment="Bottom">
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H"/>
+							</textElement>
+							<textFieldExpression><![CDATA["/"]]></textFieldExpression>
+						</textField>
+						<textField isBlankWhenNull="true">
+							<reportElement x="191" y="145" width="83" height="17" uuid="beff0932-66c4-416e-b685-2565e43678c2"/>
+							<box>
+								<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+							</box>
+							<textElement verticalAlignment="Bottom">
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+							</textElement>
+						</textField>
+						<textField>
+							<reportElement x="275" y="147" width="12" height="20" uuid="694efbb8-d7dd-4c8c-81d5-cc6f48bf518e"/>
+							<textElement verticalAlignment="Bottom">
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H"/>
+							</textElement>
+							<textFieldExpression><![CDATA["/"]]></textFieldExpression>
+						</textField>
+						<textField isBlankWhenNull="true">
+							<reportElement x="278" y="146" width="85" height="16" uuid="0ae5930e-1fa9-49bd-9e90-8f1db61bc418"/>
+							<box>
+								<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+							</box>
+							<textElement verticalAlignment="Bottom">
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="374" y="145" width="27" height="20" uuid="9bc881c0-9c3b-4d20-8eb5-850ab1bfffb2"/>
+							<textElement verticalAlignment="Bottom">
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{age}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="474" y="144" width="11" height="20" uuid="f5ce1ac7-eb40-4efe-8bc8-498f3df03ebe"/>
+							<textElement verticalAlignment="Bottom">
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{years}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="0" y="179" width="184" height="20" uuid="76cb8f6d-dff6-49ac-a285-2432e52a1d0a"/>
+							<textElement verticalAlignment="Bottom">
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{adrss}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="11" y="212" width="31" height="19" uuid="62b7638f-f352-4b05-a4db-eb11eaef8dcb"/>
+							<textElement verticalAlignment="Bottom">
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{no}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="123" y="212" width="56" height="20" uuid="1fc13fa1-c62d-4920-a022-c87544a71e5b"/>
+							<textElement verticalAlignment="Bottom">
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{village}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="257" y="212" width="36" height="19" uuid="9d967595-6d1e-4ffc-b7cf-96e2c5b9c821"/>
+							<textElement verticalAlignment="Bottom">
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{alley}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="402" y="211" width="27" height="20" uuid="2e2b53d2-7e19-42db-8adb-5890688733ad"/>
+							<textElement verticalAlignment="Bottom">
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{road}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="11" y="242" width="68" height="18" uuid="1673d5d6-ba6d-45b8-a332-81b17efb85ad"/>
+							<textElement verticalAlignment="Bottom">
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{subdistrict}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="221" y="241" width="52" height="18" uuid="d78ff1d9-13ac-4eeb-9870-6f46f1f6baaa"/>
+							<textElement verticalAlignment="Bottom">
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{district}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="385" y="241" width="40" height="18" uuid="cf597d41-c163-4dfc-9ce2-5a7be15a375b"/>
+							<textElement verticalAlignment="Bottom">
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{province}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="11" y="271" width="58" height="18" uuid="ff9b1435-8334-4c6f-adef-dba841878385"/>
+							<textElement verticalAlignment="Bottom">
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{postalcode}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="198" y="271" width="47" height="18" uuid="b9f35ff7-2568-4687-b1bc-763421f11d83"/>
+							<textElement verticalAlignment="Bottom">
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{phone}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="363" y="272" width="34" height="18" uuid="da42fbee-3e3c-4e61-a2ec-d4b730c36967"/>
+							<textElement verticalAlignment="Bottom">
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{email}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="0" y="295" width="184" height="20" uuid="8e397d16-8771-4a8b-9b72-22482b36b4af"/>
+							<textElement verticalAlignment="Bottom">
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{educationalbackground}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="11" y="325" width="100" height="17" uuid="ff84310e-a35d-466f-bb9b-2e068bfc038f"/>
+							<textElement verticalAlignment="Bottom">
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{bachelordegree}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="227" y="323" width="72" height="20" uuid="63d1ebcb-e69f-416f-a6ed-ffc8621f5a36"/>
+							<textElement verticalAlignment="Bottom">
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{programcode}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="381" y="325" width="82" height="17" uuid="8f8dfe39-a204-4cc5-bb83-47a89626b3bd"/>
+							<textElement verticalAlignment="Bottom">
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{musicalinstrument}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="11" y="359" width="100" height="18" uuid="4348a033-5781-4f46-bef2-e8242ec162cb"/>
+							<textElement verticalAlignment="Bottom">
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{graduationyear}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="227" y="359" width="96" height="18" uuid="0e062796-ce37-456b-a9d2-08601a2c5d23"/>
+							<textElement verticalAlignment="Bottom">
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{educationalinstitution}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="383" y="359" width="60" height="18" uuid="ac625817-595b-47f1-baec-3ddcfbd9ff3e"/>
+							<textElement verticalAlignment="Bottom">
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{gpa}]]></textFieldExpression>
+						</textField>
+						<textField isBlankWhenNull="true">
+							<reportElement x="85" y="321" width="134" height="16" uuid="3b794c45-c792-4225-ac6d-bacec1962edf"/>
+							<box>
+								<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+							</box>
+							<textElement verticalAlignment="Bottom">
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H"/>
+							</textElement>
+							<textFieldExpression><![CDATA[]]></textFieldExpression>
+						</textField>
+						<textField isBlankWhenNull="true">
+							<reportElement x="257" y="321" width="121" height="16" uuid="f6c9306c-7113-49a0-a374-b2f92049b7b3"/>
+							<box>
+								<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+							</box>
+							<textElement verticalAlignment="Bottom">
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H"/>
+							</textElement>
+							<textFieldExpression><![CDATA[]]></textFieldExpression>
+						</textField>
+						<textField isBlankWhenNull="true">
+							<reportElement x="423" y="321" width="63" height="16" uuid="f7f942be-7352-4751-afda-beeb72151016"/>
+							<box>
+								<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+							</box>
+							<textElement verticalAlignment="Bottom">
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H"/>
+							</textElement>
+							<textFieldExpression><![CDATA[]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="0" y="379" width="100" height="20" uuid="fe43e99f-4624-4889-b5d4-e982cb662f45"/>
+							<textElement verticalAlignment="Bottom">
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{workstatus}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="26" y="409" width="77" height="16" uuid="e5b4541e-effa-4992-bdf4-f744c7af14cf"/>
+							<textElement verticalAlignment="Bottom">
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{civilservice}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="129" y="405" width="68" height="20" uuid="3f95bfb9-a92c-4bdc-854d-32b8924d0fcf"/>
+							<textElement verticalAlignment="Bottom">
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{stateenterprise}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="218" y="406" width="96" height="19" uuid="ee72484f-c9d2-418f-968a-46c87377f163"/>
+							<textElement verticalAlignment="Bottom">
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{orther}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="11" y="437" width="92" height="20" uuid="3b371e3a-3c3c-4300-aa39-a256533646fc"/>
+							<textElement verticalAlignment="Bottom">
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{departmentname}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="12" y="465" width="79" height="20" uuid="003634bc-f303-469f-b8ae-05328ebf04f8"/>
+							<textElement verticalAlignment="Bottom">
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{workingtime}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="178" y="466" width="16" height="20" uuid="c6a9ef3e-033e-4cc7-83d1-930d3c56145c"/>
+							<textElement verticalAlignment="Bottom">
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{years}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="274" y="466" width="42" height="20" uuid="ef09ee47-a2ad-466d-b148-045f5714f928"/>
+							<textElement verticalAlignment="Bottom">
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{month}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="319" y="466" width="51" height="20" uuid="245c1461-64e8-4022-bec2-4aa247f32973"/>
+							<textElement verticalAlignment="Bottom">
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{position}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="0" y="493" width="100" height="20" uuid="9b1853e0-da53-4a79-b330-3b6fbbbf9a39"/>
+							<textElement verticalAlignment="Bottom">
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{currentworkplace}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="6" y="526" width="40" height="19" uuid="5c299380-9fa0-4372-aa2c-7d8f6eafbaa9"/>
+							<textElement verticalAlignment="Bottom">
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{no}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="169" y="526" width="36" height="19" uuid="58acbb5f-cc94-49e8-934a-feb95f31451e"/>
+							<textElement verticalAlignment="Bottom">
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{alley}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="338" y="525" width="26" height="20" uuid="318cedb6-ad36-4c2c-a0e3-34de9b0dec6d"/>
+							<textElement verticalAlignment="Bottom">
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{road}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="388" y="557" width="39" height="18" uuid="50f7c45f-2c15-4a26-99b6-172489217684"/>
+							<textElement verticalAlignment="Bottom">
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{province}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="6" y="556" width="68" height="18" uuid="86f1b80f-7166-4ea8-87c5-5d4aad589ccd"/>
+							<textElement verticalAlignment="Bottom">
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{subdistrict}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="210" y="557" width="52" height="18" uuid="be704a41-158f-4c40-a9b1-2e33b3b969e9"/>
+							<textElement verticalAlignment="Bottom">
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{district}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="5" y="581" width="58" height="18" uuid="259ce3a8-a6cc-4dc3-9fc7-3fe7a7f595a9"/>
+							<textElement verticalAlignment="Bottom">
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{postalcode}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="183" y="581" width="58" height="18" uuid="89b09864-bca9-4230-8819-e8be1920336c"/>
+							<textElement verticalAlignment="Bottom">
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{phone}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="346" y="579" width="32" height="20" uuid="5e9f4705-94e1-4330-93b4-f708f0dc6375"/>
+							<textElement verticalAlignment="Bottom">
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{fax}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<textField>
+				<reportElement x="305" y="307" width="78" height="20" uuid="4369bdd8-fdb9-432a-b47a-05fdd725fd51"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{birthday_year}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="218" y="307" width="76" height="20" uuid="dcac77a9-5e11-4bbe-8ce5-55465d981592"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.SimpleDateFormat("MMMM", new Locale("TH","th")).format($F{birthday})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="86" y="307" width="120" height="20" uuid="709a0d18-b2c4-4d05-80c9-d0e7509079cc"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{birthday_day}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="249" y="242" width="257" height="20" uuid="22434624-3cb2-4b8c-833c-a71943c6e915"/>
+				<box topPadding="0" leftPadding="4" bottomPadding="0" rightPadding="0">
+					<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+				</box>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{maritalstatus_code} != "02" && $F{maritalstatus_code} != "01" ?  $F{maritalstatus_name} : " "]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="92" y="514" width="148" height="20" uuid="939ed9cf-234b-4c2e-a3c4-4d2aab8f90a8"/>
+				<box leftPadding="3">
+					<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+				</box>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{institute_name}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="284" y="188" width="222" height="20" uuid="532b3a39-0fa2-48b2-a523-b62fe43f260d"/>
+				<box topPadding="0" leftPadding="8" bottomPadding="0" rightPadding="0">
+					<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+				</box>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pre_name_id} != 12 && $F{pre_name_id} !=  13 && $F{pre_name_id} != 14 ?  $F{en_name}: $F{prefixname}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="218" y="194" width="17" height="20" uuid="3c406365-e642-4111-a3f6-78470b5f9e72"/>
+				<textElement>
+					<font fontName="Wingdings 2" size="14" pdfFontName="WINGDNG2.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pre_name_id} != 12 && $F{pre_name_id} != 13 && $F{pre_name_id} != 14  ? "\u009E" : "\u0081"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="84" y="193" width="17" height="20" uuid="6945951e-eb47-45cb-9213-905a8e4cd915"/>
+				<textElement>
+					<font fontName="Wingdings 2" size="14" pdfFontName="WINGDNG2.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pre_name_id} == 14  ? "\u009E" : "\u0081"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="126" y="193" width="16" height="20" uuid="c40d706a-9215-49e2-8e23-40c8ded58cc4"/>
+				<textElement>
+					<font fontName="Wingdings 2" size="14" pdfFontName="WINGDNG2.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pre_name_id} == 13 ? "\u009E" : "\u0081"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="178" y="193" width="16" height="20" uuid="7d0554ef-d5a4-40cb-9c57-ffd2b262f1b7"/>
+				<textElement>
+					<font fontName="Wingdings 2" size="14" pdfFontName="WINGDNG2.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pre_name_id} == 12  ? "\u009E" : "\u0081"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="84" y="220" width="17" height="20" uuid="edaf8f37-4625-4c5b-91d3-527128e7f97a"/>
+				<textElement>
+					<font fontName="Wingdings 2" size="14" pdfFontName="WINGDNG2.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{gender} == "M"  ? "\u009E" : "\u0081"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="125" y="220" width="17" height="20" uuid="884971cf-069f-4173-8a76-080824f47276"/>
+				<textElement>
+					<font fontName="Wingdings 2" size="14" pdfFontName="WINGDNG2.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{gender} == "F"  ? "\u009E" : "\u0081"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="249" y="215" width="257" height="20" uuid="a02bcb90-8331-4006-b4f1-06870a52a7c3"/>
+				<box leftPadding="8">
+					<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+				</box>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{en_code}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="125" y="248" width="17" height="20" uuid="a819b7f4-594f-4167-bc63-48fde774cc34"/>
+				<textElement>
+					<font fontName="Wingdings 2" size="14" pdfFontName="WINGDNG2.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{maritalstatus_code} == "02"  ? "\u009E" : "\u0081"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="84" y="248" width="17" height="20" uuid="8c806e19-5c1a-47f4-8db3-85c920c36238"/>
+				<textElement>
+					<font fontName="Wingdings 2" size="14" pdfFontName="WINGDNG2.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{maritalstatus_code} == "01"  ? "\u009E" : "\u0081"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="176" y="249" width="17" height="20" uuid="e755b969-60f2-4b48-919a-49ab9d09630f"/>
+				<textElement>
+					<font fontName="Wingdings 2" size="14" pdfFontName="WINGDNG2.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{maritalstatus_code} != "02" && $F{maritalstatus_code} != "01"  ? "\u009E" : "\u0081"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="62" y="276" width="128" height="20" isPrintWhenDetailOverflows="true" uuid="1cf5f494-e64d-4af0-94eb-4f1c3d6b39b4"/>
+				<box leftPadding="8">
+					<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+				</box>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{religion_name}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="243" y="277" width="141" height="20" isPrintWhenDetailOverflows="true" uuid="dd25cf9d-a103-49da-bcda-05d6506aaf5e"/>
+				<box leftPadding="4">
+					<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+				</box>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{race_name}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="417" y="277" width="89" height="20" isPrintWhenDetailOverflows="true" uuid="50c3ba8c-be91-478c-a56e-9330fb18d1de"/>
+				<box leftPadding="4">
+					<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+				</box>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nationality_name}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="417" y="302" width="80" height="20" uuid="dc674d37-c10c-42af-ae54-cb15be502fda"/>
+				<box>
+					<pen lineStyle="Dotted"/>
+					<topPen lineStyle="Dotted"/>
+					<leftPen lineStyle="Dotted"/>
+					<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+					<rightPen lineStyle="Dotted"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{age}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="48" y="368" width="91" height="20" isPrintWhenDetailOverflows="true" uuid="9e30881a-1000-4de8-8b46-bfd1fb2915de"/>
+				<box topPadding="0" leftPadding="8" bottomPadding="0">
+					<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+				</box>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{address_no}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="163" y="368" width="108" height="20" isPrintWhenDetailOverflows="true" uuid="afd38ca0-6349-4401-947e-3db071f8eabe"/>
+				<box leftPadding="8">
+					<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+				</box>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{moo}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="295" y="368" width="118" height="20" isPrintWhenDetailOverflows="true" uuid="1bdca507-43c3-479c-af24-0bd0c08f65d9"/>
+				<box leftPadding="8">
+					<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+				</box>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{soi}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="441" y="368" width="64" height="20" isPrintWhenDetailOverflows="true" uuid="35c2133e-24c2-4dd0-8610-4a969c469cb7"/>
+				<box leftPadding="4">
+					<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+				</box>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{road}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="71" y="397" width="159" height="20" isPrintWhenDetailOverflows="true" uuid="a8942264-1077-48dd-b132-a73aae0bd7be"/>
+				<box leftPadding="4">
+					<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+				</box>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{csub_district_name}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="281" y="396" width="120" height="20" isPrintWhenDetailOverflows="true" uuid="189d5b51-48c9-4996-bee0-7731fc513f58"/>
+				<box leftPadding="4">
+					<pen lineStyle="Dotted"/>
+					<topPen lineStyle="Dotted"/>
+					<leftPen lineStyle="Dotted"/>
+					<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+					<rightPen lineStyle="Dotted"/>
+				</box>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cdistrict_name}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="435" y="397" width="70" height="20" isPrintWhenDetailOverflows="true" uuid="8d5621cb-22ee-4a5a-88ff-30ea4563ba86"/>
+				<box leftPadding="4">
+					<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+				</box>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cprovince_name}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="79" y="426" width="137" height="20" isPrintWhenDetailOverflows="true" uuid="6d361cb6-07ec-4ef6-888a-130181f4a05a"/>
+				<box leftPadding="4">
+					<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+				</box>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{postal_code_id}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="249" y="426" width="122" height="20" isPrintWhenDetailOverflows="true" uuid="fc3e0a09-78d2-44be-8c4f-d1e653358529"/>
+				<box leftPadding="3">
+					<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+				</box>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tel_no}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="413" y="426" width="92" height="20" isPrintWhenDetailOverflows="true" uuid="accc9aa7-a27e-4d84-91f2-e67cb6e22865"/>
+				<box leftPadding="3">
+					<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+				</box>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{email}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="307" y="513" width="91" height="20" isPrintWhenDetailOverflows="true" uuid="a9a7f0ee-a6d2-4662-b794-2b742416a50e"/>
+				<box leftPadding="8">
+					<pen lineStyle="Dotted"/>
+					<topPen lineStyle="Dotted"/>
+					<leftPen lineStyle="Dotted"/>
+					<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+					<rightPen lineStyle="Dotted"/>
+				</box>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{finish_year}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="456" y="513" width="50" height="20" isPrintWhenDetailOverflows="true" uuid="24bbb735-bdc4-4977-a23c-a7c4baa0b01b"/>
+				<box leftPadding="3">
+					<pen lineStyle="Dotted"/>
+					<topPen lineStyle="Dotted"/>
+					<leftPen lineStyle="Dotted"/>
+					<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+					<rightPen lineStyle="Dotted"/>
+				</box>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{finish_gpa}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="29" y="570" width="17" height="20" uuid="cdcdd692-8f49-45c2-a3c0-ab42fa60b37c"/>
+				<textElement>
+					<font fontName="Wingdings 2" size="14" pdfFontName="WINGDNG2.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{occupation_code} == "800"  ? "\u009E" : "\u0081"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="128" y="570" width="17" height="20" uuid="3c9dd455-d589-428c-8456-3cc1887b5901"/>
+				<textElement>
+					<font fontName="Wingdings 2" size="14" pdfFontName="WINGDNG2.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{occupation_code} == "106"  ? "\u009E" : "\u0081"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="219" y="569" width="17" height="20" uuid="3bb0468b-41fe-434e-997a-a50bfb28b395"/>
+				<textElement>
+					<font fontName="Wingdings 2" size="14" pdfFontName="WINGDNG2.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{occupation_code} != "106" && $F{occupation_code} != "800" ? "\u009E" : "\u0081"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="295" y="565" width="210" height="20" uuid="77f7e717-5dc5-43b1-9447-d38c55809160"/>
+				<box leftPadding="3">
+					<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+				</box>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{occupation_code} != "800" && $F{occupation_code} != "106" ?  $F{occupation_name} : ""]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="71" y="596" width="431" height="20" uuid="e479894a-5ea2-4832-ae13-a23fdcbae3e4"/>
+				<box leftPadding="6">
+					<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+				</box>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{occupation_desc}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="111" y="622" width="85" height="20" uuid="4c3426d5-b2cd-4269-a632-c64fe170f7e6"/>
+				<box leftPadding="3">
+					<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{occupation_year}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="211" y="622" width="81" height="20" uuid="7d49ac97-d590-4e9f-a367-9dca08fbd563"/>
+				<box leftPadding="4">
+					<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{occupation_month}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="371" y="623" width="123" height="20" uuid="268d189d-4c9f-413d-bcc7-0e5f5cf8e987"/>
+				<box leftPadding="3">
+					<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+				</box>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{occupation_position_desc}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="48" y="682" width="135" height="20" uuid="f7a99f65-c249-4de8-9089-43ceabcd5fe8"/>
+				<box leftPadding="3">
+					<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+				</box>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{office_address_no}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="207" y="682" width="136" height="20" uuid="fddae1c9-ad87-4d84-8717-41c53a22cd0b"/>
+				<box leftPadding="3">
+					<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{office_soi}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="378" y="682" width="124" height="20" uuid="bb55ffba-38de-408b-9d51-73df6d9ab4dc"/>
+				<box leftPadding="3">
+					<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+				</box>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{office_road}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="71" y="711" width="151" height="20" uuid="21037b6c-f680-4c08-b713-1453edd0ad46"/>
+				<box leftPadding="3">
+					<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+				</box>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{asub_district_name}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="271" y="711" width="132" height="20" uuid="1869176e-fe51-4633-a74e-294a808328d3"/>
+				<box leftPadding="3">
+					<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+				</box>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{adistrict_name}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="435" y="711" width="67" height="20" uuid="f36825a9-9431-482b-b0c0-0f14176a0aa9"/>
+				<box leftPadding="3">
+					<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+				</box>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{aprovince_name}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="71" y="735" width="132" height="20" uuid="7917e796-b0a1-4091-9f58-f2c454e5d2c7"/>
+				<box leftPadding="7">
+					<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+				</box>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{office_postal_code_id}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="233" y="735" width="125" height="20" uuid="8999636a-f576-44ed-bb2c-3376b31a0cfa"/>
+				<box leftPadding="3">
+					<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+				</box>
+				<textElement textAlignment="Justified" verticalAlignment="Bottom">
+					<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{office_tel_no}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="391" y="735" width="111" height="20" uuid="8331f5ad-e196-4114-b7d9-3ea520097b61"/>
+				<box leftPadding="3">
+					<bottomPen lineWidth="1.0" lineStyle="Dotted"/>
+				</box>
+				<textElement textAlignment="Justified" verticalAlignment="Bottom">
+					<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{office_fax_no}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

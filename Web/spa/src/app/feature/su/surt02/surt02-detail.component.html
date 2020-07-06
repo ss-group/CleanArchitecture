@@ -1,0 +1,123 @@
+<toolbar>
+  <button class="btn btn-primary" (click)="util.focusInvalid(program); save()">
+    <i class="fas fa-cog fa-spin" [hidden]="!saving"></i>
+    <i class="fas fa-save" [hidden]="saving"></i> {{ 'label.ALL.Save' | translate }}</button>
+</toolbar>
+
+<h4>{{ 'label.SURT02.ProgramName' | translate }}</h4>
+<div class="row">
+  <div class="col">
+    <app-card header="{{ 'label.SURT02.ProgramDetail' | translate }}">
+      <div class="card-content">
+        <form #program [formGroup]="programForm">
+          <div class="form-row">
+            <div class="form-group col-md-3 col-sm-6">
+              <select-input [items]="master.systemCodes" formControlName="systemCode"
+                placeholder="{{ 'label.ALL.PleaseSelect' | translate }}">
+                {{ 'label.SURT02.Website' | translate }}</select-input>
+            </div>
+            <div class="form-group col-md-3 col-sm-6">
+              <select-input [items]="master.moduleCodes" formControlName="moduleCode"
+                placeholder="{{ 'label.ALL.PleaseSelect' | translate }}">
+                {{ 'label.SURT02.System' | translate }}</select-input>
+            </div>
+            <div class="form-group col-md-3 col-sm-6">
+              <textbox formControlName="programCode">{{ 'label.SURT02.ProgramCode' | translate }}
+                <div class="invalid-pattern">
+                  {{ 'message.STD00037' | translate }}
+                </div>
+              </textbox>
+            </div>
+            <div class="form-group col-md-3 col-sm-6">
+              <textbox formControlName="programName">{{ 'label.SURT02.Program' | translate }}</textbox>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-3 col-sm-6">
+              <textbox formControlName="programPath">{{ 'label.SURT02.ProgramPath' | translate }}</textbox>
+            </div>
+          </div>
+        </form>
+      </div>
+    </app-card>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-4 col-md-12 col-sm-12">
+    <app-card header="{{ 'label.SURT02.Language' | translate }}">
+      <div class="card-content">
+        <div class="row">
+          <div class="col">
+            <app-table-client #groupTable [rows]="master.languages">
+              <ngx-datatable-column prop="language" width="100" [cellClass]="'text-center'">
+                <ng-template ngx-datatable-header-template>
+                  <label class="datatable-header-cell-wrapper">{{ 'label.SURT02.Language' | translate }}</label>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  <button type="button" class="btn btn-link"
+                    (click)="changeLanguage(row.language)">{{ row.language }}</button>
+                </ng-template>
+              </ngx-datatable-column>
+            </app-table-client>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-12 text-center">
+            <button class="btn btn-primary" (click)="checkCopy()"><i class="fas fa-copy"></i>
+              {{ 'label.SURT02.Copy' | translate }}</button>
+          </div>
+        </div>
+      </div>
+    </app-card>
+  </div>
+  <div class="col-lg-8 col-md-12 col-sm-12">
+    <app-card header="{{ 'label.SURT02.ProgramAndLanguageDetail' | translate }} {{ language }}">
+      <div class="card-menu">
+        <button class="btn btn-primary" (click)="add()"><i class="fas fa-plus-circle"></i>
+          {{ 'label.ALL.Add' | translate }}</button>
+      </div>
+      <div class="card-content">
+        <div class="row">
+          <div class="col">
+            <app-table-client #groupTable [rows]="suProgram.programLabels">
+              <ngx-datatable-column prop="fieldName" width="100">
+                <ng-template ngx-datatable-header-template>
+                  <label class="datatable-header-cell-wrapper require"
+                    (click)="sort()">{{ 'label.SURT02.FieldName' | translate }}</label>
+                </ng-template>
+                <ng-template let-row="row" let-rowIndex="rowIndex" ngx-datatable-cell-template>
+                  <form #program [formGroup]="row.form">
+                    <textbox formControlName="fieldName" [hasLabel]="false" [small]="true"></textbox>
+                  </form>
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column prop="labelName" width="100">
+                <ng-template ngx-datatable-header-template>
+                  <label class="datatable-header-cell-wrapper require"
+                    (click)="sort()">{{ 'label.SURT02.Detail' | translate }}</label>
+                </ng-template>
+                <ng-template let-row="row" let-rowIndex="rowIndex" ngx-datatable-cell-template>
+                  <form #program [formGroup]="row.form">
+                    <textbox formControlName="labelName" [hasLabel]="false" [small]="true"></textbox>
+                  </form>
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column [cellClass]="'text-center'" width="10">
+                <ng-template ngx-datatable-header-template>
+                  <label class="datatable-header-cell-wrapper">{{ 'label.ALL.Delete' | translate }}</label>
+                </ng-template>
+                <ng-template let-row="row" let-rowIndex="rowIndex" ngx-datatable-cell-template>
+                  <button (click)="remove(row)" class="btn btn-outline-danger btn-sm">
+                    <i class="far fa-trash-alt"></i>
+                  </button>
+                </ng-template>
+              </ngx-datatable-column>
+            </app-table-client>
+          </div>
+        </div>
+      </div>
+    </app-card>
+  </div>
+</div>

@@ -1,0 +1,690 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="GDRP01" language="groovy" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="565" leftMargin="15" rightMargin="15" topMargin="15" bottomMargin="15" uuid="a687e420-a7f4-4a12-8f36-9e76e1ec3c00">
+	<property name="ireport.zoom" value="1.2100000000000375"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="654"/>
+	<subDataset name="Dataset Label" uuid="bbef734c-5dee-4695-862b-9c88c253e344">
+		<parameter name="lang" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="CoverStudent" uuid="1c1c3f62-b3d7-4cfc-81e1-2a55520da7cb">
+		<parameter name="p_report_type" class="java.lang.String">
+			<defaultValueExpression><![CDATA[null]]></defaultValueExpression>
+		</parameter>
+		<parameter name="year" class="java.lang.Integer">
+			<defaultValueExpression><![CDATA[null]]></defaultValueExpression>
+		</parameter>
+		<parameter name="period" class="java.lang.Integer">
+			<defaultValueExpression><![CDATA[null]]></defaultValueExpression>
+		</parameter>
+		<parameter name="edu_type_level" class="java.lang.String">
+			<defaultValueExpression><![CDATA[null]]></defaultValueExpression>
+		</parameter>
+		<parameter name="from_program" class="java.lang.String">
+			<defaultValueExpression><![CDATA[null]]></defaultValueExpression>
+		</parameter>
+		<parameter name="to_program" class="java.lang.String">
+			<defaultValueExpression><![CDATA[null]]></defaultValueExpression>
+		</parameter>
+		<parameter name="from_fac" class="java.lang.String">
+			<defaultValueExpression><![CDATA[null]]></defaultValueExpression>
+		</parameter>
+		<parameter name="to_fac" class="java.lang.String">
+			<defaultValueExpression><![CDATA[null]]></defaultValueExpression>
+		</parameter>
+		<parameter name="from_student_code" class="java.lang.String">
+			<defaultValueExpression><![CDATA[null]]></defaultValueExpression>
+		</parameter>
+		<parameter name="to_student_code" class="java.lang.String">
+			<defaultValueExpression><![CDATA[null]]></defaultValueExpression>
+		</parameter>
+		<parameter name="lang" class="java.lang.String">
+			<defaultValueExpression><![CDATA[null]]></defaultValueExpression>
+		</parameter>
+		<parameter name="company" class="java.lang.String">
+			<defaultValueExpression><![CDATA[null]]></defaultValueExpression>
+		</parameter>
+		<queryString>
+			<![CDATA[select ggm.graduate_academic_year
+, ggm.fac_code
+, case $P{lang} when 'th' then df.fac_name_tha else df.fac_name_eng end fac_name
+, ggm.gs_degree_code
+, case $P{lang} when 'th' then gd.degree_tha_name else gd.degree_eng_name end degree_name
+, ggm.program_code
+, case $P{lang} when 'th' then dp.program_name_tha else dp.program_name_eng end program_name
+, ss.ccl_id
+,case $P{lang} when 'th' then cc.curriculum_name_tha else cc.curriculum_name_eng end ccl_name
+, count(ggm.student_id ) cnt_std
+from 	gs_graduate_master ggm
+join sh_student ss
+on ggm.student_id = ss.student_id
+join db_fac df
+on ggm.fac_code = df.fac_code
+join cs_plan cp
+on ggm.plan_no = cp.plan_code
+left join gs_degree gd
+on ggm.gs_degree_id = gd.degree_id
+and ggm.education_type_level = gd.education_type_level
+join db_program dp
+on ggm.program_code = dp.program_code
+join cs_curriculum cc
+on ss.ccl_id = cc.ccl_id
+where 	ggm.graduate_status = 'G'
+and 	ggm.company_code = $P{company}
+and 	ggm.graduate_academic_year = $P{year}
+and 	ggm.graduate_semester = $P{period}
+and 	ggm.education_type_level = $P{edu_type_level}
+and 	ggm.fac_code between coalesce ($P{from_fac}, '!')
+ 					 and coalesce ($P{to_fac}, chr(3675))
+and 	ggm.program_code between coalesce ($P{from_program}, '!')
+						 and coalesce ($P{to_program}, chr(3675))
+and 	ggm.student_code between coalesce ($P{from_student_code}, ggm.student_code )
+ 					   and coalesce ($P{to_student_code}, ggm.student_code )
+group by ggm.graduate_academic_year
+, ggm.fac_code
+,  df.fac_name_tha ,df.fac_name_eng
+, ggm.gs_degree_code
+,  gd.degree_tha_name , gd.degree_eng_name
+, ggm.program_code
+,  dp.program_name_tha , dp.program_name_eng
+, ss.ccl_id
+,cc.curriculum_name_tha , cc.curriculum_name_eng]]>
+		</queryString>
+		<field name="graduate_academic_year" class="java.lang.Integer"/>
+		<field name="fac_code" class="java.lang.String"/>
+		<field name="fac_name" class="java.lang.String"/>
+		<field name="gs_degree_code" class="java.lang.String"/>
+		<field name="degree_name" class="java.lang.String"/>
+		<field name="program_code" class="java.lang.String"/>
+		<field name="program_name" class="java.lang.String"/>
+		<field name="ccl_id" class="java.lang.Long"/>
+		<field name="ccl_name" class="java.lang.String"/>
+		<field name="cnt_std" class="java.lang.Long"/>
+	</subDataset>
+	<subDataset name="DetailStudent" uuid="046b5c17-565e-4a95-9873-6856f46d52cb">
+		<parameter name="p_report_type" class="java.lang.String">
+			<defaultValueExpression><![CDATA[null]]></defaultValueExpression>
+		</parameter>
+		<parameter name="year" class="java.lang.Integer">
+			<defaultValueExpression><![CDATA[null]]></defaultValueExpression>
+		</parameter>
+		<parameter name="period" class="java.lang.Integer">
+			<defaultValueExpression><![CDATA[null]]></defaultValueExpression>
+		</parameter>
+		<parameter name="edu_type_level" class="java.lang.String">
+			<defaultValueExpression><![CDATA[null]]></defaultValueExpression>
+		</parameter>
+		<parameter name="from_program" class="java.lang.String">
+			<defaultValueExpression><![CDATA[null]]></defaultValueExpression>
+		</parameter>
+		<parameter name="to_program" class="java.lang.String">
+			<defaultValueExpression><![CDATA[null]]></defaultValueExpression>
+		</parameter>
+		<parameter name="from_fac" class="java.lang.String">
+			<defaultValueExpression><![CDATA[null]]></defaultValueExpression>
+		</parameter>
+		<parameter name="to_fac" class="java.lang.String">
+			<defaultValueExpression><![CDATA[null]]></defaultValueExpression>
+		</parameter>
+		<parameter name="from_student_code" class="java.lang.String">
+			<defaultValueExpression><![CDATA[null]]></defaultValueExpression>
+		</parameter>
+		<parameter name="to_student_code" class="java.lang.String">
+			<defaultValueExpression><![CDATA[null]]></defaultValueExpression>
+		</parameter>
+		<parameter name="lang" class="java.lang.String">
+			<defaultValueExpression><![CDATA[null]]></defaultValueExpression>
+		</parameter>
+		<parameter name="company" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<queryString>
+			<![CDATA[select ggm.fac_code
+, case $P{lang} when 'th' then df.fac_name_tha else df.fac_name_eng end fac_name
+, ggm.gs_degree_code
+, case $P{lang} when 'th' then gd.degree_tha_name else gd.degree_eng_name end degree_name
+, ggm.program_code
+, case $P{lang} when 'th' then dp.program_name_tha else dp.program_name_eng end program_name
+, ss.ccl_id
+, case $P{lang} when 'th' then cc.curriculum_name_tha else cc.curriculum_name_eng end ccl_name
+, ggm.student_code
+, case $P{lang} when 'th' then ss.student_name_tha else ss.student_name_eng end student_name
+, (select a.cgpa
+	from (
+	select 	cgpa ,register_year ,register_semester
+	, row_number () over (partition by student_code order by to_char(register_year,'FM9999')||to_char(register_semester,'FM9') desc) row_number
+	from 	gd_std_gpa gsg
+	where student_code = ggm.student_code
+	and cgpa is not null
+	) a
+	limit 1) 	gpax
+from 	gs_graduate_master ggm
+join sh_student ss
+on ggm.student_id = ss.student_id
+join db_fac df
+on ggm.fac_code = df.fac_code
+join cs_plan cp
+on ggm.plan_no = cp.plan_code
+left join gs_degree gd
+on ggm.gs_degree_id = gd.degree_id
+and ggm.education_type_level = gd.education_type_level
+join db_program dp
+on ggm.program_code = dp.program_code
+join cs_curriculum cc
+on ss.ccl_id = cc.ccl_id
+where 	ggm.graduate_status = 'G'
+and 	ggm.company_code = $P{company}
+and 	ggm.graduate_academic_year = $P{year}
+and 	ggm.graduate_semester = $P{period}
+and 	ggm.education_type_level = $P{edu_type_level}
+and 	ggm.fac_code between coalesce ($P{from_fac}, '!')
+ 					 and coalesce ($P{to_fac}, chr(3675))
+and 	ggm.program_code between coalesce ($P{from_program}, '!')
+						 and coalesce ($P{to_program}, chr(3675))
+and 	ggm.student_code between coalesce ($P{from_student_code}, ggm.student_code )
+ 					   and coalesce ($P{to_student_code}, ggm.student_code )
+order by ggm.student_code]]>
+		</queryString>
+		<field name="fac_code" class="java.lang.String"/>
+		<field name="fac_name" class="java.lang.String"/>
+		<field name="gs_degree_code" class="java.lang.String"/>
+		<field name="degree_name" class="java.lang.String"/>
+		<field name="program_code" class="java.lang.String"/>
+		<field name="program_name" class="java.lang.String"/>
+		<field name="ccl_id" class="java.lang.Long"/>
+		<field name="ccl_name" class="java.lang.String"/>
+		<field name="student_code" class="java.lang.String"/>
+		<field name="student_name" class="java.lang.String"/>
+		<field name="gpax" class="java.math.BigDecimal"/>
+	</subDataset>
+	<subDataset name="dataset1" uuid="2341c4b6-0cb6-4339-ade3-22cdec2bd980"/>
+	<subDataset name="dataset2" uuid="04239764-04c4-41c0-8e04-303c71c598a5"/>
+	<parameter name="p_report_type" class="java.lang.String">
+		<defaultValueExpression><![CDATA[null]]></defaultValueExpression>
+	</parameter>
+	<parameter name="year" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[null]]></defaultValueExpression>
+	</parameter>
+	<parameter name="period" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[null]]></defaultValueExpression>
+	</parameter>
+	<parameter name="edu_type_level" class="java.lang.String">
+		<defaultValueExpression><![CDATA[null]]></defaultValueExpression>
+	</parameter>
+	<parameter name="from_program" class="java.lang.String">
+		<defaultValueExpression><![CDATA[null]]></defaultValueExpression>
+	</parameter>
+	<parameter name="to_program" class="java.lang.String">
+		<defaultValueExpression><![CDATA[null]]></defaultValueExpression>
+	</parameter>
+	<parameter name="from_fac" class="java.lang.String">
+		<defaultValueExpression><![CDATA[null]]></defaultValueExpression>
+	</parameter>
+	<parameter name="to_fac" class="java.lang.String">
+		<defaultValueExpression><![CDATA[null]]></defaultValueExpression>
+	</parameter>
+	<parameter name="from_student_code" class="java.lang.String">
+		<defaultValueExpression><![CDATA[null]]></defaultValueExpression>
+	</parameter>
+	<parameter name="to_student_code" class="java.lang.String">
+		<defaultValueExpression><![CDATA[null]]></defaultValueExpression>
+	</parameter>
+	<parameter name="lang" class="java.lang.String">
+		<defaultValueExpression><![CDATA[null]]></defaultValueExpression>
+	</parameter>
+	<parameter name="company" class="java.lang.String">
+		<defaultValueExpression><![CDATA[null]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select ggm.graduate_academic_year
+, ggm.fac_code
+, case $P{lang} when 'th' then df.fac_name_tha else df.fac_name_eng end fac_name
+, ggm.gs_degree_code
+, case $P{lang} when 'th' then gd.degree_tha_name else gd.degree_eng_name end degree_name
+, ggm.program_code
+, case $P{lang} when 'th' then dp.program_name_tha else dp.program_name_eng end program_name
+, ss.ccl_id
+,case $P{lang} when 'th' then cc.curriculum_name_tha else cc.curriculum_name_eng end ccl_name
+, count(ggm.student_id ) cnt_std
+from 	gs_graduate_master ggm
+join sh_student ss
+on ggm.student_id = ss.student_id
+join db_fac df
+on ggm.fac_code = df.fac_code
+join cs_plan cp
+on ggm.plan_no = cp.plan_code
+left join gs_degree gd
+on ggm.gs_degree_id = gd.degree_id
+and ggm.education_type_level = gd.education_type_level
+join db_program dp
+on ggm.program_code = dp.program_code
+join cs_curriculum cc
+on ss.ccl_id = cc.ccl_id
+where 	ggm.graduate_status = 'G'
+and 	ggm.company_code = $P{company}
+and 	ggm.graduate_academic_year = $P{year}
+and 	ggm.graduate_semester = $P{period}
+and 	ggm.education_type_level = $P{edu_type_level}
+and 	ggm.fac_code between coalesce ($P{from_fac}, '!')
+ 					 and coalesce ($P{to_fac}, chr(3675))
+and 	ggm.program_code between coalesce ($P{from_program}, '!')
+						 and coalesce ($P{to_program}, chr(3675))
+and 	ggm.student_code between coalesce ($P{from_student_code}, ggm.student_code )
+ 					   and coalesce ($P{to_student_code}, ggm.student_code )
+group by ggm.graduate_academic_year
+, ggm.fac_code
+,  df.fac_name_tha ,df.fac_name_eng
+, ggm.gs_degree_code
+,  gd.degree_tha_name , gd.degree_eng_name
+, ggm.program_code
+,  dp.program_name_tha , dp.program_name_eng
+, ss.ccl_id
+,cc.curriculum_name_tha , cc.curriculum_name_eng]]>
+	</queryString>
+	<field name="graduate_academic_year" class="java.lang.Integer"/>
+	<field name="fac_code" class="java.lang.String"/>
+	<field name="fac_name" class="java.lang.String"/>
+	<field name="gs_degree_code" class="java.lang.String"/>
+	<field name="degree_name" class="java.lang.String"/>
+	<field name="program_code" class="java.lang.String"/>
+	<field name="program_name" class="java.lang.String"/>
+	<field name="ccl_id" class="java.lang.Long"/>
+	<field name="ccl_name" class="java.lang.String"/>
+	<field name="cnt_std" class="java.lang.Long"/>
+	<variable name="variable2" class="java.lang.Integer" resetType="Group" resetGroup="detail1" calculation="Sum">
+		<variableExpression><![CDATA[]]></variableExpression>
+		<initialValueExpression><![CDATA[$F{cnt_std}]]></initialValueExpression>
+	</variable>
+	<group name="CoverStudent" isStartNewPage="true" isResetPageNumber="true" isReprintHeaderOnEachPage="true">
+		<groupExpression><![CDATA[$F{fac_code}]]></groupExpression>
+	</group>
+	<group name="Cfooter" isStartNewPage="true" isResetPageNumber="true" isReprintHeaderOnEachPage="true">
+		<groupExpression><![CDATA[$F{graduate_academic_year}]]></groupExpression>
+	</group>
+	<group name="detail1">
+		<groupExpression><![CDATA[$F{ccl_name}]]></groupExpression>
+		<groupHeader>
+			<band height="56">
+				<printWhenExpression><![CDATA[$P{p_report_type} == 'A' || $P{p_report_type} == 'C']]></printWhenExpression>
+				<textField isBlankWhenNull="true">
+					<reportElement mode="Transparent" x="0" y="0" width="565" height="22" uuid="8c01c651-12e4-4e06-b7d4-d07e541c03df"/>
+					<box leftPadding="2" rightPadding="2">
+						<leftPen lineWidth="0.0"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="14" isBold="true" pdfFontName="THSarabun.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["หลักสูตร " + $F{ccl_name}]]></textFieldExpression>
+				</textField>
+				<frame>
+					<reportElement x="0" y="22" width="565" height="18" uuid="5dfd4d38-b719-4fe9-b4a0-e9a29d5489c1"/>
+					<box>
+						<topPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+					</box>
+					<textField isBlankWhenNull="true">
+						<reportElement mode="Transparent" x="0" y="0" width="393" height="18" uuid="3eb9ca53-6a5a-4bf7-87f9-ae1b664cb342"/>
+						<box leftPadding="2" rightPadding="2">
+							<leftPen lineWidth="0.0"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="TH SarabunPSK" size="14" isBold="true" pdfFontName="THSarabun Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+						</textElement>
+						<textFieldExpression><![CDATA["ปริญญาบัตร"]]></textFieldExpression>
+					</textField>
+					<textField isBlankWhenNull="true">
+						<reportElement mode="Transparent" x="393" y="0" width="172" height="18" uuid="ce2126dd-7d3c-45b4-9119-1fcf950119f0"/>
+						<box leftPadding="2" rightPadding="2">
+							<leftPen lineWidth="0.0"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="TH SarabunPSK" size="14" isBold="true" pdfFontName="THSarabun Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+						</textElement>
+						<textFieldExpression><![CDATA["จำนวน/คน"]]></textFieldExpression>
+					</textField>
+				</frame>
+				<componentElement>
+					<reportElement x="0" y="40" width="565" height="16" isPrintWhenDetailOverflows="true" uuid="ff5c6031-6cad-4ed7-b8c4-a071286430fa"/>
+					<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+						<datasetRun subDataset="CoverStudent" uuid="c34723b4-0548-45bc-80da-d8138a69d5a4">
+							<datasetParameter name="p_report_type">
+								<datasetParameterExpression><![CDATA[$P{p_report_type}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="year">
+								<datasetParameterExpression><![CDATA[$P{year}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="period">
+								<datasetParameterExpression><![CDATA[$P{period}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="edu_type_level">
+								<datasetParameterExpression><![CDATA[$P{edu_type_level}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="from_program">
+								<datasetParameterExpression><![CDATA[$P{from_program}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="to_program">
+								<datasetParameterExpression><![CDATA[$P{to_program}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="from_fac">
+								<datasetParameterExpression><![CDATA[$P{from_fac}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="to_fac">
+								<datasetParameterExpression><![CDATA[$P{to_fac}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="company">
+								<datasetParameterExpression><![CDATA[$P{company}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="from_student_code">
+								<datasetParameterExpression><![CDATA[$P{from_student_code}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="to_student_code">
+								<datasetParameterExpression><![CDATA[$P{to_student_code}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="lang">
+								<datasetParameterExpression><![CDATA[$P{lang}]]></datasetParameterExpression>
+							</datasetParameter>
+						</datasetRun>
+						<jr:listContents height="16" width="565">
+							<textField pattern="#,##0" isBlankWhenNull="true">
+								<reportElement mode="Transparent" x="393" y="0" width="172" height="16" uuid="96bb4134-fb15-48d8-9f43-c3dfcff125f7"/>
+								<box leftPadding="3" rightPadding="2">
+									<leftPen lineWidth="0.0"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="TH SarabunPSK" size="14" isBold="false" pdfFontName="THSarabun.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{cnt_std}]]></textFieldExpression>
+							</textField>
+							<textField isBlankWhenNull="false">
+								<reportElement mode="Transparent" x="0" y="0" width="393" height="16" uuid="d20152cc-a5b4-438c-b9cc-bd6eb4781194"/>
+								<box leftPadding="3" rightPadding="2">
+									<leftPen lineWidth="0.0"/>
+								</box>
+								<textElement verticalAlignment="Middle">
+									<font fontName="TH SarabunPSK" size="14" isBold="false" pdfFontName="THSarabun.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{degree_name}]]></textFieldExpression>
+							</textField>
+						</jr:listContents>
+					</jr:list>
+				</componentElement>
+			</band>
+			<band height="16">
+				<printWhenExpression><![CDATA[$P{p_report_type} == 'A' || $P{p_report_type} == 'C']]></printWhenExpression>
+				<frame>
+					<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="565" height="16" isRemoveLineWhenBlank="true" isPrintInFirstWholeBand="true" isPrintWhenDetailOverflows="true" uuid="213685e0-596b-4e14-9a7e-8365f8b7595f"/>
+					<box>
+						<topPen lineWidth="0.5"/>
+						<bottomPen lineWidth="1.0" lineStyle="Double"/>
+					</box>
+					<textField pattern="#,##0" isBlankWhenNull="true">
+						<reportElement mode="Transparent" x="393" y="0" width="172" height="16" uuid="aea427f6-da6c-4fd4-956b-2d1f8b697e92"/>
+						<box leftPadding="3" rightPadding="2">
+							<leftPen lineWidth="0.0"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="TH SarabunPSK" size="14" isBold="true" pdfFontName="THSarabun.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$V{variable2}]]></textFieldExpression>
+					</textField>
+					<textField isBlankWhenNull="true">
+						<reportElement mode="Transparent" x="0" y="0" width="393" height="16" uuid="4bc9f46c-03de-45ae-9a65-dc8a9fd68700"/>
+						<box leftPadding="3" rightPadding="2">
+							<leftPen lineWidth="0.0"/>
+						</box>
+						<textElement verticalAlignment="Middle">
+							<font fontName="TH SarabunPSK" size="14" isBold="true" pdfFontName="THSarabun.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+						</textElement>
+						<textFieldExpression><![CDATA["รวม"]]></textFieldExpression>
+					</textField>
+				</frame>
+				<break>
+					<reportElement x="0" y="15" width="100" height="1" uuid="e8898f3a-154c-4d60-8659-2a10713ea2ab"/>
+				</break>
+			</band>
+		</groupHeader>
+	</group>
+	<group name="DetailStudent" isStartNewPage="true" isResetPageNumber="true" isReprintHeaderOnEachPage="true"/>
+	<group name="DataNotFound">
+		<groupExpression><![CDATA[]]></groupExpression>
+	</group>
+	<group name="detail2">
+		<groupExpression><![CDATA[$F{ccl_name}]]></groupExpression>
+		<groupHeader>
+			<band height="633">
+				<printWhenExpression><![CDATA[$P{p_report_type} == 'A' || $P{p_report_type} == 'P']]></printWhenExpression>
+				<textField isBlankWhenNull="true">
+					<reportElement mode="Transparent" x="0" y="0" width="565" height="20" uuid="3c899aa8-f25c-45d7-8b75-75b5dfd3a3b9"/>
+					<box leftPadding="2" rightPadding="2">
+						<leftPen lineWidth="0.0"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="14" isBold="true" pdfFontName="THSarabun Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["หลักสูตร " + $F{ccl_name}+ "สาขาวิชา " + $F{fac_name}]]></textFieldExpression>
+				</textField>
+				<frame>
+					<reportElement x="0" y="20" width="565" height="18" uuid="46d081ea-626b-4f4b-ac41-39bcf36506d2"/>
+					<box>
+						<topPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+					</box>
+					<textField isBlankWhenNull="true">
+						<reportElement mode="Transparent" x="0" y="0" width="75" height="18" uuid="3982cede-9c7c-4acb-a268-e25b92002c79"/>
+						<box leftPadding="2" rightPadding="2">
+							<leftPen lineWidth="0.0"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="TH SarabunPSK" size="14" isBold="true" pdfFontName="THSarabun Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+						</textElement>
+						<textFieldExpression><![CDATA["ลำดับ"]]></textFieldExpression>
+					</textField>
+					<textField isBlankWhenNull="true">
+						<reportElement mode="Transparent" x="445" y="0" width="120" height="18" uuid="749d5364-07cc-4971-8088-16020d1cacf2"/>
+						<box leftPadding="2" rightPadding="2">
+							<leftPen lineWidth="0.0"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="TH SarabunPSK" size="14" isBold="true" pdfFontName="THSarabun Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+						</textElement>
+						<textFieldExpression><![CDATA["คะแนนเฉลี่ย"]]></textFieldExpression>
+					</textField>
+					<textField isBlankWhenNull="true">
+						<reportElement mode="Transparent" x="75" y="0" width="117" height="18" uuid="f0733118-c109-460e-9463-aaaca4489e3a"/>
+						<box leftPadding="2" rightPadding="2">
+							<leftPen lineWidth="0.0"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="TH SarabunPSK" size="14" isBold="true" pdfFontName="THSarabun Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+						</textElement>
+						<textFieldExpression><![CDATA["รหัสประจำตัว นักศึกษา"]]></textFieldExpression>
+					</textField>
+					<textField isBlankWhenNull="true">
+						<reportElement mode="Transparent" x="192" y="0" width="253" height="18" uuid="efa583fc-a934-4a2b-b8e7-ed282b8612be"/>
+						<box leftPadding="2" rightPadding="2">
+							<leftPen lineWidth="0.0"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="TH SarabunPSK" size="14" isBold="true" pdfFontName="THSarabun Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+						</textElement>
+						<textFieldExpression><![CDATA["ชื่อ - ชื่อสกุล"]]></textFieldExpression>
+					</textField>
+				</frame>
+				<componentElement>
+					<reportElement x="0" y="38" width="565" height="16" uuid="554f0833-54f7-4f6e-bd58-1e8ed919a474"/>
+					<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+						<datasetRun subDataset="DetailStudent" uuid="9dc24ddb-4d6c-42f6-83b2-92c8c76b50a2">
+							<datasetParameter name="p_report_type">
+								<datasetParameterExpression><![CDATA[$P{p_report_type}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="year">
+								<datasetParameterExpression><![CDATA[$P{year}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="period">
+								<datasetParameterExpression><![CDATA[$P{period}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="edu_type_level">
+								<datasetParameterExpression><![CDATA[$P{edu_type_level}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="from_program">
+								<datasetParameterExpression><![CDATA[$P{from_program}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="to_program">
+								<datasetParameterExpression><![CDATA[$P{to_program}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="from_fac">
+								<datasetParameterExpression><![CDATA[$P{from_fac}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="to_fac">
+								<datasetParameterExpression><![CDATA[$P{to_fac}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="from_student_code">
+								<datasetParameterExpression><![CDATA[$P{from_student_code}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="to_student_code">
+								<datasetParameterExpression><![CDATA[$P{to_student_code}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="lang">
+								<datasetParameterExpression><![CDATA[$P{lang}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="company">
+								<datasetParameterExpression><![CDATA[$P{company}]]></datasetParameterExpression>
+							</datasetParameter>
+						</datasetRun>
+						<jr:listContents height="16" width="565">
+							<textField isBlankWhenNull="true">
+								<reportElement mode="Transparent" x="0" y="0" width="75" height="16" uuid="9df8ca22-75ed-45f3-a919-59877aae436b"/>
+								<box leftPadding="3" rightPadding="2">
+									<leftPen lineWidth="0.0"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="TH SarabunPSK" size="14" isBold="false" pdfFontName="THSarabun.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$V{COLUMN_COUNT}]]></textFieldExpression>
+							</textField>
+							<textField isBlankWhenNull="true">
+								<reportElement mode="Transparent" x="75" y="0" width="117" height="16" uuid="2e82f5f4-dc69-43b2-8f69-5b72872c84db"/>
+								<box leftPadding="3" rightPadding="2">
+									<leftPen lineWidth="0.0"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="TH SarabunPSK" size="14" isBold="false" pdfFontName="THSarabun.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{student_code}]]></textFieldExpression>
+							</textField>
+							<textField isBlankWhenNull="true">
+								<reportElement mode="Transparent" x="192" y="0" width="253" height="16" uuid="c7cd5a36-44a8-4730-b831-d30ae0043cae"/>
+								<box leftPadding="3" rightPadding="2">
+									<leftPen lineWidth="0.0"/>
+								</box>
+								<textElement verticalAlignment="Middle">
+									<font fontName="TH SarabunPSK" size="14" isBold="false" pdfFontName="THSarabun.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{student_name}]]></textFieldExpression>
+							</textField>
+							<textField isBlankWhenNull="true">
+								<reportElement mode="Transparent" x="445" y="0" width="120" height="16" uuid="24585cb5-dfb4-4a2d-993a-1b4593222f2d"/>
+								<box leftPadding="3" rightPadding="2">
+									<leftPen lineWidth="0.0"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="TH SarabunPSK" size="14" isBold="false" pdfFontName="THSarabun.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{gpax}]]></textFieldExpression>
+							</textField>
+						</jr:listContents>
+					</jr:list>
+				</componentElement>
+				<break>
+					<reportElement x="0" y="632" width="100" height="1" uuid="90b06887-418a-4c4a-83d4-7f073c5b56b1"/>
+				</break>
+				<textField isBlankWhenNull="true">
+					<reportElement mode="Transparent" x="49" y="489" width="171" height="18" uuid="0623c714-b0b5-4423-a94b-702e6cfb4b63"/>
+					<box leftPadding="2" rightPadding="2">
+						<leftPen lineWidth="0.0"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="14" isBold="false" pdfFontName="THSarabun.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["(นายสมศักดิ์ พนเสาวภาคย์)"]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement mode="Transparent" x="49" y="507" width="171" height="18" uuid="f368871e-a16d-4931-a893-c7558dc2e4c0"/>
+					<box leftPadding="2" rightPadding="2">
+						<leftPen lineWidth="0.0"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="14" isBold="false" pdfFontName="THSarabun.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["นายทะเบียน"]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement mode="Transparent" x="357" y="489" width="171" height="18" uuid="17985fb8-36d9-47ba-baff-cb1121677495"/>
+					<box leftPadding="2" rightPadding="2">
+						<leftPen lineWidth="0.0"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="14" isBold="false" pdfFontName="THSarabun.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["(นางนิภา โสภาสัมฤทธิ์)"]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement mode="Transparent" x="357" y="507" width="171" height="18" uuid="5e6c6a93-6bc7-490c-9c3d-c614530e2145"/>
+					<box leftPadding="2" rightPadding="2">
+						<leftPen lineWidth="0.0"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="14" isBold="false" pdfFontName="THSarabun.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["อธิการบดีสถาบันบัณฑิตพัฒนศิลป์"]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement mode="Transparent" x="198" y="588" width="171" height="18" uuid="65df8f46-8c06-4a8b-be0b-d3cfef24bd27"/>
+					<box leftPadding="2" rightPadding="2">
+						<leftPen lineWidth="0.0"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="14" isBold="false" pdfFontName="THSarabun.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["(ศาสตราจารย์วิษณุ เครืองาม)"]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement mode="Transparent" x="198" y="606" width="171" height="18" uuid="af07a862-d253-4f1b-b4ba-738b66979cad"/>
+					<box leftPadding="2" rightPadding="2">
+						<leftPen lineWidth="0.0"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="14" isBold="false" pdfFontName="THSarabun.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["นายกสภาสถาบัณฑิตพัฒนศิลป์"]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="42" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Transparent" x="0" y="0" width="565" height="22" uuid="964cc682-8d65-4146-a9ef-7733f086030a"/>
+				<box leftPadding="2" rightPadding="2">
+					<leftPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="14" isBold="true" pdfFontName="THSarabun Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["สถาบันบัณฑิตพัฒนศิลป์"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Transparent" x="0" y="20" width="565" height="22" uuid="08938f7f-889b-43a3-baea-afeb596a4cff"/>
+				<box leftPadding="2" rightPadding="2">
+					<leftPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="14" isBold="true" pdfFontName="THSarabun.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["จำนวนนักศึกษาที่ขออนุมัติจบการศึกษา ประจำปีการศึกษา " + $P{year}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+</jasperReport>

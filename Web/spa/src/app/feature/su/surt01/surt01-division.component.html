@@ -1,0 +1,106 @@
+<toolbar></toolbar>
+
+<h4>{{ 'label.SURT01.ProgramName' | translate }}</h4>
+<div class="row">
+  <div class="col">
+    <app-card header="{{ 'label.SURT01.CompanyCardHeader' | translate }}">
+      <div class="card-content">
+        <form #company [formGroup]="companyForm">
+          <div class="form-row">
+            <div class="form-group col-md-3 col-sm-6">
+              <textbox formControlName="companyCode" class="text-center">{{ 'label.SURT01.CompanyCode' | translate }}</textbox>
+            </div>
+            <div class="form-group col-md-6 col-sm-6">
+              <textbox formControlName="companyName">{{ 'label.SURT01.CompanyName' | translate }}</textbox>
+            </div>
+          </div>
+        </form>
+      </div>
+    </app-card>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <app-card header="{{ 'label.SURT01.DivCardHeader' | translate }}">
+      <div class="card-content">
+        <div class="row">
+          <div class="col-6">
+            <app-search [value]="keyword" (search)="enter($event)" placeholder="{{ 'label.SURT01.DivSearchPlaceholder' | translate }}">
+            </app-search>
+          </div>
+          <div class="col-6 text-right">
+            <button class="btn btn-primary" (click)="add()"><i class="fas fa-plus-circle"></i>
+              {{ 'label.ALL.Add' | translate }}</button>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col">
+            <app-table [rows]="divisions" [page]="page" (onTableEvent)="search()">
+              <ngx-datatable-column prop="divCode" width="125" [cellClass]="'text-center'">
+                <ng-template let-sort="sortFn" ngx-datatable-header-template>
+                  <label class="datatable-header-cell-wrapper" (click)="sort()">{{ 'label.SURT01.DivCode' | translate }}</label>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  <a [routerLink]="['detail']"
+                    [state]="{ companyCode: row.companyCode , divCode: row.divCode }">{{ row.divCode }}</a>
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column prop="divNameTha" width="200">
+                <ng-template let-sort="sortFn" ngx-datatable-header-template>
+                  <label class="datatable-header-cell-wrapper" (click)="sort()">{{ 'label.SURT01.DivNameTha' | translate }}</label>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  {{ row.divNameTha }}
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column prop="divNameEng" width="200">
+                <ng-template let-sort="sortFn" ngx-datatable-header-template>
+                  <label class="datatable-header-cell-wrapper" (click)="sort()">{{ 'label.SURT01.DivNameEng' | translate }}</label>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  {{ row.divNameEng }}
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column prop="divParent" width="200">
+                <ng-template let-sort="sortFn" ngx-datatable-header-template>
+                  <label class="datatable-header-cell-wrapper" (click)="sort()">{{ 'label.SURT01.DivParent' | translate }}</label>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  {{ row.divParent }}
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column prop="divType" width="150">
+                <ng-template let-sort="sortFn" ngx-datatable-header-template>
+                  <label class="datatable-header-cell-wrapper" (click)="sort()">{{ 'label.SURT01.DivType' | translate }}</label>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  {{ row.divType }}
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column prop="divTypeDetail" width="150">
+                <ng-template let-sort="sortFn" ngx-datatable-header-template>
+                  <label class="datatable-header-cell-wrapper" (click)="sort()">{{ 'label.SURT01.DivTypeDetail' | translate }}</label>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  {{ row.divTypeDetail }}
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column [cellClass]="'text-center'" [sortable]="false" width="50">
+                <ng-template ngx-datatable-header-template>
+                  <label class="datatable-header-cell-wrapper">{{ 'label.ALL.Delete' | translate }}</label>
+                </ng-template>
+                <ng-template let-row="row" let-rowIndex="rowIndex" ngx-datatable-cell-template>
+                  <button (click)="remove(row.divCode, row.rowVersion)" class="btn btn-outline-danger btn-sm">
+                    <i class="far fa-trash-alt"></i>
+                  </button>
+                </ng-template>
+              </ngx-datatable-column>
+            </app-table>
+          </div>
+        </div>
+      </div>
+    </app-card>
+  </div>
+</div>

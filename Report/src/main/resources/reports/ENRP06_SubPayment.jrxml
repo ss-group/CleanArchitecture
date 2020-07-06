@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ENRP06_SubPayment" language="groovy" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="1930984e-b017-4b06-9c76-4986e23c1b5a">
+	<property name="ireport.zoom" value="2.143588810000002"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<subDataset name="dataset1" uuid="4dff37df-11a5-4fdd-8050-0a54e9dbfa98">
+		<parameter name="LANG" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[Select get_label_name('ENRP06','DatePayment',$P{LANG}) as DatePayment,
+get_label_name('ENRP06','PaymentMethods',$P{LANG}) as PaymentMethods,
+get_label_name('ENRP06','ReceivingType',$P{LANG}) as ReceivingType,
+get_label_name('ENRP06','ReferenceNumber',$P{LANG}) as ReferenceNumber,
+get_label_name('ENRP06','Payment',$P{LANG}) as Payment]]>
+		</queryString>
+		<field name="datepayment" class="java.lang.String"/>
+		<field name="paymentmethods" class="java.lang.String"/>
+		<field name="receivingtype" class="java.lang.String"/>
+		<field name="referencenumber" class="java.lang.String"/>
+		<field name="payment" class="java.lang.String"/>
+	</subDataset>
+	<parameter name="enrollment_id" class="java.lang.Long"/>
+	<parameter name="LANG" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[Select b.receipt_date,b.ref_no,b.total_amount,
+case $P{LANG} when 'th' then d.route_name else COALESCE(d.route_name_eng, d.route_name) end as route_name,
+case $P{LANG} when 'th' then f.rec_type_name_tha else COALESCE(f.rec_type_name_eng, f.rec_type_name_tha) end as rec_type_name
+from en_enrollment_receive as b
+left join db_route as d
+on b.company_code = d.company_code
+and b.route_code = d.route_code
+left join fn_receive_type as f
+on b.company_code = f.company_code
+and b.receipt_type_id = f.receive_type_id
+where b.enrollment_id = $P{enrollment_id}]]>
+	</queryString>
+	<field name="receipt_date" class="java.sql.Date"/>
+	<field name="ref_no" class="java.lang.String"/>
+	<field name="total_amount" class="java.math.BigDecimal"/>
+	<field name="route_name" class="java.lang.String"/>
+	<field name="rec_type_name" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<columnHeader>
+		<band height="21" splitType="Stretch">
+			<componentElement>
+				<reportElement x="0" y="0" width="533" height="21" uuid="8dedca5f-7be7-49ef-9711-39290e60e72e"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="dataset1" uuid="38c8a88f-b1fc-4e85-b09e-04a2379c96eb">
+						<datasetParameter name="LANG">
+							<datasetParameterExpression><![CDATA[$P{LANG}]]></datasetParameterExpression>
+						</datasetParameter>
+					</datasetRun>
+					<jr:listContents height="21" width="533">
+						<textField isBlankWhenNull="true">
+							<reportElement x="0" y="0" width="90" height="20" uuid="980acba5-de1f-4fb4-a499-f232961fa174"/>
+							<box>
+								<bottomPen lineWidth="1.0"/>
+							</box>
+							<textElement textAlignment="Center" verticalAlignment="Middle">
+								<font fontName="TH Sarabun New" size="12" isBold="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{datepayment}]]></textFieldExpression>
+						</textField>
+						<textField isBlankWhenNull="true">
+							<reportElement x="90" y="0" width="136" height="20" uuid="8b417271-0846-4273-833c-1d4f382ce2cc"/>
+							<box>
+								<bottomPen lineWidth="1.0"/>
+							</box>
+							<textElement verticalAlignment="Middle">
+								<font fontName="TH Sarabun New" size="12" isBold="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{paymentmethods}]]></textFieldExpression>
+						</textField>
+						<textField isBlankWhenNull="true">
+							<reportElement x="226" y="0" width="115" height="20" uuid="6166b23b-07df-4db3-9b17-4c02f8312030"/>
+							<box>
+								<bottomPen lineWidth="1.0"/>
+							</box>
+							<textElement verticalAlignment="Middle">
+								<font fontName="TH Sarabun New" size="12" isBold="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{receivingtype}]]></textFieldExpression>
+						</textField>
+						<textField isBlankWhenNull="true">
+							<reportElement x="341" y="0" width="82" height="20" uuid="f5749146-26d6-446b-8a21-4e8f494b1a63"/>
+							<box>
+								<bottomPen lineWidth="1.0"/>
+							</box>
+							<textElement verticalAlignment="Middle">
+								<font fontName="TH Sarabun New" size="12" isBold="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{referencenumber}]]></textFieldExpression>
+						</textField>
+						<textField isBlankWhenNull="true">
+							<reportElement x="423" y="0" width="82" height="20" uuid="cdab4ba3-1e36-4177-b102-a613799a79ef"/>
+							<box rightPadding="4">
+								<bottomPen lineWidth="1.0"/>
+							</box>
+							<textElement textAlignment="Right" verticalAlignment="Middle">
+								<font fontName="TH Sarabun New" size="12" isBold="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{payment}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="0" width="90" height="20" uuid="181348dd-9ca7-4c66-92d3-b802ec6789af"/>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.SimpleDateFormat("dd/MM/yyyy", new Locale("TH","th")).format($F{receipt_date})]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="90" y="0" width="136" height="20" uuid="5f506a51-8c9d-4c31-9f5b-2f71c61cd007"/>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{route_name}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="226" y="0" width="115" height="20" uuid="732264b9-701c-4a53-96cc-95f1a0d20341"/>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{rec_type_name}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="341" y="0" width="82" height="20" uuid="eae9208e-0de1-4a9b-bec5-a60039d24cf4"/>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ref_no}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="423" y="0" width="82" height="20" uuid="8e229341-0b4c-43fc-9482-29f40c160cc9"/>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{total_amount}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

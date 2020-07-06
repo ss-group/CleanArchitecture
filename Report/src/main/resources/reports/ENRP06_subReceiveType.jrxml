@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ENRP06_subReceiveType" language="groovy" pageWidth="555" pageHeight="802" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="924f18e0-25fa-4962-99d8-6470384f788b">
+	<property name="ireport.zoom" value="1.7715610000000017"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<subDataset name="dataset1" uuid="39626173-2da2-4c38-9329-236cda1f72c8">
+		<parameter name="LANG" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[Select get_label_name('ENRP06','List',$P{LANG}) as List]]>
+		</queryString>
+		<field name="list" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="dataset3" uuid="695ab8b8-1772-4cf6-9856-e1d05b7c0d82">
+		<parameter name="receipt_type_id" class="java.lang.Long"/>
+		<parameter name="route_code" class="java.lang.String"/>
+		<parameter name="enrollment_id" class="java.lang.Long"/>
+		<queryString>
+			<![CDATA[select distinct count(fn.receive_type_id) as countList
+from fn_receive_type as fn
+inner join (
+	Select sum(b.total_amount) as sumtotal_amount
+	,f.receive_type_id
+	,a.year
+	,a.semester
+	,a.education_type_level
+	,a.ccl_id
+	,a.company_code
+	,a.status
+	,a.payment_status
+	,a.student_code
+	from en_enrollment_receive as b
+	left join fn_receive_type as f
+	on b.company_code = f.company_code
+	and b.receipt_type_id = f.receive_type_id
+	left join db_route as r
+	on b.company_code = r.company_code
+	and b.route_code = r.route_code
+	left join en_enrollment as a
+	on a.company_code = b.company_code
+	and a.enrollment_id = b.enrollment_id
+	where a.year = '2563'
+	and a.semester = '1'
+	and a.education_type_level = '03'
+	and a.ccl_id = 32
+	and a.company_code ='001'
+	and a.en_date >= '2020-02-01'
+	and a.en_date <= '2020-03-31'
+	and a.status = 'N'
+	and a.payment_status = 'Y'
+	group by f.receive_type_id
+		,a.year
+		,a.semester
+		,a.education_type_level
+		,a.ccl_id
+		,a.company_code
+		,a.status
+		,a.payment_status
+		,a.student_code
+) as fnl
+ON fn.receive_type_id = fnl.receive_type_id]]>
+		</queryString>
+		<field name="countlist" class="java.lang.Long"/>
+	</subDataset>
+	<parameter name="LANG" class="java.lang.String"/>
+	<parameter name="year" class="java.lang.Integer"/>
+	<parameter name="semester" class="java.lang.Integer"/>
+	<parameter name="education_type_level" class="java.lang.String"/>
+	<parameter name="ccl_id" class="java.lang.Long"/>
+	<parameter name="company_code" class="java.lang.String"/>
+	<parameter name="en_date_from" class="java.util.Date"/>
+	<parameter name="en_date_to" class="java.util.Date"/>
+	<queryString>
+		<![CDATA[select distinct fn.receive_type_id,
+case $P{LANG} when 'th' then fn.rec_type_name_tha else COALESCE(fn.rec_type_name_eng, fn.rec_type_name_tha) end as rec_type_name
+,fnl.sumtotal_amount,fnl.student_code,fnl.countList
+from fn_receive_type as fn
+left join (
+	Select sum(b.total_amount) as sumtotal_amount  , count(f.receive_type_id) as countList
+	,f.receive_type_id
+	,a.year
+	,a.semester
+	,a.education_type_level
+	,a.ccl_id
+	,a.company_code
+	,a.status
+	,a.payment_status
+	,a.student_code
+	from en_enrollment_receive as b
+	left join fn_receive_type as f
+	on b.company_code = f.company_code
+	and b.receipt_type_id = f.receive_type_id
+	left join db_route as r
+	on b.company_code = r.company_code
+	and b.route_code = r.route_code
+	left join en_enrollment as a
+	on a.company_code = b.company_code
+	and a.enrollment_id = b.enrollment_id
+	where a.year = $P{year}
+	and a.semester = $P{semester}
+	and a.education_type_level = $P{education_type_level}
+	and a.ccl_id = $P{ccl_id}
+	and a.company_code = $P{company_code}
+	and a.en_date >= $P{en_date_from}
+	and a.en_date <= $P{en_date_to}
+	and a.status = 'N'
+	and a.payment_status = 'Y'
+	group by f.receive_type_id
+		,a.year
+		,a.semester
+		,a.education_type_level
+		,a.ccl_id
+		,a.company_code
+		,a.status
+		,a.payment_status
+		,a.student_code
+) as fnl
+ON fn.receive_type_id = fnl.receive_type_id]]>
+	</queryString>
+	<field name="receive_type_id" class="java.lang.Long"/>
+	<field name="rec_type_name" class="java.lang.String"/>
+	<field name="sumtotal_amount" class="java.math.BigDecimal"/>
+	<field name="student_code" class="java.lang.String"/>
+	<field name="countlist" class="java.lang.Long"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="35" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement x="30" y="15" width="159" height="20" uuid="5fc9685c-e123-4b85-acb5-43c1ca682efc"/>
+				<textElement>
+					<font fontName="TH Sarabun New" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{rec_type_name}]]></textFieldExpression>
+			</textField>
+			<componentElement>
+				<reportElement x="371" y="15" width="54" height="20" uuid="744ff9fc-641e-412c-9e0a-72ca421d3e05"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="dataset1" uuid="40c75378-e88f-4d00-80ce-0d6700ec18e5">
+						<datasetParameter name="LANG">
+							<datasetParameterExpression><![CDATA[$P{LANG}]]></datasetParameterExpression>
+						</datasetParameter>
+					</datasetRun>
+					<jr:listContents height="20" width="54">
+						<textField isBlankWhenNull="true">
+							<reportElement x="4" y="0" width="50" height="20" uuid="5b2dab5e-41e5-4c8e-ae1a-6afdbbc1ec3f"/>
+							<textElement verticalAlignment="Middle">
+								<font fontName="TH Sarabun New" size="12" isBold="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{list}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<textField isBlankWhenNull="false">
+				<reportElement x="190" y="15" width="149" height="20" uuid="ec44f43a-16ef-4557-8f4e-6a6238d94c04"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sumtotal_amount} == null ? "0.00" :  $F{sumtotal_amount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="339" y="15" width="32" height="20" uuid="a62f326b-c58b-4749-8b18-f98170f2087f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["(" +$F{countlist}+ ")"  == "(" + null +")" ? "(0)": "(" +$F{countlist}+ ")" ]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

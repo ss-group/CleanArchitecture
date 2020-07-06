@@ -1,0 +1,61 @@
+<h4>{{ 'label.DBRT18.programName' | translate}}</h4>
+<div class="row">
+  <div class="col">
+    <app-card>
+      <div class="card-content">
+        <div class="row">
+          <div class="col">
+            <div class="col">
+                <div class="row">
+                    <div class="col-6">
+                        <app-search (search)="enter($event)" placeholder="{{ 'label.DBRT18.searchPlaceholder' | translate}}"></app-search>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                   <div class="col">
+                      <app-table [rows]="listItem" [page]="page" (onTableEvent)="search()">
+                          <ngx-datatable-column prop="listItemGroupCode" width="300">
+                            <ng-template let-sort="sortFn" ngx-datatable-header-template>
+                              <label class="datatable-header-cell-wrapper" (click)="sort()">{{ 'label.DBRT18.listItemGroupCode' | translate}}</label>
+                            </ng-template>
+                            <ng-template let-row="row" ngx-datatable-cell-template>
+                                {{row.listItemGroupCode}}
+                            </ng-template>
+                          </ngx-datatable-column>
+                          <ngx-datatable-column prop="listItemGroupName" width="300">
+                            <ng-template let-sort="sortFn" ngx-datatable-header-template>
+                              <label class="datatable-header-cell-wrapper" (click)="sort()">{{ 'label.DBRT18.listItemGroupName' | translate}}</label>
+                            </ng-template>
+                            <ng-template let-row="row" ngx-datatable-cell-template>
+                               {{row.listItemGroupName}}
+                            </ng-template>
+                          </ngx-datatable-column>
+                          <ngx-datatable-column prop="systemCode" width="100" [cellClass]="'text-center'">
+                            <ng-template let-sort="sortFn" ngx-datatable-header-template>
+                              <label class="datatable-header-cell-wrapper" (click)="sort()">{{ 'label.DBRT18.systemCode' | translate}}</label>
+                            </ng-template>
+                            <ng-template let-row="row" ngx-datatable-cell-template>
+                               {{row.systemCode}}
+                            </ng-template>
+                          </ngx-datatable-column>
+                          <ngx-datatable-column [cellClass]="'text-center'" [sortable]="false" width="100">
+                              <ng-template ngx-datatable-header-template>
+                                <label class="datatable-header-cell-wrapper">{{ 'label.DBRT18.detail' | translate}}</label>
+                              </ng-template>
+                              <ng-template let-row="row" let-rowIndex="rowIndex" ngx-datatable-cell-template>
+                                <a [routerLink]="['detail']" [state]="{code: row.listItemGroupCode}" class="btn btn-outline-success btn-sm">
+                                  <i class="fas fa-list fa-lg"></i>
+                                </a>
+                              </ng-template>
+                            </ngx-datatable-column>
+                        </app-table>
+                   </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </app-card>
+  </div>
+</div>

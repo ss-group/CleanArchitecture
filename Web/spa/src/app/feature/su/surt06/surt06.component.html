@@ -1,0 +1,27 @@
+<h4>{{ 'label.SURT06.ProgramName' | translate }}</h4>
+<ng-template #userTypeRef>
+  <app-modal (onClose)="close()" header="{{ 'label.ALL.PleaseSelect' | translate }}">
+    <div class="row">
+      <div class="col">
+        <app-card>
+          <div class="card-content">
+            <form [formGroup]="userTypeForm" (ngSubmit)="onSelectUserType()">
+              <div class="form-row">
+                <div class="form-group col">
+                  <radio [items]="master.userTypes" formControlName="type">{{ 'label.SURT06.UserType' | translate }}</radio>
+                </div>
+              </div>
+              <div class="form-row justify-content-center mt-2">
+                <div class="col-auto">
+                  <button type="submit" class="btn btn-primary">
+                    {{ 'label.ALL.Accept' | translate }}
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </app-card>
+      </div>
+    </div>
+  </app-modal>
+</ng-template>

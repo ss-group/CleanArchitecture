@@ -1,0 +1,113 @@
+<toolbar>
+    <button class="btn btn-primary" (click)="save()" [disabled]="saving">
+      <i class="fas fa-cog fa-spin" [hidden]="!saving"></i>
+      <i class="fas fa-save" [hidden]="saving"></i> {{ 'label.ALL.Save' | translate}}</button>
+  </toolbar>
+  <h4>{{ 'label.DBRT09.programName' | translate}}</h4>
+  <div class="row">
+    <div class="col">
+      <app-card header="{{ 'label.DBRT09.detail' | translate}}">
+        <div class="card-content">
+          <div class="col">
+            <div class="col">
+              <form #dbrt09 [formGroup]="dbrt09Form">
+                <div class="form-row">
+                  <div class="form-group col-md-3 col-sm-3">
+                    <textbox formControlName="educationTypeLevel" class="text-center">
+                      {{ 'label.DBRT09.educationTypeLevel' | translate}}
+                    </textbox>
+                  </div>
+                  <div class="form-group col-md-3 col-sm-3">
+                    <textbox formControlName="educationTypeCodeMua" class="text-center">
+                      {{ 'label.DBRT09.educationTypeCodeMua' | translate}}
+                      <div class="invalid-feedback" *ngIf="dbrt09Form.controls.educationTypeCodeMua.errors">
+                        <div *ngIf="dbrt09Form.controls.educationTypeCodeMua.errors.required">{{ 'label.DBRT09.Please' | translate}}</div>
+                      </div>
+                    </textbox>
+                  </div>
+                  <div class="form-group col-md-6 col-sm-6">
+                    <select-input [items]="master.level" placeholder="{{ 'label.ALL.PleaseSelect' | translate}}"
+                    formControlName="groupLevel">
+                    {{ 'label.DBRT09.groupLevel' | translate}}
+                    <div class="invalid-feedback" *ngIf="dbrt09Form.controls.groupLevel.errors">
+                      <div *ngIf="dbrt09Form.controls.groupLevel.errors.required">{{ 'label.DBRT09.Please' | translate}}</div>
+                    </div>
+                    </select-input>
+                </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-6 col-sm-6">
+                    <textbox formControlName="educationTypeLevelNameTha">
+                      {{ 'label.DBRT09.educationTypeLevelNameTha' | translate}}
+                      <div class="invalid-feedback" *ngIf="dbrt09Form.controls.educationTypeLevelNameTha.errors">
+                        <div *ngIf="dbrt09Form.controls.educationTypeLevelNameTha.errors.required">{{ 'label.DBRT09.Please' | translate}}</div>
+                      </div>
+                    </textbox>
+                  </div>
+                  <div class="form-group col-md-6 col-sm-6">
+                    <textbox formControlName="educationTypeLevelNameEng">
+                      {{ 'label.DBRT09.educationTypeLevelNameEng' | translate}}
+                    </textbox>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-6 col-sm-6">
+                    <textbox formControlName="educationLevelShortNameTha">
+                      {{ 'label.DBRT09.educationLevelShortNameTha' | translate}}
+                      <div class="invalid-feedback" *ngIf="dbrt09Form.controls.educationLevelShortNameTha.errors">
+                        <div *ngIf="dbrt09Form.controls.educationLevelShortNameTha.errors.required">{{ 'label.DBRT09.Please' | translate}}</div>
+                      </div>
+                    </textbox>
+                  </div>
+                  <div class="form-group col-md-6 col-sm-6">
+                    <textbox formControlName="educationLevelShortNameEng">
+                      {{ 'label.DBRT09.educationLevelShortNameEng' | translate}}
+                    </textbox>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-6 col-sm-6">
+                    <textbox formControlName="prefix">
+                      {{ 'label.DBRT09.prefix' | translate}}
+                      <div class="invalid-feedback" *ngIf="dbrt09Form.controls.prefix.errors">
+                        <div *ngIf="dbrt09Form.controls.prefix.errors.required">{{ 'label.DBRT09.Please' | translate}}</div>
+                      </div>
+                    </textbox>
+                  </div>
+                  <div class="form-group col-md-6 col-sm-6">
+                    <textbox formControlName="formatCode">
+                      {{ 'label.DBRT09.formatCode' | translate}}
+                      <div class="invalid-feedback" *ngIf="dbrt09Form.controls.formatCode.errors">
+                        <div *ngIf="dbrt09Form.controls.formatCode.errors.required">{{ 'label.DBRT09.Please' | translate}}</div>
+                      </div>
+                    </textbox>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-6 col-sm-6">
+                    <textbox formControlName="graduatedNameTha">
+                      {{ 'label.DBRT09.graduatedNameTha' | translate}}
+                      <div class="invalid-feedback" *ngIf="dbrt09Form.controls.graduatedNameTha.errors">
+                        <div *ngIf="dbrt09Form.controls.graduatedNameTha.errors.required">{{ 'label.DBRT09.Please' | translate}}</div>
+                      </div>
+                    </textbox>
+                  </div>
+                  <div class="form-group col-md-6 col-sm-6">
+                    <textbox formControlName="graduatedNameEng">
+                      {{ 'label.DBRT09.graduatedNameEng' | translate}}
+                    </textbox>
+                  </div>
+              </div>
+                <div class="form-row">
+                  <div class="form-group col-md-6 col-sm-6">
+                    <checkbox formControlName="active">
+                      {{ 'label.DBRT09.active' | translate}}</checkbox>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </app-card>
+    </div>
+  </div>

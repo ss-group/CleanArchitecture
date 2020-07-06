@@ -1,0 +1,67 @@
+<toolbar>
+  <button class="btn btn-primary" (click)="save()" [disabled]="saving">
+    <i class="fas fa-cog fa-spin" [hidden]="!saving"></i>
+    <i class="fas fa-save" [hidden]="saving"></i> {{ 'label.ALL.Save' | translate}}</button>
+</toolbar>
+<h4>{{ 'label.DBRT02.programName' | translate}}</h4>
+<div class="row">
+  <div class="col">
+    <app-card header="{{ 'label.DBRT02.detail' | translate}}">
+      <div class="card-content">
+        <div class="col">
+          <div class="col">
+            <form #dbrt02 [formGroup]="dbrt02Form">
+              <div class="form-row">
+                <div class="form-group col-md-3 col-sm-6">
+                  <textbox formControlName="regionCode" class="text-center">
+                    {{ 'label.DBRT02.regionCode' | translate}}
+                  </textbox>
+                </div>
+                <div class="form-group col-md-3 col-sm-6">
+                  <textbox formControlName="regionCodeMua" class="text-center">
+                    {{ 'label.DBRT02.regionCodeMua' | translate}}
+                  </textbox>
+                </div>
+                <div class="form-group col-md-6 col-sm-6">
+                  <select-input [items]="master.country" placeholder="{{ 'label.ALL.PleaseSelect' | translate}}" formControlName="countryId">
+                    {{ 'label.DBRT02.country' | translate}}
+                  </select-input>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6 col-sm-6">
+                  <textbox formControlName="regionNameTha">
+                    {{ 'label.DBRT02.regionNameTha' | translate}}
+                  </textbox>
+                </div>
+                <div class="form-group col-md-6 col-sm-6">
+                  <textbox formControlName="regionNameEng">
+                    {{ 'label.DBRT02.regionNameEng' | translate}}
+                  </textbox>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6 col-sm-6">
+                  <textbox formControlName="regionShortNameTha">
+                    {{ 'label.DBRT02.regionShortNameTha' | translate}}
+                  </textbox>
+                </div>
+                <div class="form-group col-md-6 col-sm-6">
+                  <textbox formControlName="regionShortNameEng">
+                    {{ 'label.DBRT02.regionShortNameEng' | translate}}
+                  </textbox>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6 col-sm-6">
+                  <checkbox formControlName="active">
+                    {{ 'label.DBRT02.active' | translate}}</checkbox>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </app-card>
+  </div>
+</div>

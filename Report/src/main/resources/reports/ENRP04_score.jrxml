@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ENRP04_score" language="groovy" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="22ea098f-7d01-494a-853e-4f8d54fd205a">
+	<property name="ireport.zoom" value="1.4641000000000008"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="EN_CODE" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[Select DISTINCT c.practice_score,c.interview_score,a.score_interview_test
+from en_enrollment as a
+join en_examination as b
+on a.year = b.year
+and a.semester = b.semester
+and a.education_type_level = b.education_type_level
+and a.company_code = b.company_code
+join en_score_interview_test as c
+on a.year = c.year
+and a.semester = c.semester
+and a.education_type_level = c.education_type_level
+and a.company_code = c.company_code
+and a.enrollment_id = c.enrollment_id
+Left join db_education_type_level as d
+on a.company_code = d.company_code
+and a.education_type_level = d.education_type_level
+where  a.status = 'N' and a.payment_status = 'Y'
+and b.interview_test = true and b.practice_test = true and (case when b.written_test =true then a.status_write_test = 'P' else 1=1 end)
+and a.en_code = $P{EN_CODE}]]>
+	</queryString>
+	<field name="practice_score" class="java.lang.Integer"/>
+	<field name="interview_score" class="java.lang.Integer"/>
+	<field name="score_interview_test" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="32" splitType="Stretch">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="0" y="0" width="87" height="32" uuid="6c00ad90-fd8b-4225-be8f-5292caa66955"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{practice_score}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="87" y="0" width="100" height="32" uuid="0c235a2f-5f63-4555-8fb4-4ddb0f3b0a85"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{interview_score}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="187" y="0" width="72" height="32" uuid="943c2a69-0320-4ade-949e-da6e1256f6d4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{score_interview_test}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

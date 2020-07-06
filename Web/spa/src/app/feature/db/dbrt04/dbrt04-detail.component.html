@@ -1,0 +1,54 @@
+<toolbar>
+  <button class="btn btn-primary" (click)="save()" [disabled]="saving">
+    <i class="fas fa-cog fa-spin" [hidden]="!saving"></i>
+    <i class="fas fa-save" [hidden]="saving"></i>  {{ 'label.ALL.Save' | translate}}</button>
+</toolbar>
+<h4>{{ 'label.DBRT04.programName' | translate}}</h4>
+<div class="row">
+  <div class="col">
+    <app-card header="{{ 'label.DBRT04.detail' | translate}}">
+      <div class="card-content">
+        <div class="col">
+          <div class="col">
+            <form [formGroup]="districtForm">
+              <div class="form-row">
+                <div class="form-group col-md-3 col-sm-6">
+                  <textbox formControlName="districtCode" class="text-center">
+                    {{ 'label.DBRT04.districtCode' | translate}}
+                  </textbox>
+                </div>
+                <div class="form-group col-md-3 col-sm-6">
+                  <textbox formControlName="districtCodeMua" class="text-center">
+                    {{ 'label.DBRT04.districtCodeMua' | translate}}
+                  </textbox>
+                </div>
+                <div class="form-group col-md-6 col-sm-6">
+                  <select-input [items]="master.province" placeholder="{{ 'label.ALL.PleaseSelect' | translate}}" formControlName="provinceId">
+                    {{ 'label.DBRT04.province' | translate}}
+                  </select-input>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6 col-sm-6">
+                  <textbox formControlName="districtNameTha">
+                    {{ 'label.DBRT04.districtNameTha' | translate}}
+                  </textbox>
+                </div>
+                <div class="form-group col-md-6 col-sm-6">
+                  <textbox formControlName="districtNameEng">
+                    {{ 'label.DBRT04.districtNameEng' | translate}}
+                  </textbox>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6 col-sm-6">
+                  <checkbox formControlName="active">{{ 'label.DBRT04.active' | translate}}</checkbox>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </app-card>
+  </div>
+</div>

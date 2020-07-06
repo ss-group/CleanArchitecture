@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.12.2.final using JasperReports Library version 6.12.2-75c5e90a222ab406e416cbf590a5397028a52de3  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="FNOD01_SUBREPORT01" pageWidth="595" pageHeight="842" whenNoDataType="NoPages" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="4f7db159-8b08-4074-bb64-f1267c878732">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="SSS"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="company_code" class="java.lang.String"/>
+	<parameter name="lin_id" class="java.lang.String"/>
+	<parameter name="bill_m_id" class="java.lang.Long"/>
+	<parameter name="pricelist_code" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+char1 as itm_desc
+, num1 as total_price
+
+from
+report_fnod01_sub01($P{company_code}
+	  , $P{lin_id}
+	  , $P{pricelist_code}
+	  , $P{bill_m_id}
+)]]>
+	</queryString>
+	<field name="itm_desc" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="itm_desc"/>
+	</field>
+	<field name="total_price" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="total_price"/>
+	</field>
+	<variable name="total_price1" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{total_price}]]></variableExpression>
+	</variable>
+	<detail>
+		<band height="20">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<textField>
+				<reportElement x="60" y="0" width="380" height="20" uuid="f13684b3-d6c8-4031-8445-a401d72f92ec"/>
+				<box leftPadding="2" rightPadding="2"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{itm_desc}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,###,###,##0.00">
+				<reportElement x="440" y="0" width="114" height="20" uuid="a51752b5-d309-4574-97c1-fe8091f099b8">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box leftPadding="2" rightPadding="2"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{total_price}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="60" height="20" uuid="6cd1bb3c-167e-4885-8e7d-f222ca33b53f"/>
+				<box leftPadding="2" rightPadding="2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="23">
+			<textField pattern="#,###,###,##0.00">
+				<reportElement x="440" y="0" width="114" height="23" uuid="53477d9d-1db4-418a-8e5a-cbb4610cfed7">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box leftPadding="2" rightPadding="2">
+					<topPen lineWidth="0.75"/>
+					<bottomPen lineWidth="2.25" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="16" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{total_price1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="330" y="0" width="110" height="23" uuid="dcdc46e6-7183-4d11-a65a-b41e6779042a"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="16" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["รวมเงิน"]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

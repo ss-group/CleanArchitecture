@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="test" language="groovy" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8d47a526-3053-4325-a025-78e2bfc6f1d5">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<parameter name="table_name" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select * from loan.db_status
+WHERE table_name = $P{table_name}]]>
+	</queryString>
+	<field name="table_name" class="java.lang.String"/>
+	<field name="column_name" class="java.lang.String"/>
+	<field name="status_value" class="java.lang.String"/>
+	<field name="status_desc_tha" class="java.lang.String"/>
+	<field name="status_desc_eng" class="java.lang.String"/>
+	<field name="sequence" class="java.lang.Integer"/>
+	<field name="remark" class="java.lang.String"/>
+	<field name="created_by" class="java.lang.String"/>
+	<field name="created_date" class="java.sql.Timestamp"/>
+	<field name="created_program" class="java.lang.String"/>
+	<field name="updated_by" class="java.lang.String"/>
+	<field name="updated_date" class="java.sql.Timestamp"/>
+	<field name="updated_program" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="68">
+			<staticText>
+				<reportElement x="156" y="10" width="268" height="50" uuid="023f8613-315f-466d-b35a-b545bec8368f"/>
+				<textElement textAlignment="Center">
+					<font fontName="TH SarabunPSK" size="36" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[ไทย TEST REPROT COFFEE]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="50">
+			<staticText>
+				<reportElement x="80" y="30" width="129" height="20" uuid="32badd60-7cc0-4968-9844-5073f19fca8d"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="TH SarabunPSK" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[table_name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="209" y="30" width="128" height="20" uuid="7869b7e7-b6a4-423c-9522-3ff1904d3f9a"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="TH SarabunPSK" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[column_name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="337" y="30" width="135" height="20" uuid="9f5d8aca-4435-4489-9c20-70b231cbf7c9"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="TH SarabunPSK" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[status_desc_tha]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="80" y="0" width="129" height="20" uuid="41be58ff-d84f-4761-a2fd-d87bffc825f4"/>
+				<box leftPadding="2">
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font fontName="TH SarabunPSK" size="16" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{table_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="209" y="0" width="128" height="20" uuid="61a7b16f-76c9-4795-96f8-cfe57450abbc"/>
+				<box leftPadding="2">
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font fontName="TH SarabunPSK" size="16" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{column_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="337" y="0" width="135" height="20" uuid="49dc605f-e61e-49e0-9dbe-312cb9177cfe"/>
+				<box leftPadding="2">
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font fontName="TH SarabunPSK" size="16" isBold="true" pdfFontName="THSarabun.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{status_desc_tha}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="50">
+			<textField>
+				<reportElement x="109" y="25" width="100" height="20" uuid="b29dba95-0195-4e7d-a63d-29985f455b01"/>
+				<textFieldExpression><![CDATA[$P{table_name}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+</jasperReport>

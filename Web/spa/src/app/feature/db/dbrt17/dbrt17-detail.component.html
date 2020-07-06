@@ -1,0 +1,219 @@
+<toolbar>
+    <button class="btn btn-primary" (click)="save()" [disabled]="disBtnSave">
+        <i class="fas fa-cog fa-spin" [hidden]="!disBtnSave"></i>
+        <i class="fas fa-save" [hidden]="disBtnSave"></i> {{ 'label.ALL.Save' | translate}}</button>
+</toolbar>
+
+<h4>{{ 'label.DBRT17.programName' | translate}}</h4>
+
+<div class="row">
+    <div class="col">
+        <app-card header="{{ 'label.DBRT17.detail' | translate}}">
+            <div class="card-content">
+                <div class="col">
+                    <div class="col">
+                        <form [formGroup]="dbrt17Form" [class.validated]="submited">
+                            <div class="form-row">
+                                <div class="form-group col-md-3 col-sm-6">
+                                    <textbox formControlName="buildingCode">
+                                        {{ 'label.DBRT17.buildingCode' | translate}}
+                                    </textbox>
+                                </div>
+                                <div class="form-group col-md-3 col-sm-6"></div>
+                                <div class="form-group col-md-6 col-sm-6">
+                                    <select-input [items]="master.location"
+                                        placeholder="{{ 'label.ALL.PleaseSelect' | translate}}"
+                                        formControlName="locationCode">
+                                        {{ 'label.DBRT17.location' | translate}}
+                                    </select-input>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6 col-sm-6">
+                                    <textbox formControlName="buildingNameTha">
+                                        {{ 'label.DBRT17.buildingNameTha' | translate}}
+                                    </textbox>
+                                </div>
+                                <div class="form-group col-md-6 col-sm-6">
+                                    <textbox formControlName="buildingNameEng">
+                                        {{ 'label.DBRT17.buildingNameEng' | translate}}
+                                    </textbox>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6 col-sm-6">
+                                    <checkbox formControlName="active"> {{ 'label.DBRT17.active' | translate}}
+                                    </checkbox>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </app-card>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <app-card header="{{ 'label.DBRT17.detail2' | translate}}">
+            <div class="card-menu">
+                <div class="col">
+                    <div class="text-right">
+                        <button class="btn btn-primary" (click)="addRoom();"><i class="fas fa-plus-circle"></i>
+                            {{ 'label.ALL.Add' | translate}}
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-content">
+                <app-table-client #GroupTable [rows]="detail.dbRoom">
+                    <ngx-datatable-column prop="roomNo" width="50">
+                        <ng-template let-sort="sortFn" ngx-datatable-header-template>
+                            <label class="datatable-header-cell-wrapper">{{ 'label.DBRT17.room' | translate}}</label><span class="text-danger"> *</span>
+                        </ng-template>
+                        <ng-template let-row="row" let-rowIndex="rowIndex" ngx-datatable-cell-template>
+                            <div [formGroup]="row.form">
+                                <textbox formControlName="roomNo" [hasLabel]="false" [small]="true"></textbox>
+                            </div>
+                        </ng-template>
+                    </ngx-datatable-column>
+                    <ngx-datatable-column prop="roomNameTha" [cellClass]="'text-center'" width="200">
+                        <ng-template ngx-datatable-header-template>
+                            <label class="datatable-header-cell-wrapper">
+                                {{ 'label.DBRT17.roomNameTha' | translate}}
+                            </label>
+                        </ng-template>
+                        <ng-template let-row="row" let-rowIndex="rowIndex" ngx-datatable-cell-template>
+                            <div [formGroup]="row.form">
+                                <textbox formControlName="roomNameTha" [hasLabel]="false" [small]="true"></textbox>
+                            </div>
+                        </ng-template>
+                    </ngx-datatable-column>
+                    <ngx-datatable-column prop="roomNameEng" [cellClass]="'text-center'" width="200">
+                        <ng-template ngx-datatable-header-template>
+                            <label class="datatable-header-cell-wrapper">
+                                {{ 'label.DBRT17.roomNameEng' | translate}}
+                            </label>
+                        </ng-template>
+                        <ng-template let-row="row" let-rowIndex="rowIndex" ngx-datatable-cell-template>
+                            <div [formGroup]="row.form">
+                                <textbox formControlName="roomNameEng" [hasLabel]="false" [small]="true"></textbox>
+                            </div>
+                        </ng-template>
+                    </ngx-datatable-column>
+                    <ngx-datatable-column prop="floorNo" width="50" [cellClass]="'text-center'">
+                        <ng-template ngx-datatable-header-template>
+                            <label class="datatable-header-cell-wrapper">{{ 'label.DBRT17.floorNo' | translate}}</label><span class="text-danger"> *</span>
+                        </ng-template>
+                        <ng-template let-row="row" let-rowIndex="rowIndex" ngx-datatable-cell-template>
+                            <div [formGroup]="row.form">
+                                <number formControlName="floorNo" [hasLabel]="false" [small]="true"></number>
+                            </div>
+                        </ng-template>
+                    </ngx-datatable-column>
+                    <ngx-datatable-column prop="roomType" [cellClass]="'text-center'" width="150">
+                        <ng-template ngx-datatable-header-template>
+                            <label class="datatable-header-cell-wrapper">{{ 'label.DBRT17.roomType' | translate}}</label><span class="text-danger"> *</span>
+                        </ng-template>
+                        <ng-template let-row="row" let-rowIndex="rowIndex" ngx-datatable-cell-template>
+                            <div [formGroup]="row.form">
+                                <select-input [items]="detail.dbRoom[rowIndex].roomDDL" formControlName="roomType"
+                                    [hasLabel]="false" [small]="true"
+                                    placeholder="{{ 'label.ALL.PleaseSelect' | translate}}">
+                                </select-input>
+                            </div>
+                        </ng-template>
+                    </ngx-datatable-column>
+                    <ngx-datatable-column prop="capacity" width="50" [cellClass]="'text-center'">
+                        <ng-template ngx-datatable-header-template>
+                            <label class="datatable-header-cell-wrapper">{{ 'label.DBRT17.capacity' | translate}}</label><span class="text-danger"> *</span>
+                        </ng-template>
+                        <ng-template let-row="row" let-rowIndex="rowIndex" ngx-datatable-cell-template>
+                            <div [formGroup]="row.form">
+                                <number formControlName="capacity" [hasLabel]="false" [small]="true"></number>
+                            </div>
+                        </ng-template>
+                    </ngx-datatable-column>
+                    <ngx-datatable-column prop="active" width="50" [cellClass]="'text-center'">
+                        <ng-template let-sort="sortFn" ngx-datatable-header-template>
+                            <label class="datatable-header-cell-wrapper">{{ 'label.DBRT17.active' | translate}}</label>
+                        </ng-template>
+                        <ng-template let-row="row" ngx-datatable-cell-template>
+                            <div [formGroup]="row.form">
+                                <checkbox formControlName="active"></checkbox>
+                            </div>
+                        </ng-template>
+                    </ngx-datatable-column>
+                    <ngx-datatable-column [cellClass]="'text-center'" [sortable]="false" width="50">
+                        <ng-template ngx-datatable-header-template>
+                            <label class="datatable-header-cell-wrapper">{{ 'label.ALL.Delete' | translate}}</label>
+                        </ng-template>
+                        <ng-template let-row="row" let-rowIndex="rowIndex" ngx-datatable-cell-template>
+                            <button class="btn btn-outline-danger btn-sm" (click)="removeRoom(row)">
+                                <i class="far fa-trash-alt"></i>
+                            </button>
+                        </ng-template>
+                    </ngx-datatable-column>
+                </app-table-client>
+            </div>
+        </app-card>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <app-card header="{{ 'label.DBRT17.detail3' | translate}}">
+            <div class="card-menu">
+                <div class="col">
+                    <div class="text-right">
+                        <button class="btn btn-primary" (click)="addPrivilegeBuilding();"><i
+                                class="fas fa-plus-circle"></i>
+                            {{ 'label.ALL.Add' | translate}}
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-content">
+                <app-table-client #GroupTable [rows]="detail.dbPrivilegeBuilding">
+                    <ngx-datatable-column prop="divCode" [cellClass]="'text-center'" width="600">
+                        <ng-template ngx-datatable-header-template>
+                            <label class="datatable-header-cell-wrapper">
+                                {{ 'label.DBRT17.buildingAdministration' | translate}}
+                            </label>
+                        </ng-template>
+                        <ng-template let-row="row" let-rowIndex="rowIndex" ngx-datatable-cell-template>
+                            <div [formGroup]="row.form">
+                                <select-input [items]="master.privilegeBuilding" formControlName="divCode"
+                                    [hasLabel]="false" [small]="true"
+                                    placeholder="{{ 'label.ALL.PleaseSelect' | translate}}"></select-input>
+                            </div>
+                        </ng-template>
+                    </ngx-datatable-column>
+                    <ngx-datatable-column prop="active" width="50" [cellClass]="'text-center'">
+                        <ng-template let-sort="sortFn" ngx-datatable-header-template>
+                            <label class="datatable-header-cell-wrapper"
+                                (click)="sort()">{{ 'label.DBRT17.active' | translate}}</label>
+                        </ng-template>
+                        <ng-template let-row="row" ngx-datatable-cell-template>
+                            <div [formGroup]="row.form">
+                                <checkbox formControlName="active"></checkbox>
+                            </div>
+                        </ng-template>
+                    </ngx-datatable-column>
+
+                    <ngx-datatable-column [cellClass]="'text-center'" [sortable]="false" width="50">
+                        <ng-template ngx-datatable-header-template>
+                            <label class="datatable-header-cell-wrapper">{{ 'label.ALL.Delete' | translate}}</label>
+                        </ng-template>
+                        <ng-template let-row="row" let-rowIndex="rowIndex" ngx-datatable-cell-template>
+                            <button class="btn btn-outline-danger btn-sm" (click)="removePrivilegeBuilding(row)">
+                                <i class="far fa-trash-alt"></i>
+                            </button>
+                        </ng-template>
+                    </ngx-datatable-column>
+                </app-table-client>
+            </div>
+        </app-card>
+    </div>
+</div>

@@ -1,0 +1,100 @@
+<h4>{{ 'label.DBRT10.programName' | translate}}</h4>
+<div class="row">
+  <div class="col">
+    <app-card>
+      <div class="card-content">
+        <div class="row">
+          <div class="col-6">
+            <app-search (search)="enter($event)" placeholder="{{ 'label.DBRT10.searchPlaceholder' | translate}}">
+            </app-search>
+          </div>
+          <div class="col-6 text-right">
+            <button class="btn btn-primary" (click)="add()"><i class="fas fa-plus-circle"></i> {{ 'label.ALL.Add' | translate}}</button>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col">
+            <app-table [rows]="educationtype" [page]="page" (onTableEvent)="search()">
+              <ngx-datatable-column prop="educationTypeCode" width="100" [cellClass]="'text-center'">
+                <ng-template let-sort="sortFn" ngx-datatable-header-template>
+                  <label class="datatable-header-cell-wrapper" (click)="sort()">{{ 'label.DBRT10.educationTypeCode' | translate}}</label>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  <a [routerLink]="['detail']" [state]="{code: row.educationTypeCode}">{{row.educationTypeCode}}</a>
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column prop="educationTypeCodeMua" width="200" [cellClass]="'text-center'">
+                <ng-template let-sort="sortFn" ngx-datatable-header-template>
+                  <label class="datatable-header-cell-wrapper" (click)="sort()">{{ 'label.DBRT10.educationTypeCodeMua' | translate}}</label>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  {{row.educationTypeCodeMua}}
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column prop="educationTypeNameTha" width="200">
+                <ng-template let-sort="sortFn" ngx-datatable-header-template>
+                  <label class="datatable-header-cell-wrapper" (click)="sort()">{{ 'label.DBRT10.educationTypeNameTha' | translate}}</label>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  {{row.educationTypeNameTha}}
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column prop="educationTypeNameEng" width="200">
+                <ng-template let-sort="sortFn" ngx-datatable-header-template>
+                  <label class="datatable-header-cell-wrapper" (click)="sort()">{{ 'label.DBRT10.educationTypeNameEng' | translate}}</label>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  {{row.educationTypeNameEng}}
+                </ng-template>
+              </ngx-datatable-column>
+              <!-- <ngx-datatable-column prop="educationShortNameTha"  width="100">
+                <ng-template let-sort="sortFn" ngx-datatable-header-template>
+                  <label class="datatable-header-cell-wrapper" (click)="sort()">{{ 'label.DBRT10.educationShortNameTha' | translate}}</label>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  {{row.educationShortNameTha}}
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column prop="educationShortNameEng"  width="100">
+                <ng-template let-sort="sortFn" ngx-datatable-header-template>
+                  <label class="datatable-header-cell-wrapper" (click)="sort()">{{ 'label.DBRT10.educationShortNameEng' | translate}}</label>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  {{row.educationShortNameEng}}
+                </ng-template>
+              </ngx-datatable-column> -->
+              <ngx-datatable-column prop="typeLevel" [cellClass]="'text-left'" width="100">
+                <ng-template let-sort="sortFn" ngx-datatable-header-template>
+                  <label class="datatable-header-cell-wrapper" (click)="sort()">{{ 'label.DBRT10.typeLevel' | translate}}</label>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  {{row.typeLevel}}
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column prop="active" width="50" [cellClass]="'text-center'">
+                <ng-template let-sort="sortFn" ngx-datatable-header-template>
+                  <label class="datatable-header-cell-wrapper" (click)="sort()">{{ 'label.DBRT10.active' | translate}}</label>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  <i *ngIf="row.active" class="fas fa-check"></i>
+                </ng-template>
+              </ngx-datatable-column>
+
+              <ngx-datatable-column [cellClass]="'text-center'" [sortable]="false" width="50">
+                <ng-template ngx-datatable-header-template>
+                  <label class="datatable-header-cell-wrapper">{{ 'label.ALL.Delete' | translate}}</label>
+                </ng-template>
+                <ng-template let-row="row" let-rowIndex="rowIndex" ngx-datatable-cell-template>
+                  <button (click)="remove(row.educationTypeCode,row.rowVersion)" class="btn btn-outline-danger btn-sm">
+                    <i class="far fa-trash-alt"></i>
+                  </button>
+                </ng-template>
+              </ngx-datatable-column>
+            </app-table>
+          </div>
+        </div>
+      </div>
+    </app-card>
+  </div>
+</div>

@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ENRP01_2_work_experience" language="groovy" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="f767f540-b384-4822-9b90-0d2b45f15b14">
+	<property name="ireport.zoom" value="1.7715610000000013"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<subDataset name="dataset1" uuid="b24e1a79-30f1-4b9f-bb06-301e7ea26b95">
+		<parameter name="LANG" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[select get_label_name('ENRP01','position',$P{LANG}) as position,
+get_label_name('ENRP01','Business',$P{LANG}) as Business,
+get_label_name('ENRP01','Start',$P{LANG}) as Start,
+get_label_name('ENRP01','End',$P{LANG}) as End,
+get_label_name('ENRP01','Responsibility',$P{LANG}) as Responsibility,
+get_label_name('ENRP01','Income',$P{LANG}) as Income]]>
+		</queryString>
+		<field name="position" class="java.lang.String"/>
+		<field name="business" class="java.lang.String"/>
+		<field name="start" class="java.lang.String"/>
+		<field name="end" class="java.lang.String"/>
+		<field name="responsibility" class="java.lang.String"/>
+		<field name="income" class="java.lang.String"/>
+	</subDataset>
+	<parameter name="LANG" class="java.lang.String"/>
+	<parameter name="EN_CODE" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[Select DISTINCT
+a.en_code,f.position_desc,f.office_desc,f.year_start,f.year_end,f.responsibility_desc,f.income_code,
+case $P{LANG} when 'th' then IncomeType.list_item_name_tha else COALESCE(IncomeType.list_item_name_eng,  IncomeType.list_item_name_tha) end as IncomeType_name
+from en_enrollment as a
+left join en_enrollment_work_experience as f
+on a.enrollment_id = f.enrollment_id
+and a.company_code = f.company_code
+left join (Select * from db_list_item where list_item_group_code in ('IncomeType')) as IncomeType
+on a.income_code =IncomeType.list_item_code
+where a.en_code = $P{EN_CODE}]]>
+	</queryString>
+	<field name="en_code" class="java.lang.String"/>
+	<field name="position_desc" class="java.lang.String"/>
+	<field name="office_desc" class="java.lang.String"/>
+	<field name="year_start" class="java.lang.Integer"/>
+	<field name="year_end" class="java.lang.Integer"/>
+	<field name="responsibility_desc" class="java.lang.String"/>
+	<field name="income_code" class="java.lang.String"/>
+	<field name="incometype_name" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="22" splitType="Stretch">
+			<componentElement>
+				<reportElement x="0" y="0" width="555" height="22" uuid="82aa1569-6445-4d8e-8fa6-6d223d49d3ed"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="dataset1" uuid="667c46f8-b0c9-47be-82aa-446c7bfa2d64">
+						<datasetParameter name="LANG">
+							<datasetParameterExpression><![CDATA[$P{LANG}]]></datasetParameterExpression>
+						</datasetParameter>
+					</datasetRun>
+					<jr:listContents height="22" width="555">
+						<textField isBlankWhenNull="true">
+							<reportElement x="1" y="1" width="88" height="20" uuid="0283691c-2db0-4088-a268-5e125863b67d"/>
+							<box>
+								<topPen lineWidth="1.0"/>
+								<leftPen lineWidth="1.0"/>
+								<bottomPen lineWidth="1.0"/>
+							</box>
+							<textElement textAlignment="Center" verticalAlignment="Middle">
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{position}]]></textFieldExpression>
+						</textField>
+						<textField isBlankWhenNull="true">
+							<reportElement x="89" y="1" width="100" height="20" uuid="93a76391-8ded-438e-932e-52626102c079"/>
+							<box>
+								<topPen lineWidth="1.0"/>
+								<leftPen lineWidth="1.0"/>
+								<bottomPen lineWidth="1.0"/>
+							</box>
+							<textElement textAlignment="Center" verticalAlignment="Middle">
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{business}]]></textFieldExpression>
+						</textField>
+						<textField isBlankWhenNull="true">
+							<reportElement x="189" y="1" width="48" height="20" uuid="5b3519f2-eadb-4f96-a2d4-6b90321a1e67"/>
+							<box>
+								<topPen lineWidth="1.0"/>
+								<leftPen lineWidth="1.0"/>
+								<bottomPen lineWidth="1.0"/>
+							</box>
+							<textElement textAlignment="Center" verticalAlignment="Middle">
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{start}]]></textFieldExpression>
+						</textField>
+						<textField isBlankWhenNull="true">
+							<reportElement x="237" y="1" width="50" height="20" uuid="773a1d1a-5325-4009-bb50-38c7362b2521"/>
+							<box>
+								<topPen lineWidth="1.0"/>
+								<leftPen lineWidth="1.0"/>
+								<bottomPen lineWidth="1.0"/>
+							</box>
+							<textElement textAlignment="Center" verticalAlignment="Middle">
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{end}]]></textFieldExpression>
+						</textField>
+						<textField isBlankWhenNull="true">
+							<reportElement x="287" y="1" width="90" height="20" uuid="4fe9c557-b7aa-4548-b988-c696d413d7c1"/>
+							<box>
+								<topPen lineWidth="1.0"/>
+								<leftPen lineWidth="1.0"/>
+								<bottomPen lineWidth="1.0"/>
+							</box>
+							<textElement textAlignment="Center" verticalAlignment="Middle">
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{responsibility}]]></textFieldExpression>
+						</textField>
+						<textField isBlankWhenNull="true">
+							<reportElement x="377" y="1" width="100" height="20" uuid="e94196f5-168b-436e-9ea1-90bb9f26abad"/>
+							<box>
+								<topPen lineWidth="1.0"/>
+								<leftPen lineWidth="1.0"/>
+								<bottomPen lineWidth="1.0"/>
+								<rightPen lineWidth="1.0"/>
+							</box>
+							<textElement textAlignment="Center" verticalAlignment="Middle">
+								<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{income}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement x="1" y="0" width="88" height="20" uuid="76bf4b87-7f73-4519-893d-47f728512d1b"/>
+				<box leftPadding="4">
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{position_desc}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="89" y="0" width="100" height="20" uuid="647a91f1-b875-444f-941c-b0cfea512efb"/>
+				<box leftPadding="4">
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{office_desc}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="189" y="0" width="48" height="20" uuid="087aa907-85e7-4aab-9bd6-22afd05c6d0f"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{year_start}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="237" y="0" width="50" height="20" uuid="a6e23e26-7302-45fc-a462-d856a68a7483"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{year_end}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="287" y="0" width="90" height="20" uuid="3f8597d9-7248-4638-9cc0-49716840aad0"/>
+				<box leftPadding="4">
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{responsibility_desc}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="377" y="0" width="100" height="20" uuid="94686a0b-da19-4f8d-99ae-efc9ad44fcef"/>
+				<box leftPadding="4">
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{incometype_name}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

@@ -1,0 +1,63 @@
+<toolbar>
+  <button class="btn btn-primary" (click)="save()" [disabled]="saving">
+    <i class="fas fa-cog fa-spin" [hidden]="!saving"></i>
+    <i class="fas fa-save" [hidden]="saving"></i> {{ 'label.ALL.Save' | translate}}</button>
+</toolbar>
+<h4>{{ 'label.DBRT05.programName' | translate}}</h4>
+<div class="row">
+  <div class="col">
+    <app-card header="{{ 'label.DBRT05.detail' | translate}}">
+      <div class="card-content">
+        <div class="col">
+          <div class="col">
+            <form [formGroup]="subDistrictForm">
+              <div class="form-row">
+                <div class="form-group col-md-3 col-sm-6">
+                  <textbox formControlName="subDistrictCode" class="text-center">
+                    {{ 'label.DBRT05.subDistrictCode' | translate}}
+                  </textbox>
+                </div>
+                <div class="form-group col-md-3 col-sm-6">
+                  <textbox formControlName="subDistrictCodeMua" class="text-center">
+                    {{ 'label.DBRT05.subDistrictCodeMua' | translate}}
+                  </textbox>
+                </div>
+                <div class="form-group col-md-3 col-sm-6">
+                  <select-input [items]="master.province" placeholder="{{ 'label.ALL.PleaseSelect' | translate}}"
+                    formControlName="provinceId" (returnValue)="changeProvinceAddress($event)">
+                    {{ 'label.DBRT05.province' | translate}}
+                  </select-input>
+                </div>
+                <div class="form-group col-md-3 col-sm-6">
+                  <select-input [items]="master.district" placeholder="{{ 'label.ALL.PleaseSelect' | translate}}"
+                    formControlName="districtId">
+                    {{ 'label.DBRT05.district' | translate}}
+                  </select-input>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6 col-sm-6">
+                  <textbox formControlName="subDistrictNameTha">
+                    {{ 'label.DBRT05.subDistrictNameTha' | translate}}
+                  </textbox>
+                </div>
+                <div class="form-group col-md-6 col-sm-6">
+                  <textbox formControlName="subDistrictNameEng">
+                    {{ 'label.DBRT05.subDistrictNameEng' | translate}}
+                  </textbox>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6 col-sm-6">
+                  <checkbox formControlName="active">
+                    {{ 'label.DBRT05.active' | translate}}
+                  </checkbox>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </app-card>
+  </div>
+</div>

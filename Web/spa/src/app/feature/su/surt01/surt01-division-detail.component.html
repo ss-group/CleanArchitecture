@@ -1,0 +1,59 @@
+<toolbar>
+  <button class="btn btn-primary" (click)="util.focusInvalid(division); save()">
+    <i class="fas fa-cog fa-spin" [hidden]="!saving"></i>
+    <i class="fas fa-save" [hidden]="saving"></i> {{ 'label.ALL.Save' | translate }}</button>
+</toolbar>
+
+<h4>{{ 'label.SURT01.ProgramName' | translate }}</h4>
+<div class="row">
+  <div class="col">
+    <app-card header="{{ 'label.SURT01.DivDetailCardHeader' | translate }}">
+      <div class="card-content">
+        <form #division [formGroup]="divisionForm">
+          <div class="form-row">
+            <div class="form-group col-md-3 col-sm-6">
+              <textbox formControlName="divCode" class="text-center">{{ 'label.SURT01.DivCode' | translate }}
+                <div class="invalid-pattern">
+                  {{ 'message.STD00037' | translate }}
+                </div>
+              </textbox>
+            </div>
+            <div class="form-group col-md-3 col-sm-6">
+              <textbox formControlName="divNameTha">{{ 'label.SURT01.DivNameTha' | translate }}</textbox>
+            </div>
+            <div class="form-group col-md-3 col-sm-6">
+              <textbox formControlName="divNameEng">{{ 'label.SURT01.DivNameEng' | translate }}</textbox>
+            </div>
+            <div class="form-group col-md-3 col-sm-6">
+              <select-input [items]="master.divParents" formControlName="divParent"
+                placeholder="{{ 'label.ALL.PleaseSelect' | translate }}">
+                {{ 'label.SURT01.DivParent' | translate }}</select-input>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6 col-sm-6">
+              <radio [items]="master.divTypes" formControlName="divType">
+                {{ 'label.SURT01.DivType' | translate}}</radio>
+            </div>
+            <div class="form-group col-md-3 col-sm-6">
+              <select-input *ngIf="this.divisionForm.controls.divType.value == 'L'" [items]="locations"
+                formControlName="locationCode" placeholder="{{ 'label.ALL.PleaseSelect' | translate }}">
+                {{ 'label.SURT01.Location' | translate}}</select-input>
+              <select-input *ngIf="this.divisionForm.controls.divType.value == 'F'" [items]="faculties"
+                formControlName="facCode" placeholder="{{ 'label.ALL.PleaseSelect' | translate }}">
+                {{ 'label.SURT01.Faculty' | translate}}</select-input>
+              <select-input *ngIf="this.divisionForm.controls.divType.value == 'P'" [items]="programs"
+                formControlName="programCode" placeholder="{{ 'label.ALL.PleaseSelect' | translate }}">
+                {{ 'label.SURT01.Program' | translate}}</select-input>
+            </div>
+            <div class="form-group col-md-3 col-sm-6">
+              <select-input *ngIf="this.divisionForm.controls.divType.value == 'P'" [items]="facultiesOfPrograms"
+                formControlName="facCode" placeholder="{{ 'label.ALL.PleaseSelect' | translate }}">
+                {{ 'label.SURT01.Faculty' | translate}}</select-input>
+            </div>
+          </div>
+        </form>
+      </div>
+    </app-card>
+  </div>
+</div>

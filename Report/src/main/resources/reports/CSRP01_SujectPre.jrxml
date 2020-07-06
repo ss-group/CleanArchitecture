@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.12.2.final using JasperReports Library version 6.12.2-75c5e90a222ab406e416cbf590a5397028a52de3  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="CSRP01_SubjectPre" pageWidth="355" pageHeight="595" orientation="Landscape" columnWidth="355" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="3d57a3b1-383a-44d8-a96d-c96d2dc5c241">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="SSRU"/>
+	<parameter name="COMPANY_CODE" class="java.lang.String"/>
+	<parameter name="LIN_ID" class="java.lang.String"/>
+	<parameter name="EDUCATION_TYPE_LEVEL" class="java.lang.String"/>
+	<parameter name="FAC_CODE" class="java.lang.String"/>
+	<parameter name="PROGRAM_CODE" class="java.lang.String"/>
+	<parameter name="ACADEMIC_YEAR_FROM" class="java.lang.Integer"/>
+	<parameter name="ACADEMIC_YEAR_TO" class="java.lang.Integer"/>
+	<parameter name="SUBJECT_CODE_FROM" class="java.lang.String"/>
+	<parameter name="SUBJECT_CODE_TO" class="java.lang.String"/>
+	<parameter name="SUBJECT_CODE_ROW" class="java.lang.String"/>
+	<parameter name="PROGRAM_CODE_ROW" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[select 	char6 as subjPreCode,
+  			char7 as subjPreName,
+  			num4 as subjPreYear,
+  			num5 as subjPreSemester,
+  			char8 as subjPreCreditDesc
+from 	report_csrp01(
+			$P{LIN_ID},
+			$P{COMPANY_CODE},
+			$P{EDUCATION_TYPE_LEVEL},
+			$P{FAC_CODE},
+			$P{PROGRAM_CODE},
+		 	$P{ACADEMIC_YEAR_FROM},
+			$P{ACADEMIC_YEAR_TO},
+			$P{SUBJECT_CODE_FROM},
+			$P{SUBJECT_CODE_TO}
+			)
+where	char1 =  $P{SUBJECT_CODE_ROW} 
+			and char4 =  $P{PROGRAM_CODE_ROW}]]>
+	</queryString>
+	<field name="subjprecode" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="subjprecode"/>
+	</field>
+	<field name="subjprename" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="subjprename"/>
+	</field>
+	<field name="subjpreyear" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="subjpreyear"/>
+	</field>
+	<field name="subjpresemester" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="subjpresemester"/>
+	</field>
+	<field name="subjprecreditdesc" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="subjprecreditdesc"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="110" height="20" uuid="61195688-a305-479e-8380-0b882d1e4267">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="net.sf.jasperreports.style.isBlankWhenNull" value="true"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{subjprecode}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="110" y="0" width="120" height="20" uuid="c3385470-c448-4b26-a337-1063005ac354">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="net.sf.jasperreports.style.isBlankWhenNull" value="true"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{subjprename}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="230" y="0" width="70" height="20" uuid="83876130-d049-45d7-a670-efe1165efd3d">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="net.sf.jasperreports.style.isBlankWhenNull" value="true"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{subjpreyear} + "/" + $F{subjpresemester}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="300" y="0" width="55" height="20" uuid="d6fa6e32-26df-478e-b45a-8f67950ef4f1">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="net.sf.jasperreports.style.isBlankWhenNull" value="true"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{subjprecreditdesc}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

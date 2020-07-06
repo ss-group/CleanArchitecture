@@ -1,0 +1,25 @@
+.upload-container{
+    width:150px;
+    height: 150px;
+    background-color: #e5efed;
+    border: 2px dashed #0073dd;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    transition: all .2s ease-in-out;
+    &.is-invalid{
+        border-color:#F57676;
+    }
+    &.disable{
+        border-color: #dad5d5;
+    }
+}
+.img-preview{
+    width: 180px;
+    position: relative;
+    .btn{
+        position : absolute;
+        top:5px;
+        right:5px;
+    }
+}

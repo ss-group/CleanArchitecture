@@ -1,0 +1,106 @@
+<h4>{{ 'label.DBRT21.settingStructureProgram' | translate}}</h4>
+<div class="row">
+  <div class="col">
+    <app-card>
+      <div class="card-content">
+        <div class="row">
+          <div class="col-6">
+            <app-search (search)="enter($event)" placeholder="{{ 'label.DBRT21.searchPlaceholder' | translate}}">
+            </app-search>
+          </div>
+          <div class="col-6 text-right">
+            <button class="btn btn-primary" (click)="print()">
+              <i class="fas fa-cog fa-spin" [hidden]="!printing"></i>
+              <i class="fas fa-print" [hidden]="printing"></i>
+              {{ 'label.ALL.Print' | translate}}
+            </button>
+            <button class="btn btn-primary" (click)="add()"><i
+                class="fas fa-plus-circle"></i> {{ 'label.ALL.Add' | translate}}</button>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col">
+            <app-table [rows]="facProgram" [page]="page" (onTableEvent)="search()">
+              <ngx-datatable-column prop="facCode" width="100" [cellClass]="'text-center'">
+                <ng-template let-sort="sortFn" ngx-datatable-header-template>
+                  <label class="datatable-header-cell-wrapper"
+                    (click)="sort()">{{ 'label.DBRT21.facCode' | translate}}</label>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  {{row.facCode}}
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column prop="departmentCode" width="100" [cellClass]="'text-center'">
+                <ng-template let-sort="sortFn" ngx-datatable-header-template>
+                  <label class="datatable-header-cell-wrapper"
+                    (click)="sort()">{{ 'label.DBRT21.departmentCode' | translate}}</label>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  {{row.departmentCode}}
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column prop="programCode" width="100" [cellClass]="'text-center'">
+                <ng-template let-sort="sortFn" ngx-datatable-header-template>
+                  <label class="datatable-header-cell-wrapper"
+                    (click)="sort()">{{ 'label.DBRT21.programCode' | translate}}</label>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  <a [routerLink]="['detail']" [state]="{facCode: row.facCode, programCode: row.programCode}">
+                    {{row.programCode}}</a>
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column prop="facName" width="200" [cellClass]="'text-left'">
+                <ng-template let-sort="sortFn" ngx-datatable-header-template>
+                  <label class="datatable-header-cell-wrapper"
+                    (click)="sort()">{{ 'label.DBRT21.facName' | translate}}</label>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  {{row.facName}}
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column prop="departmentName" width="200" [cellClass]="'text-left'">
+                <ng-template let-sort="sortFn" ngx-datatable-header-template>
+                  <label class="datatable-header-cell-wrapper"
+                    (click)="sort()">{{ 'label.DBRT21.departmentName' | translate}}</label>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  {{row.departmentName}}
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column prop="programNameTha" width="200" [cellClass]="'text-left'">
+                <ng-template let-sort="sortFn" ngx-datatable-header-template>
+                  <label class="datatable-header-cell-wrapper"
+                    (click)="sort()">{{ 'label.DBRT21.programNameTha' | translate}}</label>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  {{row.programNameTha}}
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column prop="programNameEng" width="200" [cellClass]="'text-left'">
+                <ng-template let-sort="sortFn" ngx-datatable-header-template>
+                  <label class="datatable-header-cell-wrapper"
+                    (click)="sort()">{{ 'label.DBRT21.programNameEng' | translate}}</label>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  {{row.programNameEng}}
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column [cellClass]="'text-center'" [sortable]="false" width="50">
+                <ng-template ngx-datatable-header-template>
+                  <label class="datatable-header-cell-wrapper">{{ 'label.ALL.Delete' | translate}}</label>
+                </ng-template>
+                <ng-template let-row="row" let-rowIndex="rowIndex" ngx-datatable-cell-template>
+                  <button (click)="remove(row.facCode,row.programCode,row.rowVersion)"
+                    class="btn btn-outline-danger btn-sm">
+                    <i class="far fa-trash-alt"></i>
+                  </button>
+                </ng-template>
+              </ngx-datatable-column>
+            </app-table>
+          </div>
+        </div>
+      </div>
+    </app-card>
+  </div>
+</div>

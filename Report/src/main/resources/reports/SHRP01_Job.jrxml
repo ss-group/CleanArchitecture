@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Report_SHRP01_Job" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="0" bottomMargin="20" uuid="5c28859b-bde0-4bc1-b3cd-ee0e2a2df3f0">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="lang_code" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="student_id" class="java.lang.Long">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["G:\\งาน\\Internship\\BPI\\Report\\src\\main\\resources\\reports\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select num1 AS student_id
+, num2 AS work_seq
+, char1 AS busi_type_code
+, char2 AS position_id
+, num3 AS province_id
+, char3 AS company_name
+, char4 AS db_get_province_name
+, char5 AS db_get_busi_name
+from report_shrp01_job($P{lang_code},$P{student_id})]]>
+	</queryString>
+	<field name="student_id" class="java.lang.Long"/>
+	<field name="work_seq" class="java.math.BigDecimal"/>
+	<field name="busi_type_code" class="java.lang.String"/>
+	<field name="position_id" class="java.lang.String"/>
+	<field name="province_id" class="java.math.BigDecimal"/>
+	<field name="company_name" class="java.lang.String"/>
+	<field name="db_get_province_name" class="java.lang.String"/>
+	<field name="db_get_busi_name" class="java.lang.String"/>
+	<group name="student_id">
+		<groupExpression><![CDATA[$F{student_id}]]></groupExpression>
+		<groupHeader>
+			<band height="50">
+				<textField>
+					<reportElement x="0" y="0" width="85" height="25" uuid="d39df590-538c-4ddc-bc0e-ebe689646eaf"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="14" isBold="true" isUnderline="true" pdfFontName="THSarabun Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["ประวัติการทำงาน"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="0" y="25" width="57" height="25" uuid="457a26e8-5955-410e-9a7d-76d2e2d577eb"/>
+					<box>
+						<topPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="14" isBold="true" pdfFontName="THSarabun Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["ลำดับที่"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="57" y="25" width="225" height="25" uuid="004822f4-9072-4cc7-a829-705677ddf868"/>
+					<box>
+						<topPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="14" isBold="true" pdfFontName="THSarabun Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["ประเภทธุรกิจ"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="282" y="25" width="164" height="25" uuid="5fbabfeb-f12c-44e0-8fb3-dcfabdb22d59"/>
+					<box>
+						<topPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="14" isBold="true" pdfFontName="THSarabun Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["สถานที่ทำงาน"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="446" y="25" width="109" height="25" uuid="fc85ed8f-a485-4617-91c7-741ab0c5c5ca"/>
+					<box>
+						<topPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="14" isBold="true" pdfFontName="THSarabun Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["จังหวัด"]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="13">
+				<textField isBlankWhenNull="true">
+					<reportElement x="0" y="0" width="555" height="13" uuid="33facba6-f69b-4448-b407-c48c5a5fb6fb"/>
+					<box>
+						<topPen lineWidth="1.0"/>
+					</box>
+					<textFieldExpression><![CDATA[]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="25" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="57" height="25" uuid="d46c01b8-12c9-437f-ade3-23738ae2c07b"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="14" isBold="false" pdfFontName="THSarabun.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{work_seq}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="57" y="0" width="225" height="25" uuid="7cbc73a9-4dcc-4f81-8d93-b2e33ee3e588"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="14" isBold="false" pdfFontName="THSarabun.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{db_get_busi_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="446" y="0" width="109" height="25" uuid="37d33e7e-152a-4d66-9655-a59fea65a011"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="14" isBold="false" pdfFontName="THSarabun.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{db_get_province_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="282" y="0" width="164" height="25" uuid="717588ca-a17f-413d-a41a-43a76cdbbb2b"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="14" isBold="false" pdfFontName="THSarabun.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{company_name}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="27">
+			<subreport>
+				<reportElement x="0" y="0" width="555" height="27" uuid="53cb3b43-4536-449c-b7e9-8de7ac74fb5e"/>
+				<subreportParameter name="lang_code">
+					<subreportParameterExpression><![CDATA[$P{lang_code}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="student_id">
+					<subreportParameterExpression><![CDATA[$F{student_id}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "SHRP01_Parent.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</summary>
+</jasperReport>

@@ -1,0 +1,94 @@
+<h4>{{ 'label.DBRT20.programName' | translate}}</h4>
+<div class="row">
+    <div class="col">
+        <app-card>
+            <div class="card-content">
+                <div class="row">
+                    <div class="col-6">
+                        <app-search (search)="enter($event)"
+                            placeholder="{{ 'label.DBRT20.searchPlaceholder' | translate}}"></app-search>
+                    </div>
+                    <div class="col-6 text-right">
+                        <button class="btn btn-primary" (click)="add()"><i class="fas fa-plus-circle"></i>
+                            {{ 'label.ALL.Add' | translate}}</button>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col">
+                        <app-table [rows]="department" [page]="page" (onTableEvent)="search()">
+                            <ngx-datatable-column prop="departmentCode" width="100" [cellClass]="'text-center'">
+                                <ng-template let-sort="sortFn" ngx-datatable-header-template>
+                                    <label class="datatable-header-cell-wrapper" (click)="sort()">
+                                        {{ 'label.DBRT20.departmentCode' | translate}}
+                                    </label>
+                                </ng-template>
+                                <ng-template let-row="row" ngx-datatable-cell-template>
+                                    <a [routerLink]="['detail']" [state]="{code: row.departmentCode}">{{row.departmentCode}}</a>
+                                </ng-template>
+                            </ngx-datatable-column>
+
+                            <ngx-datatable-column prop="departmentCodeMua" width="100" [cellClass]="'text-center'">
+                                <ng-template let-sort="sortFn" ngx-datatable-header-template>
+                                    <label class="datatable-header-cell-wrapper"
+                                        (click)="sort()">{{ 'label.DBRT20.departmentCodeMua' | translate}}</label>
+                                </ng-template>
+                                <ng-template let-row="row" ngx-datatable-cell-template>
+                                    {{row.departmentCodeMua}}
+                                </ng-template>
+                            </ngx-datatable-column>
+
+                            <ngx-datatable-column prop="departmentNameTha" width="300">
+                                <ng-template let-sort="sortFn" ngx-datatable-header-template>
+                                    <label class="datatable-header-cell-wrapper"
+                                        (click)="sort()">{{ 'label.DBRT20.departmentNameTha' | translate}}</label>
+                                </ng-template>
+                                <ng-template let-row="row" ngx-datatable-cell-template>
+                                    {{row.departmentNameTha}}
+                                </ng-template>
+                            </ngx-datatable-column>
+
+                            <ngx-datatable-column prop="departmentNameEng" width="300">
+                                <ng-template let-sort="sortFn" ngx-datatable-header-template>
+                                    <label class="datatable-header-cell-wrapper" (click)="sort()">
+                                        {{ 'label.DBRT20.departmentNameEng' | translate}}
+                                    </label>
+                                </ng-template>
+                                <ng-template let-row="row" ngx-datatable-cell-template>
+                                    {{row.departmentNameEng}}
+                                </ng-template>
+                            </ngx-datatable-column>
+
+                            <ngx-datatable-column prop="active" width="50" [cellClass]="'text-center'">
+                                <ng-template let-sort="sortFn" ngx-datatable-header-template>
+                                    <label class="datatable-header-cell-wrapper" (click)="sort()">
+                                        {{ 'label.DBRT20.active' | translate}}
+                                    </label>
+                                </ng-template>
+                                <ng-template let-row="row" ngx-datatable-cell-template>
+                                    <i *ngIf="row.active" class="fas fa-check"></i>
+                                </ng-template>
+                            </ngx-datatable-column>
+
+                            <ngx-datatable-column [cellClass]="'text-center'" [sortable]="false" width="50">
+                                <ng-template ngx-datatable-header-template>
+                                    <label class="datatable-header-cell-wrapper">
+                                        {{ 'label.ALL.Delete' | translate}}
+                                    </label>
+                                </ng-template>
+                                <ng-template let-row="row" let-rowIndex="rowIndex" ngx-datatable-cell-template>
+                                    <button (click)="remove(row.departmentCode,row.rowVersion)"
+                                        class="btn btn-outline-danger btn-sm">
+                                        <i class="far fa-trash-alt"></i>
+                                    </button>
+                                </ng-template>
+                            </ngx-datatable-column>
+
+                        </app-table>
+                    </div>
+                </div>
+
+            </div>
+        </app-card>
+    </div>
+</div>

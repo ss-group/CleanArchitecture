@@ -1,0 +1,46 @@
+<app-modal (onClose)="onClose()" header="{{ 'label.SURT04.Menu' | translate }}">
+  <div class="row">
+    <div class="col-12">
+      <app-card>
+        <div class="card-content">
+          <app-search [value]="keyword" (search)="enter($event)" placeholder="{{ 'label.SURT04.SearchPlaceholderLookUp' | translate }}"></app-search>
+          <app-table [rows]="masterMenus" [rowIdentity]="identity" [select]="selectedList" [page]="page"
+            (onTableEvent)="search()">
+            <ngx-datatable-column [cellClass]="'text-center'" [width]="25">
+              <ng-template ngx-datatable-header-template let-value="value" let-allRowsSelected="allRowsSelected"
+                let-selectFn="selectFn">
+                <checkbox [value]="allRowsSelected" (afterChange)="onSelectAll($event);selectFn(!allRowsSelected)"
+                  [disabled]="masterMenus.length === 0">
+                </checkbox>
+              </ng-template>
+              <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value" let-row="row"
+                let-isSelected="isSelected" let-onCheckboxChangeFn="onCheckboxChangeFn">
+                <checkbox [value]="isSelected" (afterChange)="onSelectMultiple(row,$event); onCheckboxChangeFn($event)">
+                </checkbox>
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column [cellClass]="'text-center'" prop="menuCode" width="125">
+              <ng-template let-sort="sortFn" ngx-datatable-header-template>
+                <label class="datatable-header-cell-wrapper" (click)="sort()">{{ 'label.SURT04.MenuCode' | translate }}</label>
+              </ng-template>
+              <ng-template let-row="row" ngx-datatable-cell-template>
+                {{ row.menuCode }}
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column prop="menuName" width="300">
+              <ng-template let-sort="sortFn" ngx-datatable-header-template>
+                <label class="datatable-header-cell-wrapper" (click)="sort()">{{ 'label.SURT04.MenuName' | translate }}</label>
+              </ng-template>
+              <ng-template let-row="row" ngx-datatable-cell-template>
+                {{ row.menuName }}
+              </ng-template>
+            </ngx-datatable-column>
+          </app-table>
+          <div class="text-center mt-3">
+            <button (click)="onAccept()" class="btn btn-primary">{{ 'label.ALL.Select' | translate }}</button>
+          </div>
+        </div>
+      </app-card>
+    </div>
+  </div>
+</app-modal>

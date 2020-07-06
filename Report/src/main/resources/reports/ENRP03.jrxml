@@ -1,0 +1,1081 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ENRP03" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" whenNoDataType="BlankPage" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isTitleNewPage="true" uuid="d7855c4c-07ca-4557-9a5a-9bc1b311063c">
+	<property name="ireport.zoom" value="1.3636363636363682"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="net.sf.jasperreports.export.xls.white.page.background" value="false"/>
+	<property name="net.sf.jasperreports.export.xls.one.page.per.sheet" value="false"/>
+	<property name="net.sf.jasperreports.export.xls.collapse.row.span" value="false"/>
+	<property name="net.sf.jasperreports.export.xls.remove.empty.space.between.columns" value="true"/>
+	<property name="net.sf.jasperreports.export.xls.remove.empty.space.between.rows" value="true"/>
+	<property name="net.sf.jasperreports.export.xls.wrap.text" value="true"/>
+	<property name="net.sf.jasperreports.export.xls.detect.cell.type" value="ture"/>
+	<property name="net.sf.jasperreports.export.xls.cell.locked" value="false"/>
+	<subDataset name="dataset1" uuid="251cfff1-cb87-486d-b934-816f13b0d071">
+		<parameter name="LANG" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[Select get_label_name('ENRP03','ReportName',$P{LANG}) as report_name,
+get_label_name('ENRP03','Academy',$P{LANG}) as academy,
+get_label_name('ENRP03','No',$P{LANG}) as Number,
+get_label_name('ENRP03','EnCode',$P{LANG}) as EnCode,
+get_label_name('ENRP03','TaxId',$P{LANG}) as TaxID,
+get_label_name('ENRP03','Name',$P{LANG}) as Name,
+get_label_name('ENRP03','Exam',$P{LANG}) as Exam,
+get_label_name('ENRP03','Sum',$P{LANG}) as Sum,
+get_label_name('ENRP03','Written',$P{LANG}) as Written,
+get_label_name('ENRP03','Practice',$P{LANG}) as Practice,
+get_label_name('ENRP03','Course',$P{LANG}) as Course,
+get_label_name('ENRP03','ExamTopic',$P{LANG}) as ExamTopic,
+get_label_name('ENRP03','ExamScore',$P{LANG}) as ExamScore,
+get_label_name('ENRP03','Points',$P{LANG}) as Points,
+get_label_name('ENRP03','Professor',$P{LANG}) as Professor]]>
+		</queryString>
+		<field name="report_name" class="java.lang.String"/>
+		<field name="academy" class="java.lang.String"/>
+		<field name="number" class="java.lang.String"/>
+		<field name="encode" class="java.lang.String"/>
+		<field name="taxid" class="java.lang.String"/>
+		<field name="name" class="java.lang.String"/>
+		<field name="exam" class="java.lang.String"/>
+		<field name="sum" class="java.lang.String"/>
+		<field name="written" class="java.lang.String"/>
+		<field name="practice" class="java.lang.String"/>
+		<field name="course" class="java.lang.String"/>
+		<field name="examtopic" class="java.lang.String"/>
+		<field name="examscore" class="java.lang.String"/>
+		<field name="points" class="java.lang.String"/>
+		<field name="professor" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="dataset2" uuid="0667cf3a-2d76-496b-bb8f-15bc27745458">
+		<parameter name="LANG" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[select get_label_name('ENRP03','Year',$P{LANG}) as Year,
+get_label_name('ENRP03','CclId',$P{LANG}) as CclId,
+get_label_name('ENRP03','Publisher',$P{LANG}) as publisher,
+get_label_name('ENRP03','Qry',$P{LANG}) as Qry,
+get_label_name('ENRP03','NumberApplicants',$P{LANG}) as NumberApplicants]]>
+		</queryString>
+		<field name="year" class="java.lang.String"/>
+		<field name="cclid" class="java.lang.String"/>
+		<field name="publisher" class="java.lang.String"/>
+		<field name="qry" class="java.lang.String"/>
+		<field name="numberapplicants" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="dataset3" uuid="5d707e15-890e-4e8e-9273-d4d3b25abddd">
+		<parameter name="LANG" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[select get_label_name('ENRP03','Semester',$P{LANG}) as Semester,
+get_label_name('ENRP03','NumberTest',$P{LANG}) as NumberTest,
+get_label_name('ENRP03','NumberActual',$P{LANG}) as NumberActual]]>
+		</queryString>
+		<field name="semester" class="java.lang.String"/>
+		<field name="numbertest" class="java.lang.String"/>
+		<field name="numberactual" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="dataset4" uuid="9c33a60b-89bb-4333-a519-24159400d287">
+		<parameter name="LANG" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[select get_label_name('ENRP03','DatePublisher',$P{LANG}) as datePublisher]]>
+		</queryString>
+		<field name="datepublisher" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="dataset5" uuid="70695447-75d4-4fdc-a953-ca01583edfe0">
+		<parameter name="LANG" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[Select get_label_name('ENRP03','EducationTypeLevel',$P{LANG}) as EducationTypeLevel,
+get_label_name('ENRP03','NumberExam',$P{LANG}) as NumberExam,
+get_label_name('ENRP03','NumberExamPassed',$P{LANG}) as NumberExamPassed]]>
+		</queryString>
+		<field name="educationtypelevel" class="java.lang.String"/>
+		<field name="numberexam" class="java.lang.String"/>
+		<field name="numberexampassed" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="dataset7" uuid="4ddc9785-88df-4eda-a0ba-9e3ab518fa17">
+		<parameter name="YEAR" class="java.lang.Integer"/>
+		<parameter name="SEMESTER" class="java.lang.Integer"/>
+		<parameter name="EDUCATION_TYPE_LEVEL" class="java.lang.String"/>
+		<parameter name="CURRICULUM" class="java.lang.Long"/>
+		<parameter name="EN_CODE_FROM" class="java.lang.String"/>
+		<parameter name="EN_CODE_TO" class="java.lang.String"/>
+		<parameter name="TAX_ID" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[select count (en_code) from en_enrollment
+where year = $P{YEAR}
+and semester = $P{SEMESTER}
+and education_type_level = $P{EDUCATION_TYPE_LEVEL}
+and ccl_id = coalesce(nullif($P{CURRICULUM}, 0),ccl_id)
+and cast(en_code as text) between coalesce(nullif($P{EN_CODE_FROM},''), cast(en_code as text)) and coalesce(nullif($P{EN_CODE_TO},''), cast(en_code as text))
+And cast(id_card as text) =coalesce(nullif($P{TAX_ID},''), cast(id_card  as text))]]>
+		</queryString>
+		<field name="count" class="java.lang.Long"/>
+	</subDataset>
+	<subDataset name="dataset8" uuid="243f23ce-0081-4307-905a-f0bcf38d71b7">
+		<parameter name="YEAR" class="java.lang.Integer"/>
+		<parameter name="SEMESTER" class="java.lang.Integer"/>
+		<parameter name="EDUCATION_TYPE_LEVEL" class="java.lang.String"/>
+		<parameter name="CURRICULUM" class="java.lang.Long"/>
+		<parameter name="EN_CODE_FROM" class="java.lang.String"/>
+		<parameter name="EN_CODE_TO" class="java.lang.String"/>
+		<parameter name="TAX_ID" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[select count(en_code) from en_enrollment
+where status = 'N'
+and payment_status = 'Y'
+and year = $P{YEAR}
+and semester = $P{SEMESTER}
+and education_type_level = $P{EDUCATION_TYPE_LEVEL}
+and ccl_id = coalesce(nullif($P{CURRICULUM}, 0),ccl_id)
+and cast(en_code as text) between coalesce(nullif($P{EN_CODE_FROM},''), cast(en_code as text)) and coalesce(nullif($P{EN_CODE_TO},''), cast(en_code as text))
+And cast(id_card as text) =coalesce(nullif($P{TAX_ID},''), cast(id_card  as text))]]>
+		</queryString>
+		<field name="count" class="java.lang.Long"/>
+	</subDataset>
+	<subDataset name="dataset9" uuid="87c98df6-a7a7-486a-a29e-74298b154d52">
+		<parameter name="YEAR" class="java.lang.Integer"/>
+		<parameter name="SEMESTER" class="java.lang.Integer"/>
+		<parameter name="EDUCATION_TYPE_LEVEL" class="java.lang.String"/>
+		<parameter name="CURRICULUM" class="java.lang.Long"/>
+		<parameter name="EN_CODE_FROM" class="java.lang.String"/>
+		<parameter name="EN_CODE_TO" class="java.lang.String"/>
+		<parameter name="TAX_ID" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[select count(en_code) from en_enrollment
+where attend_written_test = true
+Or score_interview_test <> 0
+and year = $P{YEAR}
+and semester = $P{SEMESTER}
+and education_type_level = $P{EDUCATION_TYPE_LEVEL}
+and ccl_id = coalesce(nullif($P{CURRICULUM}, 0),ccl_id)
+and cast(en_code as text) between coalesce(nullif($P{EN_CODE_FROM},''), cast(en_code as text)) and coalesce(nullif($P{EN_CODE_TO},''), cast(en_code as text))
+And cast(id_card as text) =coalesce(nullif($P{TAX_ID},''), cast(id_card  as text))]]>
+		</queryString>
+		<field name="count" class="java.lang.Long"/>
+	</subDataset>
+	<subDataset name="dataset10" uuid="3894d9dd-c279-4a9b-abec-3158034a8dbf">
+		<parameter name="YEAR" class="java.lang.Integer"/>
+		<parameter name="SEMESTER" class="java.lang.Integer"/>
+		<parameter name="EDUCATION_TYPE_LEVEL" class="java.lang.String"/>
+		<parameter name="CURRICULUM" class="java.lang.Long"/>
+		<parameter name="EN_CODE_FROM" class="java.lang.String"/>
+		<parameter name="EN_CODE_TO" class="java.lang.String"/>
+		<parameter name="TAX_ID" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[select  count (en_code) from en_enrollment where status_write_test ='P'
+and year = $P{YEAR}
+and semester = $P{SEMESTER}
+and education_type_level = $P{EDUCATION_TYPE_LEVEL}
+and ccl_id = coalesce(nullif($P{CURRICULUM}, 0),ccl_id)
+and cast(en_code as text) between coalesce(nullif($P{EN_CODE_FROM},''), cast(en_code as text)) and coalesce(nullif($P{EN_CODE_TO},''), cast(en_code as text))
+And cast(id_card as text) =coalesce(nullif($P{TAX_ID},''), cast(id_card  as text))]]>
+		</queryString>
+		<field name="count" class="java.lang.Long"/>
+	</subDataset>
+	<subDataset name="dataset11" uuid="4906d477-d1aa-4461-9e70-f36009d39d8d">
+		<parameter name="YEAR" class="java.lang.Integer"/>
+		<parameter name="SEMESTER" class="java.lang.Integer"/>
+		<parameter name="EDUCATION_TYPE_LEVEL" class="java.lang.String"/>
+		<parameter name="CURRICULUM" class="java.lang.Long"/>
+		<parameter name="EN_CODE_FROM" class="java.lang.String"/>
+		<parameter name="EN_CODE_TO" class="java.lang.String"/>
+		<parameter name="TAX_ID" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[select count (en_code) from en_enrollment where status_interview_test ='P'
+and year = $P{YEAR}
+and semester = $P{SEMESTER}
+and education_type_level = $P{EDUCATION_TYPE_LEVEL}
+and ccl_id = coalesce(nullif($P{CURRICULUM}, 0),ccl_id)
+and cast(en_code as text) between coalesce(nullif($P{EN_CODE_FROM},''), cast(en_code as text)) and coalesce(nullif($P{EN_CODE_TO},''), cast(en_code as text))
+And cast(id_card as text) =coalesce(nullif($P{TAX_ID},''), cast(id_card  as text))]]>
+		</queryString>
+		<field name="count" class="java.lang.Long"/>
+	</subDataset>
+	<subDataset name="dataset6" uuid="eec4ce79-b9c8-487d-89ac-a8232c7a6963">
+		<parameter name="YEAR" class="java.lang.Integer"/>
+		<parameter name="SEMESTER" class="java.lang.Integer"/>
+		<parameter name="EDUCATION_TYPE_LEVEL" class="java.lang.String"/>
+		<parameter name="CURRICULUM" class="java.lang.Long"/>
+		<parameter name="EN_CODE_FROM" class="java.lang.String"/>
+		<parameter name="EN_CODE_TO" class="java.lang.String"/>
+		<parameter name="TAX_ID" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[select DISTINCT k.qty
+from en_enrollment as a
+left join en_curriculum_open as k
+on a.year = k.year
+and a.semester = k.semester
+and a.education_type_level = k.education_type_level
+and a.ccl_id = k.ccl_id
+and a.company_code = k.company_code
+where a.year = $P{YEAR}
+and a.semester = $P{SEMESTER}
+and a.education_type_level = $P{EDUCATION_TYPE_LEVEL}
+and a.ccl_id = coalesce(nullif($P{CURRICULUM}, 0),a.ccl_id)
+and cast(a.en_code as text) between coalesce(nullif($P{EN_CODE_FROM},''), cast(a.en_code as text)) and coalesce(nullif($P{EN_CODE_TO},''), cast(a.en_code as text))
+And cast(a.id_card as text) =coalesce(nullif($P{TAX_ID},''), cast(a.id_card  as text))]]>
+		</queryString>
+		<field name="qty" class="java.lang.Integer"/>
+	</subDataset>
+	<subDataset name="dataset12" uuid="cdf192a9-63a3-4c06-ab90-70d8e924be75">
+		<parameter name="YEAR" class="java.lang.Integer"/>
+		<parameter name="SEMESTER" class="java.lang.Integer"/>
+		<parameter name="EDUCATION_TYPE_LEVEL" class="java.lang.String"/>
+		<parameter name="CURRICULUM" class="java.lang.Long"/>
+		<queryString>
+			<![CDATA[select  sum(full_score)/count(subject_name) as result from en_examination
+where year = $P{YEAR}
+and semester = $P{SEMESTER}
+and education_type_level = $P{EDUCATION_TYPE_LEVEL}
+and ccl_id = coalesce(nullif($P{CURRICULUM}, 0),ccl_id)
+and type_test ='W']]>
+		</queryString>
+		<field name="result" class="java.lang.Long"/>
+	</subDataset>
+	<subDataset name="dataset13" uuid="dd8175dd-9114-4978-b5ba-b49686532259">
+		<parameter name="YEAR" class="java.lang.Integer"/>
+		<parameter name="SEMESTER" class="java.lang.Integer"/>
+		<parameter name="EDUCATION_TYPE_LEVEL" class="java.lang.String"/>
+		<parameter name="CURRICULUM" class="java.lang.Long"/>
+		<queryString>
+			<![CDATA[select  sum(full_score)/count(instructor_name) as result from en_examination
+where year = $P{YEAR}
+and semester = $P{SEMESTER}
+and education_type_level = $P{EDUCATION_TYPE_LEVEL}
+and ccl_id = coalesce(nullif($P{CURRICULUM}, 0),ccl_id)
+and type_test ='I']]>
+		</queryString>
+		<field name="result" class="java.lang.Long"/>
+	</subDataset>
+	<parameter name="YEAR" class="java.lang.Integer"/>
+	<parameter name="SEMESTER" class="java.lang.Integer"/>
+	<parameter name="EDUCATION_TYPE_LEVEL" class="java.lang.String"/>
+	<parameter name="CURRICULUM" class="java.lang.Long"/>
+	<parameter name="EN_CODE_FROM" class="java.lang.String"/>
+	<parameter name="EN_CODE_TO" class="java.lang.String">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+	</parameter>
+	<parameter name="TAX_ID" class="java.lang.String"/>
+	<parameter name="LANG" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="USER_NAME" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["D:\\08_BPI\\main\\program\\trunk\\source\\Report\\src\\main\\resources\\reports\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select DISTINCT
+a.year,a.semester,a.education_type_level,a.ccl_id,
+a.en_code, a.id_card,a.total_score_test,a.score_written_test,a.score_interview_test,
+case $P{LANG} when 'th' then e.en_name_tha else COALESCE(e.en_name_eng, e.en_name_tha) end as en_name,
+case $P{LANG} when 'th' then l.education_type_level_name_tha else COALESCE(l.education_type_level_name_eng, l.education_type_level_name_tha) end as education_type_level_name,
+case $P{LANG} when 'th' then p.curriculum_name_tha else COALESCE(p.curriculum_name_eng, p.curriculum_name_tha) end as curriculum_name
+from en_enrollment as a
+left join en_examination as b
+on a.year = b.year
+and a.semester = b.semester
+and a.education_type_level = b.education_type_level
+and a.ccl_id = b.ccl_id
+and a.company_code = b.company_code
+left join en_score_interview_test as c
+on a.year = c.year
+and a.semester = c.semester
+and a.education_type_level = c.education_type_level
+and a.ccl_id = c.ccl_id
+and a.company_code = c.company_code
+left join en_score_written_test as d
+on a.year = d.year
+and a.semester = d.semester
+and a.education_type_level = d.education_type_level
+and a.ccl_id = d.ccl_id
+and a.company_code = d.company_code
+left join en_get_en_name() as e
+on a.company_code = e.company_code
+and a.enrollment_id = e.enrollment_id
+Left join db_education_type_level as l
+on a.company_code = l.company_code
+and a.education_type_level = l.education_type_level
+left join cs_curriculum as p
+on a.company_code = p.company_code
+and a.ccl_id = p.ccl_id
+where a.status = 'N'
+and a.payment_status = 'Y'
+and a.year = $P{YEAR}
+and a.semester = $P{SEMESTER}
+and a.education_type_level = $P{EDUCATION_TYPE_LEVEL}
+and a.ccl_id = coalesce(nullif($P{CURRICULUM}, 0),a.ccl_id)
+and cast(a.en_code as text) between coalesce(nullif($P{EN_CODE_FROM},''), cast(a.en_code as text)) and coalesce(nullif($P{EN_CODE_TO},''), cast(a.en_code as text))
+And cast(a.id_card as text) =coalesce(nullif($P{TAX_ID},''), cast(a.id_card  as text))
+ORDER BY  a.en_code ASC]]>
+	</queryString>
+	<field name="year" class="java.lang.Integer"/>
+	<field name="semester" class="java.lang.Integer"/>
+	<field name="education_type_level" class="java.lang.String"/>
+	<field name="ccl_id" class="java.lang.Long"/>
+	<field name="en_code" class="java.lang.String"/>
+	<field name="id_card" class="java.lang.String"/>
+	<field name="total_score_test" class="java.math.BigDecimal"/>
+	<field name="score_written_test" class="java.math.BigDecimal"/>
+	<field name="score_interview_test" class="java.math.BigDecimal"/>
+	<field name="en_name" class="java.lang.String"/>
+	<field name="education_type_level_name" class="java.lang.String"/>
+	<field name="curriculum_name" class="java.lang.String"/>
+	<variable name="CountPayment" class="java.lang.Integer" incrementType="Column" calculation="Count">
+		<variableExpression><![CDATA[$F{en_code}]]></variableExpression>
+	</variable>
+	<group name="1" isStartNewPage="true">
+		<groupExpression><![CDATA[$F{year} + $F{semester} + $F{education_type_level_name} +$F{curriculum_name}]]></groupExpression>
+	</group>
+	<group name="EN_code" isStartNewPage="true">
+		<groupExpression><![CDATA[$F{year}+$F{semester}+$F{education_type_level}+$F{ccl_id}]]></groupExpression>
+		<groupHeader>
+			<band/>
+		</groupHeader>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="240">
+			<textField isBlankWhenNull="true">
+				<reportElement x="703" y="50" width="99" height="20" uuid="e2253901-188d-479d-b352-564da325c184"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.SimpleDateFormat("dd/MM/yyyy HH:mm", new Locale("TH","th")).format(new java.util.Date())]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="703" y="81" width="99" height="20" uuid="da7a1690-9d38-4ba4-9d56-cb0f170c234b"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{education_type_level_name}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="95" y="81" width="181" height="20" uuid="b5d0d3ca-feae-4e96-8fd1-8e455ca9b8a3"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{year}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="95" y="50" width="181" height="20" uuid="a33ea5d7-db0a-4ab8-9934-881455332e34"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{USER_NAME}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="405" y="81" width="151" height="20" uuid="2dbfd8c1-a914-459f-a9eb-dca872063546"/>
+				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{semester}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="95" y="112" width="181" height="20" uuid="30912795-bc7f-4181-b405-2c28186c7476">
+					<propertyExpression name="net.sf.jasperreports.export.xls.sheet.name"><![CDATA[$F{curriculum_name}]]></propertyExpression>
+				</reportElement>
+				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{curriculum_name}]]></textFieldExpression>
+			</textField>
+			<componentElement>
+				<reportElement x="0" y="0" width="802" height="39" uuid="f622a29f-3022-4641-8014-c13a3a1693b0"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="dataset1" uuid="d510bd0e-1c8c-4d1b-99fc-82e886aa9a4f">
+						<datasetParameter name="LANG">
+							<datasetParameterExpression><![CDATA[$P{LANG}]]></datasetParameterExpression>
+						</datasetParameter>
+					</datasetRun>
+					<jr:listContents height="39" width="802">
+						<textField isBlankWhenNull="true">
+							<reportElement x="0" y="19" width="802" height="20" uuid="aa9da24d-50ee-4c9d-afc4-c6ca7ea2a23d"/>
+							<textElement textAlignment="Center" verticalAlignment="Middle">
+								<font fontName="TH Sarabun New" size="14" isBold="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{report_name}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="0" y="0" width="802" height="19" uuid="60ba4783-6936-4e7b-b176-c4c06d398307"/>
+							<textElement textAlignment="Center" verticalAlignment="Middle">
+								<font fontName="TH Sarabun New" size="14" isBold="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{academy}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<componentElement>
+				<reportElement x="0" y="50" width="95" height="148" uuid="f5484078-f990-4281-b906-6b8bbd33dd1d"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="dataset2" uuid="691d8a09-d1f0-4b23-ba6a-48dfe0520fb2">
+						<datasetParameter name="LANG">
+							<datasetParameterExpression><![CDATA[$P{LANG}]]></datasetParameterExpression>
+						</datasetParameter>
+					</datasetRun>
+					<jr:listContents height="148" width="95">
+						<textField>
+							<reportElement x="0" y="31" width="95" height="20" uuid="142bb583-d6cc-4a5c-b0ea-b6d8f66b663a"/>
+							<textElement verticalAlignment="Middle">
+								<font fontName="TH Sarabun New" size="12" isBold="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{year}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="0" y="0" width="95" height="20" uuid="547405f9-df01-418e-a354-d7fad59acff3"/>
+							<textElement verticalAlignment="Middle">
+								<font fontName="TH Sarabun New" size="12" isBold="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{publisher}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="0" y="62" width="95" height="20" uuid="b2cb1d6c-a5cc-47d0-b2d9-38596e27b412"/>
+							<textElement verticalAlignment="Middle">
+								<font fontName="TH Sarabun New" size="12" isBold="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{cclid}]]></textFieldExpression>
+						</textField>
+						<textField isBlankWhenNull="true">
+							<reportElement x="0" y="108" width="95" height="20" uuid="cd3df8c9-4f7a-4cce-b1d6-6f215ea3cbe7"/>
+							<textElement verticalAlignment="Middle">
+								<font fontName="TH Sarabun New" size="12" isBold="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{qry}]]></textFieldExpression>
+						</textField>
+						<textField isBlankWhenNull="true">
+							<reportElement x="0" y="128" width="95" height="20" uuid="45dd2856-8d65-4fe9-be97-67d71c6b4892"/>
+							<textElement verticalAlignment="Middle">
+								<font fontName="TH Sarabun New" size="12" isBold="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{numberapplicants}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<componentElement>
+				<reportElement x="276" y="81" width="129" height="117" uuid="57861df7-5088-481d-82fe-24944e213592"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="dataset3" uuid="9c105f83-809d-40dd-a409-59bdc70ed573">
+						<datasetParameter name="LANG">
+							<datasetParameterExpression><![CDATA[$P{LANG}]]></datasetParameterExpression>
+						</datasetParameter>
+					</datasetRun>
+					<jr:listContents height="117" width="129">
+						<textField>
+							<reportElement x="0" y="0" width="129" height="20" uuid="209141c9-0295-4be1-a3f2-fe85dcf6bcc3"/>
+							<textElement textAlignment="Right" verticalAlignment="Middle">
+								<font fontName="TH Sarabun New" size="12" isBold="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{semester}]]></textFieldExpression>
+						</textField>
+						<textField isBlankWhenNull="true">
+							<reportElement x="0" y="77" width="129" height="20" uuid="cf84aa04-3a51-4846-b221-06901ab92049"/>
+							<textElement verticalAlignment="Middle">
+								<font fontName="TH Sarabun New" size="12" isBold="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{numbertest}]]></textFieldExpression>
+						</textField>
+						<textField isBlankWhenNull="true">
+							<reportElement x="0" y="97" width="129" height="20" uuid="0a1a07ac-a645-4ad7-a142-79de99900bbe"/>
+							<textElement verticalAlignment="Middle">
+								<font fontName="TH Sarabun New" size="12" isBold="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{numberactual}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<componentElement>
+				<reportElement x="556" y="50" width="147" height="20" uuid="77f82e53-73a7-4320-b000-15a7522b8ce5"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="dataset4" uuid="2c3eb95a-1b49-4faf-8577-2ebecff76e78">
+						<datasetParameter name="LANG">
+							<datasetParameterExpression><![CDATA[$P{LANG}]]></datasetParameterExpression>
+						</datasetParameter>
+					</datasetRun>
+					<jr:listContents height="20" width="147">
+						<textField>
+							<reportElement x="0" y="0" width="147" height="20" uuid="9da886a1-c766-41f3-b2ab-febf6a2e9d9a"/>
+							<textElement textAlignment="Right" verticalAlignment="Middle">
+								<font fontName="TH Sarabun New" size="12" isBold="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{datepublisher}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<componentElement>
+				<reportElement x="556" y="81" width="147" height="117" uuid="6c641238-7335-4c8a-8bed-c059c87b65ab"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="dataset5" uuid="f46a5c69-01e3-4e00-805f-3179c79b9e9f">
+						<datasetParameter name="LANG">
+							<datasetParameterExpression><![CDATA[$P{LANG}]]></datasetParameterExpression>
+						</datasetParameter>
+					</datasetRun>
+					<jr:listContents height="117" width="147">
+						<textField>
+							<reportElement x="0" y="0" width="147" height="20" uuid="2373a455-340f-403e-998c-121996f819c1"/>
+							<textElement verticalAlignment="Middle">
+								<font fontName="TH Sarabun New" size="12" isBold="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{educationtypelevel}]]></textFieldExpression>
+						</textField>
+						<textField isBlankWhenNull="true">
+							<reportElement x="0" y="77" width="147" height="20" uuid="64c9d55b-0206-41d1-ba19-2104ee28c264"/>
+							<textElement verticalAlignment="Middle">
+								<font fontName="TH Sarabun New" size="12" isBold="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{numberexam}]]></textFieldExpression>
+						</textField>
+						<textField isBlankWhenNull="true">
+							<reportElement x="0" y="97" width="147" height="20" uuid="24c4afc7-5601-428a-83b1-6f9ec3039018"/>
+							<textElement verticalAlignment="Middle">
+								<font fontName="TH Sarabun New" size="12" isBold="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{numberexampassed}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<componentElement>
+				<reportElement x="405" y="158" width="151" height="20" uuid="4073507b-2152-4441-97d5-80c954034541"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="dataset8" uuid="1154ac96-83d5-4c76-ba7d-3311408559c6">
+						<datasetParameter name="YEAR">
+							<datasetParameterExpression><![CDATA[$P{YEAR}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="SEMESTER">
+							<datasetParameterExpression><![CDATA[$P{SEMESTER}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="EDUCATION_TYPE_LEVEL">
+							<datasetParameterExpression><![CDATA[$P{EDUCATION_TYPE_LEVEL}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="CURRICULUM">
+							<datasetParameterExpression><![CDATA[$P{CURRICULUM}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="EN_CODE_FROM">
+							<datasetParameterExpression><![CDATA[$P{EN_CODE_FROM}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="EN_CODE_TO">
+							<datasetParameterExpression><![CDATA[$P{EN_CODE_TO}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="TAX_ID">
+							<datasetParameterExpression><![CDATA[$P{TAX_ID}]]></datasetParameterExpression>
+						</datasetParameter>
+					</datasetRun>
+					<jr:listContents height="20" width="151">
+						<textField isBlankWhenNull="true">
+							<reportElement x="0" y="0" width="151" height="20" uuid="4540db67-3488-4f62-80c3-bfceb98310d7"/>
+							<box leftPadding="8"/>
+							<textElement verticalAlignment="Middle">
+								<font fontName="TH Sarabun New" size="12"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{count}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<componentElement>
+				<reportElement x="703" y="158" width="99" height="20" uuid="2491409e-9078-4c61-8515-55f3c0d30c44"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="dataset10" uuid="ab1d84e9-dd6f-4002-b678-5497aa533dce">
+						<datasetParameter name="YEAR">
+							<datasetParameterExpression><![CDATA[$P{YEAR}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="SEMESTER">
+							<datasetParameterExpression><![CDATA[$P{SEMESTER}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="EDUCATION_TYPE_LEVEL">
+							<datasetParameterExpression><![CDATA[$P{EDUCATION_TYPE_LEVEL}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="CURRICULUM">
+							<datasetParameterExpression><![CDATA[$P{CURRICULUM}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="EN_CODE_FROM">
+							<datasetParameterExpression><![CDATA[$P{EN_CODE_FROM}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="EN_CODE_TO">
+							<datasetParameterExpression><![CDATA[$P{EN_CODE_TO}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="TAX_ID">
+							<datasetParameterExpression><![CDATA[$P{TAX_ID}]]></datasetParameterExpression>
+						</datasetParameter>
+					</datasetRun>
+					<jr:listContents height="20" width="99">
+						<textField isBlankWhenNull="true">
+							<reportElement x="0" y="0" width="99" height="20" uuid="1edbc26f-63ab-47ad-bc34-61964d5ebc9d"/>
+							<box leftPadding="8"/>
+							<textElement verticalAlignment="Middle">
+								<font fontName="TH Sarabun New" size="12"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{count}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<componentElement>
+				<reportElement x="95" y="178" width="181" height="20" uuid="b4033a17-8a81-427d-9367-cff2ad130cad"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="dataset7" uuid="225841ae-7adc-4a1a-bebe-62c1564e255b">
+						<datasetParameter name="YEAR">
+							<datasetParameterExpression><![CDATA[$P{YEAR}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="SEMESTER">
+							<datasetParameterExpression><![CDATA[$P{SEMESTER}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="EDUCATION_TYPE_LEVEL">
+							<datasetParameterExpression><![CDATA[$P{EDUCATION_TYPE_LEVEL}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="CURRICULUM">
+							<datasetParameterExpression><![CDATA[$P{CURRICULUM}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="EN_CODE_FROM">
+							<datasetParameterExpression><![CDATA[$P{EN_CODE_FROM}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="EN_CODE_TO">
+							<datasetParameterExpression><![CDATA[$P{EN_CODE_TO}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="TAX_ID">
+							<datasetParameterExpression><![CDATA[$P{TAX_ID}]]></datasetParameterExpression>
+						</datasetParameter>
+					</datasetRun>
+					<jr:listContents height="20" width="181">
+						<textField isBlankWhenNull="true">
+							<reportElement x="0" y="0" width="181" height="20" uuid="76fcd58e-9e4b-4719-9785-3e9c25cb8246"/>
+							<box leftPadding="8"/>
+							<textElement verticalAlignment="Middle">
+								<font fontName="TH Sarabun New" size="12"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{count}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<componentElement>
+				<reportElement x="703" y="178" width="99" height="20" uuid="4abe8327-98ba-4b47-b7de-a6a29f1e1b4b"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="dataset11" uuid="9e304e9b-b119-4e6f-b5ea-97e353b689d3">
+						<datasetParameter name="YEAR">
+							<datasetParameterExpression><![CDATA[$P{YEAR}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="SEMESTER">
+							<datasetParameterExpression><![CDATA[$P{SEMESTER}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="EDUCATION_TYPE_LEVEL">
+							<datasetParameterExpression><![CDATA[$P{EDUCATION_TYPE_LEVEL}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="CURRICULUM">
+							<datasetParameterExpression><![CDATA[$P{CURRICULUM}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="EN_CODE_FROM">
+							<datasetParameterExpression><![CDATA[$P{EN_CODE_FROM}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="EN_CODE_TO">
+							<datasetParameterExpression><![CDATA[$P{EN_CODE_TO}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="TAX_ID">
+							<datasetParameterExpression><![CDATA[$P{TAX_ID}]]></datasetParameterExpression>
+						</datasetParameter>
+					</datasetRun>
+					<jr:listContents height="20" width="99">
+						<textField isBlankWhenNull="true">
+							<reportElement x="0" y="0" width="99" height="20" uuid="c7ff38e5-7048-47b4-9793-1e4bf352211d"/>
+							<box leftPadding="8"/>
+							<textElement verticalAlignment="Middle">
+								<font fontName="TH Sarabun New" size="12"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{count}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<componentElement>
+				<reportElement x="405" y="178" width="151" height="20" uuid="409f06d2-c0d8-4bcb-b611-492973456cd3"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="dataset9" uuid="7f021ffc-4ece-4547-9ace-88ec19cff6c4">
+						<datasetParameter name="YEAR">
+							<datasetParameterExpression><![CDATA[$P{YEAR}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="SEMESTER">
+							<datasetParameterExpression><![CDATA[$P{SEMESTER}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="EDUCATION_TYPE_LEVEL">
+							<datasetParameterExpression><![CDATA[$P{EDUCATION_TYPE_LEVEL}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="CURRICULUM">
+							<datasetParameterExpression><![CDATA[$P{CURRICULUM}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="EN_CODE_FROM">
+							<datasetParameterExpression><![CDATA[$P{EN_CODE_FROM}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="EN_CODE_TO">
+							<datasetParameterExpression><![CDATA[$P{EN_CODE_TO}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="TAX_ID">
+							<datasetParameterExpression><![CDATA[$P{TAX_ID}]]></datasetParameterExpression>
+						</datasetParameter>
+					</datasetRun>
+					<jr:listContents height="20" width="151">
+						<textField isBlankWhenNull="true">
+							<reportElement x="0" y="0" width="151" height="20" uuid="6b71b82e-5d40-46b2-bee5-61437698fa2a"/>
+							<box leftPadding="8"/>
+							<textElement verticalAlignment="Middle">
+								<font fontName="TH Sarabun New" size="12"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{count}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<componentElement>
+				<reportElement x="95" y="158" width="181" height="20" uuid="5f1be250-1836-4276-b06d-4ac7eec5045c"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="dataset6" uuid="27f1481b-af9b-4f49-b3da-4c334f2f490a">
+						<datasetParameter name="YEAR">
+							<datasetParameterExpression><![CDATA[$P{YEAR}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="SEMESTER">
+							<datasetParameterExpression><![CDATA[$P{SEMESTER}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="EDUCATION_TYPE_LEVEL">
+							<datasetParameterExpression><![CDATA[$P{EDUCATION_TYPE_LEVEL}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="CURRICULUM">
+							<datasetParameterExpression><![CDATA[$P{CURRICULUM}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="EN_CODE_FROM">
+							<datasetParameterExpression><![CDATA[$P{EN_CODE_FROM}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="EN_CODE_TO">
+							<datasetParameterExpression><![CDATA[$P{EN_CODE_TO}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="TAX_ID">
+							<datasetParameterExpression><![CDATA[$P{TAX_ID}]]></datasetParameterExpression>
+						</datasetParameter>
+					</datasetRun>
+					<jr:listContents height="20" width="181">
+						<textField isBlankWhenNull="true">
+							<reportElement x="0" y="0" width="181" height="20" uuid="24befbc5-ef0c-40ee-b15a-32b9ed87cfd8"/>
+							<box leftPadding="8"/>
+							<textElement verticalAlignment="Middle">
+								<font fontName="TH Sarabun New" size="12"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{qty}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<componentElement>
+				<reportElement x="424" y="217" width="27" height="22" uuid="e1d3e326-9d08-401a-a09e-b73c4060d3db"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="dataset13" uuid="f4e19386-2340-4338-9899-9c0f1f6bd4e9">
+						<datasetParameter name="YEAR">
+							<datasetParameterExpression><![CDATA[$P{YEAR}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="SEMESTER">
+							<datasetParameterExpression><![CDATA[$P{SEMESTER}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="EDUCATION_TYPE_LEVEL">
+							<datasetParameterExpression><![CDATA[$P{EDUCATION_TYPE_LEVEL}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="CURRICULUM">
+							<datasetParameterExpression><![CDATA[$P{CURRICULUM}]]></datasetParameterExpression>
+						</datasetParameter>
+					</datasetRun>
+					<jr:listContents height="22" width="27">
+						<textField isBlankWhenNull="true">
+							<reportElement x="0" y="0" width="27" height="22" uuid="5fe31d41-e706-49d1-87f2-0dac9f59bf89"/>
+							<box>
+								<bottomPen lineWidth="1.0"/>
+							</box>
+							<textElement textAlignment="Center" verticalAlignment="Middle">
+								<font fontName="TH Sarabun New" size="12" isBold="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA["(" + $F{result}+ ")"]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<componentElement>
+				<reportElement x="303" y="217" width="35" height="22" uuid="7f1d980e-c8a9-4351-8a2a-0c4374496e90"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="dataset12" uuid="3cb0380f-08c8-45a4-b737-c4f098e8d92d">
+						<datasetParameter name="YEAR">
+							<datasetParameterExpression><![CDATA[$P{YEAR}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="SEMESTER">
+							<datasetParameterExpression><![CDATA[$P{SEMESTER}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="EDUCATION_TYPE_LEVEL">
+							<datasetParameterExpression><![CDATA[$P{EDUCATION_TYPE_LEVEL}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="CURRICULUM">
+							<datasetParameterExpression><![CDATA[$P{CURRICULUM}]]></datasetParameterExpression>
+						</datasetParameter>
+					</datasetRun>
+					<jr:listContents height="22" width="35">
+						<textField isBlankWhenNull="true">
+							<reportElement x="0" y="0" width="35" height="22" uuid="da3b5738-a25e-4f5d-92b8-5b8ed62a209f"/>
+							<box>
+								<bottomPen lineWidth="1.0"/>
+							</box>
+							<textElement textAlignment="Center" verticalAlignment="Middle">
+								<font fontName="TH Sarabun New" size="12" isBold="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA["(" + $F{result} + ")"]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<componentElement>
+				<reportElement x="0" y="198" width="802" height="42" uuid="ec9f3ba6-906b-42d2-ab6e-beb399621d1a"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="dataset1" uuid="48cfd996-fa50-4653-b84e-853bdbdb0d09">
+						<datasetParameter name="LANG">
+							<datasetParameterExpression><![CDATA[$P{LANG}]]></datasetParameterExpression>
+						</datasetParameter>
+					</datasetRun>
+					<jr:listContents height="42" width="802">
+						<textField isBlankWhenNull="true">
+							<reportElement x="0" y="0" width="30" height="41" uuid="11844198-714e-46e3-a5c5-2262fcb546b8"/>
+							<box>
+								<topPen lineWidth="1.25"/>
+								<bottomPen lineWidth="1.25"/>
+							</box>
+							<textElement textAlignment="Center" verticalAlignment="Middle">
+								<font fontName="TH Sarabun New" size="12" isBold="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{number}]]></textFieldExpression>
+						</textField>
+						<textField isBlankWhenNull="true">
+							<reportElement x="30" y="0" width="41" height="41" uuid="10b845e9-1cd3-4e69-a253-1d0ce0feb37b"/>
+							<box>
+								<topPen lineWidth="1.25"/>
+								<bottomPen lineWidth="1.25"/>
+							</box>
+							<textElement textAlignment="Center" verticalAlignment="Middle">
+								<font fontName="TH Sarabun New" size="12" isBold="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{encode}]]></textFieldExpression>
+						</textField>
+						<textField isBlankWhenNull="true">
+							<reportElement x="139" y="0" width="72" height="41" uuid="a7520718-567e-438d-89b7-8981ad2789aa"/>
+							<box>
+								<topPen lineWidth="1.25"/>
+								<bottomPen lineWidth="1.25"/>
+							</box>
+							<textElement verticalAlignment="Middle">
+								<font fontName="TH Sarabun New" size="12" isBold="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+						</textField>
+						<textField isBlankWhenNull="true">
+							<reportElement x="71" y="0" width="68" height="41" uuid="d46e37ae-11f3-4454-bb7b-2fd14f9b2125"/>
+							<box>
+								<topPen lineWidth="1.25"/>
+								<bottomPen lineWidth="1.25"/>
+							</box>
+							<textElement textAlignment="Center" verticalAlignment="Middle">
+								<font fontName="TH Sarabun New" size="12" isBold="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{taxid}]]></textFieldExpression>
+						</textField>
+						<textField isBlankWhenNull="true">
+							<reportElement x="211" y="19" width="41" height="22" uuid="18f0cae7-7e5a-481e-a1eb-9da51c039ca2"/>
+							<box>
+								<topPen lineWidth="0.0"/>
+								<bottomPen lineWidth="1.25"/>
+							</box>
+							<textElement textAlignment="Center" verticalAlignment="Middle">
+								<font fontName="TH Sarabun New" size="12" isBold="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{sum}]]></textFieldExpression>
+						</textField>
+						<textField isBlankWhenNull="true">
+							<reportElement x="452" y="0" width="57" height="41" uuid="4e1c6f23-14d1-4126-b9b2-0d6e330aec2e"/>
+							<box>
+								<topPen lineWidth="1.25"/>
+								<bottomPen lineWidth="1.25"/>
+							</box>
+							<textElement verticalAlignment="Middle">
+								<font fontName="TH Sarabun New" size="12" isBold="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{course}]]></textFieldExpression>
+						</textField>
+						<textField isBlankWhenNull="true">
+							<reportElement x="211" y="0" width="241" height="19" uuid="441a3a0c-0180-4b74-9c6f-64e20e4e30ba"/>
+							<box>
+								<topPen lineWidth="1.25"/>
+								<bottomPen lineWidth="1.25"/>
+							</box>
+							<textElement textAlignment="Center" verticalAlignment="Middle">
+								<font fontName="TH Sarabun New" size="12" isBold="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{exam}]]></textFieldExpression>
+						</textField>
+						<textField isBlankWhenNull="true">
+							<reportElement x="252" y="19" width="51" height="22" uuid="cd107696-a301-41d6-9a54-0fe0f98631b3"/>
+							<box>
+								<topPen lineWidth="0.0"/>
+								<bottomPen lineWidth="1.25"/>
+							</box>
+							<textElement textAlignment="Center" verticalAlignment="Middle">
+								<font fontName="TH Sarabun New" size="12" isBold="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{written}]]></textFieldExpression>
+						</textField>
+						<textField isBlankWhenNull="true">
+							<reportElement x="338" y="19" width="86" height="22" uuid="0c349a62-2ab6-4015-a9f2-6cdeab69535e"/>
+							<box>
+								<topPen lineWidth="0.0"/>
+								<bottomPen lineWidth="1.25"/>
+							</box>
+							<textElement textAlignment="Center" verticalAlignment="Middle">
+								<font fontName="TH Sarabun New" size="12" isBold="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{practice}]]></textFieldExpression>
+						</textField>
+						<textField isBlankWhenNull="true">
+							<reportElement x="509" y="0" width="49" height="41" uuid="55276477-c7a3-41e3-b6cb-92be82fb91d0"/>
+							<box>
+								<topPen lineWidth="1.25"/>
+								<bottomPen lineWidth="1.25"/>
+							</box>
+							<textElement verticalAlignment="Middle">
+								<font fontName="TH Sarabun New" size="12" isBold="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{examtopic}]]></textFieldExpression>
+						</textField>
+						<textField isBlankWhenNull="true">
+							<reportElement x="558" y="0" width="52" height="41" uuid="07247eb8-9dc7-464b-921f-b78d287709ba"/>
+							<box>
+								<topPen lineWidth="1.25"/>
+								<bottomPen lineWidth="1.25"/>
+							</box>
+							<textElement verticalAlignment="Middle">
+								<font fontName="TH Sarabun New" size="12" isBold="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{examscore}]]></textFieldExpression>
+						</textField>
+						<textField isBlankWhenNull="true">
+							<reportElement x="611" y="0" width="38" height="41" uuid="19fe16b6-2022-4e76-8670-25e1933ee30c"/>
+							<box>
+								<topPen lineWidth="1.25"/>
+								<bottomPen lineWidth="1.25"/>
+							</box>
+							<textElement verticalAlignment="Middle">
+								<font fontName="TH Sarabun New" size="12" isBold="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{points}]]></textFieldExpression>
+						</textField>
+						<textField isBlankWhenNull="true">
+							<reportElement x="649" y="0" width="54" height="41" uuid="16baaa62-e312-468c-8b3e-6e7e471c60de"/>
+							<box>
+								<topPen lineWidth="1.25"/>
+								<bottomPen lineWidth="1.25"/>
+							</box>
+							<textElement verticalAlignment="Middle">
+								<font fontName="TH Sarabun New" size="12" isBold="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{professor}]]></textFieldExpression>
+						</textField>
+						<textField isBlankWhenNull="true">
+							<reportElement x="704" y="0" width="52" height="41" uuid="abb55fcd-f9bb-48dc-8c0e-2dfb53533e0b"/>
+							<box>
+								<topPen lineWidth="1.25"/>
+								<bottomPen lineWidth="1.25"/>
+							</box>
+							<textElement verticalAlignment="Middle">
+								<font fontName="TH Sarabun New" size="12" isBold="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{examscore}]]></textFieldExpression>
+						</textField>
+						<textField isBlankWhenNull="true">
+							<reportElement x="756" y="0" width="45" height="41" uuid="0e7713f5-47bf-4b98-8764-4152fff33cfa"/>
+							<box>
+								<topPen lineWidth="1.25"/>
+								<bottomPen lineWidth="1.25"/>
+							</box>
+							<textElement verticalAlignment="Middle">
+								<font fontName="TH Sarabun New" size="12" isBold="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{points}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+		</band>
+	</title>
+	<detail>
+		<band height="34" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement isPrintRepeatedValues="false" x="0" y="1" width="30" height="33" uuid="1138a3e7-231b-4fc7-b5ba-da1c2e4c679c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{EN_code_COUNT}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement isPrintRepeatedValues="false" x="30" y="1" width="42" height="33" uuid="b71c1142-f2da-4a25-8d8e-b683e81273e7"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{en_code}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement isPrintRepeatedValues="false" x="72" y="1" width="67" height="33" uuid="bef550fc-10d4-4c46-b9a9-fe35c845da83"/>
+				<box leftPadding="4"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{id_card}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="252" y="1" width="86" height="33" uuid="02785c30-b9dd-4d26-8f21-4c09d27bdeb7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{score_written_test}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="338" y="1" width="114" height="33" uuid="ccd23be3-1695-480a-9977-500fb446c00f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{score_interview_test}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="211" y="1" width="41" height="33" uuid="3b2eec80-3e59-46eb-8372-0e24539bdd08"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{total_score_test}]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement x="452" y="0" width="197" height="34" uuid="86445697-7a68-429d-80a1-9cf57211f76b"/>
+				<subreportParameter name="EN_CODE">
+					<subreportParameterExpression><![CDATA[$F{en_code}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "ENRP03_subject_name.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="650" y="0" width="152" height="34" uuid="6506d289-7168-4526-b569-568ebdef77d6"/>
+				<subreportParameter name="EN_CODE">
+					<subreportParameterExpression><![CDATA[$F{en_code}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "ENRP03_instructor_name.jasper"]]></subreportExpression>
+			</subreport>
+			<textField isBlankWhenNull="true">
+				<reportElement isPrintRepeatedValues="false" x="139" y="1" width="72" height="33" uuid="fd8cb337-7a68-415b-bba9-ae97a65a74c1"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{en_name}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

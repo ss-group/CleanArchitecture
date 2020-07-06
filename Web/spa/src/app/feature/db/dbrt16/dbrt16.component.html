@@ -1,0 +1,77 @@
+<h4>{{ 'label.DBRT16.programName' | translate}}</h4>
+<div class="row">
+   <div class="col">
+     <app-card>
+        <div class="card-content">
+            <div class="row">
+                <div class="col-6">
+                    <app-search  (search)="enter($event)" placeholder="{{ 'label.DBRT16.searchPlaceholder' | translate}}"></app-search>
+                </div>
+                <div class="col-6 text-right">
+                    <button class="btn btn-primary" (click)="add()"><i class="fas fa-plus-circle"></i> 
+                      {{ 'label.ALL.Add' | translate}}</button>
+                 </div>
+            </div>
+            <br>
+            <div class="row">
+               <div class="col">
+                  <app-table [rows]="location" [page]="page" (onTableEvent)="search()">
+                      <ngx-datatable-column prop="locationCode" width="150"  [cellClass]="'text-center'">
+                        <ng-template let-sort="sortFn" ngx-datatable-header-template>
+                          <label class="datatable-header-cell-wrapper" (click)="sort()">
+                            {{ 'label.DBRT16.locationCode' | translate}}
+                          </label>
+                        </ng-template>
+                        <ng-template let-row="row" ngx-datatable-cell-template>
+                            <a [routerLink]="['detail']" [state]="{code: row.locationCode}">{{row.locationCode}}</a>
+                        </ng-template>
+                      </ngx-datatable-column>
+                      <ngx-datatable-column prop="locationNameTha" width="200">
+                        <ng-template let-sort="sortFn" ngx-datatable-header-template>
+                          <label class="datatable-header-cell-wrapper" (click)="sort()">
+                            {{ 'label.DBRT16.locationNameTha' | translate}}
+                          </label>
+                        </ng-template>
+                        <ng-template let-row="row" ngx-datatable-cell-template>
+                            {{row.locationNameTha}}
+                        </ng-template>
+                      </ngx-datatable-column>
+                      <ngx-datatable-column prop="locationNameEng" width="200">
+                        <ng-template let-sort="sortFn" ngx-datatable-header-template>
+                          <label class="datatable-header-cell-wrapper" (click)="sort()">
+                            {{ 'label.DBRT16.locationNameEng' | translate}}
+                          </label>
+                        </ng-template>
+                        <ng-template let-row="row" ngx-datatable-cell-template>
+                           {{row.locationNameEng}}
+                        </ng-template>
+                      </ngx-datatable-column>
+                      <ngx-datatable-column prop="active" width="100" [cellClass]="'text-center'">
+                        <ng-template let-sort="sortFn" ngx-datatable-header-template>
+                          <label class="datatable-header-cell-wrapper" (click)="sort()">
+                            {{ 'label.DBRT16.active' | translate}}
+                          </label>
+                        </ng-template>
+                        <ng-template let-row="row" ngx-datatable-cell-template>
+                          <i *ngIf="row.active" class="fas fa-check"></i>
+                        </ng-template>
+                      </ngx-datatable-column>
+                      <ngx-datatable-column [cellClass]="'text-center'" [sortable]="false" width="100">
+                        <ng-template ngx-datatable-header-template>
+                          <label class="datatable-header-cell-wrapper">
+                            {{ 'label.ALL.Delete' | translate}}
+                          </label>
+                        </ng-template>
+                        <ng-template let-row="row" let-rowIndex="rowIndex" ngx-datatable-cell-template>
+                          <button (click)="remove(row.companyCode,row.locationCode,row.rowVersion)" class="btn btn-outline-danger btn-sm">
+                            <i class="far fa-trash-alt"></i>
+                          </button>
+                        </ng-template>
+                      </ngx-datatable-column>
+                    </app-table>
+               </div>
+            </div>
+        </div>
+     </app-card>
+   </div>
+</div>

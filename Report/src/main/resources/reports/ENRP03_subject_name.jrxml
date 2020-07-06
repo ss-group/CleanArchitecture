@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ENRP03_subject_name" language="groovy" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="4a5f97f7-4d50-4264-bcf5-fec321df1455">
+	<property name="ireport.zoom" value="1.771561000000001"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="EN_CODE" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select DISTINCT
+d.subject_name,d.topic_name,b.full_score,d.test_score
+from en_enrollment as a
+left join en_examination as b
+on a.year = b.year
+and a.semester = b.semester
+and a.education_type_level = b.education_type_level
+and a.ccl_id = b.ccl_id
+and a.company_code = b.company_code
+left join en_score_interview_test as c
+on a.year = c.year
+and a.semester = c.semester
+and a.education_type_level = c.education_type_level
+and a.ccl_id = c.ccl_id
+and a.company_code = c.company_code
+and a.enrollment_id = c.enrollment_id
+left join en_score_written_test as d
+on a.year = d.year
+and a.semester = d.semester
+and a.education_type_level = d.education_type_level
+and a.ccl_id = d.ccl_id
+and a.company_code = d.company_code
+and a.enrollment_id = d.enrollment_id
+where a.status = 'N'
+and a.payment_status = 'Y'
+and a.en_code = $P{EN_CODE}]]>
+	</queryString>
+	<field name="subject_name" class="java.lang.String"/>
+	<field name="topic_name" class="java.lang.String"/>
+	<field name="full_score" class="java.lang.Integer"/>
+	<field name="test_score" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="32" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="0" width="57" height="32" uuid="cd4e633b-0bdc-469b-b3e6-a9b44437a5e2"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{subject_name}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="57" y="0" width="49" height="32" uuid="53d7e165-c1c2-4607-b62c-4e8629831fee"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{topic_name}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="106" y="0" width="53" height="32" uuid="f38d9f4e-72fd-4fe9-8482-0a6f385ebba1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{full_score}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="159" y="0" width="38" height="32" uuid="8c788fdc-f266-4511-97fe-0d9b5b716111"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{test_score}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

@@ -1,0 +1,77 @@
+<toolbar>
+  <button class="btn btn-primary" (click)="save()" [disabled]="saving">
+    <i class="fas fa-cog fa-spin" [hidden]="!saving"></i>
+    <i class="fas fa-save" [hidden]="saving"></i>  {{ 'label.ALL.Save' | translate}}</button>
+</toolbar>
+<h4>{{ 'label.DBRT11.programName' | translate}}</h4>
+<div class="row">
+  <div class="col">
+    <app-card header="{{ 'label.DBRT11.detail' | translate}}">
+      <div class="card-content">
+        <div class="col">
+          <div class="col">
+            <form [formGroup]="dbrt11Form" [class.validated]="submited">
+              <div class="form-row">
+                <div class="form-group col-md-6 col-sm-6">
+                  <textbox formControlName="facCode" class="text-center">{{ 'label.DBRT11.facCode' | translate}}
+                  </textbox>
+                </div>
+                <div class="form-group col-md-3 col-sm-3">
+                  <textbox formControlName="facCodeMua" class="text-center">{{ 'label.DBRT11.facCodeMua' | translate}}
+                  </textbox>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6 col-sm-6">
+                  <textbox formControlName="facNameTha">{{ 'label.DBRT11.facNameTha' | translate}}
+                    <div class="invalid-feedback" *ngIf="dbrt11Form.controls.facNameTha.errors">
+                      <div *ngIf="dbrt11Form.controls.facNameTha.errors.required">{{ 'label.DBRT11.Please' | translate}}</div>
+                    </div>
+                  </textbox>
+                </div>
+                <div class="form-group col-md-6 col-sm-6">
+                  <textbox formControlName="facNameEng">{{ 'label.DBRT11.facNameEng' | translate}}
+                  </textbox>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6 col-sm-6">
+                  <textbox formControlName="facShortNameTha">{{ 'label.DBRT11.facShortNameTha' | translate}}
+                    <div class="invalid-feedback" *ngIf="dbrt11Form.controls.facShortNameTha.errors">
+                      <div *ngIf="dbrt11Form.controls.facShortNameTha.errors.required">{{ 'label.DBRT11.Please' | translate}}</div>
+                    </div>
+                  </textbox>
+                </div>
+                <div class="form-group col-md-6 col-sm-6">
+                  <textbox formControlName="facShortNameEng">{{ 'label.DBRT11.facShortNameEng' | translate}}
+                  </textbox>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6 col-sm-6">
+                  <textbox formControlName="formatCode">{{ 'label.DBRT11.formatCode' | translate}}
+                    <div class="invalid-feedback" *ngIf="dbrt11Form.controls.formatCode.errors">
+                      <div *ngIf="dbrt11Form.controls.formatCode.errors.required">{{ 'label.DBRT11.Please' | translate}}</div>
+                    </div>
+                  </textbox>
+                </div>
+                <div class="form-group col-md-6 col-sm-6">
+                  <textbox formControlName="fnPayinCode">{{ 'label.DBRT11.fnPayinCode' | translate}}
+                    <div class="invalid-feedback" *ngIf="dbrt11Form.controls.fnPayinCode.errors">
+                      <div *ngIf="dbrt11Form.controls.fnPayinCode.errors.required">{{ 'label.DBRT11.Please' | translate}}</div>
+                    </div>
+                  </textbox>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6 col-sm-6">
+                  <checkbox formControlName="active">{{ 'label.DBRT11.active' | translate}}</checkbox>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </app-card>
+  </div>
+</div>

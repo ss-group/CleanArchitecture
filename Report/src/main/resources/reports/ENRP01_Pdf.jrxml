@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ENRP01_Pdf" language="groovy" pageWidth="595" pageHeight="842" whenNoDataType="BlankPage" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="df613ca1-e88d-4095-918f-8e8c1fb20bfb">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["D:\\08_BPI\\main\\program\\trunk\\source\\Report\\src\\main\\resources\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="LANG" class="java.lang.String"/>
+	<parameter name="YEAR" class="java.lang.Integer"/>
+	<parameter name="SEMESTER" class="java.lang.Integer"/>
+	<parameter name="EDUCATION_TYPE_LEVEL" class="java.lang.String"/>
+	<parameter name="FAC_CODE" class="java.lang.String"/>
+	<parameter name="PROGRAM_CODE" class="java.lang.String"/>
+	<parameter name="MAJOR_CODE" class="java.lang.String"/>
+	<parameter name="CCL_ID" class="java.lang.Long"/>
+	<parameter name="EN_DATE_FROM" class="java.util.Date"/>
+	<parameter name="EN_DATE_TO" class="java.util.Date"/>
+	<parameter name="EN_CODE_FROM" class="java.lang.String"/>
+	<parameter name="EN_CODE_TO" class="java.lang.String"/>
+	<parameter name="COMPANY_CODE" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select DISTINCT a.*
+from en_enrollment as a
+inner join en_enrollment_edu_hist as b
+on a.company_code = b.company_code
+and a.enrollment_id = b.enrollment_id
+left join en_enrollment_addr as c
+on a.company_code = c.company_code
+and a.enrollment_id = c.enrollment_id
+left join en_enrollment_ability_test as d
+on a.company_code = d.company_code
+and a.enrollment_id = d.enrollment_id
+left join en_enrollment_main_document as e
+on a.company_code = e.company_code
+and a.enrollment_id = e.enrollment_id
+left join en_get_en_name() as f
+on a.company_code = f.company_code
+and a.enrollment_id = f.enrollment_id
+left join (Select * from db_list_item where list_item_group_code in ('Gender')) as Tgender
+on a.gender = Tgender.list_item_code
+left join (Select * from db_list_item where list_item_group_code in ('MaritalStatus')) as TMaritalStatus
+on a.marital_status = TMaritalStatus.list_item_code
+left join (Select * from db_list_item where list_item_group_code in ('Religion')) as TReligion
+on a.religion = TReligion.list_item_code
+left join (Select * from db_list_item where list_item_group_code in ('Race')) as TRace
+on a.race = TRace.list_item_code
+left join (Select * from db_list_item where list_item_group_code in ('Nationality')) as TNationality
+on a.nationality = TNationality.list_item_code
+left join (Select * from db_list_item where list_item_group_code in ('Occupation')) as TOccupation
+on a.occupation_code =TOccupation.list_item_code
+left join db_pre_name as p
+on a.pre_name_id = p.pre_name_id
+Where a.year = $P{YEAR}
+and a.semester = $P{SEMESTER}
+and a.education_type_level = $P{EDUCATION_TYPE_LEVEL}
+and a.fac_code = coalesce(nullif($P{FAC_CODE}, ''), a.fac_code)
+and a.program_code = coalesce(nullif($P{PROGRAM_CODE}, ''),a.program_code)
+and a.major_code = coalesce(nullif ($P{MAJOR_CODE}, ''),a.major_code)
+and a.ccl_id = coalesce(nullif($P{CCL_ID}, 0),a.ccl_id)
+and a.en_date >= coalesce(nullif($P{EN_DATE_FROM}, a.en_date),a.en_date)
+and a.en_date <= coalesce(nullif($P{EN_DATE_TO}, a.en_date),a.en_date)
+and cast(a.en_code as text) between coalesce(nullif($P{EN_CODE_FROM}, ''), cast(a.en_code as text)) and coalesce(nullif($P{EN_CODE_TO}, ''), cast(a.en_code as text))
+and a.company_code = $P{COMPANY_CODE}
+order by a.en_code asc]]>
+	</queryString>
+	<field name="enrollment_id" class="java.lang.Long"/>
+	<field name="company_code" class="java.lang.String"/>
+	<field name="en_code" class="java.lang.String"/>
+	<field name="year" class="java.lang.Integer"/>
+	<field name="semester" class="java.lang.Integer"/>
+	<field name="en_date" class="java.sql.Timestamp"/>
+	<field name="image_id" class="java.lang.Integer"/>
+	<field name="applicant_type_code" class="java.lang.String"/>
+	<field name="en_type_code" class="java.lang.String"/>
+	<field name="div_code" class="java.lang.String"/>
+	<field name="ccl_id" class="java.lang.Long"/>
+	<field name="status" class="java.lang.String"/>
+	<field name="payment_status" class="java.lang.String"/>
+	<field name="student_id" class="java.lang.Long"/>
+	<field name="student_code" class="java.lang.String"/>
+	<field name="id_card" class="java.lang.String"/>
+	<field name="passport_no" class="java.lang.String"/>
+	<field name="card_of_place" class="java.lang.String"/>
+	<field name="expire_date" class="java.sql.Timestamp"/>
+	<field name="pre_name_id" class="java.lang.Integer"/>
+	<field name="first_name_tha" class="java.lang.String"/>
+	<field name="last_name_tha" class="java.lang.String"/>
+	<field name="first_name_eng" class="java.lang.String"/>
+	<field name="last_name_eng" class="java.lang.String"/>
+	<field name="birthday" class="java.sql.Timestamp"/>
+	<field name="age" class="java.lang.Integer"/>
+	<field name="age_year" class="java.lang.Integer"/>
+	<field name="age_month" class="java.lang.Integer"/>
+	<field name="gender" class="java.lang.String"/>
+	<field name="religion" class="java.lang.String"/>
+	<field name="race" class="java.lang.String"/>
+	<field name="nationality" class="java.lang.String"/>
+	<field name="marital_status" class="java.lang.String"/>
+	<field name="musical_instrument" class="java.lang.String"/>
+	<field name="education_type_code" class="java.lang.String"/>
+	<field name="fac_code" class="java.lang.String"/>
+	<field name="program_code" class="java.lang.String"/>
+	<field name="major_code" class="java.lang.String"/>
+	<field name="pro_code" class="java.lang.String"/>
+	<field name="plan_code" class="java.lang.String"/>
+	<field name="occupation_code" class="java.lang.String"/>
+	<field name="occupation_desc" class="java.lang.String"/>
+	<field name="occupation_year" class="java.lang.Integer"/>
+	<field name="occupation_month" class="java.lang.Integer"/>
+	<field name="income_code" class="java.lang.String"/>
+	<field name="occupation_position_desc" class="java.lang.String"/>
+	<field name="office_address_name" class="java.lang.String"/>
+	<field name="office_address_no" class="java.lang.String"/>
+	<field name="office_moo" class="java.lang.String"/>
+	<field name="office_soi" class="java.lang.String"/>
+	<field name="office_road" class="java.lang.String"/>
+	<field name="office_sub_district_id" class="java.lang.Long"/>
+	<field name="office_district_id" class="java.lang.Long"/>
+	<field name="office_province_id" class="java.lang.Long"/>
+	<field name="office_postal_code_id" class="java.lang.Long"/>
+	<field name="office_country_id" class="java.lang.Long"/>
+	<field name="office_tel_no" class="java.lang.String"/>
+	<field name="office_tel_ext_no" class="java.lang.String"/>
+	<field name="office_fax_no" class="java.lang.String"/>
+	<field name="ref_person_name" class="java.lang.String"/>
+	<field name="ref_person_position_desc" class="java.lang.String"/>
+	<field name="ref_person_desc" class="java.lang.String"/>
+	<field name="ref_person_address" class="java.lang.String"/>
+	<field name="ref_person_tel" class="java.lang.String"/>
+	<field name="ref_person_fax" class="java.lang.String"/>
+	<field name="ref_person_email" class="java.lang.String"/>
+	<field name="research_topic_desc" class="java.lang.String"/>
+	<field name="research_attachment_id" class="java.lang.Long"/>
+	<field name="disc_amt" class="java.math.BigDecimal"/>
+	<field name="disc_rate" class="java.math.BigDecimal"/>
+	<field name="net_amt" class="java.math.BigDecimal"/>
+	<field name="over_amt" class="java.math.BigDecimal"/>
+	<field name="status_write_test" class="java.lang.String"/>
+	<field name="attend_written_test" class="java.lang.Boolean"/>
+	<field name="score_written_test" class="java.math.BigDecimal"/>
+	<field name="status_interview_test" class="java.lang.String"/>
+	<field name="score_interview_test" class="java.math.BigDecimal"/>
+	<field name="total_score_test" class="java.math.BigDecimal"/>
+	<field name="confirmation" class="java.lang.Boolean"/>
+	<field name="confirmation_attachment_id" class="java.lang.Long"/>
+	<field name="remark" class="java.lang.String"/>
+	<field name="system_study_type" class="java.lang.String"/>
+	<field name="created_by" class="java.lang.String"/>
+	<field name="created_date" class="java.sql.Timestamp"/>
+	<field name="created_program" class="java.lang.String"/>
+	<field name="updated_by" class="java.lang.String"/>
+	<field name="updated_date" class="java.sql.Timestamp"/>
+	<field name="updated_program" class="java.lang.String"/>
+	<field name="education_type_level" class="java.lang.String"/>
+	<field name="total_amt" class="java.math.BigDecimal"/>
+	<detail>
+		<band height="34">
+			<subreport>
+				<reportElement x="0" y="0" width="555" height="34" uuid="213b4ab3-5f8e-48a3-bad2-087f9b8ab381"/>
+				<subreportParameter name="GROUP_EN_CODE">
+					<subreportParameterExpression><![CDATA[$F{en_code}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="LANG">
+					<subreportParameterExpression><![CDATA[$P{LANG}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "reports/ENRP01_1.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="33">
+			<subreport>
+				<reportElement x="0" y="1" width="555" height="32" uuid="f8298fdf-6a43-44df-b40e-94e0bea056bf"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="FAC_CODE">
+					<subreportParameterExpression><![CDATA[$P{FAC_CODE}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="SEMESTER">
+					<subreportParameterExpression><![CDATA[$P{SEMESTER}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="EN_DATE_TO">
+					<subreportParameterExpression><![CDATA[$P{EN_DATE_TO}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="CCL_ID">
+					<subreportParameterExpression><![CDATA[$P{CCL_ID}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="EN_CODE_TO">
+					<subreportParameterExpression><![CDATA[$P{EN_CODE_TO}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="PROGRAM_CODE">
+					<subreportParameterExpression><![CDATA[$P{PROGRAM_CODE}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="EN_CODE_FROM">
+					<subreportParameterExpression><![CDATA[$P{EN_CODE_FROM}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="MAJOR_CODE">
+					<subreportParameterExpression><![CDATA[$P{MAJOR_CODE}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="EN_DATE_FROM">
+					<subreportParameterExpression><![CDATA[$P{EN_DATE_FROM}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="YEAR">
+					<subreportParameterExpression><![CDATA[$P{YEAR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="EN_CODE">
+					<subreportParameterExpression><![CDATA[$F{en_code}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="EDUCATION_TYPE_LEVEL">
+					<subreportParameterExpression><![CDATA[$P{EDUCATION_TYPE_LEVEL}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="LANG">
+					<subreportParameterExpression><![CDATA[$P{LANG}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "reports/ENRP01_2.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="33">
+			<subreport>
+				<reportElement x="0" y="0" width="555" height="33" uuid="fa2149ae-e35c-468a-9d4f-3d33e32386bf"/>
+				<subreportParameter name="SEMESTER">
+					<subreportParameterExpression><![CDATA[$P{SEMESTER}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="EN_CODE_TO">
+					<subreportParameterExpression><![CDATA[$P{EN_CODE_TO}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="EN_CODE_FROM">
+					<subreportParameterExpression><![CDATA[$P{EN_CODE_FROM}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="YEAR">
+					<subreportParameterExpression><![CDATA[$P{YEAR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="FAC_CODE">
+					<subreportParameterExpression><![CDATA[$P{FAC_CODE}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="EN_DATE_TO">
+					<subreportParameterExpression><![CDATA[$P{EN_DATE_TO}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="CCL_ID">
+					<subreportParameterExpression><![CDATA[$P{CCL_ID}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="PROGRAM_CODE">
+					<subreportParameterExpression><![CDATA[$P{PROGRAM_CODE}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="EN_DATE_FROM">
+					<subreportParameterExpression><![CDATA[$P{EN_DATE_FROM}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="EN_CODE">
+					<subreportParameterExpression><![CDATA[$F{en_code}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="EDUCATION_TYPE_LEVEL">
+					<subreportParameterExpression><![CDATA[$P{EDUCATION_TYPE_LEVEL}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="MAAJOR_CODE">
+					<subreportParameterExpression><![CDATA[$P{MAJOR_CODE}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="LANG">
+					<subreportParameterExpression><![CDATA[$P{LANG}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "reports/ENRP01_3.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+</jasperReport>

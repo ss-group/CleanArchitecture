@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ENRP01_3_subreport" language="groovy" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="8244cf26-031d-4d75-9c1f-ada435dc9449">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="EN_CODE" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select * from en_main_document as a
+left join en_enrollment_main_document as e
+on a.main_doc_code = e.main_doc_code
+left join en_enrollment as d
+on e.enrollment_id = d.enrollment_id
+where e.complete_flag = true
+and d.en_code = $P{EN_CODE}
+]]>
+	</queryString>
+	<field name="main_doc_code" class="java.lang.String"/>
+	<field name="main_doc_desc" class="java.lang.String"/>
+	<field name="qty" class="java.lang.Integer"/>
+	<field name="ums_code" class="java.lang.String"/>
+	<field name="require_flag" class="java.lang.Boolean"/>
+	<field name="created_by" class="java.lang.String"/>
+	<field name="created_date" class="java.sql.Timestamp"/>
+	<field name="created_program" class="java.lang.String"/>
+	<field name="updated_by" class="java.lang.String"/>
+	<field name="updated_date" class="java.sql.Timestamp"/>
+	<field name="updated_program" class="java.lang.String"/>
+	<field name="main_doc_id" class="java.lang.Long"/>
+	<field name="enrollment_id" class="java.lang.Long"/>
+	<field name="main_list_id" class="java.lang.Long"/>
+	<field name="company_code" class="java.lang.String"/>
+	<field name="complete_flag" class="java.lang.Boolean"/>
+	<field name="except_flag" class="java.lang.Boolean"/>
+	<field name="attachment_id" class="java.lang.Long"/>
+	<field name="en_code" class="java.lang.String"/>
+	<field name="year" class="java.lang.Integer"/>
+	<field name="semester" class="java.lang.Integer"/>
+	<field name="en_date" class="java.sql.Timestamp"/>
+	<field name="image_id" class="java.lang.Integer"/>
+	<field name="applicant_type_code" class="java.lang.String"/>
+	<field name="en_type_code" class="java.lang.String"/>
+	<field name="div_code" class="java.lang.String"/>
+	<field name="ccl_id" class="java.lang.Long"/>
+	<field name="status" class="java.lang.String"/>
+	<field name="payment_status" class="java.lang.String"/>
+	<field name="student_id" class="java.lang.Long"/>
+	<field name="student_code" class="java.lang.String"/>
+	<field name="id_card" class="java.lang.String"/>
+	<field name="passport_no" class="java.lang.String"/>
+	<field name="card_of_place" class="java.lang.String"/>
+	<field name="expire_date" class="java.sql.Timestamp"/>
+	<field name="pre_name_id" class="java.lang.Integer"/>
+	<field name="first_name_tha" class="java.lang.String"/>
+	<field name="last_name_tha" class="java.lang.String"/>
+	<field name="first_name_eng" class="java.lang.String"/>
+	<field name="last_name_eng" class="java.lang.String"/>
+	<field name="birthday" class="java.sql.Timestamp"/>
+	<field name="age" class="java.lang.Integer"/>
+	<field name="age_year" class="java.lang.Integer"/>
+	<field name="age_month" class="java.lang.Integer"/>
+	<field name="gender" class="java.lang.String"/>
+	<field name="religion" class="java.lang.String"/>
+	<field name="race" class="java.lang.String"/>
+	<field name="nationality" class="java.lang.String"/>
+	<field name="marital_status" class="java.lang.String"/>
+	<field name="musical_instrument" class="java.lang.String"/>
+	<field name="education_type_code" class="java.lang.String"/>
+	<field name="fac_code" class="java.lang.String"/>
+	<field name="program_code" class="java.lang.String"/>
+	<field name="major_code" class="java.lang.String"/>
+	<field name="pro_code" class="java.lang.String"/>
+	<field name="plan_code" class="java.lang.String"/>
+	<field name="occupation_code" class="java.lang.String"/>
+	<field name="occupation_desc" class="java.lang.String"/>
+	<field name="occupation_year" class="java.lang.Integer"/>
+	<field name="occupation_month" class="java.lang.Integer"/>
+	<field name="income_code" class="java.lang.String"/>
+	<field name="occupation_position_desc" class="java.lang.String"/>
+	<field name="office_address_name" class="java.lang.String"/>
+	<field name="office_address_no" class="java.lang.String"/>
+	<field name="office_moo" class="java.lang.String"/>
+	<field name="office_soi" class="java.lang.String"/>
+	<field name="office_road" class="java.lang.String"/>
+	<field name="office_sub_district_id" class="java.lang.Long"/>
+	<field name="office_district_id" class="java.lang.Long"/>
+	<field name="office_province_id" class="java.lang.Long"/>
+	<field name="office_postal_code_id" class="java.lang.Long"/>
+	<field name="office_country_id" class="java.lang.Long"/>
+	<field name="office_tel_no" class="java.lang.String"/>
+	<field name="office_tel_ext_no" class="java.lang.String"/>
+	<field name="office_fax_no" class="java.lang.String"/>
+	<field name="ref_person_name" class="java.lang.String"/>
+	<field name="ref_person_position_desc" class="java.lang.String"/>
+	<field name="ref_person_desc" class="java.lang.String"/>
+	<field name="ref_person_address" class="java.lang.String"/>
+	<field name="ref_person_tel" class="java.lang.String"/>
+	<field name="ref_person_fax" class="java.lang.String"/>
+	<field name="ref_person_email" class="java.lang.String"/>
+	<field name="research_topic_desc" class="java.lang.String"/>
+	<field name="research_attachment_id" class="java.lang.Long"/>
+	<field name="disc_amt" class="java.math.BigDecimal"/>
+	<field name="disc_rate" class="java.math.BigDecimal"/>
+	<field name="net_amt" class="java.math.BigDecimal"/>
+	<field name="over_amt" class="java.math.BigDecimal"/>
+	<field name="status_write_test" class="java.lang.String"/>
+	<field name="attend_written_test" class="java.lang.Boolean"/>
+	<field name="score_written_test" class="java.math.BigDecimal"/>
+	<field name="status_interview_test" class="java.lang.String"/>
+	<field name="score_interview_test" class="java.math.BigDecimal"/>
+	<field name="total_score_test" class="java.math.BigDecimal"/>
+	<field name="confirmation" class="java.lang.Boolean"/>
+	<field name="confirmation_attachment_id" class="java.lang.Long"/>
+	<field name="remark" class="java.lang.String"/>
+	<field name="system_study_type" class="java.lang.String"/>
+	<field name="education_type_level" class="java.lang.String"/>
+	<field name="total_amt" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="34" splitType="Stretch">
+			<textField>
+				<reportElement x="107" y="7" width="404" height="20" uuid="700a7c81-923f-4055-a89f-48aa49d861cf"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="TH Sarabun New" size="12" pdfFontName="THSarabunNew.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{main_doc_desc}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="87" y="7" width="20" height="20" uuid="57c61a1c-5c25-4fbb-9b6e-bb0e2974ebf9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Wingdings 2" size="12" pdfFontName="WINGDNG2.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{complete_flag} ? "\u009E" : "\u0081"]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>
