@@ -113,7 +113,8 @@ namespace Web
                 app.UseSpaStaticFiles();
             }
 
-            app.UseRouting();          
+            app.UseRouting();  
+             app.UseAuthorization();        
             var pattern = env.EnvironmentName == "Test" ? "{controller}/{action=Index}/{id?}" : "{controller=Empty}/{action=Index}";
 
             app.UseEndpoints(endpoints =>
