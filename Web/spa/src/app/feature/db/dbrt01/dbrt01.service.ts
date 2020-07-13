@@ -23,8 +23,8 @@ export class Dbrt01Service {
     return this.http.get<any>('dbrt01', { params: filter });
   }
 
-  getCountryDetail(code) {
-    return this.http.get<DbCountry>('dbrt01/detail', { params: { countryCode: code } });
+  getCountryDetail(id) {
+    return this.http.get<DbCountry>('dbrt01/detail', { params: { countryid: id } });
   }
   save(country: DbCountry) {
     if (country.rowVersion) {

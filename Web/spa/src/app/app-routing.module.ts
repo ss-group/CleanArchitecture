@@ -8,6 +8,7 @@ const routes: Routes = [
   { path: 'account', loadChildren: './feature/account/account.module#AccountModule' },
   Shell.childRoutes([
     { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+    { path: 'demo', loadChildren: './feature/demo/demo.module#DemoModule' },
     { path: 'empty/lang/:code', component: EmptyComponent },
     { path: 'empty/comp/:code', component: EmptyComponent },
     { path: 'empty/division/:code', component: EmptyComponent },

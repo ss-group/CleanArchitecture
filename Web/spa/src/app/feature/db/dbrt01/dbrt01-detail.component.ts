@@ -66,7 +66,7 @@ export class Dbrt01DetailComponent implements OnInit {
     Object.assign(this.country, this.dbrt01Form.value);
     this.saving = true;
     this.cs.save(this.country).pipe(
-      switchMap(() => this.cs.getCountryDetail(this.country.countryCode)),
+      switchMap(id => this.cs.getCountryDetail(id || this.country.countryId)),
       finalize(() => {
         this.saving = false;
       })

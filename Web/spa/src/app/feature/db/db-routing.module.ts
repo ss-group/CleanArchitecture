@@ -5,6 +5,7 @@ import { CanDeactivateGuard, AuthorizationGuard } from '@app/core';
 import { Dbrt01Component } from './dbrt01/dbrt01.component';
 import { Dbrt01DetailComponent } from './dbrt01/dbrt01-detail.component';
 import { Dbrt01ResolverService } from './dbrt01/dbrt01-resolver.service';
+import { Dbrt22Component } from './dbrt22/dbrt22.component';
 
 const routes: Routes = [
     { path: 'dbrt01', component: Dbrt01Component },
@@ -14,7 +15,8 @@ const routes: Routes = [
         data: { code: 'DBRT01' },
         canDeactivate: [CanDeactivateGuard],
         runGuardsAndResolvers: 'always'
-    }
+    },
+    { path: 'dbrt22', component: Dbrt22Component },
 ]
 
 @NgModule({
