@@ -8,7 +8,7 @@ using static Application.Features.SU.SURT04.Detail;
 
 namespace Web.Controllers.SU
 {
-    [Authorize(Roles = "SURT04")]
+      [AllowAnonymous]
     public class Surt04Controller : BaseController
     {
         public async Task<ActionResult<PageDto>> Get([FromQuery]List.Query query)

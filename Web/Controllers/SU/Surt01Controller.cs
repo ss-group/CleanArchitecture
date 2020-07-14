@@ -8,7 +8,7 @@ using static Application.Features.SU.SURT01.ListDivision;
 
 namespace Web.Controllers.SU
 {
-    [Authorize(Roles = "SURT01")]
+      [AllowAnonymous]
     public class Surt01Controller : BaseController
     {
         [HttpGet("company")]

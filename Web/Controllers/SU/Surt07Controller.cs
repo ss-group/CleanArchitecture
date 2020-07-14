@@ -4,11 +4,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using Application.Features;
 using Application.Features.SU.SURT07;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Web.Controllers.SU
 {
+   [AllowAnonymous]
     public class Surt07Controller : BaseController
     {
         public async Task<ActionResult<PageDto>> Get([FromQuery]List.Query query)

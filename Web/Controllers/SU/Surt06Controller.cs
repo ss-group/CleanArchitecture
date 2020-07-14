@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Web.Controllers.SU
 {
-    [Authorize(Roles = "SURT06")]
+       [AllowAnonymous]
     public class Surt06Controller : BaseController
     {
         public async Task<IActionResult> Get([FromQuery]List.Query query)

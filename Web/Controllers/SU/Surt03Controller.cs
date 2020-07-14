@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Web.Controllers.SU
 {
-    [Authorize(Roles = "SURT03")]
+      [AllowAnonymous]
     public class Surt03Controller : BaseController
     {
         public async Task<ActionResult<PageDto>> Get([FromQuery]List.Query query)
