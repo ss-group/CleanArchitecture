@@ -8,13 +8,14 @@ import { LazyTranslationService } from '@app/core';
 import { Dbrt01Component } from './dbrt01/dbrt01.component';
 import { Dbrt01DetailComponent } from './dbrt01/dbrt01-detail.component';
 import { Dbrt01Service } from './dbrt01/dbrt01.service';
-import { Dbrt22Component } from './dbrt22/dbrt22.component';
+import { Dbrt08Component } from './dbrt08/dbrt08.component';
+import { Dbrt08Service } from './dbrt08/dbrt08.service';
 
 @NgModule({
   declarations: [
     Dbrt01Component,
     Dbrt01DetailComponent,
-    Dbrt22Component,
+    Dbrt08Component
   ],
   imports: [
     CommonModule,
@@ -24,7 +25,7 @@ import { Dbrt22Component } from './dbrt22/dbrt22.component';
     FormsModule
   ],
   providers: [
-    Dbrt01Service
+    Dbrt01Service,Dbrt08Service
   ]
 })
 export class DbModule {

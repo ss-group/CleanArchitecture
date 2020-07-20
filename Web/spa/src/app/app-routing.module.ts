@@ -14,7 +14,7 @@ const routes: Routes = [
     { path: 'empty/division/:code', component: EmptyComponent },
     { path: 'dashboard', loadChildren: './feature/dashboard/dashboard.module#DashboardModule'},
     { path: 'db', loadChildren: './feature/db/db.module#DbModule' },
-    { path: 'cs', loadChildren: './feature/cs/cs.module#CsModule' },
+    //{ path: 'cs', loadChildren: './feature/cs/cs.module#CsModule' },
     { path: 'su', loadChildren: './feature/su/su.module#SuModule' },
   ]),
   { path: '**', redirectTo: '', pathMatch: 'full' }
