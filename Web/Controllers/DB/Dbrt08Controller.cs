@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Application.Features;
-using Application.Features.DB.DBRT08;
 using Domain.Entities.DB;
 using Microsoft.AspNetCore.Mvc;
+using Application.Features.DB.DBRT08;
 
 namespace Web.Controllers.DB
 {
@@ -18,7 +17,13 @@ namespace Web.Controllers.DB
 
 
         [HttpGet("master/{page}")]
-        public async Task<ActionResult<Master.MasterData>> Get([FromRoute] Master.Query model)
+        public async Task<IActionResult> Get([FromRoute] Master.Query model)
+        {
+            return Ok(await Mediator.Send(model));
+
+        }
+        [HttpGet("dependency")]
+        public async Task<IActionResult> Get([FromQuery] MasterDependency.Query model)
         {
             return Ok(await Mediator.Send(model));
 

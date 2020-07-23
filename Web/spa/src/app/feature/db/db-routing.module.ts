@@ -7,6 +7,7 @@ import { Dbrt01DetailComponent } from './dbrt01/dbrt01-detail.component';
 import { Dbrt01ResolverService } from './dbrt01/dbrt01-resolver.service';
 import { Dbrt08Component } from './dbrt08/dbrt08.component';
 import { Dbrt08ResolverService } from './dbrt08/dbrt08-resolver.service';
+import { Dbrt08DetailComponent } from './dbrt08/dbrt08-detail.component';
 
 const routes: Routes = [
     { path: 'dbrt01', component: Dbrt01Component },
@@ -20,6 +21,13 @@ const routes: Routes = [
     {
         path: 'dbrt08', component: Dbrt08Component,
         resolve: { dbrt08: Dbrt08ResolverService },
+    },
+    {
+        path: 'dbrt08/detail', component: Dbrt08DetailComponent,
+        resolve: { dbrt08: Dbrt08ResolverService },
+        data: { code: 'DBRT08' },
+        canDeactivate: [CanDeactivateGuard],
+        runGuardsAndResolvers: 'always'
     },
 ]
 

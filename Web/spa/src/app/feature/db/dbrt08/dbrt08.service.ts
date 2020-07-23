@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
- 
-export interface DbEmployee {
+
+export interface Employee {
   companyCode: string;
   employeeCode: string;
   personalId: string;
@@ -39,8 +39,8 @@ export interface DbEmployee {
   eNameConcat: string;
   groupTypeCode: string;
   imageId: number;
-  divWorkId : string;
-  teacherCode : string;
+  divWorkId: string;
+  teacherCode: string;
   rowVersion: number;
 
 }
@@ -59,22 +59,14 @@ export class Dbrt08Service {
     return this.http.get<any>('dbrt08/master/' + page);
   }
 
-  getDistrict(provinceId) {
-    return this.http.get<any>('dbrt08/district', { params: { provinceId: provinceId } });
-  }
-
-  getSubDistrict(districtId) {
-    return this.http.get<any>('dbrt08/subDistrict', { params: { districtId: districtId } });
-  }
-
-  getPostalCode(subDistrictId) {
-    return this.http.get<any>('dbrt08/postalCode', { params: { subDistrictId: subDistrictId } });
+  getDependencyMaster(name, params) {
+    return this.http.get<any>('dbrt08/dependency', { params: Object.assign({ name: name }, params) });
   }
 
   getEmployee(code) {
-    return this.http.get<DbEmployee>('dbrt08/detail', { params: { employeeCode: code } });
+    return this.http.get<Employee>('dbrt08/detail', { params: { employeeCode: code } });
   }
-  save(employee: DbEmployee) {
+  save(employee: Employee) {
     if (employee.rowVersion) {
       return this.http.put('dbrt08', employee);
     }

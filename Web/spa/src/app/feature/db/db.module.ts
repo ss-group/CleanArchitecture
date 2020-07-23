@@ -10,12 +10,14 @@ import { Dbrt01DetailComponent } from './dbrt01/dbrt01-detail.component';
 import { Dbrt01Service } from './dbrt01/dbrt01.service';
 import { Dbrt08Component } from './dbrt08/dbrt08.component';
 import { Dbrt08Service } from './dbrt08/dbrt08.service';
+import { Dbrt08DetailComponent } from './dbrt08/dbrt08-detail.component';
 
 @NgModule({
   declarations: [
     Dbrt01Component,
     Dbrt01DetailComponent,
-    Dbrt08Component
+    Dbrt08Component,
+    Dbrt08DetailComponent
   ],
   imports: [
     CommonModule,

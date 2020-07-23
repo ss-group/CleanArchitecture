@@ -1,0 +1,161 @@
+<toolbar>
+  <button class="btn btn-primary" (click)="save()" [disabled]="saving">
+    <i class="fas fa-cog fa-spin" [hidden]="!saving"></i>
+    <i class="fas fa-save" [hidden]="saving"></i>{{ 'label.ALL.Save' | translate}}</button>
+</toolbar>
+<h4>{{ 'label.DBRT08.topic' | translate}}</h4>
+<div class="row">
+  <div class="col">
+    <app-card header="{{ 'label.DBRT08.detail' | translate}}">
+      <div class="card-content">
+        <form [formGroup]="employeeForm">
+          <div class="row">
+            <div class="col-md-10 col-sm-9">
+              <div class="form-row">
+                <div class="form-group col-md-4 col-sm-6">
+                  <textbox class="text-center" formControlName="employeeCode">
+                    {{ 'label.DBRT08.employeeCode' | translate}}</textbox>
+                </div>
+                <div class="form-group col-md-4 col-sm-6">
+                  <textbox class="text-center" formControlName="teacherCode">
+                    {{ 'label.DBRT08.teacherCode' | translate}}</textbox>
+                </div>
+                <div class="form-group col-md-4 col-sm-6">
+                  <select-input [items]="master.preNames" formControlName="preNameId">
+                    {{ 'label.DBRT08.preName' | translate}}</select-input>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-4 col-sm-6">
+                  <textbox formControlName="tFirstName">{{ 'label.DBRT08.tFirstName' | translate}}</textbox>
+                </div>
+                <div class="form-group col-md-4 col-sm-6">
+                  <textbox formControlName="tMiddleName">{{ 'label.DBRT08.tMiddleName' | translate}}</textbox>
+                </div>
+                <div class="form-group col-md-4 col-sm-6">
+                  <textbox formControlName="tLastName">{{ 'label.DBRT08.tLastName' | translate}}</textbox>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-4 col-sm-6">
+                  <textbox formControlName="eFirstName">{{ 'label.DBRT08.eFirstName' | translate}}</textbox>
+                </div>
+                <div class="form-group col-md-4 col-sm-6">
+                  <textbox formControlName="eMiddleName">{{ 'label.DBRT08.eMiddleName' | translate}}</textbox>
+                </div>
+                <div class="form-group col-md-4 col-sm-6">
+                  <textbox formControlName="eLastName">{{ 'label.DBRT08.eLastName' | translate}}</textbox>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+              <div class="form-row">
+                <div class="form-group col">
+                  <image formControlName="imageId" category="DB/Image/Employee"></image>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </app-card>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <app-card header="{{ 'label.DBRT08.profile' | translate}}">
+      <div class="card-content">
+        <form [formGroup]="employeeForm">
+          <div class="form-row">
+            <div class="form-group col-md-3 col-sm-6">
+              <textbox formControlName="personalId">{{ 'label.DBRT08.personal' | translate}}
+                <div class="invalid-pattern">
+                  {{ 'label.DBRT08.formatPersonalId' | translate}}
+                </div>
+              </textbox>
+            </div>
+            <div class="form-group col-md-3 col-sm-6">
+              <datepicker formControlName="birthday">{{ 'label.DBRT08.birthday' | translate}}</datepicker>
+            </div>
+            <div class="form-group col-md-3 col-sm-6">
+              <textbox [value]="ageDesc" [disabled]="true">{{ 'label.DBRT08.age' | translate}}</textbox>
+            </div>
+            <div class="form-group col-md-3 col-sm-6">
+              <select-input [items]="master.genders" formControlName="gender">{{ 'label.DBRT08.gender' | translate}}
+              </select-input>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-3 col-sm-6">
+              <select-input [items]="master.races" formControlName="raceCode">{{ 'label.DBRT08.raceCode' | translate}}
+              </select-input>
+            </div>
+            <div class="form-group col-md-3 col-sm-6">
+              <select-input [items]="master.nationalitys" formControlName="nationCode">
+                {{ 'label.DBRT08.nationCode' | translate}}
+              </select-input>
+            </div>
+            <div class="form-group col-md-3 col-sm-6">
+              <select-input [items]="master.religions" formControlName="religionCode">
+                {{ 'label.DBRT08.religionCode' | translate}}
+              </select-input>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6 col-sm-6">
+              <areabox formControlName="addrName">{{ 'label.DBRT08.addrName' | translate}}
+              </areabox>
+            </div>
+            <div class="form-group col-md-3 col-sm-6">
+              <textbox formControlName="moo">{{ 'label.DBRT08.moo' | translate}}
+              </textbox>
+            </div>
+            <div class="form-group col-md-3 col-sm-6">
+              <textbox formControlName="soi">{{ 'label.DBRT08.soi' | translate}}
+              </textbox>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-3 col-sm-6">
+              <textbox formControlName="street">{{ 'label.DBRT08.street' | translate}}
+              </textbox>
+            </div>
+            <div class="form-group col-md-3 col-sm-6">
+              <select-input [items]="master.addressProvinces" formControlName="provinceId">
+                {{ 'label.DBRT08.province' | translate}}
+              </select-input>
+            </div>
+            <div class="form-group col-md-3 col-sm-6">
+              <select-input [items]="master.addressDistricts" formControlName="districtId">
+                {{ 'label.DBRT08.district' | translate}}
+              </select-input>
+            </div>
+            <div class="form-group col-md-3 col-sm-6">
+              <select-input [items]="master.addressSubDistricts" formControlName="subDistrictId">
+                {{ 'label.DBRT08.subDistrict' | translate}}
+              </select-input>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-3 col-sm-6">
+              <select-input [items]="master.addressPostalCodes" formControlName="postalCode">
+                {{ 'label.DBRT08.postalCode' | translate}}
+              </select-input>
+            </div>
+            <div class="form-group col-md-3 col-sm-6">
+              <textbox formControlName="telNo">{{ 'label.DBRT08.telNo' | translate}}
+                <div class="invalid-pattern">
+                  {{ 'label.DBRT08.invalidPattern' | translate}}
+                </div>
+              </textbox>
+            </div>
+            <div class="form-group col-md-6 col-sm-6">
+              <textbox formControlName="email">{{ 'label.DBRT08.email' | translate}}
+              </textbox>
+            </div>
+          </div>
+        </form>
+      </div>
+    </app-card>
+  </div>
+</div>

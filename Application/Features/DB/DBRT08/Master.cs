@@ -28,16 +28,6 @@ namespace Application.Features.DB.DBRT08
             public IEnumerable<dynamic> Religions { get; set; }
             public IEnumerable<dynamic> AddressProvinces { get; set; }
 
-            //tab Worker
-            public IEnumerable<dynamic> EmployeeTypes { get; set; }
-            public IEnumerable<dynamic> Divlists { get; set; }
-            public IEnumerable<dynamic> PositionLevels { get; set; }
-            public IEnumerable<dynamic> Positionlist { get; set; }
-            public IEnumerable<dynamic> GroupTypeCode { get; set; }
-            public IEnumerable<dynamic> PositionDivisions { get; set; }
-            public IEnumerable<dynamic> JobTypes { get; set; }
-            public IEnumerable<dynamic> DivWork { get; set; }
-
         }
 
         public class Query : IRequest<MasterData>
@@ -79,15 +69,6 @@ namespace Application.Features.DB.DBRT08
                             Religions = await this.GetReligion(cancellationToken),
                             AddressProvinces = await this.GetProvince(cancellationToken),
 
-                            //tab Worker
-                            EmployeeTypes = await this.GetEmployeeType(cancellationToken),
-                            Divlists = await this.GetDiv(cancellationToken),
-                            PositionLevels = await this.GetPositionLevel(cancellationToken),
-                            Positionlist = await this.GetPosition(cancellationToken),
-                            GroupTypeCode = await this.GetGroupTypeCode(cancellationToken),
-                            PositionDivisions = await this.GetPositionDivision(cancellationToken),
-                            JobTypes = await this.GetJobType(cancellationToken),
-                            DivWork = await this.GetDivWork(cancellationToken),
                         };
                         break;
                 }

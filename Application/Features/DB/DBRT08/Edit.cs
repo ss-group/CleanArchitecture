@@ -13,7 +13,7 @@ namespace Application.Features.DB.DBRT08
 {
     public class Edit
     {
-        public class Command : DbCountry, ICommand
+        public class Command : DbEmployee, ICommand
         {
 
         }
@@ -28,8 +28,8 @@ namespace Application.Features.DB.DBRT08
 
             public async Task<Unit> Handle(Command request, CancellationToken cancellationToken)
             {
-                _context.Set<DbCountry>().Attach((DbCountry)request);
-                _context.Entry((DbCountry)request).State = EntityState.Modified;
+                _context.Set<DbEmployee>().Attach((DbEmployee)request);
+                _context.Entry((DbEmployee)request).State = EntityState.Modified;
                 await _context.SaveChangesAsync(cancellationToken);
                 return Unit.Value;
             }
