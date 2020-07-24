@@ -31,7 +31,7 @@ export class ImageComponent extends BaseFormField {
   get displayUrl(){
     if(this.content.id){
       return this.cs.pathObserv.pipe(
-        map(path=>`${path.contentUrl}${this.content.path}`)
+        map(path=>`${path.contentUrl}contents/${this.content.path}`)
       )
     }
     else return of(this.content.path);
