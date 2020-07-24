@@ -23,10 +23,12 @@ namespace Application.Features.DB.DBRT08
         {
             private readonly ICleanDbContext _context;
             private readonly ICurrentUserAccessor _user;
-            public Handler(ICleanDbContext context, ICurrentUserAccessor user)
+            private readonly EmployeeService _es;
+            public Handler(ICleanDbContext context, ICurrentUserAccessor user,EmployeeService es)
             {
                 _context = context;
                 _user = user;
+                _es = es;
             }
 
             public async Task<Unit> Handle(Command request, CancellationToken cancellationToken)
@@ -35,25 +37,13 @@ namespace Application.Features.DB.DBRT08
                 {
                     throw new Common.Exceptions.RestException(HttpStatusCode.BadRequest, "message.STD00004", "label.DBRT08.employeeCode");
                 }
-                request.tNameConcat = await this.GetEmployeeConcatTha(request, cancellationToken);
-                request.eNameConcat = await this.GetEmployeeConcatEng(request, cancellationToken);
+                request.tNameConcat = await _es.GetConcatNameTha(request.PreNameId, request.tFirstName, request.tLastName);
+                request.eNameConcat = await _es.GetConcatNameEng(request.PreNameId, request.tFirstName, request.tLastName);
+
                 request.CompanyCode = _user.Company;
                 _context.Set<DbEmployee>().Add((DbEmployee)request);
                 await _context.SaveChangesAsync(cancellationToken);
                 return Unit.Value;
-            }
-            private Task<string> GetEmployeeConcatTha(Command request, CancellationToken cancellationToken)
-            {
-                StringBuilder sql = new StringBuilder();
-                sql.AppendLine(" select * from db_employee_concat(@Lang,@PreNameId,@FirstName,@LastName) ");
-                return _context.ExecuteScalarAsync<string>(sql.ToString(), new { Lang = "th", PreNameId = request.PreNameId, FirstName = request.tFirstName, LastName = request.tLastName }, cancellationToken);
-            }
-
-            private Task<string> GetEmployeeConcatEng(Command request, CancellationToken cancellationToken)
-            {
-                StringBuilder sql = new StringBuilder();
-                sql.AppendLine(" select * from db_employee_concat(@Lang,@PreNameId,@FirstName,@LastName) ");
-                return _context.ExecuteScalarAsync<string>(sql.ToString(), new { Lang = "en", PreNameId = request.PreNameId, FirstName = request.eFirstName, LastName = request.eLastName }, cancellationToken);
             }
         }
     }

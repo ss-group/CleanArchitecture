@@ -1,14 +1,14 @@
 <toolbar>
-  <button class="btn btn-primary" (click)="save()" [disabled]="saving">
+  <button class="btn btn-primary" (click)="util.focusInvalid(empInfoRef);util.focusInvalid(empProfileRef); save()" [disabled]="saving">
     <i class="fas fa-cog fa-spin" [hidden]="!saving"></i>
-    <i class="fas fa-save" [hidden]="saving"></i>{{ 'label.ALL.Save' | translate}}</button>
+    <i class="fas fa-save" [hidden]="saving"></i> {{ 'label.ALL.Save' | translate}}</button>
 </toolbar>
 <h4>{{ 'label.DBRT08.topic' | translate}}</h4>
 <div class="row">
   <div class="col">
     <app-card header="{{ 'label.DBRT08.detail' | translate}}">
       <div class="card-content">
-        <form [formGroup]="employeeForm">
+        <form #empInfoRef [formGroup]="employeeForm">
           <div class="row">
             <div class="col-md-10 col-sm-9">
               <div class="form-row">
@@ -21,7 +21,7 @@
                     {{ 'label.DBRT08.teacherCode' | translate}}</textbox>
                 </div>
                 <div class="form-group col-md-4 col-sm-6">
-                  <select-input [items]="master.preNames" formControlName="preNameId">
+                  <select-input [modelChange]="preNameChange" [items]="master.preNames" formControlName="preNameId">
                     {{ 'label.DBRT08.preName' | translate}}</select-input>
                 </div>
               </div>
@@ -65,7 +65,7 @@
   <div class="col">
     <app-card header="{{ 'label.DBRT08.profile' | translate}}">
       <div class="card-content">
-        <form [formGroup]="employeeForm">
+        <form #empProfileRef [formGroup]="employeeForm">
           <div class="form-row">
             <div class="form-group col-md-3 col-sm-6">
               <textbox formControlName="personalId">{{ 'label.DBRT08.personal' | translate}}
@@ -75,10 +75,10 @@
               </textbox>
             </div>
             <div class="form-group col-md-3 col-sm-6">
-              <datepicker formControlName="birthday">{{ 'label.DBRT08.birthday' | translate}}</datepicker>
+              <datepicker [max]="currentDate" formControlName="birthday">{{ 'label.DBRT08.birthday' | translate}}</datepicker>
             </div>
             <div class="form-group col-md-3 col-sm-6">
-              <textbox [value]="ageDesc" [disabled]="true">{{ 'label.DBRT08.age' | translate}}</textbox>
+              <textbox [value]="employee.ageDesc" [disabled]="true">{{ 'label.DBRT08.age' | translate}}</textbox>
             </div>
             <div class="form-group col-md-3 col-sm-6">
               <select-input [items]="master.genders" formControlName="gender">{{ 'label.DBRT08.gender' | translate}}

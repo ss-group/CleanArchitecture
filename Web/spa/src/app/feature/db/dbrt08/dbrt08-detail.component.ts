@@ -6,8 +6,8 @@ import { BsModalRef } from 'ngx-bootstrap';
 import { Router, ActivatedRoute } from '@angular/router';
 import { MessageService } from '@app/core';
 import { finalize, switchMap } from 'rxjs/operators';
-import { Observable, of } from 'rxjs';
-
+import { Observable, of, Subject } from 'rxjs';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-dbrt08-detail',
@@ -40,9 +40,10 @@ export class Dbrt08DetailComponent implements OnInit {
 
   employeeForm: FormGroup;
   employee: Employee;
+  preNameChange = new Subject<any>();
   saving = false;
-
-
+ 
+  currentDate = moment().add(-20, 'years').toDate();
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -106,22 +107,24 @@ export class Dbrt08DetailComponent implements OnInit {
       postalCode: null,
       telNo: [null, [Validators.maxLength(20), Validators.pattern('[0-9-#,]*')]],
       email: [null, [Validators.required, Validators.email, Validators.maxLength(100)]],
-      workDate: [null, Validators.required],
-      turnoverDate: null,
-      empTypeCode: null,
-      jobType: null,
-      positionLevelCode: null,
-      positionCode: null,
-      positionDivision: null,
-      divCode: [null, [Validators.required, Validators.maxLength(20)]],
-      groupTypeCode: null,
-      divWorkId: null,
       teacherCode: null
     });
 
-    this.employeeForm.controls.birthday.valueChanges.subscribe(value => {
+    this.employeeForm.controls.preNameId.valueChanges.pipe(
+      switchMap(()=>this.preNameChange)
+    ).subscribe(result=>{
+      if(!this.employeeForm.controls.preNameId.pristine){
+        if(result.genderCode){
+          this.employeeForm.controls.gender.setValue(result.genderCode);
+        }
+        else this.employeeForm.controls.gender.setValue(null);
+      }
+    })
 
-    });
+    this.employeeForm.controls.birthday.valueChanges.subscribe(value => {
+        let age = moment().diff(moment(value),'years');
+        this.employee.ageDesc = age || null;
+    }); 
 
     this.employeeForm.controls.provinceId.valueChanges.subscribe(value => {
       this.master.addressDistricts = [];
@@ -130,7 +133,7 @@ export class Dbrt08DetailComponent implements OnInit {
       if (value) {
         this.employeeForm.controls.districtId.enable({ emitEvent: false });
         this.ds.getDependencyMaster('district', { provinceId: value }).subscribe(dependency => {
-          this.master.addressDistricts = dependency.districts;
+          this.master.addressDistricts =this.util.getActive(dependency.districts,this.employee.districtId);
         })
       }
     });
@@ -172,14 +175,13 @@ export class Dbrt08DetailComponent implements OnInit {
     Object.assign(this.employee, this.employeeForm.getRawValue());
     this.saving = true;
     this.ds.save(this.employee).pipe(
-      switchMap(() => this.ds.getEmployee(this.employee.employeeCode)),
       finalize(() => {
         this.saving = false;
       })
-    ).subscribe((result: Employee) => {
-      this.employee = result;
-      this.rebuildForm();
+    ).subscribe(() => {
+      this.employeeForm.markAsPristine();
       this.ms.success("message.STD00006");
+      this.router.navigate(['/db/dbrt08/detail'],{ replaceUrl : true,state:{ code : this.employee.employeeCode }});
     })
   }
 

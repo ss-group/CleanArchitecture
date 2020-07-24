@@ -112,6 +112,7 @@ namespace Application.Features.DB.DBRT08
                 sql.AppendLine(" SELECT pre_name_id AS \"value\" ");
                 sql.AppendLine(" ,get_name(@lang, pre_name_tha, pre_name_eng) AS \"text\" ");
                 sql.AppendLine(" ,active AS \"active\" ");
+                sql.AppendLine(" ,pre_name_gender_code as \"genderCode\" ");
                 sql.AppendLine(" FROM db_pre_name ");
                 sql.AppendLine(" ORDER BY pre_name_id ");
                 return _context.QueryAsync<dynamic>(sql.ToString(), new { Lang = _user.Language }, cancellationToken);

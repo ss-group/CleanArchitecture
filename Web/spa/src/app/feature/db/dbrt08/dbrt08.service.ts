@@ -18,6 +18,7 @@ export interface Employee {
   workDate: Date;
   gender: string;
   birthday: Date;
+  ageDesc:number;
   addrName: string;
   moo: string;
   soi: string;
