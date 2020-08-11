@@ -53,7 +53,7 @@
     "oidc-client": "^1.10.1",
     "positioning": "^2.0.0",
     "rxjs": "~6.3.3",
-    "tinymce": "^4.8.2",
+    "tinymce": "^4.9.11",
     "tinymce-emoji": "^0.1.4",
     "ss-group-datatable": "^1.0.13",
     "tslib": "^1.9.0",
